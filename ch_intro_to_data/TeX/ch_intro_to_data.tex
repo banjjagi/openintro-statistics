@@ -1,49 +1,71 @@
-\chapter{Introduction to data}
+\chapter{데이터 소개}
 \label{introductionToData}
 
 %\begin{tipBox}{\tipBoxTitle[Chapter Goal:]{Thinking about data}
 %Understand basics about data organization, data types, numerical summaries of data, graphical summaries of data, and foundational techniques for data collection. We begin and end the chapter with case studies.}
 %\end{tipBox}
 
-Scientists seek to answer questions using rigorous methods and careful observations. These observations -- collected from the likes of field notes, surveys, and experiments -- form the backbone of a statistical investigation and are called \term{data}. Statistics is the study of how best to collect, analyze, and draw conclusions from data. It is helpful to put statistics in the context of a general process of investigation:
+
+과학자들은 엄격한 방법과 주의깊은 관찰을 통해서 질문에 답을 탐구한다.
+이러한 관찰 -- 연구수첩, 설문조사, 실험을 통해 수집 -- 결과가 통계 조사에서 중추적인 역할 구성하고 \term{데이터(data)}라고 부른다. 통계는 자료를 수집하고, 분석하고, 데이터로부터 결론을 도출하는 최상의 방법을 연구하는 학문이다.
+일반적인 조사 과정 맥락에서 통계를 두는 것이 도움이 된다:
+
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
-\item Identify a question or problem.
-\item Collect relevant data on the topic.
-\item Analyze the data.
-\item Form a conclusion.
+\item 질문 혹은 문제를 식별한다.
+\item 주제와 관련된 데이터를 수집한다.
+\item 데이터를 분석한다.
+\item 결론을 구성한다.
 %\item Make decisions based on the conclusion.
 \end{enumerate}
-Statistics as a subject focuses on making stages 2-4 objective, rigorous, and efficient. That~is, statistics has three primary components: How best can we collect data? How should it be analyzed? And what can we infer from the analysis?
 
-The topics scientists investigate are as diverse as the questions they ask. However, many of these investigations can be addressed with a small number of data collection techniques, analytic tools, and fundamental concepts in statistical inference. This chapter provides a glimpse into these and other themes we will encounter throughout the rest of the book. We introduce the basic principles of each branch and learn some tools along the way. We will encounter applications from other fields, some of which are not typically associated with science but nonetheless can benefit from statistical study.
+학문으로 통계는 2-4개 단계를 객관적이고, 엄격하며, 효율적으로 만드는데 집중한다. 즉, 통계는 주요 구성요소가 세가지다: 데이터를 얼마나 잘 수집하는가? 데이터를 어떻게 분석하는가? 그리고, 분석으로부터 무엇을 추론할 것인가?
 
-\section[Case study: using stents to prevent strokes]{Case study: using stents to prevent strokes \sectionvideohref{youtube-nEHFF1ADpWE&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+과학자가 조사하는 주제는 과학자가 끝임없이 질문하는 질문만큼 다양하다.
+하지만, 이러한 조사의 상당부분은 일부 자료수집기법, 분석 도구, 통계적 추론의 근본개념으로 해결될 수 있다.
+이번 장에서 간략히 들여다보고 다른 주제는 이책 나머지 부분에서 다뤄질 예정이다.
+각각에 대한 기본 원칙을 소개하고 기본 도구 일부를 학습해 나갈 것이다.
+다른 분야 응용사례를 마주할 것인데, 일부는 과학과 꼭 연관되어 있지는 않지만, 그럼에도 불구하고, 통계조사를 통해 혜택을 받을 수 있다.
+
+\section[Case study: using stents to prevent strokes]{사례 연구: 뇌졸중을 방지에 사용되는 스텐트(Stent)\sectionvideohref{youtube-nEHFF1ADpWE&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{basicExampleOfStentsAndStrokes}
 
-\index{data!stroke|(}
+\index{데이터(data)!뇌졸증|(}
 
-Section~\ref{basicExampleOfStentsAndStrokes} introduces a classic challenge in statistics: evaluating the efficacy of a medical treatment. Terms in this section, and indeed much of this chapter, will all be revisited later in the text. The plan for now is simply to get a sense of the role statistics can play in practice.
+~\ref{basicExampleOfStentsAndStrokes} 절에 통계학의 전통적 도전과제가 소개되어 있다: 치료효능 평가. 이번 절에서 사용되는 용어는 본 교과서 후반부에서는 모두 수정될 것이다. 현시점에서 계획은 통계가 실무에서 수행하는 역할에 대해 느낌만 잡기 바란다.
 
-In this section we will consider an experiment that studies effectiveness of stents in treating patients at risk of stroke.\footnote{Chimowitz MI, Lynn MJ, Derdeyn CP, et al. 2011. Stenting versus Aggressive Medical Therapy for Intracranial Arterial Stenosis. New England Journal of Medicine 365:993-1003. \oiRedirect{textbook-nejm_stent_study}{www.nejm.org/doi/full/10.1056/NEJMoa1105335}. NY Times article reporting on the study: \oiRedirect{textbook-nytimes_stent_study}{www.nytimes.com/2011/09/08/health/research/08stent.html}.} Stents are devices put inside blood vessels that assist in patient recovery after cardiac events and reduce the risk of an additional heart attack or death. Many doctors have hoped that there would be similar benefits for patients at risk of stroke. We start by writing the principal question the researchers hope to answer:
+이번 절에서는 뇌졸증 위험 환자를 치료하는데 사용되는 스텐트의 유효성을 연구하는 실험을 고려한다.\footnote{Chimowitz MI, Lynn MJ, Derdeyn CP, et al. 2011. Stenting versus Aggressive Medical Therapy for Intracranial Arterial Stenosis. New England Journal of Medicine 365:993-1003. \urlwofont{http://www.nejm.org/doi/full/10.1056/NEJMoa1105335}. 본 조사연구를 보도하는 NY 타임즈 기사: \urlwofont{http://www.nytimes.com/2011/09/08/health/research/08stent.html}.} 
+스텐트(stent)는 혈관내부에 장착하는 장치로 심장 쇼크 이후 환자회복을 돕고, 추가적인 심장마비 혹은 경색 위험을 줄여준다.
+많은 의사들이 뇌졸증 위험이 있는 환자에게도 비슷한 효능이 있을 것이라는 희망을 가졌다.
+연구자가 답하고자 하는 원칙적인 질문을 적으면서 시작해 보자:
+
 \begin{quote}
-Does the use of stents reduce the risk of stroke?
+스텐트를 사용하면 뇌졸증 위험이 줄어들까?
 \end{quote}
 
-The researchers who asked this question collected data on 451 at-risk patients. Each volunteer patient was randomly assigned to one of two groups:
-\begin{itemize}
-\item[]\termsub{Treatment group}{treatment group}. Patients in the treatment group received a stent and medical management. The medical management included medications, management of risk factors, and help in lifestyle modification.
-\item[]\termsub{Control group}{control group}. Patients in the control group received the same medical management as the treatment group, but they did not receive stents.
-\end{itemize}
-Researchers randomly assigned 224 patients to the treatment group and 227 to the control group. In this study, the control group provides a reference point against which we can measure the medical impact of stents in the treatment group.
+상기 질문을 제기한 연구자가 위험상태에 있는 451명 환자 데이터를 수집했다.
+각자 스스로 자원한 환자는 무작위로 두 그룹중에 하나에 배정됐다:
 
-Researchers studied the effect of stents at two time points: 30~days after enrollment and 365~days after enrollment. The results of 5 patients are summarized in Table~\ref{stentStudyResultsDF}. Patient outcomes are recorded as ``stroke'' or ``no event'', representing whether or not the patient had a stroke at the end of a time period.
+\begin{itemize}
+\item[]\termsub{치료 집단(Treatment group)}{treatment group}. 치료 집단에 환자는 스텐트와 의료관리를 받았다. 의료관리에는 처방, 위험 인자 관리, 생활습관 교정이 포함됐다.
+\item[]\termsub{대조 집단(Control group)}{control group}. 
+대조집단에 환자는 치료 집단과 동일한 의료관리를 받았지만, 스텐트는 받지 못했다.
+\end{itemize}
+
+무작위로 연구원이 224명은 치료집단에, 227명은 대조집단에 배정했다.
+본 연구에서, 대조집단은 치료집단에 스텐트 의료치료 효과를 측정할 수 있는 참조값을 제시하게 된다.
+
+연구원이 두 시점에서 스텐트 효과를 조사했다: 실험 참가 후 30일 후와 365일 후.
+환자 5명 결과가 테이블~\ref{stentStudyResultsDF}에 요약되어 있다.
+환자 결과치는 ``뇌졸증(stroke)''과 ``증상없음(no event)''으로 기록되는데, 환자가 각 측정시점 말미에 뇌졸증 존재유무를 나타낸다.
+
+
 
 \begin{table}[h]
 \centering
 \begin{tabular}{l ccc}
 \hline
-Patient	&	group	&	0-30 days 	&	0-365 days \\
+Patient  &	group	&	0-30 days 	&	0-365 days \\
 \hline
 1		&	treatment &	no event &	no event \\
 2		&	treatment &	stroke & stroke \\
@@ -53,12 +75,16 @@ $\vdots$	&	$\vdots$	  &	$\vdots$ \\
 451	&	control &	no event &	no event \\
 \hline
 \end{tabular}
-\caption{Results for five patients from the stent study.}
+\caption{스텐트 연구에서 환자 5명에 대한 결과.}
 \label{stentStudyResultsDF}
 % trmt <- c(rep('trmt', 224), rep('control', 227)); outcome30 <- c(rep(c('event', 'no_event'), c(33, 191)), rep(c('event', 'no_event'), c(13, 214))); outcome365 <- c(rep(c('event', 'no_event'), c(33, 191)), rep(c('event', 'no_event'), c(13, 214)))
 \end{table}
 
-Considering data from each patient individually would be a long, cumbersome path towards answering the original research question. Instead, performing a statistical data analysis allows us to consider all of the data at once. Table~\ref{stentStudyResults} summarizes the raw data in a more helpful way. In this table, we can quickly see what happened over the entire study. For instance, to identify the number of patients in the treatment group who had a stroke within 30 days, we look on the left-side of the table at the intersection of the treatment and stroke: 33.
+최초 연구 질문에 답을 찾는데 있어, 개별 환자별로 데이터를 살펴보는 것은 길고도 성가신 길을 걷게 된다. 대신에, 통계 자료분석을 수행하면 모든 데이터를 한번에 고려할 수 있다.
+표~\ref{stentStudyResults}에 원데이터를 좀더 도움이 되는 방식으로 요약했다.
+해당 표를 통해서, 전체 조사과정에서 어떤 일이 발생했는지 빠르게 볼 수 있다.
+예를 들어, 30일 이내 뇌졸증 발생 환자숫자를 치료집단에서 식별하기 위해서, 표 왼쪽에서 치료와 뇌졸증이 교차점을 살펴본다: 33.
+
 
 \begin{table}[h]
 \centering
@@ -73,44 +99,64 @@ control 		& 13		& 214	&& 	28	& 199 \\
 Total				& 46		& 405	&&	73	& 378 \\
   \hline
 \end{tabular}
-\caption{Descriptive statistics for the stent study.}
+\caption{스텐트 조사연구를 위한 기술 통계량.}
 \label{stentStudyResults}
 \end{table}
 
 \begin{exercise}
-Of the 224 patients in the treatment group, 45 had a stroke by the end of the first year. Using these two numbers, compute the proportion of patients in the treatment group who had a stroke by the end of their first year. (Please note: answers to all in-text exercises are provided using footnotes.)\footnote{The proportion of the 224 patients who had a stroke within 365 days: $45/224 = 0.20$.}
+치료집단 환자 224명 중에서, 환자 45명에서 첫해년도 말에 뇌졸증이 발생했다.
+두 숫자를 사용해서, 첫해년도 말에 치료집단에서 뇌졸증이 발생한 환자비율을 계산하시오.
+(유의사항: 모든 연습문제 해답은 각주에 나와 있다.)\footnote{환자 224명 중에서 365일 이내 뇌졸증이 발생한 환자 비율은 $45/224 = 0.20$ 이다.}
 \end{exercise}
 
-We can compute summary statistics from the table. A \term{summary statistic} is a single number summarizing a large amount of data.\footnote{Formally, a summary statistic is a value computed from the data. Some summary statistics are more useful than others.} For instance, the primary results of the study after 1~year could be described by two summary statistics: the proportion of people who had a stroke in the treatment and control groups.
+표에서 요약통계를 계산할 수 있다.
+\term{요약통계량(summary statistic)}는 대량의 데이터를 요약하는 단일 숫자다.\footnote{
+공식적으로 표현하면, 요약통계량는 데이터로부터 계산된 값(value)이다. 일부 요약통계량는 다른 요약통계량보다 더 유용하다.} 예를 들어, 1년 후 주된 조사결과는 요약통계량 두개로 기술될 수 있다: 치료집단과 대조집단에서 뇌졸증 발병 비율.
+
 \begin{itemize}
 \setlength{\itemsep}{0mm}
-\item[] Proportion who had a stroke in the treatment (stent) group: $45/224 = 0.20 = 20\%$.
-\item[] Proportion who had a stroke in the control group: $28/227 = 0.12 = 12\%$.
+\item[] 치료(스텐트) 집단에서 뇌졸증 발병비율: $45/224 = 0.20 = 20\%$.
+\item[] 대조집단에서 뇌졸증 발병비율: $28/227 = 0.12 = 12\%$.
 \end{itemize}
-These two summary statistics are useful in looking for differences in the groups, and we are in for a surprise: an additional 8\% of patients in the treatment group had a stroke! This is important for two reasons. First, it is contrary to what doctors expected, which was that stents would \emph{reduce} the rate of strokes. Second, it leads to a statistical question: do the data show a ``real'' difference between the groups?
 
-This second question is subtle. Suppose you flip a coin 100 times. While the chance a coin lands heads in any given coin flip is 50\%, we probably won't observe exactly 50 heads. This type of fluctuation is part of almost any type of data generating process. It is possible that the 8\% difference in the stent study is due to this natural variation. However, the larger the difference we observe (for a particular sample size), the less believable it is that the difference is due to chance. So what we are really asking is the following: is the difference so large that we should reject the notion that it was due to chance?
+상기 두 요약통계량은 집단간 차이를 살펴보는데 유용하고, 놀라운 점이 있다:
+뇌졸증이 치료집단에서 8\% 환자가 더 많다!
+두가지 사유로 이것이 중요하다. 첫째, 의사가 예상한 것과 반대로, 처음에 스텐트 사용이 뇌졸증 발병율을 \emph{감소시킬} 것으로 예상했다.
+둘째로, 통계적 질문이다: 집단간 ``실제'' 차이를 데이터가 나타내고 있을까?
 
-While we don't yet have our statistical tools to fully address this question on our own, we can comprehend the conclusions of the published analysis: there was compelling evidence of harm by stents in this study of stroke patients.
+두번째 질문은 미묘하다. 동전을 100번 던진다고 가정하자.
+동전을 던질 때 앞면이 나올 확률은 50\%지만, 아마도 정확하게 50번 앞면이 나오는 것을 목격하지는 못할 것이다. 이런 유형의 변동성은 거의 모든 데이터 생성 과정(data generating process)의 일부다. 스텐트 조사에서 8\% 차이가 이러한 자연 변이 때문일 수도 있다.
+하지만, 더 큰 차이를 관측하면 할수록 (특정 표본크기에 대해서), 차이가 우연 때문이라고 믿기는 힘들어 진다. 그래서, 정말 질문하는 것은 다음과 같다: 우연히 발생했다는 관념을 거부할만큼 차이가 현격히 큰가요?
 
-\textbf{Be careful:} do not generalize the results of this study to all patients and all stents. This study looked at patients with very specific characteristics who volunteered to be a part of this study and who may not be representative of all stroke patients. In addition, there are many types of stents and this study only considered the self-expanding Wingspan stent (Boston Scientific). However, this study does leave us with an important lesson: we should keep our eyes open for surprises.
+상기 질문을 전반적으로 다룰 수 있는 통계적 도구를 아직 갖추지 못했지만, 출간된 분석 결론을 통해 이해할 수는 있다: 뇌졸증 환자 조사에서 스텐트 위험성에 대한 강력한 증거가 있다.
 
-\index{data!stroke|)}
+\textbf{주의사항:} 상기 조사결과를 모든 환자와 모든 스텐트에 일반화하지 마라.
+상기 조사는 매우 특수한 성격을 갖는 환자만 살펴봤다. 조사에 참가한 환자는 자발적으로 참여했으며 모든 뇌졸증 환자에 대표성을 갖지는 못한다. 게다가,
+스텐트는 많은 유형이 존재하며, 이번 조사에서 자가확장기능이 있는 윙스팬 스텐트(Boston Scientific)만 참조했다. 하지만, 이번 조사를 통해서 중요한 교훈을 얻었다: 
+놀라움에 눈을 바짝 떠야만 된다.
 
-\section[Data basics]{Data basics \sectionvideohref{youtube-Mjif8PTgzUs&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\index{데이터(data)!뇌졸증|)}
+
+%\section[Data basics]{데이터 기초 \sectionvideohref{youtube-Mjif8PTgzUs&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[데이터 기초]{데이터 기초 \sectionvideohref{youtube-Mjif8PTgzUs&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{dataBasics}
 
-Effective presentation and description of data is a first step in most analyses. This section introduces one structure for organizing data as well as some terminology that will be used throughout this book.
+대부분 분석에서 첫번째 단계는 효과적인 자료 기술과 표현이다.
+이번 절에서 데이터 구조화와 더불어 책전반에서 사용될 몇가지 기법을 소개한다.
 
-\subsection{Observations, variables, and data matrices}
+\subsection{관측점, 변수, 데이터 행렬}
 
-\index{data!email50|(}
+\index{데이터(data)!email50|(}
 
-Table~\ref{email50DF} displays rows 1, 2, 3, and 50 of a data set concerning 50 emails received during early 2012. These observations will be referred to as the \data{email50} data set, and they are a random sample from a larger data set that we will see in Section~\ref{categoricalData}.
+표~\ref{email50DF}에 1, 2, 3, ... 50 행을 갖는 데이터셋이 나타나 있다. 2012년 초반에 수집된 50개 전자우편에 관한 것이다.
+관측점은 \data{email50} 데이터셋으로 불리고, ~\ref{categoricalData} 절에서 자세히 살펴볼 좀더 큰 데이터에서 표본추출된 것이다.
 
-Each row in the table represents a single email or \term{case}.\footnote{A case is also sometimes called a \term{unit of observation} or an \term{observational unit}.} The columns represent characteristics, called \termsub{variables}{variable}, for each of the emails. For example, the first row represents email 1, which is a not spam, contains 21,705 characters, 551 line breaks, is written in HTML format, and contains only small numbers.
+표에 각 행은 단일 전자우편 혹은 \term{사례(case)}를 표현한다.\footnote{사례(case)는 때때로 \term{관측 단위(unit of observation)}라고도 불린다.} 칼럼(열, column)은 각 전자우편에 대한 \termsub{변수(variable)}{변수(variable)}라고 불리며, 특성을 표현한다.
+예를 들어, 첫번째 행은 1번 전자우편으로, 스팸(spam)이 아니고, 21,705 문자, 551 줄바꿈, HTML 형식, 적은 숫자(small)만 담겨있는 것을 표현한다.
 
-In practice, it is especially important to ask clarifying questions to ensure important aspects of the data are understood. For instance, it is always important to be sure we know what each variable means and the units of measurement. Descriptions of all five email variables are given in Table~\ref{email50Variables}.
+실무에서, 데이터 중요한 면을 이해했는지 확실히 하도록 질문을 명확히 하는 것이 중요하다.
+예를 들어, 각 변수가 의미하는 것과 측정단위가 무엇인지 확실히 하는 것이 항상 중요하다.
+전자우편 5개 변수에 대한 기술이 표~\ref{email50Variables}에 주어졌다.
 
 \begin{table}[t]
 \centering
@@ -135,32 +181,39 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 \centering\small
 \begin{tabular}{lp{10.5cm}}
 \hline
-{\bf variable} & {\bf description} \\
+{\bf 변수} & {\bf 설명} \\
 \hline
-\var{spam} & Specifies whether the message was spam \\
-\var{num\_\hspace{0.3mm}char} & The number of characters in the email   \\
-\var{line\_\hspace{0.3mm}breaks} & The number of line breaks in the email (not including text wrapping)   \\
-\var{format} & Indicates if the email contained special formatting, such as bolding, tables, or links, which would indicate the message is in HTML format    \\
-\var{number} & Indicates whether the email contained no number, a small number (under 1 million), or a large number   \\
+\var{spam} & 메시지가 스팸인지 아닌지 명세한다 \\
+\var{num\_\hspace{0.3mm}char} & 전자우편 문자 수   \\
+\var{line\_\hspace{0.3mm}breaks} & 전자우편 줄바꿈 수 (텍스트가 너무 길어 행갈이(text wrapping) 되는 것은 제외)   \\
+\var{format} & 전자우편이 굵게, 표, 링크 같은 특수 서식을 여부를 통해서 메시지가 HTML 서식으로 작성되었는지 표기    \\
+\var{number} & 전자우편에 숫자가 하나도 없는지, (백만 이하) 작은 숫자, 혹은 아주 큰 숫자가 담겨있는지 표기   \\
 \hline
 \end{tabular}
-\caption{Variables and their descriptions for the \data{email50} data set.\textC{\vspace{-3.5mm}}}
+\caption{\data{email50} 데이터셋에 대한 변수와 변수설명.\textC{\vspace{-3.5mm}}}
 \label{email50Variables}
 \end{table}
 
-\index{data!email50|)}
+\index{데이터(data)!email50|)}
 
-The data in Table~\ref{email50DF} represent a \term{data matrix}, which is a common way to organize data. Each row of a data matrix corresponds to a unique case, and each column corresponds to a variable. A data matrix for the stroke study introduced in Section~\ref{basicExampleOfStentsAndStrokes} is shown in Table~\vref{stentStudyResultsDF}, where the cases were patients and there were three variables recorded for each patient.
+~\ref{email50DF} 표에 데이터가 \term{데이터 행렬(data matrix)}을 표현하는데 데이터를 구조화하는 일반적인 방법이다.
+데이터 행렬 각 행은 단일 사례에 대응되고, 각 칼럼은 변수에 대응된다.
+~\ref{basicExampleOfStentsAndStrokes} 절에 소개된 뇌졸증 조사에 대한 데이터 행렬이 ~\vref{stentStudyResultsDF} 표로 나와있다. 이 표에서 사례는 환자가 되고 각 환자별로 상태를 기록한 변수가 3개 나와있다.
 
-Data matrices are a convenient way to record and store data. If another individual or case is added to the data set, an additional row can be easily added. Similarly, another column can be added for a new variable.
+데이터 행렬은 데이터를 기록하고 저장하는 편리한 방법이다.
+만약 또다른 환자 혹은 사례가 데이터셋에 추가되면, 쉽게 부가적으로 행을 추가할 수 있다.
+유사하게, 또다른 칼럼도 신규 변수로 추가될 수 있다.
 
-\index{data!county|(}
+\index{데이터(data)!county|(}
 
 \begin{exercise}
-We consider a publicly available data set that summarizes information about the 3,143 counties in the United States, and we call this the \data{county} data set. This data set includes information about each county: its name, the state where it resides, its population in 2000 and 2010, per capita federal spending, poverty rate, and five additional characteristics. How might these data be organized in a data matrix? Reminder: look in the footnotes for answers to in-text exercises.\footnote{Each county may be viewed as a case, and there are eleven pieces of information recorded for each case. A table with 3,143 rows and 11 columns could hold these data, where each row represents a county and each column represents a particular piece of information.}
+미국 3,143개 군에 대한 정보를 요약한 \data{county} 공개데이터를 살펴보자.
+이 데이터셋에는 각 군에 대한 정보가 포함되어 있다: 군명칭, 어느 주에 속해 있는지, 2000년과 2010년 인구, 인당 주정부지출, 빈곤율, 그리고, 5가지 추가 특성정보. 해당 정보가 데이터 행렬로 어떻게 구조화 될까요? 조언: 교과서 연습문제 해답은 주석을 참조한다. \footnote{각 군을 사례로 간주할 수 있고, 각 사례별로 11개 정보가 들어있다.
+3,143 행과 11 칼럼으로 구성된 표에 데이터가 담겨있고, 각 행이 군을 표현하고, 각 칼럼이 특정 정보를 표현한다.}
 \end{exercise}
 
-\noindent Seven rows of the \data{county} data set are shown in Table~\ref{countyDF}, and the variables are summarized in Table~\ref{countyVariables}. These data were collected from the US Census website.\footnote{\oiRedirect{textbook-census_quick_facts}{quickfacts.census.gov/qfd/index.html}}
+\noindent \data{county} 데이터 첫 일곱 행이 표~\ref{countyDF}에 나와 있다. 변수정보는 표~\ref{countyVariables}에 요약되어 있다. 상기 데이터는 US 인구조사 웹사이트에서 수집했다.\footnote{\oiRedirect{textbook-census_quick_facts}{quickfacts.census.gov/qfd/index.html}}
+
 
 \begin{landscape}
 \begin{table}
@@ -192,46 +245,50 @@ We consider a publicly available data set that summarizes information about the 
 \centering\small
 \begin{tabular}{lp{11cm}}
 \hline
-{\bf variable} & {\bf description} \\
+{\bf 변수} & {\bf 변수설명} \\
 \hline
-\var{name} & County name \\
-\var{state} & State where the county resides (also including the District of Columbia) \\
-\var{pop2000} & Population in 2000 \\
-\var{pop2010} & Population in 2010 \\
-\var{fed\_\hspace{0.3mm}spend} & Federal spending per capita \\
-\var{poverty}  &  Percent of the population in poverty \\
-\var{homeownership}  &  Percent of the population that lives in their own home or lives with the owner (e.g. children living with parents who own the home) \\
-\var{multiunit}  &  Percent of living units that are in multi-unit structures (e.g. apartments) \\
-\var{income} & Income per capita \\
-\var{med\_\hspace{0.3mm}income} & Median household income for the county, where a household's income equals the total income of its occupants who are 15 years or older \\
-\var{smoking\_\hspace{0.3mm}ban}  &  Type of county-wide smoking ban in place at the end of 2011, which takes
-			one of three values: \resp{none}, \resp{partial}, or \resp{comprehensive},
-			where a \resp{comprehensive} ban means smoking
-			was not permitted in restaurants, bars, or workplaces, and \resp{partial}
-			means smoking was banned in at least one of those three locations \\
+\var{name} & 군(County) 명칭 \\
+\var{state} & 군이 포함된 주(State) (컬럼비아 특별구도 포함) \\
+\var{pop2000} & 2000년 인구 \\
+\var{pop2010} & 2010년 인구 \\
+\var{fed\_\hspace{0.3mm}spend} & 인구 1명당 연방정부 지출 \\
+\var{poverty}  &  빈곤율 비율 (\%) \\
+\var{homeownership}  &  자가소유집을 보유한 혹은 자가 소유자와 동거(예를 들어, 자가소유 부모와 동거하는 자녀)하는 인구 비율(\%) \\
+\var{multiunit}  &  다층구조 건물(예, 아파트)에 살고 있는 비율(\%) \\
+\var{income} & 인구 1인당 소득 \\
+\var{med\_\hspace{0.3mm}income} & 군별 중위 가구 소득. 여기서 가구 소득은 15세 이상 근로자 총소득과 같다. \\
+\var{smoking\_\hspace{0.3mm}ban}  &  2011년 말 기준 금연금지구역 실시 유형으로 다음 세가지 값을 갖는다:
+     \resp{없음(none)}, \resp{부분(partial)}, \resp{전면(comprehensive)}. \resp{전면(comprehensive)} 금지는
+    식당, 술집, 근로장소에서 흡연이 허락되지 않는다는 것을 뜻한다. \resp{부분(partial)} 금지는 흡연이 세곳중에서 최소    
+    한곳에서 금지된다는 것을 의미한다. \\
 \hline
 \end{tabular}
 \centering
-\caption{Variables and their descriptions for the \data{county} data set.}
+\caption{ \data{county} 데이터셋에 대한 변수와 변수정보.}
 \label{countyVariables}
 \end{table}
 \end{landscape}
 
-\subsection{Types of variables}
+\subsection{변수 유형}
 \label{variableTypes}
 
-Examine the \var{fed\_\hspace{0.3mm}spend}, \var{pop2010}, \var{state}, and \var{smoking\_\hspace{0.3mm}ban} variables in the \data{county} data set. Each of these variables is inherently different from the other three yet many of them share certain characteristics.
+\data{county} 데이터셋에 \var{fed\_\hspace{0.3mm}spend}, \var{pop2010}, \var{state}, \var{smoking\_\hspace{0.3mm}ban} 변수를 조사한다. 각 변수는 본질적으로 서로 다르지만 특정한 성질은 공유하다.
 
-First consider \var{fed\_\hspace{0.3mm}spend}, which is said to be a \term{numerical} variable since it can take a wide range of numerical values, and it is sensible to add, subtract, or take averages with those values. On the other hand, we would not classify a variable reporting telephone area codes as numerical since their average, sum, and difference have no clear meaning.
+먼저, \var{fed\_\hspace{0.3mm}spend}을 생각해보자. 폭넓은 숫자값을 취할 수 있고, 더하고 빼고 평균을 계산할 수 있어 \term{숫자형(numerical)} 변수로 불린다. 다른 한편으로, 지역 전화번호를 표현하는 변수를 숫자형으로 분류하지는 않는데 이유는 평균, 합계, 차이가 특벼한 의미가 없기 때문이다.
 
-The \var{pop2010} variable is also numerical, although it seems to be a little different than \var{fed\_\hspace{0.3mm}spend}. This variable of the population count can only take whole non-negative numbers (\resp{0}, \resp{1}, \resp{2}, ...). For this reason, the population variable is said to be \term{discrete} since it can only take numerical values with jumps. On the other hand, the federal spending variable is said to be \term{continuous}.
+\var{fed\_\hspace{0.3mm}spend}와 약간 달라 보이지만, \var{pop2010} 변수도 숫자형이다. 
+인구수 변수는 음이 아닌 정수(\resp{0}, \resp{1}, \resp{2}, ...)만 갖을 수 있다. 
+이러한 이유로, 인구변수는 \term{이산형(discrete)}이라고 불린다. 왜냐하면 점프되는 숫자값만 갖기 때문이다.
+반대로, 정부지출변수는 \term{연속형(continuous)}이라고 불린다.
 
-The variable \var{state} can take up to 51 values after accounting for Washington, DC: \resp{AL}, ..., and \resp{WY}. Because the responses themselves are categories, \var{state} is called a \term{categorical} variable, and the possible values are called the variable's \term{levels}.
+워싱턴 DC를 고려하면 \var{state} 변수는 51개 값까지만 갖게된다: \resp{AL}, ..., and \resp{WY}.
+반응값 자체로 범주형이기 때문에, \var{state}는 \term{범주형(categorical)} 변수라고 불린다.
+가능한 값을 변수 \term{수준(levels)}이라고 부른다.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.57\textwidth]{ch_intro_to_data/figures/variables/variables}
-\caption{Breakdown of variables into their respective types.}
+\caption{각 변수 유형별 변수 분해}
 \label{variables}
 \end{figure}
 

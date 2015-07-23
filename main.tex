@@ -2,6 +2,8 @@
  
 \usepackage{geometry, graphicx, varioref, soul, verbatim, amsmath, calc, caption, wasysym, footmisc, makeidx, ifthen, subfigure, multicol, epstopdf, enumerate, wrapfig, textcomp, multirow, changepage, setspace, lscape, titlesec}
 \usepackage[usenames,dvipsnames]{color}  
+\usepackage[hangul]{kotex}
+\kscntformat{chapter}{}{~장}
 %\newcommand{\href}[2]{#2} \newcommand{\url}[1]{#1} \newcommand{\urlstyle}[1]{}
 \include{extraTeX/style/colorsV1}
 
@@ -23,27 +25,27 @@
 
 \begin{document}
 \renewcommand{\thepage}{}
-\maketitle
-\include{extraTeX/preamble/copyright}%_derivative}
+% \maketitle % 개발위해 제외
+% \include{extraTeX/preamble/copyright}%_derivative} % 개발위해 제외
 \renewcommand{\thepage}{\arabic{page}}
-\tableofcontents
-\include{extraTeX/preamble/preface}
+% \tableofcontents %개발위해 제외
+% \include{extraTeX/preamble/preface} % 개발위해 제외
 \normalsize
 
 \includechapter{1}{ch_intro_to_data}
-\includechapter{2}{ch_probability}
-\includechapter{3}{ch_distributions}
-\includechapter{4}{ch_inference_foundations}
-\includechapter{5}{ch_inference_for_means}
-\includechapter{6}{ch_inference_for_props}
-\includechapter{7}{ch_regr_simple_linear}
-\includechapter{8}{ch_regr_mult_and_log}
+%\includechapter{2}{ch_probability}
+%\includechapter{3}{ch_distributions}
+%\includechapter{4}{ch_inference_foundations}
+%\includechapter{5}{ch_inference_for_means}
+%\includechapter{6}{ch_inference_for_props}
+%\includechapter{7}{ch_regr_simple_linear}
+%\includechapter{8}{ch_regr_mult_and_log}
 
-\appendix
-\include{extraTeX/eoceSolutions/eoceSolutions}
-\include{extraTeX/appendix/TeX/zTable}
-\include{extraTeX/appendix/TeX/tTable}
-\include{extraTeX/appendix/TeX/chiSquareTable}
+%\appendix
+%\include{extraTeX/eoceSolutions/eoceSolutions}
+%\include{extraTeX/appendix/TeX/zTable}
+%\include{extraTeX/appendix/TeX/tTable}
+%\include{extraTeX/appendix/TeX/chiSquareTable}
 
 \include{extraTeX/index/index}
 \printindex
