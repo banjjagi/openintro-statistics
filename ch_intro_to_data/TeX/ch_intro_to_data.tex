@@ -293,32 +293,50 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 \end{figure}
 
 
-마지막으로... 생각해 보자.
+마지막으로... \var{smoking\_\hspace{0.3mm}ban} 변수를 생각해 보자.
+이 변수는 군별로 금연 유형을 기술하는데, \resp{없음(none)}, \resp{부분금지(partial)}, \resp{전면금지(comprehensive)} 값을 갖는다. 하이브리드 변수로 볼 수 있다: 범주형 변수지만, 각 수준은 자연적인 순위를 갖는다.
+이러한 특성을 갖는 변수를 \term{서수형(ordinal)} 변수라고 부른다.
+분석을 단순화하기 위해서, 이 책에서 어떤 서수형 변수도 범주형 변수로 처리한다.
 
-Finally, consider the \var{smoking\_\hspace{0.3mm}ban} variable, which describes the type of county-wide smoking ban and takes values \resp{none}, \resp{partial}, or \resp{comprehensive} in each county. This variable seems to be a hybrid: it is a categorical variable but the levels have a natural ordering. A variable with these properties is called an \term{ordinal} variable, while a regular categorical variable without this type of special ordering is called a \term{nominal} variable. To simplify analyses, any ordinal variables in this book will be treated as categorical variables.
 
-\begin{example}{Data were collected about students in a statistics course. Three variables were recorded for each student: number of siblings, student height, and whether the student had previously taken a statistics course. Classify each of the variables as continuous numerical, discrete numerical, or categorical.}
-The number of siblings and student height represent numerical variables. Because the number of siblings is a count, it is discrete. Height varies continuously, so it is a continuous numerical variable. The last variable classifies students into two categories -- those who have and those who have not taken a statistics course -- which makes this variable categorical.
+\begin{example}{통계학 과목 수강한 학생에 관한 데이터가 수집되었다. 각 학생에 대해 변수 세개가 기록되어 있다: 형제자매 숫자, 학생 키, 이전에 통계학 과목 수강여부. 각 변수를 연속 숫자형, 이산 숫자형, 범주형으로 구분하라.}
+형제자매 숫자와 학생 키는 숫자형 변수를 나타낸다.
+왜냐하면, 형제 자매 숫자는 셈(count)으로 이산형이다. 신장은 연속적으로 변해서 연속형 숫자 변수다.
+마지막 변수는 학생을 두 범주로 구분한다 -- 통계학 과목을 수강했던 학생과 그렇지 않은 학생 -- 이 과정을 통해서 변수가 범주형이 된다.
 \end{example}
 
-\begin{exercise} \index{data!stroke}
-Consider the variables \var{group} and \var{outcome} (at 30 days) from the stent study in Section~\ref{basicExampleOfStentsAndStrokes}. Are these numerical or categorical variables?\footnote{There are only two possible values for each variable, and in both cases they describe categories. Thus, each is categorical variables.}
+\begin{exercise} \index{데이터(data)!뇌졸증}
+~\ref{basicExampleOfStentsAndStrokes}에 있는 스텐츠 조사로부터  \var{group} 과 (30일) \var{outcome} 변수를 고려해보자.
+이 변수는 숫자형 변수일까요, 범주형 변수일까요?\footnote{각 변수마다 단지 두가지 가능한 값이 있고,
+각 경우에 대해 범주를 기술한다. 그래서 각각은 범주형 변수가 된다.}
 \end{exercise}
 
-\subsection{Relationships between variables}
+\subsection{변수 사이 관계}
 \label{variableRelations}
 
-Many analyses are motivated by a researcher looking for a relationship between two or more variables. A social scientist may like to answer some of the following questions:
+연구자들은 두개 혹은 그 이상 변수 사이 관계를 찾으려는 동기로 분석을 시작한다.
+사회 과학자는 다음 질문에 대답하고 싶을 것이다:
+
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
-\item[(1)]\label{fedSpendingPovertyQuestion} Is federal spending, on average, higher or lower in counties with high rates of poverty?
-\item[(2)]\label{ownershipMultiUnitQuestion} If homeownership is lower than the national average in one county, will the percent of multi-unit structures in that county likely be above or below the national average?
-\item[(3)]\label{isAverageIncomeAssociatedWithSmokingBans} Which counties have a higher average income: those that enact one or more smoking bans or those that do not?
+\item[(1)]\label{fedSpendingPovertyQuestion} 
+높은 빈곤율을 갖는 시군에서 연방정부지출은 평균적으로 더 높은가 혹은 낮은가?
+\item[(2)]\label{ownershipMultiUnitQuestion} 
+만약 자가소유가 특정 시군에서 전국평균보다 낮다면,
+해당 시군에 다가구 비율이 전국평균을 상회할까 혹은 하회할까?
+\item[(3)]\label{isAverageIncomeAssociatedWithSmokingBans} 
+더 높은 평균소득을 올리는 시군은 어딜까: 금연정책을 시행하는 시군 혹은 그렇지 않은 시군일까?
 \end{enumerate}
 
-To answer these questions, data must be collected, such as the \data{county} data set shown in Table~\ref{countyDF}. Examining summary statistics \index{summary statistic} could provide insights for each of the three questions about counties. Additionally, graphs can be used to visually summarize data and are useful for answering such questions as well.
+이러한 질문에 대답하기 위해서, 표~\ref{countyDF}에 나타난 \data{county} 데이터셋 같은 데이터가 수집되어 한다.
+요약 통계량을 조사를 통해 시군별로 상기 3개 질문에 대한 통찰을 얻을 수 있다.
+추가적으로, 그래프를 사용해서 데이터를 시각적으로 요약할 수 있고, 상기 질문에 답하는데도 유용하다.
 
-\indexthis{Scatterplots}{scatterplot} are one type of graph used to study the relationship between two numerical variables. Figure~\ref{county_fed_spendVsPoverty} compares the variables \var{fed\_\hspace{0.3mm}spend} and \var{poverty}. Each point on the plot represents a single county. For instance, the highlighted dot corresponds to County~1088 in the \data{county} data set: Owsley County, Kentucky, which had a poverty rate of 41.5\% and federal spending of \$21.50 per capita. The scatterplot suggests a relationship between the two variables: counties with a high poverty rate also tend to have slightly more federal spending. We might brainstorm as to why this relationship exists and investigate each idea to determine which is the most reasonable explanation.
+\indexthis{산점도}{scatterplot}는 두 숫자형 변수 사이에 관계를 조사하는데 사용되는 일종의 그래프다.
+그림~\ref{county_fed_spendVsPoverty}은 \var{fed\_\hspace{0.3mm}spend} 변수와 \var{poverty} 변수를 비교한다.
+플롯에 각 점은 단일 시군을 나타낸다.
+예를 들어, 부각된 점은 \data{county} 데이터셋에서 1088 군에 상응한다: 켄터키주 오우슬리 군(Owsley County, Kentucky)으로 빈곤율이 41.5\%이고 연방정부지출은 일인당 \$21.50 달러다.
+산점도를 통해서 두 변수 사이에 관계를 유추할 수 있다: 높은 빈곤율을 갖는 시군이 약간 더 높은 연방정부지출을 받는 경향이 있다. 다양한 생각을 내서 이런 관계가 존재하는 이유는 무엇이고 각 아이디어를 조사해서 어느 것이 가장 합리적인 설명인지 판단해보자.
 
 \begin{figure}
 \centering

@@ -1,18 +1,31 @@
 library(openintro)
 data(COL)
 
-library(showtext)
-font.add('나눔고딕코딩', 'NanumGothicCoding.ttf') ## add font
+#par(family = "NanumMyeongjo")
+#loadfonts()
 
-#myPDF('variables.pdf', 4.2, 1.5, mar = rep(0,4))
-myPDF('variables.pdf', 4.2, 1.5, mar = rep(0,4), family = '나눔고딕코딩')
-#cairo_pdf('variables.pdf', family = '나눔고딕코딩')
+## A CID font for Japanese using a different CMap and
+## corresponding cmapEncoding.
+# `Jp_UCS-2` <- CIDFont("TestUCS2",
+#                       c("Adobe-Japan1-UniJIS-UCS2-H.afm",
+#                         "Adobe-Japan1-UniJIS-UCS2-H.afm",
+#                         "Adobe-Japan1-UniJIS-UCS2-H.afm",
+#                         "Adobe-Japan1-UniJIS-UCS2-H.afm"),
+#                       "UniJIS-UCS2-H", "UCS-2")
+# pdfFonts(`Jp_UCS-2` = `Jp_UCS-2`)
+# names(pdfFonts())
+
+pdfFonts(`Korea1deb`)
+# myPDF('variables.pdf', 4.2, 1.5, mar = rep(0,4), family = 'NanumMyeongjo')
+myPDF('variables.pdf', 4.2, 1.5, mar = rep(0,4))
+
+
 plot(c(-0.15, 1.3),
      c(0, 1),
      type = 'n',
      axes = FALSE)
 
-text(0.6, 0.9, '전체 변수', family='NanumGothicCoding')
+text(0.6, 0.9, '전체 변수')
 rect(0.4, 0.8, 0.8, 1)
 
 text(0.25, 0.5, '숫자형')
