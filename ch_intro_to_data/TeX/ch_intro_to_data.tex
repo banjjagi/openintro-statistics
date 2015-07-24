@@ -519,77 +519,120 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.5\textwidth]{ch_intro_to_data/figures/popToSample/surveySample}
-\caption{Due to the possibility of non-response, surveys studies may only reach a certain group within the population. It is difficult, and often times impossible, to completely fix this problem.}
+\caption{
+무응답 가능성 때문에, 설문조사는 모집단 내부에서 특정 집단에만 도달하게 된다.
+이 문제를 완전히 고치는 것은 어렵고, 종종 불가능하다.}
 \label{surveySample}
 \end{figure}
 
-Another common downfall is a \term{convenience sample}\index{sample!convenience sample}, where individuals who are easily accessible are more likely to be included in the sample. For instance, if a political survey is done by stopping people walking in the Bronx, this will not represent all of New York City. It is often difficult to discern what sub-population a convenience sample represents.
+또 다른 흔히 빠지는 함정이 \term{편의 표본}\index{표본!편의 표본}으로 쉽게 접근할 수 있는 개인이 표본에 좀더 포함될 듯 하다.
+예를 들어, 만약 정치 설문조사가 브롱크스 행인을 대상으로 수행된다면, 뉴욕시 전체를 대표할 것 같지는 않다.
+편의 표본이 어떤 하위-모집단을 대표하는지 분간하는 것이 종종 어렵다.
 
 \begin{exercise}
-We can easily access ratings for products, sellers, and companies through websites. These ratings are based only on those people who go out of their way to provide a rating. If 50\% of online reviews for a product are negative, do you think this means that 50\% of buyers are dissatisfied with the product?\footnote{Answers will vary. From our own anecdotal experiences, we believe people tend to rant more about products that fell below expectations than rave about those that perform as expected. For this reason, we suspect there is a negative bias in product ratings on sites like Amazon. However, since our experiences may not be representative, we also keep an open mind.}
+웹사이트를 통해서 쉽게 제품, 판매자, 회사에 대한 평가점수에 접근할 수 있다.
+이러한 평점은 평가점수를 제공하려고 노력한 사람들에 기반해서 매겨졌다.
+만약 제품에 대한 50\% 온라인 사용후기가 부정적이라면, 이러한 사실이 구매자 50\%가 해당 제품에 불만족한다고 보십니까?
+\footnote{대답은 다양할 수 있다.
+우리 스스로 일화적 경험으로부터,
+기대한대로 동작하는 제품에 대해서 격찬하기 보다는 기대에 떨어지는 제품에 대해서 못마땅하게 과장되게 사람들이 말하는 경향이 있다고 믿는다. 이러한 이유로, 아마존 같은 사이트에 올라온 제품 평점에 음의 편향이 있다고 의심할만 하다.
+하지만, 본인의 경험이 대표성을 갖지 않을 수 있기 때문에, 마음을 항상 열어놓자.}
 \end{exercise}
 
-\index{sample!random sample|)}
-\index{population|)}
-\index{sample|)}
+\index{표본!임의 표본|)}
+\index{모집단|)}
+\index{표본|)}
 
-\subsection{Explanatory and response variables}
+\subsection{설명 변수와 반응 변수}
 \label{explanatoryAndResponse}
 
-\index{data!county|(}
+\index{데이터!시군|(}
 
-Consider the following question from page~\pageref{fedSpendingPovertyQuestion} for the \data{county} data set:
+\data{county} 데이터셋에 대해 ~\pageref{fedSpendingPovertyQuestion} 페이지에 나온 다음 질문을 생각해 보자.
+
 \begin{enumerate}
 \item[(1)] 
-	Is federal spending, on average, higher or lower in counties with high rates of poverty?
+	높은 빈곤율을 갖는 시군에서 연방정부지출은 평균적으로 더 높은가 혹은 낮은가?
 \end{enumerate}
-If we suspect poverty might affect spending in a county, then poverty is the \term{explanatory} variable and federal spending is the \term{response} variable in the relationship.\footnote{Sometimes the explanatory variable is called the \term{independent} variable and the response variable is called the \term{dependent} variable. However, this becomes confusing since a \emph{pair} of variables might be independent or dependent, so we avoid this language.} If there are many variables, it may be possible to consider a number of them as explanatory variables.
 
-\begin{tipBox}{\tipBoxTitle{Explanatory and response variables}
-To identify the explanatory variable in a pair of variables, identify which of the two is suspected of affecting the other and plan an appropriate analysis.
+만약 빈곤이 해당 군 지출에 영향을 미친다고 의심하면, 빈곤은 \term{설명} 변수가 되고 연방정부지출은 관계에 있어 \term{반응} 변수가 된다 \footnote{
+종종 설명 변수는 \term{독립} 변수로 불리고, 반응 변수는 \term{종속} 변수로 불린다.
+하지만, 이렇게 되면 혼동스러울 수 있는데 이유는 변수 \emph{한쌍}이 독립적 혹은 종속적일 수 있기 때문이다. 이러한 사유로 이런 단어를 회피한다.} 
+만약 변수가 많다면, 이들 중 일부를 설명변수로 간주하는 것도 가능할 수 있다.
+
+\begin{tipBox}{\tipBoxTitle{설명 변수와 반응 변수}
+
+변수 한쌍에서 설명 변수를 식별하기 위해서, 둘 중에 어느 것이 다른 것에 영향을 주는지 식별하고 적절한 분석을 계획하라.
 
 \hspace{10mm}\includegraphics[height=0.34in]{ch_intro_to_data/figures/expResp/expResp}}
 \end{tipBox}
 
-\begin{caution}{association does not imply causation}{Labeling variables as \emph{explanatory} and \emph{response} does not guarantee the relationship between the two is actually causal, even if there is an association identified between the two variables. We use these labels only to keep track of which variable we suspect affects the other.}
+\begin{caution}{연관성이 인과성을 함축하지는 않는다}{
+\emph{설명변수}와 \emph{반응변수}로 표식을 했다는 것이 두 변수 사이 관계가 실제로 인과성이 있다는 것을 담보하지는 않는다. 설사 두 변수 사이에 연관이 확인되어도 그렇다. 어느 변수가 다른 변수에 영향을 미치는지 용의점을 추적하는데만 표식을 사용한다.}
 \end{caution}
 
-In some cases, there is no explanatory or response variable. Consider the following question from page~\pageref{ownershipMultiUnitQuestion}:
+일부 설명변수와 반응변수가 없는 경우가 있다. 페이지~\pageref{ownershipMultiUnitQuestion}에서 다음 질문을 생각해보자:
+
 \begin{enumerate}
-\item[(2)] 
-	If homeownership is lower than the national average in one county, will the percent of multi-unit structures in that county likely be above or below the national average?
+\item[(2)]
+    만약 특정 군에서 자가소유가 전국 평균보다 낮다면, 다가구 건축물 비율이 전국 평균을 상회할까요 아니면 하회할까요?
 \end{enumerate}
-It is difficult to decide which of these variables should be considered the explanatory and response variable, i.e. the direction is ambiguous, so no explanatory or response labels are suggested here.
 
-\index{data!county|)}
+어느 변수가 설명변수이며, 반응변수인지 판단하기가 어렵다. 즉, 방향성이 애매모호하다. 그래서 설명 혹은 반응 표식을 여기서는 제시할 수는 없다.
 
-\subsection{Introducing observational studies and experiments}
+\index{데이터!군|)}
 
-There are two primary types of data collection: observational studies and experiments.
+\subsection{관측연구와 실험 소개}
 
-Researchers perform an \term{observational study} when they collect data in a way that does not directly interfere with how the data arise. For instance, researchers may collect information via surveys, review medical or company records, or follow a \term{cohort} of many similar individuals to study why certain diseases might develop. In each of these situations, researchers merely observe the data that arise. In general, observational studies can provide evidence of a naturally occurring association between variables, but they cannot by themselves show a causal connection.
+데이터 수집에 두가지 유형이 있다: 관측연구와 실험.
 
-When researchers want to investigate the possibility of a causal connection, they conduct an \term{experiment}. Usually there will be both an explanatory and a response variable. For instance, we may suspect administering a drug will reduce mortality in heart attack patients over the following year. To check if there really is a causal connection between the explanatory variable and the response, researchers will collect a sample of individuals and split them into groups. The individuals in each group are \emph{assigned} a treatment. When individuals are randomly assigned to a group, the experiment is called a \term{randomized experiment}. For example, each heart attack patient in the drug trial could be randomly assigned,  perhaps by flipping a coin, into one of two groups: the first group receives a \term{placebo} (fake treatment) and the second group receives the drug. See the case study in Section~\ref{basicExampleOfStentsAndStrokes} for another example of an experiment, though that study did not employ a placebo.
+데이터가 생성되는 방식에 직접적인 지장을 받지 않는 방식으로 데이터를 연구원이 수집할 때 \term{관측연구}를 수행한다.
+예를 들어, 왜 특정 질병이 진행되는지 조사하기 위해서, 과학연구원은 설문조사를 경유해 정보를 수집하고, 진료 및 회사 기록을 검토하고, 
+유사성 있는 다수 \term{코호트} 환자를 추적한다.
+이러한 상황에서 과학연구원은 단지 발생된 데이터를 관측한다.
+일반적으로, 관측연구는 변수사이에 자연적으로 발생하는 연관 증거를 제공할 수 있지만, 그 자체로 인과관계를 제시할 수는 없다.
 
-\begin{tipBox}{\tipBoxTitle{association $\neq$ causation}
-In general, association does not imply causation, and causation can only be inferred from a randomized experiment.}
+연구원이 인과관계 가능성을 조사하려면, \term{실험}을 수행한다.
+대체로 설병변수와 반응변수 모두 있다.
+예를 들어, 약을 투여하는 것이 다음해에 심장마비 환자의 사망율을 줄일 수 있는지 의심할 수 있다.
+설명변수와 반응변수 사이에 인과관계가 정말 있는지 검사하기 위해서, 연구원은 개인 표본을 수집하고 그룹으로 나눈다.
+각 그룹에 개인은 처리군(treatment)에 \emph{배정}된다. 개인이 무작위로 그룹에 배정될 때, 해당 실험을 \term{무작위 실험}이라고 부른다.
+예를 들어, 의약 시험에 각 심장마비 환자를 아마도 동전던지기를 통해서 두 그룹중에 한 곳에 임의로 배정할 수 있다:
+첫번째 그룹은 \term{위약} (placebo, 거짓처방)을 처방받고, 두번째 그룹은 약물을 처방받는다.
+실험의 또다른 예제로 ~\ref{basicExampleOfStentsAndStrokes}에 사례연구를 참조한다. 하지만 해당 조사는 위약을 사용하지는 않는다.
+
+
+
+\begin{tipBox}{\tipBoxTitle{연관 $\neq$ 인과}
+일반적으로 연관(assocaition)은 인과(causation)를 함축하지는 않는다. 그리고 인과는 무작위 실험으로만 추론될 수 있다.}
 \end{tipBox}
 
 
 %%%%%
-\section[Observational studies and sampling strategies]{Observational studies and sampling strategies \sectionvideohref{youtube-n1xSeGPGQEg&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[Observational studies and sampling strategies]{관측연구와 표본추출 전략 \sectionvideohref{youtube-n1xSeGPGQEg&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 
-\subsection{Observational studies}
+\subsection{관측연구}
 
-Generally, data in observational studies are collected only by monitoring what occurs, while experiments require the primary explanatory variable in a study be assigned for each subject by the researchers.
+일반적으로, 관측연구에 있어 데이터는 일어난 것을 모니터링하면서만 수집된다.
+반면에, 연구 주요 설명변수를 연구원이 각 대상마다 배정할 것을 실험에서는 요구한다.
 
-Making causal conclusions based on experiments is often reasonable. However, making the same causal conclusions based on observational data can be treacherous and is not recommended. Thus, observational studies are generally only sufficient to show associations.
+실험에 근거해서 인과결론을 내리는 것은 합리적이다. 하지만,
+관측연구에 근거해서 동일한 인과 결론을 내리는 것은 겉보기와 달리 위험하고 추천되지 않는다.
+그래서, 관측연구는 일반적으로 연관만 보이는데 충분하다.
+
 
 \begin{exercise} \label{sunscreenLurkingExample}
-Suppose an observational study tracked sunscreen use and skin cancer, and it was found that the more sunscreen someone used, the more likely the person was to have skin cancer. Does this mean sunscreen \emph{causes} skin cancer?\footnote{No. See the paragraph following the exercise for an explanation.}
+관측연구가 선크림 사용과 피부암을 추적했다고 가정하자. 그리고 선크림을 더 많이 사용하면 할수록,
+사람들이 더 피부암에 걸릴 것 같다는 것이 밝혀졌다. 이것이 선크림이 피부암에 \emph{원인}이 된다는 것을 의미할까?
+\footnote{아니다. 설명으로 문단과 이어진 예제를 살펴보라.}
 \end{exercise}
 
-Some previous research tells us that using sunscreen actually reduces skin cancer risk, so maybe there is another variable that can explain this hypothetical association between sunscreen usage and skin cancer. One important piece of information that is absent is sun exposure. If someone is out in the sun all day, she is more likely to use sunscreen \emph{and} more likely to get skin cancer. Exposure to the sun is unaccounted for in the simple investigation.
+일부 이전 연구를 통해 선크림을 사용하면 피부암 위험을 실제로 줄여준다고 알려졌다.
+그래서 아마도 선크림 사용과 피부암 사이에 가상의 연관(hypothetical association)을 설명하는 또다른 변수가 있을 수 있다.
+빠진 중요한 정보 조각이 일광노출이다.
+누군가 하루종일 태양에 노출된다면, 선크림을 좀더 사용할 것 \emph{같고} 더 피부암에 걸릴 것 같다.
+일광노출이 단순 조사에서 고려되지 못했다.
+
 \begin{center}
 \includegraphics[height=1.0in]{ch_intro_to_data/figures/variables/sunCausesCancer}
 \end{center}
@@ -599,9 +642,11 @@ Some previous research tells us that using sunscreen actually reduces skin cance
 % Study with a similar scenario to that described here:
 % http://onlinelibrary.wiley.com/doi/10.1002/ijc.22745/full
 
-Sun exposure is what is called a \term{confounding variable},\footnote{Also called a \term{lurking variable}, \term{confounding factor}, or a \term{confounder}.} which is a variable that is correlated with both the explanatory and response variables. While one method to justify making causal conclusions from observational studies is to exhaust the search for confounding variables, there is no guarantee that all confounding variables can be examined or measured.
+일광노출을 \term{교락변수}라고 부르고, \footnote{또한 \term{잠복변수}(lurking variable), \term{교락요인}(confounding factor), 혹은 \term{교락요인}(confounder)이라고 부른다.} 설명변수와 반응변수 모두와 상관된 변수다.
+관측연구로부터 도출된 인과결론을 정당화하는 방법은 교락변수를 철저히 찾는 것이지만, 
+모든 교락변수가 측정되거나 조사될 수 있다는 보장은 없다.
 
-In the same way, the \data{county} data set is an observational study with confounding variables, and its data cannot easily be used to make causal conclusions.
+동일한 방식으로, \data{county} 데이터셋은 교락변수를 갖는 관측연구다. 그리고 인과결론을 도출하는데 데이터가 쉽게 사용될 수는 없다.
 
 \begin{exercise}
 Figure~\ref{multiunitsVsOwnership} shows a negative association between the homeownership rate and the percentage of multi-unit structures in a county. However, it is unreasonable to conclude that there is a causal relationship between the two variables. Suggest one or more other variables that might explain the relationship visible in Figure~\ref{multiunitsVsOwnership}.\footnote{Answers will vary. Population density may be important. If a county is very dense, then this may require a larger fraction of residents to live in multi-unit structures. Additionally, the high density may contribute to increases in property value, making homeownership infeasible for many residents.}
