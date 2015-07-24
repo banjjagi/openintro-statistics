@@ -341,124 +341,180 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{ch_intro_to_data/figures/county_fed_spendVsPoverty/county_fed_spendVsPoverty}
-\caption{A scatterplot showing \var{fed\_\hspace{0.3mm}spend} against \var{poverty}. Owsley County of Kentucky, with a poverty rate of 41.5\% and federal spending of \$21.50 per capita, is highlighted.}
+\caption{\var{\var{poverty} 빈곤율에 대한 fed\_\hspace{0.3mm}spend} 연방정부지출을 보여주는 산점도.
+41.5\% 빈곤율과 1인당 \$21.50 연방정부지출 정보를 갖는 켄터키주 오우슬리군이 부각되어 있다.}
 \label{county_fed_spendVsPoverty}
 \end{figure}
 
 \begin{exercise}
-Examine the variables in the \data{email50} data set, which are described in Table~\vref{email50Variables}. Create two questions about the relationships between these variables that are of interest to you.\footnote{Two sample questions: (1) Intuition suggests that if there are many line breaks in an email then there also would tend to be many characters: does this hold true? (2)~Is there a connection between whether an email format is plain text (versus HTML) and whether it is a spam message?}
+표~\vref{email50Variables}에 기술된 \data{email50} 데이터셋에 있는 변수를 조사하라.
+본인 관심을 사로잡는 변수 사이 관계에 관해서 질문 2개를 만들어보세요.
+\footnote{두 예제 질문: (1) 전자우편에 줄바꿈이 많으면 전자우편에 문자가 많은 경향이 있다고 직관적으로 볼 수 있다: 이것이 사실일까? (2) 전자우편 형식이 일반 텍스트면 스팸 메시지 혹은 HTML 이면 스팸메시지라는 연관관계가 있을까?}
 \end{exercise}
 
-The \var{fed\_\hspace{0.3mm}spend} and \var{poverty} variables are said to be associated because the plot shows a discernible pattern. When two variables show some connection with one another, they are called \term{associated} variables. Associated variables can also be called \term{dependent} variables and vice-versa.
+\var{fed\_\hspace{0.3mm}spend} 와 \var{poverty} 변수는 연관(associated)되었다고 하는데 플롯을 통해 식별할 수 있는 패턴이 보이기 때문이다. 두 변수가 서로에 어떤 연관을 보일 때, 두 변수를 \term{연관(associated)} 변수라고 부른다. 연관된 변수는 또한 \term{종속(dependent)} 변수라고 불리기도 하고 역도 또한 같다.
 
-\begin{example}{This example examines the relationship between homeownership and the percent of units in multi-unit structures (e.g. apartments, condos), which is visualized using a scatterplot in Figure~\ref{multiunitsVsOwnership}. Are these variables associated?}
-It appears that the larger the fraction of units in multi-unit structures, the lower the homeownership rate. Since there is some relationship between the variables, they are associated.
+
+\begin{example}{상기 예제는 자가소유와 다가구 건축물(예를 들면, 콘도, 아파트) 비율 관계를 조사해서 
+그림~\ref{multiunitsVsOwnership}에 산점도를 사용해서 시각화했다. 두 변수는 연관되었는가?}
+다가구 건축물에서 구성단위 분율이 크면 클수록 자가소유비율이 낮아지는 것으로 나타난다.
+두 변수 사이에 일정 관계가 있기 때문에, 두 변수는 연관되어 있다.
 \end{example}
 
 
 \begin{figure}
    \centering
    \includegraphics[width=0.8\textwidth]{ch_intro_to_data/figures/multiunitsVsOwnership/multiunitsVsOwnership}
-   \caption{A scatterplot of homeownership versus the percent of units that are in multi-unit structures for all 3,143 counties. Interested readers may find an image of this plot with an additional third variable, county population, presented at \oiRedirect{textbook-homeownership_vs_multi_unit_structures}{www.openintro.org/stat/down/MHP.png}.}
+   \caption{전체 3,143 시군에 대한 다가구 건축물 구성 비율과 자가소유비율 사이의 산점도.
+   흥미있는 독자는 추가적으로 세번째 변수(군 인구)를 추가한 플롯 이미지를 \oiRedirect{textbook-homeownership_vs_multi_unit_structures}{www.openintro.org/stat/down/MHP.png}에 확인할 수 있다.}
    \label{multiunitsVsOwnership}
 \end{figure}
 
-Because there is a downward trend in Figure~\ref{multiunitsVsOwnership} -- counties with more units in multi-unit structures are associated with lower homeownership -- these variables are said to be \termsub{negatively associated}{negative association}. A \term{positive association} is shown in the relationship between the \var{poverty} and \var{fed\_\hspace{0.3mm}spend} variables represented in Figure~\ref{county_fed_spendVsPoverty}, where counties with higher poverty rates tend to receive more federal spending per capita.
+그림~\ref{multiunitsVsOwnership}에 우하향 경향이 보이기 때문에 -- 다가구 건축물 대한 비율이 높은 시군이 더 낮은 자가소유와 연관되어 있다 -- 두 변수는 \termsub{음의 연관}{negative association}성을 갖는다고 한다. 
+\term{양의 연관}은 그림~\ref{county_fed_spendVsPoverty}에  \var{poverty} 와 \var{fed\_\hspace{0.3mm}spend} 변수 관계에 나타나 있다.  여기서 더 높은 빈곤율을 갖는 시군이 일인당 더 많은 정부지출지원을 받는 경향이 있다.
 
-If two variables are not associated, then they are said to be \term{independent}. That is, two variables are independent if there is no evident relationship between the two.
+만약 두 변수가 연관되지 않는다면, 두 변수는 \term{독립(independent)}적 이라고 한다.
+즉, 두 변수 사이에 명백한 관계가 없다면, 두 변수는 독립이다.
 
-\begin{termBox}{\tBoxTitle{Associated or independent, not both}
-A pair of variables are either related in some way (associated) or not (independent). No pair of variables is both associated and independent.}
+\begin{termBox}{\tBoxTitle{연관되거나 독립적이거나 하지만 둘다는 안된다}
+변수 한쌍은 어떤 방식으로 (연관) 관련이 있거나 (독립적) 없다.
+어떤 변수 쌍도 연관되고 독립적이지는 않다.}
 \end{termBox}
 
-\index{data!county|)}
+\index{데이터!시군|)}
 
 %%%%%
-\section[Overview of data collection principles]{Overview of data collection principles \sectionvideohref{youtube-2N_bkiyTiXU&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[Overview of data collection principles]{데이터 수집 원칙 개요 \sectionvideohref{youtube-2N_bkiyTiXU&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{overviewOfDataCollectionPrinciples}
 
-\index{sample|(}
-\index{population|(}
+\index{표본|(}
+\index{모집단|(}
 
-The first step in conducting research is to identify topics or questions that are to be investigated. A clearly laid out research question is helpful in identifying what subjects or cases should be studied and what variables are important. It is also important to consider \emph{how} data are collected so that they are reliable and help achieve the research goals.
+과학적인 연구를 수행하는 첫번째 단계는 조사할 연구주제 혹은 문제을 식별하는 것이다.
+명확히 설정된 연구문제는 어떤 주제 혹은 사례가 연구되어야 하고, 어떤 변수가 중요한지 식별하는데 도움을 준다.
+또한 데이터를 \emph{어떻게(how)} 수집할지도 중요하다. 그렇게 함으로써 데이터에 신뢰성이 높아지고 연구 목적을 달성하는데 도움이 된다.
 
-\subsection{Populations and samples}
+\subsection{모집단과 표본}
 \label{populationsAndSamples}
 
-Consider the following three research questions:
+다음 세가지 연구문제를 생각해보자:
+
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
-\item What is the average mercury content in swordfish in the Atlantic Ocean?
-\item\label{timeToGraduationQuestionForUCLAStudents} Over the last 5 years, what is the average time to complete a degree for Duke undergraduate students?
-\item\label{identifyPopulationOfStentStudy} Does a new drug reduce the number of deaths in patients with severe heart disease?
+\item 대서양 황새치(swordfish)에 포함된 평균 수은 함량은 얼마인가?
+
+\item\label{timeToGraduationQuestionForUCLAStudents} 
+지난 5년간 듀크대학생이 학위를 얻는데 평균적으로 걸리는 기간은 얼마인가?
+\item\label{identifyPopulationOfStentStudy} 
+신약은 심각한 심장질환을 가진 환자의 사망률을 낮추는가?
 \end{enumerate}
-Each research question refers to a target \term{population}. In the first question, the target population is all swordfish in the Atlantic ocean, and each fish represents a case. Often times, it is too expensive to collect data for every case in a population. Instead, a sample is taken. A \term{sample} represents a subset of the cases and is often a small fraction of the population. For instance, 60 swordfish (or some other number) in the population might be selected, and this sample data may be used to provide an estimate of the population average and answer the research question.
+
+각 연구문제는 목표 \term{모집단}과 관련되어 있다.
+첫번째 문제는 목표 모집단이 대서양에 있는 모든 황새치가 되고 각 물고기는 한가지 사례를 대표한다.
+종종 모집단에 있는 모든 사례에 대한 데이터를 수집하는 것은 비용이 너무 많이 든다.
+대신에, 표본을 수집한다. \term{표본}은 사례의 일부이며 종종 모집단의 작은 일부분이다.
+예를 들어, 모집단에서 청새치 60 마리 (혹은 다른 숫자)가 선택되면 표본 데이터를 사용해서 모집단 평균을 추정하고 연구문제에 답을 구한다.
+
 
 \begin{exercise} \label{identifyingThePopulationForTwoQuestionsInPopAndSampSubsection}
-For the second and third questions above, identify the target population and what represents an individual case.\footnote{(\ref{timeToGraduationQuestionForUCLAStudents}) Notice that the first question is only relevant to students who complete their degree; the average cannot be computed using a student who never finished her degree. Thus, only Duke undergraduate students who have graduated in the last five years represent cases in the population under consideration. Each such student would represent an individual case. (\ref{identifyPopulationOfStentStudy}) A person with severe heart disease represents a case. The population includes all people with severe heart disease.}
+상기 두번째 세번째 문제 대해서, 목표 모집단과 개별 사례가 나타내는 것을 식별하세요.
+\footnote{(\ref{timeToGraduationQuestionForUCLAStudents}) 
+두번째 질문은 단지 학위를 마친 대학생에게만 관련됨에 주목한다; 학위를 끝마치지 못한 대학생 정보를 사용해서 평균을 계산할 수 없다.
+그래서 단지 지난 5년간 졸업한 대학생만이 고려중인 모집단에 사례를 대표하게 된다.
+그런 대학생만  개별 사례를 대표하게 된다. (\ref{identifyPopulationOfStentStudy}) 
+심각한 심장 질환을 가진 환자가 사례를 대표하게 된다. 모집단에는 심각한 심장 질환을 갖는 모든 환자가 포함된다.}
 \end{exercise}
 
 
-\subsection{Anecdotal evidence}
+\subsection{일화적 증거(Anecdotal evidence)}
 \label{anecdotalEvidenceSubsection}
 
-Consider the following possible responses to the three research questions:
+상기 세가지 연구문제에 대한 가능한 응답을 생각해보자:
+
 \begin{enumerate}
-\item A man on the news got mercury poisoning from eating swordfish, so the average mercury concentration in swordfish must be dangerously high.
-\item\label{iKnowThreeStudentsWhoTookMoreThan7YearsToGraduateAtDuke} I met two students who took more than 7 years to graduate from Duke, so it must take longer to graduate at Duke than at many other colleges.
-\item\label{myFriendsDadDiedAfterSulphinpyrazon} My friend's dad had a heart attack and died after they gave him a new heart disease drug, so the drug must not work.
+\item 청새치를 먹어서 수은에 중독된 뉴스에 한 남자가 나왔다. 그래서 청새치에 평균 수은 함량은 치명적으로 매우 높음에 틀림없다.
+
+\item\label{iKnowThreeStudentsWhoTookMoreThan7YearsToGraduateAtDuke} 
+저자가 듀크 대학을 졸업하는데 7년 이상 걸린 두 대학원생을 만났다. 그래서 다른 대학보다 듀크 대학을 졸업하는데 더 오래 걸림이 틀림없다.
+\item\label{myFriendsDadDiedAfterSulphinpyrazon} 
+내 친구 아버지가 심장마비가 생겼고, 새로운 심장질환 약을 처방받은 후에 돌아가셨다. 그래서 신약은 약효가 없음에 틀림없다.
 \end{enumerate}
-Each conclusion is based on data. However, there are two problems. First, the data only represent one or two cases. Second, and more importantly, it is unclear whether these cases are actually representative of the population. Data collected in this haphazard fashion are called \term{anecdotal evidence}.
+
+결론 각각은 데이터에 기반하고 있다. 하지만, 두가지 문제점이 있다.
+첫째, 데이터가 단지 하나 혹은 두가지 사례만 대표한다.
+둘째, 그리고 좀더 중요하게 해당 사례가 모집단을 실제 대표하는지 명확하지가 않다.
+이러한 무계획적인 방식으로 수집된 데이터를 \term{일화적 증거}라고 부른다.
 
 \setlength{\captionwidth}{\textwidth-80mm}
 \begin{figure}
 \centering
 \hspace{8mm}\includegraphics[width=55mm]{ch_intro_to_data/figures/mnWinter/mnWinter}\hspace{4mm}
 \begin{minipage}[b]{\textwidth - 80mm}
-   \caption[anecdotal evidence]{In February 2010, some media pundits cited one large snow storm as valid evidence against global warming. As comedian Jon Stewart pointed out, ``It's one storm, in one region, of one country.''
+   \caption[anecdotal evidence]{
+   2010년 2월 일부 미디어 전문가가 나서서 대형 눈폭풍 하나를 지구 온난화에 대한 적법한 증거로 인용했다.
+   코메디언 존 스튜워트(Jon Stweart)는 ``특정 군에 한 지역에 폭풍 하나." 라는 점을 지적했다.
    \label{mnWinter}}
 \end{minipage}
 \end{figure}
 \setlength{\captionwidth}{\mycaptionwidth}
 
-\begin{termBox}{\tBoxTitle{Anecdotal evidence}
-Be careful of data collected in a haphazard fashion. Such evidence may be true and verifiable, but it may only represent extraordinary cases.}
+\begin{termBox}{\tBoxTitle{일화적 증거}
+무계획적인 방식으로 수집된 데이터에 주의하라. 그러한 증거는 사실이고 입증할 수 있지만, 흔치 않은 사례만 대표할 수 있다.}
 \end{termBox}
 
-Anecdotal evidence typically is composed of unusual cases that we recall based on their striking characteristics. For instance, we are more likely to remember the two people we met who took 7 years to graduate than the six others who graduated in four years. Instead of looking at the most unusual cases, we should examine a sample of many cases that represent the population.
+일화적 증거는 통상 흔치 않는 사례로 구성되는데, 두드러진 특성에 기반해서 회상되는 것이다.
+예를 들어, 4년만에 졸업한 학생 6명보다 7년 걸려 졸업한 두명을 좀더 기억할 듯 하다.
+가장 특이한 사례를 살펴보는 대신에, 모집단을 대표하는 많은 표본 사례를 조사해야 한다.
 
-\subsection{Sampling from a population}
+\subsection{모집단으로부터 표본추출}
 
-\index{sample!random sample|(}
+\index{표본!임의 표본|(}
 
-We might try to estimate the time to graduation for Duke undergraduates in the last 5 years by collecting a sample of students. All graduates in the last 5 years represent the \emph{population}\index{population}, and graduates who are selected for review are collectively called the \emph{sample}\index{sample}. In general, we always seek to \emph{randomly} select a sample from a population. The most basic type of random selection is equivalent to how raffles are conducted. For example, in selecting graduates, we could write each graduate's name on a raffle ticket and draw 100 tickets. The selected names would represent a random sample of 100 graduates.
+대학생 표본을 수집해서 지난 5년간 듀크 대학생에 대한 졸업기간을 추정해보자.
+지난 5년간 모든 졸업생이 \emph{모집단}\index{모집단}을 대표하고, 검토를 위해서 선정된 대학생을
+총괄해서 \emph{표본}\index{표본}이라고 부른다.
+일반적으로 항상 모집단에서 표본을 \emph{무작위로(randomly)} 선택하려고 한다.
+가장 기본적인 임의 표본 선정 유형은 추첨 진행방식과 동등하다.
+예를 들어, 대학생을 선택할 때 추첨표에 각 학생 이름을 적고 100 장을 뽑는다.
+뽑힌 이름이 무작위로 추출한 학생 100명 표본을 대표한다.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.47\textwidth]{ch_intro_to_data/figures/popToSample/popToSampleGraduates}
-\caption{In this graphic, five graduates are randomly selected from the population to be included in the sample.}
+\caption{상기 도표에서, 졸업생 5명이 모집단에서 무작위로 뽑혀 표본에 포함된다.}
 \label{popToSampleGraduates}
 \end{figure}
 
-Why pick a sample randomly? Why not just pick a sample by hand? Consider the following scenario.
+표본을 왜 무작위로 뽑을까요? 손으로 표본을 뽑으면 안되나요? 다음 시나리오를 생각해보자.
 
-\begin{example}{Suppose we ask a student who happens to be majoring in nutrition to select several graduates for the study. What kind of students do you think she might collect? Do you think her sample would be representative of all graduates?}
-Perhaps she would pick a disproportionate number of graduates from health-related fields. Or perhaps her selection would be well-representative of the population. When selecting samples by hand, we run the risk of picking a \emph{biased} sample, even if that bias is unintentional or difficult to discern.
+\begin{example}{우연히 영양학을 전공하는 학생에게 연구조사를 위해서 졸업생 몇명을 선정해 달라고 요청한다고 가정하자.
+본인이 판단하기에 어떤 학생 유형을 선정할 것 같은가? 이러한 표본이 모든 졸업생을 대표할 것으로 생각합니까?}
+아마도, 건강과 연관된 전공분야에서 균형이 맞지 않는 숫자의 졸업생을 선택할 것이다.
+혹은 아마도 모집단을 잘 대표하게 표본을 추출할 수도 있다.
+설사 해당 \emph{편의(biased)}가 의도적이지 않거나 식별하기 어렵더라도  수작업으로 표본을 추출할 때, \emph{편의(biased)}된 표본을 추출할 위험을 감수하게 된다.
 \end{example}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.47\textwidth]{ch_intro_to_data/figures/popToSample/popToSubSampleGraduates}
-\caption{Instead of sampling from all graduates equally, a nutrition major might inadvertently pick graduates with health-related majors disproportionately often.}
+\caption{동일하게 모든 졸업생으로부터 표본을 추출하는 대신에, 영양학 전공 학생은 우연히 건강 관련 전공자를 불균형하게 표본으로 추출할 수 있다.}
 \label{popToSubSampleGraduates}
 \end{figure}
 
-If someone was permitted to pick and choose exactly which graduates were included in the sample, it is entirely possible that the sample could be skewed to that person's interests, which may be entirely unintentional. This introduces \term{bias} into a sample. Sampling randomly helps resolve this problem. The most basic random sample is called a \term{simple random sample}, and which is equivalent to using a raffle to select cases. This means that each case in the population has an equal chance of being included and there is no implied connection between the cases in the sample.
+만약 누군가 표본에 어떤 졸업생이 포함되어야 하는지 정확하게 선택해서 뽑을 수 있다면, 표본이 해당 사람의 관심에 치우치는 것도 완전히 가능한데, 이것은 완전히 고의가 아닐 수 있다. 이렇게 하면 표본에 \term{편의}가 들어오게 된다. 무작위 표본추출은 이러한 문제를 푸는데 도움이 된다. 가장 기본적인 임의표본은  \term{단순 임의 표본}으로 불리며 사례를 선택하는데 추첨표를 사용하는 것과 동등하다.
+모집단 각 사례는 표본에 포함될 동일한 확률을 갖고 표본에 있는 사례간에는 어떤 암묵적인 연관관계도 없다는 것을 의미한다.
 
-\APVersion{Sometimes a simple random sample is difficult to implement and an alternative method is helpful. One such substitute is a \term{systematic sample}, where one case is sampled after letting a fixed number of others, say 10 other cases, pass by. Since this approach uses a mechanism that is not easily subject to personal biases, it often yields a reasonably representative sample. This book will focus on random samples since the use of systematic samples is uncommon and requires additional considerations of the context.}{}
+\APVersion{종종 단순임의표본을 구현이 어려워서 대체 방법이 도움이 된다.
+\term{계통 추출법}이 한 대체법이 되고, 고정된 숫자 예를 들어 매번 10번째 사례 마다 표본을 추출한다.
+이러한 접근법은 쉽게 사람으로 인한 편의에 노출되지 않는 매커니즘을 사용하기 때문에, 
+종종 상당한 대표성을 갖는 표본을 산출한다. 
+이 책은 표본 추출에만 집중하는데 계통추출법을 사용하는 것은 일반적이지 않고, 문맥에 따른 부가적인 고려가 필요하기 때문이다.}{}
 
-The act of taking a simple random sample helps minimize bias, however, bias can crop up in other ways.
-Even when people are picked at random, e.g. for surveys, caution must be exercised if the \term{non-response} \index{sample!non-response|textbf} is high. For instance, if only 30\% of the people randomly sampled for a survey actually respond, then it is unclear whether the results are \term{representative} of the entire population. This \term{non-response bias} \index{sample!non-response bias|textbf} can skew results.
+단순임의표본을 취하는 행위가 편의를 최소화하는데 도움을 주지만, 편의는 다른 방식으로 불쑥 나타난다.
+예를 들어 설문조사를 위해 사람을 임의로 뽑을 때 조차도, \term{무응답} \index{표본!무응답|textbf}이 높다면 주의를 기울여야 한다.
+예를 들어, 설문조사에 무작위로 뽑힌 30\% 사라만 응답했다면,
+결과가 전체 모집단에 \term{대표성}을 갖는지 명확하지 않다. 이러한 \term{무응답 편의} \index{표본!무응답 편의|textbf}가 결과를 
+왜곡할 수 있다.
 
 \begin{figure}[h]
 \centering
