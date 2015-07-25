@@ -4,6 +4,7 @@
 \usepackage[usenames,dvipsnames]{color}  
 \usepackage[hangul]{kotex}
 \kscntformat{chapter}{}{~장}
+
 %\newcommand{\href}[2]{#2} \newcommand{\url}[1]{#1} \newcommand{\urlstyle}[1]{}
 \include{extraTeX/style/colorsV1}
 
@@ -13,7 +14,8 @@
 % _____ Print Version _____ %
 %\definecolor{oiB}{rgb}{0,0,0}\usepackage[colorlinks=false,pdfborder={0 0 0},urlcolor= black,colorlinks=black,linkcolor=black, citecolor=black,backref=true]{hyperref}
 
-\usepackage[style=authortitle-ibid, maxnames=2,natbib=true,sortcites=true,block=space,backend=bibtex]{biblatex}
+%\usepackage[style=authortitle-ibid, maxnames=2,natbib=true,sortcites=true,block=space,backend=bibtex]{biblatex}
+\usepackage[style=authortitle-ibid, maxnames=2,natbib=true,sortcites=true,block=space,backend=biber, bibencoding=utf8]{biblatex}
 \bibliography{eoce.bib}
 
 \makeindex

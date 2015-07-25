@@ -709,38 +709,62 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 \end{example}
 
 
-
-In a \termsub{cluster sample}{sample!cluster sample}, we break up the population into many groups, called \termsub{clusters}{sample!cluster}. Then we sample a fixed number of clusters and include all observations from each of those clusters in the sample. A \termsub{multistage sample}{sample!multistage sample} is like a cluster sample, but rather than keeping all observations in each cluster, we collect a random sample within each selected cluster. %Multistage sampling is similar to stratified sampling in its process, except that stratified sampling requires observations be sampled from \emph{every} stratum.
+\termsub{군집표본}{표본!군집표본}에서, 모집단을 \termsub{군집}{표본!군집}으로 불리는 다수 집단으로 쪼갠다.
+그리고 나서, 정행진 군집수를 표집하고 표본에는 각 군집으로부터 모든 관측점을 포함한다.
+\termsub{다단계 표본}{표본!다단계 표본}은 군집표본과 같지만, 각 군집에 모든 관측점을 선택하기 보다는
+선택된 각 군집내부에서 임의 표본을 추출한다. %Multistage sampling is similar to stratified sampling in its process, except that stratified sampling requires observations be sampled from \emph{every} stratum.
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ch_intro_to_data/figures/samplingMethodsFigure/cluster_multistage}
-\caption{Examples of cluster\index{sample!cluster sampling} and multistage sampling\index{sample!multistage sampling}. In the top panel, cluster sampling was used. Here, data were binned into nine clusters, three of these clusters were sampled, and all observations within these three cluster were included in the sample. In the bottom panel, multistage sampling was used.
-It differs from cluster sampling in that of the clusters selected, we randomly select a subset of each cluster to be included in the sample.}
+\caption{
+군집표집\index{표본!군집 표집}과 다단계표집\index{표본!다단계 표집} 예제.
+상단 그림에서 군집표집이 사용되었다. 여기서 데이터가 9개 군집으로 나누고, 이 군집중에서 세개를 표본으로 선택했고,
+세 군집에 있는 모든 관측점이 최종표본에 포함됐다. 
+아래 그림에서 다단계표집이 사용되었다.
+선택된 군집중에서 최종 표본에 포함되려면 각 군집의 일부를 무작위로 선택한다는 면에서 군집표집과 다르다.}
 \label{cluster_multistage}
 \end{figure}
 
-Sometimes cluster or multistage sampling can be more economical than the alternative sampling techniques. Also, unlike stratified sampling, these approaches are most helpful when there is a lot of case-to-case variability within a cluster but the clusters themselves don't look very different from one another. For example, if neighborhoods represented clusters, then cluster or multistage sampling work best when the neighborhoods are very diverse. A downside of these methods is that more advanced analysis techniques are typically required, though the methods in this book can be extended to handle such data.
+때때로, 군집표집과 다단계표집이 대안 표집기법보다 더 경제적일 수 있다.
+또한, 층화표집과 달리, 군집 내부에 사례마다 변동성이 상당하지만, 근집 자체는 다른 것과 그다지 차이가 없을 때 이러한 접근법이 가장 도움이 된다. 예를 들어, 만약 이웃이 군집을 대표한다면, 군집 혹은 다단계 표집은 이웃이 매우 다양할 때 가장 잘 동작한다.
+설사 이책에 방법을 확장할 수는 있지만, 이러한 방법의 단점은 일반적으로 좀더 고급 분석기법이 요구된다는 점이다.
 
-\begin{example}{Suppose we are interested in estimating the malaria rate in a densely tropical portion of rural Indonesia. We learn that there are 30 villages in that part of the Indonesian jungle, each more or less similar to the next. Our goal is to test 150 individuals for malaria. What sampling method should be employed?}
-A simple random sample would likely draw individuals from all 30 villages, which could make data collection extremely expensive. Stratified sampling would be a challenge since it is unclear how we would build strata of similar individuals. However, cluster sampling or multistage sampling seem like very good ideas. If we decided to use multistage sampling, we might randomly select half of the villages, then randomly select 10 people from each. This would probably reduce our data collection costs substantially in comparison to a simple random sample, and this approach would still give us reliable information.
+\begin{example}{인도네시아 농촌 열대 밀림지역에 말라리아 발병율을 추정하는데 관심이 있다고 가정하자.
+해당 인도네시아 정글 지역에 마을이 30개가 있는데, 각 마을을 옆 마을과 유사하다는 것을 알게되었다.
+목적은 말라리아에 대해 150 명을 테스트하는 것이다. 어떠한 표집방법이 적용되어야 하는가?}
+단순임의표본은 모든 30개 마을에서 개인 표본을 뽑을 듯 한데 데이터 수집에 비용이 엄청 많이 들 수 있다.
+층화표집은 도전과제가 될 수 있는데 유사한 개인을 층화하는 방법이 명확하지 않다.
+하지만, 군집표집 혹은 다단계표집은 매우 좋은 아이디어처럼 보인다.
+만약 다단계표집을 사용하기로 결정한다면, 무작위로 마을 반을 선택하고 나서 각 마을마다 10명을 무작으로 선택한다.
+이렇게 하면 아마도 단순임의표본과 비교해서 데이터 수집 비용이 상당히 줄 수 있으면서도 여전히 신뢰성 있는 정보를 줄 것이다.
 \end{example}
 
 
 %%%%%
-\section[Experiments]{Experiments \sectionvideohref{youtube-g7JGe_ykB3I&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[실험]{Experiments \sectionvideohref{youtube-g7JGe_ykB3I&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{experimentsSection}
 
-Studies where the researchers assign treatments to cases are called \termsub{experiments}{experiment}. When this assignment includes randomization, e.g.~using a coin flip to decide which treatment a patient receives, it is called a \term{randomized experiment}. Randomized experiments are fundamentally important when trying to show a causal connection between two variables.
+연구원이 처리(treatment)를 사례에 배정하는 연구를 \termsub{실험}{experiment}이라고 부른다.
+이러한 배정에 임의화(randomization)가 포함될 때, 예를 들어 동전을 던져 환자가 어떤 처리를 받을지 결정하는 것같은,
+\term{임의화 실험(randomized experiment)}이라고 부른다. 두 변수 사이에 인과관계를 보여주려고 할 때 임의화 실험은 근본적으로 중요하다.
 
-\subsection{Principles of experimental design}
+\subsection{실험계획의 원칙}
 \label{experimentalDesignPrinciples}
 
-Randomized experiments are generally built on four principles.
+임의화 실험은 일반적으로 네가지 원칙 아래 구성된다.
+
 \begin{description}
-\item[Controlling.] Researchers assign treatments to cases, and they do their best to \term{control} any other differences in the groups. For example, when patients take a drug in pill form, some patients take the pill with only a sip of water while others may have it with an entire glass of water. To control for the effect of water consumption, a doctor may ask all patients to drink a 12 ounce glass of water with the pill.
-\item[Randomization.] Researchers randomize patients into treatment groups to account for variables that cannot be controlled. For example, some patients may be more susceptible to a disease than others due to their dietary habits. Randomizing patients into the treatment or control group helps even out such differences, and it also prevents accidental bias from entering the study.
-\item[Replication.] The more cases researchers observe, the more accurately they can estimate the effect of the explanatory variable on the response. In a single study, we \term{replicate} by collecting a sufficiently large sample. Additionally, a group of scientists may replicate an entire study to verify an earlier finding.
+\item[제어(Controlling).] 
+연구원이 처리를 사례에 배정하고 집단에 다른 어떤 차이도 \term{제어}하기 위해서 최선을 다한다.
+예를 들어, 환자가 알약형태 약을 복용할 때, 일부 환자는 약을 물 조금과 함께 복용하고, 다른 환자는 약을 가득찬 물 한잔과 함께 복용할 수 있다. 물 소비 효과를 제어하기 위해서, 의사가 모든 환자에게 약과 12 온스 물 한잔만 복용하도록 할 수 있다.
+\item[임의화(Randomization).] 
+제어할 수 없는 변수를 설명하기 위해서, 연구원이 처리집단에 환자를 임의화한다.
+예를 들어, 일부 환자는 다른 환자보다 식습관 덕분에 질병에 더 걸리기 쉬울 수 있다.
+환자를 처리집단과 대조집단으로 임의화하면 그러한 차이를 균등하게 할 수 있고 우연적 편향이 연구에 들어오지 못하게도 한다.
+\item[반복(Replication).] 
+연구원이 더 많은 사례를 관측하면 할수록, 반응변수에 설명변수 효과를 좀더 정확하게 추정할 수 있다.
+단일 연구에서 충분히 큰 표본을 수집해서 \term{반복}한다. 추가적으로, 한 무리 과학자가 전체 연구를 반복해서 이전 연구결과를 확인한다.
 
 \begin{figure}
 \centering
@@ -749,10 +773,18 @@ Randomized experiments are generally built on four principles.
 \label{figureShowingBlocking}
 \end{figure}
 
-\item[Blocking.] Researchers sometimes know or suspect that variables, other than the treatment, influence the response. Under these circumstances, they may first group individuals based on this variable into \term{blocks} and then randomize cases within each block to the treatment groups. This strategy is often referred to as \term{blocking}. For instance, if we are looking at the effect of a drug on heart attacks, we might first split patients in the study into low-risk and high-risk blocks, then randomly assign half the patients from each block to the control group and the other half to the treatment group, as shown in Figure~\ref{figureShowingBlocking}. This strategy ensures each treatment group has an equal number of low-risk and high-risk patients.
+\item[블로킹(Blocking).] 
+종종 연구원이 처리가 아닌 다른 변수가 반응에 영황을 준다고 알고 있거나 의구심을 갖고 있을 수 있다.
+이러한 상황에서, 먼저 개인을 이 변수에 기반해서 \term{블록}으로 무리짓고 나서 처리 집단에 각 블록내부에서 사례를 확률화한다.
+이 전략은 종종 \term{블로킹}으로 불린다. 예를 들어,
+만약 심장마비에 대한 약효를 살펴본다면, 먼저 연구에 환자를 저위험 블록과 고위험 블록으로 나누고 나서 
+그림~\ref{figureShowingBlocking}에 나와있듯이, 무작위로 각 블록에서 환자 절반을 대조집단에 다른 환자 절반을 치료집단에 배정한다.
+이 전략은 각 처리집단에 동일한 숫자의 저위험과 고위험 환자를 갖도록 확실히 한다.
 \end{description}
 
-It is important to incorporate the first three experimental design principles into any study, and this book describes applicable methods for analyzing data from such experiments. Blocking is a slightly more advanced technique, and statistical methods in this book may be extended to analyze data collected using blocking.
+첫 세가지 실험계획 원칙을 어떤 연구에도 포함하는 것이 중요하다.
+이 책에서는 그런 실험에서 나온 데이터를 분석하는데 적용가능한 방법을 기술한다.
+블로킹은 다소 좀더 고급 기법으로 이 책에 나온 통계적 방법을 확장해서 블로킹을 사용해 수집된 자료를 분석한다.
 
 \subsection{Reducing bias in human experiments}
 \label{biasInHumanExperiments}
