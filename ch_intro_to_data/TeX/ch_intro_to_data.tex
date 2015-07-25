@@ -649,33 +649,66 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 동일한 방식으로, \data{county} 데이터셋은 교락변수를 갖는 관측연구다. 그리고 인과결론을 도출하는데 데이터가 쉽게 사용될 수는 없다.
 
 \begin{exercise}
-Figure~\ref{multiunitsVsOwnership} shows a negative association between the homeownership rate and the percentage of multi-unit structures in a county. However, it is unreasonable to conclude that there is a causal relationship between the two variables. Suggest one or more other variables that might explain the relationship visible in Figure~\ref{multiunitsVsOwnership}.\footnote{Answers will vary. Population density may be important. If a county is very dense, then this may require a larger fraction of residents to live in multi-unit structures. Additionally, the high density may contribute to increases in property value, making homeownership infeasible for many residents.}
+그림~\ref{multiunitsVsOwnership}에 자가소유비율과 다가구 건축물 비율 사이에 부의 연관성이 보인다.
+하지만, 두 변수 사이에 인과관계가 존재한다고 결론 내리는 것은 합리적이지 못하다.
+그림~\ref{multiunitsVsOwnership}에 나타난 시각적 관계를 설명하는 하나 혹은 그 이상 다른 변수를 제시하세요}.
+\footnote{정답은 다양하다. 인구밀도가 중요할 수도 있다. 만약 특정 군이 매우 밀도가 높다면, 주민 상당수가 다가구 건축물에 살아야만 된다. 부가적으로 높은 밀도는 부동산 가치를 높여서 다수 주민이 자가소유건물을 갖지 못하게 할 것 같다.}
 \end{exercise}
 
-Observational studies come in two forms: prospective and retrospective studies. A \term{prospective study} identifies individuals and collects information as events unfold. For instance, medical researchers may identify and follow a group of similar individuals over many years to assess the possible influences of behavior on cancer risk. One example of such a study is The Nurses' Health Study, started in 1976 and expanded in 1989.\footnote{\oiRedirect{textbook-channing_nurse_study}{www.channing.harvard.edu/nhs}} This prospective study recruits registered nurses and then collects data from them using questionnaires. \termsub{Retrospective studies}{retrospective studies} collect data after events have taken place, e.g. researchers may review past events in medical records. Some data sets, such as \data{county}, may contain both prospectively- and retrospectively-collected variables. Local governments prospectively collect some variables as events unfolded (e.g. retails sales) while the federal government retrospectively collected others during the 2010 census (e.g. county population counts).
+관측연구는 두가지 형태가 있다: 전향적 연구(prospective studies)와 후향적 연구(retrospective studies).
+\term{전향적 연구}는 개인을 식별하고 사건이 진행됨에 따라 정보를 수집해 나간다.
+예를 들어, 의학 연구원은 수년간에 걸쳐 한 집단의 유사한 개인을 식별하고 추적하여 암위험에 있어 행동의 가능한 영향을 평가한다.
+이러한 유형을 갖는 연구 한 사례가 간호사 건강연구(The Nurses' Health Study)로 1976년 시작해서 1989년까지 진행되었다.\footnote{\oiRedirect{textbook-channing_nurse_study}{www.channing.harvard.edu/nhs}} 
+이 전향연구는 등록된 간호사를 모집하고 나서 설문지를 사용해서 데이터를 수집했다.
+\termsub{후향적 연구}{retrospective studies}는 사건이 발생한 후에 데이터를 수집한다. 즉,
+연구원이 의료기록을 통해서 지난 사건을 검토할 수 있다. \data{county} 같은 일부 데이터는 전향적 이며 후향적 방식으로 시집된 변수를 모두 포함하고 있다. 지방정부는 전향적으로 사건이 전개되어가면 일부 변수를 수집(예를 들어, 소매)하는 반면에,
+연방정부는 후향적으로 2010년 인구총조사 기간동안 다른 변수를 수집했다 (예를 들어, 군 인구).
 
-\subsection{Four sampling methods (special topic)}
+\subsection{네가지 표집 방법 (특별 주제)}
 \label{fourSamplingMethods}
 \label{threeSamplingMethods}
 
-Almost all statistical methods are based on the notion of implied randomness. If observational data are not collected in a random framework from a population, these statistical methods -- the estimates and errors associated with the estimates -- are not reliable. Here we consider four random sampling techniques: simple, stratified, cluster, and multistage sampling. Figures~\ref{simple_stratified} and~\ref{cluster_multistage} provide graphical representations of these techniques.
+거의 모든 통계적 방법은 암묵적 임의성(implied randomness) 개념에 기초하고 있다.
+만약 관측된 데이터가 모집단으로부터 임의 구조 아래에서 수집되지 않는다면,
+이런 통계적 방법-- 추정값와 추정값과 연관된 오차 --은 신뢰성이 없다.
+여기서 네가지 임의 표본추출 기법을 고려한다: 단순표집(simple), 층화표집(stratified), 군집표집(cluster), 다단계표집(multistage).
+ 그림~\ref{simple_stratified}와 ~\ref{cluster_multistage}에 네가지 기법을 시각적으로 표현했다.
+
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ch_intro_to_data/figures/samplingMethodsFigure/simple_stratified}
-\caption{Examples of simple random\index{sample!simple random sampling} and stratified sampling\index{sample!stratified sampling}. In the top panel, simple random sampling was used to randomly select the 18 cases. In the bottom panel, stratified sampling was used: cases were grouped into strata, then simple random sampling was employed within \mbox{each stratum}.}
+\caption{단순임의표집\index{표본!단순임의표집}과 층화표집\index{표본!층화표집} 예제. 상단 그림에서는 단순임의표집을 사용해서 18개 사례를 임의로 뽑았다.
+하단 그림에서는 층화표집이 사용되었다: 사례를 층(strata)으로 그룹으로 만들고 나서 \mbox{각 층}마다 내부적으로 단순임의표집을 사용했다.}
 \label{simple_stratified}
 \end{figure}
 
-\termsub{Simple random sampling}{sample!simple random sampling} is probably the most intuitive form of random sampling. Consider the salaries of Major League Baseball (MLB) players, where each player is a member of one of the league's 30 teams. To take a simple random sample of 120 baseball players and their salaries from the 2010 season, we could write the names of that season's 828 players onto slips of paper, drop the slips into a bucket, shake the bucket around until we are sure the names are all mixed up, then draw out slips until we have the sample of 120 players. In general, a sample is referred to as ``simple random'' if each case in the population has an equal chance of being included in the final sample \emph{and} knowing that a case is included in a sample does not provide useful information about which other cases are included.
+\termsub{단순임의표집}{표본!단순임의보집}은 아마도 가장 직관적인 임의추출방법이다.
+메이저 리그 야구(Major League Baseball, MLB) 선수 연봉을 생각해보자.
+여기서 선수 각각은 리그에 속한 30개팀 중 한팀의 일원이다.
+야구선수 120명을 임의 표본으로 뽑아 2010 시즌 연봉 정보를 수집하려면,
+제비쪽지에 해당 시즌 야구선수 828명 명단을 적고, 뽑기함에 제비쪽지를 넣고, 선수명단이 잘 섞일 때까지 뽑기함을 흔들고 나서
+표본 야구선수 120명을 뽑을 때까지 제비뽑기를 진행한다.
+일반적으로, 만약 모집단에서 사례 각각이 최종 표본에 포함될 동일한 확률을 \emph{갖고} 특정 사례가 표본에 포함된다는 것을 아는 것이 어떤 다른 사례가 포함될지에 관한 유용한 정보를 제공하지 않는다면, 해당 표본을 ``단순임의표본(simple random sample)''이라고 부른다.
 
-\termsub{Stratified sampling}{sample!stratified sampling} is a divide-and-conquer sampling strategy. The population is divided into groups called \term{strata}\index{sample!strata|textbf}. The strata are chosen so that similar cases are grouped together, then a second sampling method, usually simple random sampling, is employed within each stratum. In the baseball salary example, the teams could represent the strata, since some teams have a lot more money (up to 4~times as much!). Then we might randomly sample 4 players from each team for a total of 120 players.
 
-Stratified sampling is especially useful when the cases in each stratum are very similar with respect to the outcome of interest. The downside is that analyzing data from a stratified sample is a more complex task than analyzing data from a simple random sample. The analysis methods introduced in this book would need to be extended to analyze data collected using stratified sampling.
+\termsub{층화표집}{표본!층화표집}은 분할정복(divide and conquer) 표집 전략이다.
+모집단을 \term{층}\index{표본!층|textbf}으로 불리는 집단으로 분할한다.
+층은 유사한 사례를 함께 무리짓고 나서, 두번째 표집 방법, 일반적으로 단순임의표집을 각 층에 사용한다.
+프로야구 연봉 예제에서, 팀이 층을 대표할 수 있다. 왜냐하면 일부 팀이 돈을 많이 갖고 있기 때문이다(최대 4배).
+그러면, 무작위로 각 팀마다 선수 4명을 임의로 추출하여 전체 120명을 뽑을 수 있다.
 
-\begin{example}{Why would it be good for cases within each stratum to be very similar?}
-We might get a more stable estimate for the subpopulation in a stratum if the cases are very similar. These improved estimates for each subpopulation will help us build a reliable estimate for the full population.
+
+층화표집이 특히 유용할 때는 각 층에 사례가 관심있는 결과에 비추어 매우 유사할 때다.
+단점은 층화표본 데이터를 분석하는 것이 단순임의표본에서 나온 데이터를 분석하는 것보다 더 복잡한 작업이라는 것이다.
+층화표집을 사용해서 수집된 데이터를 분석하기 위해서는 이 책에서 소개된 분석 방법을 확장될 필요가 있다.
+
+\begin{example}{각 층 내부에 사례를 매우 유사하게 만드는 것이 왜 좋을까?}
+만약 사례가 매우 유사하다면, 층내 하위모집단에 대해서 좀더 안정된 추정값을 얻을 수 있다.
+각 하위모집단에 대한 이러한 향상된 추정값을 통해 전체 모집단에 대한 신뢰성있는 추정값을 만들어 낼 수 있다.
 \end{example}
+
+
 
 In a \termsub{cluster sample}{sample!cluster sample}, we break up the population into many groups, called \termsub{clusters}{sample!cluster}. Then we sample a fixed number of clusters and include all observations from each of those clusters in the sample. A \termsub{multistage sample}{sample!multistage sample} is like a cluster sample, but rather than keeping all observations in each cluster, we collect a random sample within each selected cluster. %Multistage sampling is similar to stratified sampling in its process, except that stratified sampling requires observations be sampled from \emph{every} stratum.
 
