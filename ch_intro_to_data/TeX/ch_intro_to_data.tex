@@ -1,3 +1,5 @@
+% The values have been rounded to the nearest 2,000 in this plot., 12,000 Figure 1.20 29 Page
+
 \chapter{데이터 소개}
 \label{introductionToData}
 
@@ -769,7 +771,9 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 \begin{figure}
 \centering
 \includegraphics[width=0.78\textwidth]{ch_intro_to_data/figures/figureShowingBlocking/figureShowingBlocking}
-\caption{Blocking using a variable depicting patient risk. Patients are first divided into low-risk and high-risk blocks, then each block is evenly separated into the treatment groups using randomization. This strategy ensures an equal representation of patients in each treatment group from both the low-risk and high-risk categories.}
+\caption{환자위험을 묘사하는 변수를 사용한 블로킹.
+환자가 먼저 저위험 블록과 고위험 불록을 나누고 나서, 각 블록은 임의화를 사용해서 공평하게 처리집단으로 분리된다.
+이 전략은 고위험과 저위험 범주 모두로부터 각 처리집단에 동일한 환자 대표성을 갖도록 확실히 한다.}
 \label{figureShowingBlocking}
 \end{figure}
 
@@ -786,199 +790,306 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 이 책에서는 그런 실험에서 나온 데이터를 분석하는데 적용가능한 방법을 기술한다.
 블로킹은 다소 좀더 고급 기법으로 이 책에 나온 통계적 방법을 확장해서 블로킹을 사용해 수집된 자료를 분석한다.
 
-\subsection{Reducing bias in human experiments}
+\subsection{인간 실험에 편향 줄이기}
 \label{biasInHumanExperiments}
 
-Randomized experiments are the gold standard for data collection, but they do not ensure an unbiased perspective into the cause and effect relationships in all cases. Human studies are perfect examples where bias can unintentionally arise. Here we reconsider a study where a new drug was used to treat heart attack patients.\footnote{Anturane Reinfarction Trial Research Group. 1980. Sulfinpyrazone in the prevention of sudden death after myocardial infarction. New England Journal of Medicine 302(5):250-256.} In particular, researchers wanted to know if the drug reduced deaths in patients.
+임의화 실험이 데이터 수집에 대한 황금률이지만, 모든 사례에 불편향 측면을 인관관계에 보장하지는 못한다.
+인간 실험이 완벽한 예제로서 편향이 의도하지 않았는데 일어날 수 있다.
+심장마비 환자를 처리하는데 신약을 사용한 연구를 다시 생각해보자.\footnote{Anturane Reinfarction Trial Research Group. 1980. Sulfinpyrazone in the prevention of sudden death after myocardial infarction. New England Journal of Medicine 302(5):250-256.}
+특히 연구원은 신약이 환자 사망률을 줄였는지 알고자 한다.
 
-These researchers designed a randomized experiment because they wanted to draw causal conclusions about the drug's effect. Study volunteers\footnote{Human subjects are often called \term{patients}, \term{volunteers}, or \term{study participants}.} were randomly placed into two study groups. One group, the \term{treatment group}, received the drug. The other group, called the \term{control group}, did not receive any drug treatment.
+해당 연구원은 임의화 실험을 설계하는데 신약 효과에 관한 인과관계를 도출하고자 하기 때문이다.
+연구 지원자\footnote{인체 실험대상은 종종 \term{환자}, \term{지원자}, \term{연구 참여자}라고 불린다.}를 두 연구집단에 임의로 나누어 배치한다. 한 집단, \term{처리집단}은 신약을 처방받는다. 다른 집단, \term{대조집단}은 어떤 신약 처방도 받지 않는다.
 
-Put yourself in the place of a person in the study. If you are in the treatment group, you are given a fancy new drug that you anticipate will help you. On the other hand, a person in the other group doesn't receive the drug and sits idly, hoping her participation doesn't increase her risk of death. These perspectives suggest there are actually two effects: the one of interest is the effectiveness of the drug, and the second is an emotional effect that is difficult to quantify.
+연구에서 참여자 위치에 본인을 투영해보라.
+만약 본인이 처리집단에 있다면, 도움이 기대되는 멋진 신약을 처방받을 것이다.
+다른 한편으로, 또다른 집단에 있는 참여자는 신약을 받지 못하고 놀면서 기다리는데 다만 실험 참여가 사망율을 증가시키지 않기를 기대할 뿐이다. 이러한 측면은 실제로 두가지 효과가 있다는 것을 제시한다: 관심을 둔 한 가지가 신약 효과이며, 두번째는 감정적 효과로 정량화하기가 어렵다.
 
-Researchers aren't usually interested in the emotional effect, which might bias the study. To circumvent this problem, researchers do not want patients to know which group they are in. When researchers keep the patients uninformed about their treatment, the study is said to be \term{blind}. But there is one problem: if a patient doesn't receive a treatment, she will know she is in the control group. The solution to this problem is to give fake treatments to patients in the control group. A fake treatment is called a \term{placebo}, and an effective placebo is the key to making a study truly blind. A classic example of a placebo is a sugar pill that is made to look like the actual treatment pill. Often times, a placebo results in a slight but real improvement in patients. This effect has been dubbed the \term{placebo~effect}.
+연구원은 대체로 감정적 효과에는 관심이 없는데 연구에 편향을 준다.
+이러한 문제를 우회하려고, 연구원은 참여자가 어느 집단에 속해있는지 알려주지 않는다.
+연구원이 처리에 관한 정보를 환자에게 알려주지 않을 때, 연구를 \term{눈가림}(blind) 연구라고 한다.
+하지만 문제가 하나 있다: 만약 환자가 처리를 받지 못하면, 환자를 본인이 대조집단에 있다고 알게된다.
+이러한 문제에 해법이 거짓 처방을 대조집단 환자에 주는 것이다. 거짓 처방을 \term{위약}이라고 부르고,
+효과적인 위약이 연구를 진정하게 눈가름으로 만드는 열쇠다. 전통적인 위약 사례가 실제 처방약처럼 만든 설탕약이다.
+종종 위약을 통해 환자에서 적지만 실제 호전된 결과가 나오기도 한다.
+이러한 효과를 \term{위약~효과}라는 말로 부른다.
 
-The patients are not the only ones who should be blinded: doctors and researchers can accidentally bias a study. When a doctor knows a patient has been given the real treatment, she might inadvertently give that patient more attention or care than a patient that she knows is on the placebo. To guard against this bias, which again has been found to have a measurable effect in some instances, most modern studies employ a \term{double-blind} setup where doctors or researchers who interact with patients are, just like the patients, unaware of who is or is not receiving the treatment.\footnote{There are always some researchers involved in the study who do know which patients are receiving which treatment. However, they do not interact with the study's patients and do not tell the blinded health care professionals who is receiving which treatment.}
+환자만이 유일한 눈가림되어야 되는 사람은 아니다: 의사와 연구원도 우연히 연구에 편향을 줄 수 있다.
+환자에 실제 처리가 주어지고 있다는 사실을 의사가 알게될 때, 의사가 무심코 위약이 처방된 환자보다 더 관심과 주의를 둘 수 있다.
+일부 사례에서 측정가능한 효과를 갖는 것으로 확인된 이런 편향이 생기지 않도록 보호하기 위해서, \term{이중눈가림}(double blind) 방식을 사용한다. 환자와 상호작용하는 의사 혹은 연구원은 환자와 마찬가지로 처리를 받았는지 받지 않았는지 인식하지 못한다.
+\footnote{항상 연구에 관련된 일부 연구원은 어느 환자가 어느 처리를 받고 있는지 알고 있다.
+하지만, 이들 연구원은 연구 환자와 상호작용하지 못하고 누가 어느 처리를 받고 있는지 눈가림된 의료전문가에게 말하지 않는다.}
 
 \begin{exercise}
-Look back to the study in Section~\ref{basicExampleOfStentsAndStrokes} where researchers were testing whether stents were effective at reducing strokes in at-risk patients. Is this an experiment? Was the study blinded? Was it double-blinded?\footnote{The researchers assigned the patients into their treatment groups, so this study was an experiment. However, the patients could distinguish what treatment they received, so this study was not blind. The study could not be double-blind since it was not blind.}
+~\ref{basicExampleOfStentsAndStrokes} 절에 연구로 되돌아가자. 연구원이 스텐트가 위험에 처한 환자의 심근경색을 줄이는데 효과가 있는지 테스트한다. 이것은 실험인가요? 이 연구는 눈가림 방식인가요?  이 연구는 이중눈가림 방식인가요?
+\footnote{연구원이 환자를 처리집단에 배정했다. 그래서 해당 연구는 실험이다.
+하지만, 환자는 무슨 처리를 받고 있는지 분간할 수 있다. 그래서 해당 연구는 눈가림이 아니다. 해당 연구는 이중눈가림이 될 수 없는데 연구가 눈가림 연구도도 아니기 때문이다.}
 \end{exercise}
 
 
 %%%%%
-\section[Examining numerical data]{Examining numerical data \sectionvideohref{youtube-Xm0PPtci3JE&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[숫자형 데이터 살펴보기]{Examining numerical data \sectionvideohref{youtube-Xm0PPtci3JE&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{numericalData}
 
-In this section we will be introduced to techniques for exploring and summarizing numerical variables. The \data{email50} and \data{county} data sets from Section~\ref{dataBasics} provide rich opportunities for examples. Recall that outcomes of numerical variables are numbers on which it is reasonable to perform basic arithmetic operations. For example, the \var{pop2010} variable, which represents the populations of counties in 2010, is numerical since we can sensibly discuss the difference or ratio of the populations in two counties. On the other hand, area codes and zip codes are not numerical, but rather they are~categorical variables.
+이번 절에서 숫자형 변수를 탐색하고 요약하는 기법을 소개한다.
+~\ref{dataBasics} 절에서 \data{email50}와 \data{county} 데이터셋이 예제로 풍부한 기회를 제공했다.
+숫자형 변수 결과는 숫자로 기본적인 산술연산을 수행할 수 있다는 것을 상기하라.
+예를 들어, \var{pop2010} 변수는 2010년 시군 인구를 대표하는데 숫자형이여서
+두 시군 사이에 인구 차이와 비율을 분별력을 갖고 논의할 수 있다.
+다른 한편으로, 지역코드와 우편번호는 숫자형이라기 보다는 범주형 변수다.
 
 
-\subsection{Scatterplots for paired data}
+\subsection{쌍체자료(paired data) 산점도}
 \label{scatterPlots}
 
-\index{data!email50|(}
+\index{데이터!email50|(}
 
-A \term{scatterplot} provides a case-by-case view of data for two numerical variables. In Figure~\vref{county_fed_spendVsPoverty}, a scatterplot was used to examine how federal spending and poverty were related in the \data{county} data set. Another scatterplot is shown in Figure~\ref{email50LinesCharacters}, comparing the number of line breaks (\var{line\_\hspace{0.3mm}breaks}) and number of characters (\var{num\_\hspace{0.3mm}char}) in emails for the \data{email50} data set. In any scatterplot, each point represents a single case. Since there are 50 cases in \data{email50}, there are 50 points in Figure~\ref{email50LinesCharacters}.
+\term{산점도}는 두 숫자형 변수에 대한 데이터 사례별 뷰를 제공한다.
+그림~\vref{county_fed_spendVsPoverty}에서 산점도를 사용해서 연방지출비용과 빈곤율이 \data{county} 데이터에서 연관되어 있는지 조사했다. 또다른 산점도는 그림~\ref{email50LinesCharacters}에 나와 있는데, \data{email50} 데이터셋에 전자우편에 줄바꿈(\var{line\_\hspace{0.3mm}breaks})과 문자 숫자(\var{num\_\hspace{0.3mm}char})를 비교했다.
+임의 산점도에서 각 점은 사례 하나를 표현한다. \data{email50} 데이터셋에 50 개 사례가 있기 때문에, 
+그림~\ref{email50LinesCharacters}에 점이 50개 있다.
 
 \textC{\setlength{\captionwidth}{0.9\textwidth}}
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=0.8\textwidth]{ch_intro_to_data/figures/email50LinesCharacters/email50LinesCharacters}
-   \caption{A scatterplot of \var{line\_\hspace{0.3mm}breaks} versus \var{num\_\hspace{0.3mm}char} for the \data{email50} data.}
+   \caption{\data{email50} 데이터에 \var{line\_\hspace{0.3mm}breaks} 와 \var{num\_\hspace{0.3mm}char}에 대한 산점도.}
    \label{email50LinesCharacters}
 \end{figure}
 
 \textC{\setlength{\captionwidth}{\mycaptionwidth}}
 
-To put the number of characters in perspective, this paragraph has 363 characters. Looking at Figure~\ref{email50LinesCharacters}, it seems that some emails are incredibly verbose! Upon further investigation, we would actually find that most of the long emails use the HTML format, which means most of the characters in those emails are used to format the email rather than provide text.
+이러한 관점에서 문자숫자를 살펴보면, 이 문단은 문자 363개로 구성되었다.
+그림~\ref{email50LinesCharacters}을 살펴보면, 일부 전자우편은 말이 안될 정도로 장황한 것처럼 보인다.
+좀더 조사를 하면, 장문 전자우편 대부분은 실제로 HTML 형식을 사용하는 것을 알 수 있다.
+이것이 의미하는 바는 해당 전자우편 문자 대부분이 텍스트로 정보를 제공하기 보다는 전자우편 서식에 사용되었다는 것이다.
+
 
 \begin{exercise}
-What do scatterplots reveal about the data, and how might they be useful?\footnote{Answers may vary. Scatterplots are helpful in quickly spotting associations relating variables, whether those associations come in the form of simple trends or whether those relationships are more complex.}
+산점도가 데이터에 관한 무엇을 밝혀냈고, 어떻게 유용하게 사용될 수 있을까?\footnote{해답은 다양하다. 산점도는 신속하게 변수와 관련된 연관성을 식별하는데 도움이 된다.즉, 연관이 단순한 추세 형태로 오는지 혹은 좀더 복잡한 관계로 나타나는지 알 수 있다.}
 \end{exercise}
 
-\index{data!cars|(}
-\begin{example}{Consider a new data set of 54 cars with two variables: vehicle price and~weight.\footnote{Subset of data from \oiRedirect{textbook-1993_car_data}{www.amstat.org/publications/jse/v1n1/datasets.lock.html}} A scatterplot of vehicle price versus weight is shown in Figure~\ref{carsPriceVsWeight}. What can be said about the relationship between these variables?}
-The relationship is evidently nonlinear, as highlighted by the dashed line. This is different from previous scatterplots we've seen, such as Figure~\vref{county_fed_spendVsPoverty} and Figure~\ref{email50LinesCharacters}, which show relationships that are very linear.
+\index{데이터!cars|(}
+\begin{example}{
+변수 두개와 54개 자동차로 구성된 신차 데이터셋을 고려해보자: 자동차 가격과 자동차 중량
+\footnote{출처: \oiRedirect{textbook-1993_car_data}{www.amstat.org/publications/jse/v1n1/datasets.lock.html} 데이터 일부}
+자동차 가격과 중량에 대한 산점도가 그림~\ref{carsPriceVsWeight}에 나타나 있다.
+이들 변수 사이 관계에 간해서 무엇을 말할 수 있을까?}
+점선으로 부각되듯이 관계는 명백히 비선형이다.
+이점이 지금까지 봤던 이전 산점도와 다른 면이다. 그림~\vref{county_fed_spendVsPoverty}와 그럼~\ref{email50LinesCharacters}은 매우 선형적 관계를 보여주고 있다.
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=0.8\textwidth]{ch_intro_to_data/figures/carsPriceVsWeight/carsPriceVsWeight}
-   \caption{A scatterplot of \var{price} versus \var{weight} for 54 cars.}
+   \caption{자동차 54개에 대한 \var{price} 대비 \var{weight} 산점도.}
    \label{carsPriceVsWeight}
 \end{figure}
 \end{example}
 \index{data!cars|)}
 
 \begin{exercise}
-Describe two variables that would have a horseshoe shaped association in a scatterplot.\footnote{Consider the case where your vertical axis represents something ``good'' and your horizontal axis represents something that is only good in moderation. Health and water consumption fit this description since water becomes toxic when consumed in excessive quantities.}
+산점도에서 말발굽 모양을 갖는 두변수를 기술하시요.\footnote{
+수직축은 뭔가 ``좋은'' 것을 표현하고 수평축은 단지 적당히 좋은 것을 표현한다.건강과 물 소비가 이러한 기술에 적합한데 물을 너무 과도하게 소비하게 되면 독성을 갖는다.}
 \end{exercise}
 
-\subsection{Dot plots and the mean}
+\subsection{점그림(Dot plots)과 평균}
 \label{dotPlot}
 
-Sometimes two variables are one too many: only one variable may be of interest. In these cases, a dot plot provides the most basic of displays. A~\term{dot plot} is a one-variable scatterplot; an example using the number of characters from 50 emails is shown in Figure~\ref{emailCharactersDotPlot}. A stacked version of this dot plot is shown in Figure~\ref{emailCharactersDotPlotStacked}.
+종종 두변수가 한 변수에 너무 많을 수 있다: 단지 한 변수만 관심이 있을 수 있다.
+이러한 경우에 점그림이 가장 기본적인 시각적 출력을 제공한다. \term{점그림}(dot plot)은 일변수 산점도다;
+50개 전자우편에서 나온 문자 숫자를 사용한 예제가 그림~\ref{emailCharactersDotPlot}에 나타나 있다.
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=\textwidth]{ch_intro_to_data/figures/emailCharactersDotPlot/emailCharactersDotPlot}
-   \caption{A dot plot of \var{num\_\hspace{0.3mm}char} for the \data{email50} data set.}
+   \caption{\data{email50} 데이터셋에 대한 \var{num\_\hspace{0.3mm}char}를 점그림으로 표현.}
    \label{emailCharactersDotPlot}
 \end{figure}
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=0.72\textwidth]{ch_intro_to_data/figures/emailCharactersDotPlot/emailCharactersDotPlotStacked}
-   \caption{A stacked dot plot of \var{num\_\hspace{0.3mm}char} for the \data{email50} data set. The~values have been rounded to the nearest 2,000 in this plot.}
+   \caption{\data{email50} 데이터셋에 대한 변수 \var{num\_\hspace{0.3mm}char}의 스택 점그림(stacked dot plot).
+   상기 점그림에서 값을 가장 가까운 12,000에 반올림했다.}
    \label{emailCharactersDotPlotStacked}
 \end{figure}
 
-The \term{mean}, sometimes called the \indexthis{average}{mean!average}, is a common way to measure the center of a \term{distribution} of data. To find the mean number of characters in the 50 emails, we add up all the character counts and divide by the number of emails. For computational convenience, the number of characters is listed in the thousands and rounded to the first~decimal.
+\term{평균}(평균)은 종종 \indexthis{평균}{평균!평균(average)}(average)으로도 불리는데 데이터 \term{분포}의 중심을 측정하는 일반적인 방식이다. 50개 전자우편에 평균 문자숫자를 찾아내려면, 문자 갯수를 모두 더하고 전자우편 갯수로 나눈다.
+계산 편의를 위해서, 문자 숫자는 첫단위로 표시되고 소수점 첫자리에서 반올림한다.
+
 \begin{eqnarray}
 \bar{x} = \frac{21.7 + 7.0 + \cdots + 15.8}{50} = 11.6
 \label{sampleMeanEquation}
 \end{eqnarray}
-The sample mean is often labeled $\bar{x}$\marginpar[\raggedright$\bar{x}$\\\footnotesize sample\\ mean]{\raggedright$\bar{x}$\\\footnotesize sample\\ mean}. The letter $x$ is being used as a generic placeholder for the variable of interest, \var{num\_\hspace{0.3mm}char}, and the bar over on the $x$ communicates that the average number of characters in the 50 emails was 11,600. It is useful to think of the mean as the balancing point of the distribution. The sample mean is shown as a triangle in Figures~\ref{emailCharactersDotPlot} and~\ref{emailCharactersDotPlotStacked}.
 
-\begin{termBox}{\tBoxTitle{Mean}%
-The sample mean of a numerical variable is computed as the sum of all of the observations divided by the number of observations:
+표본 평균은 $\bar{x}$\marginpar[\raggedright$\bar{x}$\\\footnotesize 표본\\ 평균]{\raggedright$\bar{x}$\\\footnotesize 표본\\ 평균}.로 표기한다. 문자 $x$는 관심있는 변수, \var{num\_\hspace{0.3mm}char}에 대한 일반 자리차지용도(placeholder)로 사용된다.
+그리고, $x$ 위에 막대는 50개 전자우편 문자 평균 숫자가 11,600임을 전달한다.
+평균을 분포의 균형점으로 간주하는 것이 유용하다. 표본 평균은 그림~\ref{emailCharactersDotPlot} 와~\ref{emailCharactersDotPlotStacked}에 삼각형으로 표현되어 있다.
+
+
+\begin{termBox}{\tBoxTitle{평균}%
+숫자 변수의 표본 평균은 전체 관측값을 관측수로 나눠서 계산한다:
 \begin{eqnarray}
 \bar{x} = \frac{x_1+x_2+\cdots+x_n}{n}
 \label{meanEquation}
 \end{eqnarray}
-where $x_1, x_2, \dots, x_n$ represent the $n$ observed values.}
+$x_1, x_2, \dots, x_n$은 $n$개 관측값을 표현한다.}
 \end{termBox}\marginpar[\raggedright\vspace{-8mm}
 
-$n$\\\footnotesize sample size]{\raggedright\vspace{-8mm}
+$n$\\\footnotesize 표본 크기]{\raggedright\vspace{-8mm}
 
-$n$\\\footnotesize sample size}\vspace{-2mm}
+$n$\\\footnotesize 표본 크기}\vspace{-2mm}
 
 \begin{exercise}
-Examine Equations~\eqref{sampleMeanEquation} and~\eqref{meanEquation} above. What does $x_1$ correspond to? And $x_2$? Can you infer a general meaning to what $x_i$ might represent?\footnote{$x_1$ corresponds to the number of characters in the first email in the sample (21.7, in thousands), $x_2$ to the number of characters in the second email (7.0, in thousands), and $x_i$ corresponds to the number of characters in the $i^{th}$ email in the data set.}
+
+상기 방정식~\eqref{sampleMeanEquation} 와~\eqref{meanEquation} 자세히 보자.
+$x_1$은 무엇에 대응되는가? $x_2$는? $x_i$가 무엇을 표현하는지에 대해 일반적 의미를 추론할 수 있는가?
+\footnote{$x_1$은 표본에서 첫번째 전자우편 문자갯수에 대응된다(21.7, 천단위),
+$x_2$는 두번째 전자우편 문자객수에 대응된다 (7.0, 천단위), 그리고 $x_i$는 데이터셋에서 $i^{th}$ 번째 전자우편 문자갯수에 대응된다.}
 \end{exercise}
 
 \begin{exercise}
-What was $n$ in this sample of emails?\footnote{The sample size was $n=50$.}
+전자우편 표본에서 $n$은 얼마인가요?\footnote{표본크기는 $n=50$이다.}
 \end{exercise}
 
-The \data{email50} data set represents a sample from a larger population of emails that were received in January and March. We could compute a mean for this population in the same way as the sample mean, however, the population mean has a special label: $\mu$\marginpar[\raggedright$\mu$\\\footnotesize population\\ mean]{\raggedright$\mu$\\\footnotesize population\\ mean}. \index{Greek!mu@mu ($\mu$)} The symbol $\mu$ is the Greek letter \emph{mu} and represents the average of all observations in the population. Sometimes a subscript, such as $_x$, is used to represent which variable the population mean refers to, e.g. $\mu_x$.
+\data{email50} 데이터셋은 1월에서 3월 사이에 받은 전자우편 모집단에서 나온 표본을 나타낸다.
+표본평균과 동일한 방식으로 모집단에 대한 평균을 계산할 수 있다.
+하지만, 모집단 평균은 특별한 기호를 갖는다: $\mu$\marginpar[\raggedright$\mu$\\\footnotesize 모집단\\ 평균]{\raggedright$\mu$\\\footnotesize 모집단\\ 평균}. \index{그리스 문자!mu@mu ($\mu$)}
+$\mu$ 기호는 그리스 문자 \emph{mu}(뮤)로 모집단에 모든 관측점 평균을 표현한다.
+종종 아래첨자 $_x$ 처럼 사용해서 모집단 평균 어떤 변수를 지칭하는지 표현한다, 즉, $\mu_x$.
 
-\begin{example}{The average number of characters across all emails can be estimated using the sample data. Based on the sample of 50 emails, what would be a reasonable estimate of $\mu_x$, the mean number of characters in all emails in the \data{email} data set? (Recall that \data{email50} is a sample from \data{email}.)}
-The sample mean, 11,600, may provide a reasonable estimate of $\mu_x$. While this number will not be perfect, it provides a \emph{point estimate} of the population mean. In Chapter~\ref{foundationsForInference} and beyond, we will develop tools to characterize the accuracy of point estimates, and we will find that point estimates based on larger samples tend to be more accurate than those based on smaller samples.
+
+\begin{example}{
+전체 전자우편에 걸친 평균 문자갯수를 표본 데이터를 사용해서 추정할 수 있다.
+50개 전자우편 표본에 기초해서, \data{email} 데이터셋의 전체 전자우편에 대한 평균 문자갯수, $\mu_x$에 대한 합리적인 추정값은 얼마일까?(\data{email}로부터 표본 \data{email50} 데이터셋이 생성된 것을 상기하라.)}
+표본 평균, 11,600이 합리적인 $\mu_x$의 추정값을 제공할 수 있다.
+이 숫자가 완벽하지는 않지만, 모집단 평균의 \emph{점추정값}(point estimate)을 제공한다.
+~\ref{foundationsForInference} 장과 그 후에, 점추정값 정확성을 특정짓는 도구를 개발할 것이고,
+좀더 큰 표본에 기반한 점추정값이 좀더 작은 표본에 기반한 것보다 좀더 정확한 경향이 있다는 것을 알게 된다.
 \end{example}
 
-\begin{example}{We might like to compute the average income per person in the US. To do so, we might first think to take the mean of the per capita incomes across the 3,143 counties in the \data{county} data set. What would be a better approach?} \label{wtdMeanOfIncome}
-The \data{county} data set is special in that each county actually represents many individual people. If we were to simply average across the \var{income} variable, we would be treating counties with 5,000 and 5,000,000 residents equally in the calculations. Instead, we should compute the total income for each county, add up all the counties' totals, and then divide by the number of people in all the counties. If we completed these steps with the \data{county} data, we would find that the per capita income for the US is \$27,348.43. Had we computed the \emph{simple} mean of per capita income across counties, the result would have been just \$22,504.70!
+\begin{example}{
+미국의 인당 평균소득을 계산해보자.
+이를 위해서, 먼저 \data{county} 데이터셋에서 3,143개 시군의 일인당 소득 평균을 생각할 수 있다.
+더 나은 접근법은 무엇일까?} \label{wtdMeanOfIncome}
+\data{county} 데이터셋은 각 시군이 사실 많은 개별 주민을 대표한다는 점에서 특별하다.
+만약 \var{income} 변수로 단순히 평균을 계산한다면, 계산과정에서 주민 5,000명과 주민 5,000,000명 갖는 군을 동일하게 처리하는 것이다.
+대신에, 각 시군에 전체 소득을 계산하고, 모든 시군의 합을 더해서 총합을 계산하고 나서, 전체 시군 사람숫자로 나눠야 된다.
+만약 \data{county} 데이터로 이런 단계를 완료하면, 미국 일인당 소득은 \$27,348.43이 된다.
+만약 시군에 컬쳐 일인당 소득의 \emph{단순} 평균을 계산하면, 결과는 단지 \$22,504.70만 된다!
 \end{example}
 
-Example~\ref{wtdMeanOfIncome} used what is called a \term{weighted mean}\index{mean!weighted mean}, which will not be a key topic in this textbook. However, we have provided an online supplement on weighted means for interested readers:
+예제~\ref{wtdMeanOfIncome}에서 소위 \term{가중평균}\index{평균!가중평균}을 사용했는데 이 교과서의 주요 주제는 아니다.
+하지만, 관심있는 독자를 위해서 가중평균에 대한 온라인 보충정보를 제공한다:
+
 \begin{center}
 \oiRedirect{textbook-weighted_mean_supplement}{www.openintro.org/stat/down/supp/wtdmean.pdf}
 \end{center}
 
-\subsection{Histograms and shape}
+\subsection{히스토그램과 모양}
 \label{histogramsAndShape}
 
-Dot plots show the exact value for each observation. This is useful for small data sets, but they can become hard to read with larger samples. Rather than showing the value of each observation, we prefer to think of the value as belonging to a \emph{bin}. For example, in the \data{email50} data set, we create a table of counts for the number of cases with character counts between 0 and 5,000, then the number of cases between 5,000 and 10,000, and so on. Observations that fall on the boundary of a bin (e.g. 5,000) are allocated to the lower bin. This tabulation is shown in Table~\ref{binnedNumCharTable}. These binned counts are plotted as bars in Figure~\ref{email50NumCharHist} into what is called a \term{histogram}, which resembles the stacked dot plot shown in Figure~\ref{emailCharactersDotPlotStacked}.
+점그림은 각 관측점에 대한 정확한 값을 보여준다.
+작은 데이터셋에는 유용하지만, 표본 크기가 커지면 가독성이 떨어진다.
+각 관측점 값을 보여주는 대신에, 값이 \emph{구간(bin)}에 속한 것으로 생각하는게 더 낫다.
+예를 들어, \data{email50} 데이터셋으로
+문자갯수가 0에서 5,000인 경우 사례를 갯수로 세고, 5,000에서 10,000인 경우 갯수로 세고 등등 표를 생성한다.
+구간 경계에 떨어지는 관측점(즉, 5,000)은 아래쪽 구간에 할당한다.
+이렇게 도표로 작성한 된 것이 표~\ref{binnedNumCharTable}이다.
+이런 구간 갯수를 막대로 소위 \term{히스토그램}으로 불리는 그림\ref{email50NumCharHist}에 그렸는데, 그림~\ref{emailCharactersDotPlotStacked}에 표현된 스택점그림과 닮았다.
 
 \begin{table}[ht]
 \centering\small
 \begin{tabular}{l ccc ccc ccc c}
   \hline
-Characters & \\
-(in thousands) & \raisebox{1.5ex}[0pt]{0-5} & \raisebox{1.5ex}[0pt]{5-10} & \raisebox{1.5ex}[0pt]{10-15} & \raisebox{1.5ex}[0pt]{15-20} & \raisebox{1.5ex}[0pt]{20-25} & \raisebox{1.5ex}[0pt]{25-30} & \raisebox{1.5ex}[0pt]{$\cdots$} & \raisebox{1.5ex}[0pt]{55-60} & \raisebox{1.5ex}[0pt]{60-65} \\
+문자 & \\
+(단위: 천) & \raisebox{1.5ex}[0pt]{0-5} & \raisebox{1.5ex}[0pt]{5-10} & \raisebox{1.5ex}[0pt]{10-15} & \raisebox{1.5ex}[0pt]{15-20} & \raisebox{1.5ex}[0pt]{20-25} & \raisebox{1.5ex}[0pt]{25-30} & \raisebox{1.5ex}[0pt]{$\cdots$} & \raisebox{1.5ex}[0pt]{55-60} & \raisebox{1.5ex}[0pt]{60-65} \\
   \hline
-Count & 19 & 12 & 6 & 2 & 3 & 5 & $\cdots$ & 0 & 1 \\
+갯수 & 19 & 12 & 6 & 2 & 3 & 5 & $\cdots$ & 0 & 1 \\
   \hline
 \end{tabular}
-\caption{The counts for the binned \var{num\_\hspace{0.3mm}char} data.}
+\caption{\var{num\_\hspace{0.3mm}char} 데이터에 대한 구간별 갯수.}
 \label{binnedNumCharTable}
 \end{table}
 
 \begin{figure}[bth]
    \centering
    \includegraphics[width=0.82\textwidth]{ch_intro_to_data/figures/email50NumCharHist/email50NumCharHist}
-   \caption{A histogram of \var{num\_\hspace{0.3mm}char}. This distribution is very strongly skewed to the right.\index{skew!example: very strong}}
+   \caption{
+   변수 \var{num\_\hspace{0.3mm}char}의 히스토그램. 분포가 매우 강하게 우측으로 기울었다.\index{기움!예제: 매우 강함}}
    \label{email50NumCharHist}
 \end{figure}
 
-Histograms provide a view of the \term{data density}. Higher bars represent where the data are relatively more common. For instance, there are many more emails with fewer than 20,000 characters than emails with at least 20,000 in the data set. The bars make it easy to see how the density of the data changes relative to the number of characters.
+히스토그램은 \term{데이터 밀도}(data density)를 볼 수 있게 한다.
+더 높은 막대는 데이터가 상대적으로 더 흔하게 위치함을 나타낸다.
+예를 들어, 데이터셋에서 적어도 20,000개 문자를 갖는 전자우편보다 20,000개 문자보다 더 적은 문자를 갖는 전자우편이 훨씬 더 많다.
+막대는 데이터 밀도가 문자 갯수에 상대적으로 어떻게 변하는지 보기 쉽게 한다.
 
-Histograms are especially convenient for describing the shape of the data distribution\label{shapeFirstDiscussed}. Figure~\ref{email50NumCharHist} shows that most emails have a relatively small number of characters, while fewer emails have a very large number of characters. When data trail off to the right in this way and have a longer right \hiddenterm{tail}\index{skew!tail}, the shape is said to be \termsub{right skewed}{skew!right skewed}.\footnote{Other ways to describe data that are skewed to the right: \termni{skewed to the right}, \termni{skewed to the high end}, or \termni{skewed to the positive end}.}
+히스토그램은 특히 데이터 분포 모양을 기술하는데 편리하다.\label{shapeFirstDiscussed}
+그림~\ref{email50NumCharHist}에는 전자우편 대부분이 상대적으로 적은 문자를 갖는다는 것을 보여주지만,
+일부 전자우편은 매우 많은 문자를 갖는다는 것이 보여진다.
+이러한 방식으로 데이터가 오른쪽으로 잦아들고 우측으로 좀더 긴 \hiddenterm{꼬리}\index{기움!꼬리}를 갖을 때, 모양이 \termsub{우측으로 기울}{기움!우측 기움}었다고 한다.
+\footnote{우측으로 기운 데이터를 기술하는 다른 방식이 있다: \termni{오른쪽으로 기움}, \termni{고가쪽으로 기움}, or \termni{양수쪽으로 기움.}}
 
-Data sets with the reverse characteristic -- a long, thin tail to the left -- are said to be \termsub{left skewed}{skew!left skewed}. We also say that such a distribution has a long left tail. Data sets that show roughly equal trailing off in both directions are called \term{symmetric}.\index{skew!symmetric}
+역의 특성을 갖는 데이터셋 -- 좌측으로 길고, 얇은 꼬리 --은 \termsub{좌측으로 기울}{기움!좌측 기움}었다고 한다.
+또한 그러한 분포는 좌측으로 긴 꼬리를 갖는다고 한다.
+양쪽 방향으로 대략 동일하게 잦아드는 경향을 보이는 데이터셋을 \term{대칭}이라고 부른다.\index{기움!대칭}
 
-\begin{termBox}{\tBoxTitle{Long tails to identify skew}%
-When data trail off in one direction, the distribution has a \term{long tail}. \index{skew!long tail|textbf} If a distribution has a long left tail, it is left skewed. If a distribution has a long right tail, it is right skewed.}
+\begin{termBox}{\tBoxTitle{기움을 식별하는 긴꼬리}%
+데이터가 한방향으로 잦아들 때, 분포가 \term{긴꼬리}(long tail)를 가졌다고 한다.
+만약 분포가 좌측으로 긴꼬리를 갖으면, 좌측으로 기울었다. 만약 분포가 우측으로 긴꼬리를 갖는다면, 우측으로 기울었다.}
 \end{termBox}
 
+
 \begin{exercise}
-Take a look at the dot plots in Figures~\ref{emailCharactersDotPlot} and~\ref{emailCharactersDotPlotStacked}. Can you see the skew in the data? Is it easier to see the skew in this histogram or the dot plots?\footnote{The skew is visible in all three plots, though the flat dot plot is the least useful. The stacked dot plot and histogram are helpful visualizations for identifying skew.}
+그림~\ref{emailCharactersDotPlot} 와~\ref{emailCharactersDotPlotStacked}에 점그림을 살펴보라.
+데이터에서 기움을 볼 수 있는가? 히스토그램에서 기움을 보기 더 쉬운가 혹은 점그림에서 더 쉬운가?\footnote{
+기움(왜도)는 그림 세개 모두에서 볼 수 있다. 하지만, 평면 점그림(flat dot plot)이 가장 덜 유용하다.
+스택점그림과 히스토그램이 기움을 식별하는데 도움이 되는 시각화 도구가 된다.}
 \end{exercise}
 
 \begin{exercise}
-Besides the mean (since it was labeled), what can you see in the dot plots that you cannot see in the histogram?\footnote{Character counts for individual emails.}
+(표식으로 표현되어) 평균을 제외하고, 히스토그램에서 볼 수 없지만 점그림에서 무엇을 볼 수 있나요?\footnote{
+각 개별 전자우편에 대한 문자 갯수.}
 \end{exercise}
 
-In addition to looking at whether a distribution is skewed or symmetric, histograms can be used to identify modes. A \term{mode} is represented by a prominent peak in the distribution.\footnote{Another definition of mode, which is not typically used in statistics, is the value with the most occurrences. It is common to have \emph{no} observations with the same value in a data set, which makes this other definition useless for many real data sets.} There is only one prominent peak in the histogram of \var{num\_\hspace{0.3mm}char}.
+분포가 기울었는지 대칭인지 살펴보는 것에 추가해서, 히스토그램을 사용해서 모드를 식별할 수 있다.
+\term{모드}(mode)는 분포에 눈에 띄는 봉우리로 표현된다.\footnote{
+일반적으로 통계에서 사용되지 않는 모드의 또다른 정의는 가장 많은 발생값이다. 
+데이터셋에 같은 값을 갖는 관측점이 \emph{없는} 것이 일반적으로 많은 실제 데이터셋에 대해 이런 정의는 쓸모없게 된다.}
+변수 \var{num\_\hspace{0.3mm}char}에 대한 히스토그램에는 단지 눈에 띄는 봉우리가 하나만 있다.
 
-Figure~\ref{singleBiMultiModalPlots} shows histograms that have one, two, or three prominent peaks. Such distributions are called \termsub{unimodal}{modality!unimodal}, \termsub{bimodal}{modality!bimodal}, and \termsub{multimodal}{modality!multimodal}, respectively. Any distribution with more than 2 prominent peaks is called multimodal. Notice that there was one prominent peak in the unimodal distribution with a second less prominent peak that was not counted since it only differs from its neighboring bins by a few observations.
+그림~\ref{singleBiMultiModalPlots}에 있는 히스토그램에는 하나, 둘, 혹은 세개 눈에 띄는 봉우리가 있다.
+이러한 분포를 각각 \termsub{단봉}{modality!단봉}(unimodal), \termsub{이봉}{modality!이봉}(bimodal), \termsub{다봉}{modality!다봉}(multimodal)으로 부른다. 2개 이상 눈에 띄는 봉우리를 갖는 분포는 다봉(multimodal)으로 부른다.
+단봉 분포에서 눈에 띄는 봉우리가 하나만 있는 것에 주목한다. 여기서 단지 관측점 몇개로만 인접 구간과 차이나기 때문에 
+두번째 눈에 띄는 봉우리는 별도 봉우리로 간주되지 않았다.
+
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=\textwidth]{ch_intro_to_data/figures/singleBiMultiModalPlots/singleBiMultiModalPlots}
-   \caption{Counting only prominent peaks, the distributions are (left to right) unimodal, bimodal, and multimodal.}
+   \caption{단지 눈에 띄는 봉우리만 개수함. (좌측에서 우측으로) 분포가 단봉, 이봉, 다봉임을 나타낸다.}
    \label{singleBiMultiModalPlots}
 \end{figure}
 
 \begin{exercise}
-Figure~\ref{email50NumCharHist} reveals only one prominent mode in the number of characters. Is the distribution unimodal, bimodal, or multimodal?\footnote{Unimodal. Remember that \emph{uni} stands for 1 (think \emph{uni}cycles). Similarly, \emph{bi} stands for~2 (think \emph{bi}cycles). (We're hoping a \emph{multicycle} will be invented to complete this analogy.)}
+그림~\ref{email50NumCharHist}에는 문자 갯수에 단지 눈에 띄는 모드가 하나만 드러났다.
+해당 분포는 단봉, 이봉, 혹은 다봉인가?\footnote{
+단봉(unimodal)이다. \emph{uni}는 1을 상징함을 기억하라 (외발자전거 \emph{uni}cycles을 생각한다).
+유사하게 \emph{bi}는 2를 상징한다 (두발 자전거 \emph{bi}cycles)를 생각한다). (이러한 비유를 완성하도록 
+다발 자전거 \emph{multicycle}가 발명되길 희망한다.)}
 \end{exercise}
 
 \begin{exercise}
-Height measurements of young students and adult teachers at a K-3 elementary school were taken. How many modes would you anticipate in this height data set?\footnote{There might be two height groups visible in the data set: one of the students and one of the adults. That is, the data are probably bimodal.}
+초등학교 3학년 어린 학생과 성인 선생님 키를 쟀다. 생성된 신장 데이터셋에서 몇개 모드를 기대합니까?\footnote{
+데이터셋에 눈에 보이는 두개 키집단이 있을 수 있다: 어린 학생과 성인 선생님. 즉, 데이터는 아마도 이봉이다.}
 \end{exercise}
 
-\begin{tipBox}{\tipBoxTitle{Looking for modes}
-Looking for modes isn't about finding a clear and correct answer about the number of modes in a distribution, which is why \emph{prominent} is not rigorously defined in this book. The important part of this examination is to better understand your data and how it might be structured.}
+\begin{tipBox}{\tipBoxTitle{모드(mode) 찾기}
+모드를 찾을 것이 분포에 내재하는 모드 숫자에 관해 명확하고 올바른 정답을 찾는 것은 아니다.
+이러한 사유로 이 책에서 \emph{눈에 띄는}(prominent)이라는 표현은 엄격하게 정의되지 않는다.
+이러한 조사에서 중요한 점은 데이터가 어떻게 구조화되었는지 데이터를 더 잘 이해하는 것이다. }
 \end{tipBox}
 
 
