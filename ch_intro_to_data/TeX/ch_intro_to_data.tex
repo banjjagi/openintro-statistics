@@ -1204,72 +1204,92 @@ $\sigma$ \index{그리스 문자!sigma@sigma ($\sigma$)} 기호는 그리스 문
 
 \subsection{상자그림, 사분위수, 중위수}
 
-A \term{box plot} summarizes a data set using five statistics while also plotting unusual observations. Figure~\ref{boxPlotLayoutNumVar} provides a vertical dot plot alongside a box plot of the \var{num\_\hspace{0.3mm}char} variable from the \data{email50} data set.
+\term{상자그림}(boxplot)은 특이한 관측점도 도면에 나타낼 수 있지만, 통계량 5개를 사용해서 데이터셋을 요약한다.
+\data{email50} 데이터셋에서 \var{num\_\hspace{0.3mm}char} 변수를 상자그림과 함께 수직 점그림으로 그림~\ref{boxPlotLayoutNumVar}에 표현했다.
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=0.86\mycaptionwidth]{ch_intro_to_data/figures/boxPlotLayoutNumVar/boxPlotLayoutNumVar}
-   \caption{A vertical dot plot next to a labeled box plot for the number of characters in 50 emails. The median (6,890), splits the data into the bottom 50\% and the top 50\%, marked in the dot plot by horizontal dashes and open circles, respectively.}
+   \caption{전자우편 50개에서 문자갯수에 대한 수직 점그림과 옆에 표식을 붙인 상자그림.
+   중위수 (6,890)는 데이터를 상위  50\%와 하위 50\%로 나누는데, 점그림에서 수평대쉬와 열린원으로 각각 표식했다.}
    \label{boxPlotLayoutNumVar}
 \end{figure}
 
-The first step in building a box plot is drawing a dark line denoting the \term{median}, which splits the data in half. Figure~\ref{boxPlotLayoutNumVar} shows 50\% of the data falling below the median (dashes) and other 50\% falling above the median (open circles). There are 50 character counts in the data set (an even number) so the data are perfectly split into two groups of~25. We take the median in this case to be the average of the two observations closest to the $50^{th}$ percentile: $(\text{6,768} + \text{7,012}) / 2 = \text{6,890}$. When there are an odd number of observations, there will be exactly one observation that splits the data into two halves, and in this case that observation is the median (no average needed).
+상자그림을 만들 때 첫번째 단계가 \term{중위수}를 표시하는 검은선을 그리는데, 데이터를 반으로 나누는 역할을 한다.
+그림~\ref{boxPlotLayoutNumVar}에 중위수 아래 데이터 50\%가 자리잡고(대쉬), 중위수 위에 50\% 데이터가 포함된다(열린 원).
+데이터셋 (짝수)에 50개 문자갯수가 있어서 데이터가 완벽하게 25개씩 두 집단으로 쪼개진다.
+이런 경우 중위수는  $50^{th}$번째 백분위에 가장 가까운 두 관측점을 평균낸 것이 된다: $(\text{6,768} + \text{7,012}) / 2 = \text{6,890}$.
+관측점이 홀수인 경우에, 데이터를 둘로 쪼개는 관측점은 단 한개만 있게 되고, 이런 경우 해당 관측점이 중위수가 된다 (평균을 낼 필요가 없음).
 
-\begin{termBox}{\tBoxTitle{Median: the number in the middle}
-If the data are ordered from smallest to largest, the \term{median} is the observation right in the middle. If there are an even number of observations, there will be two values in the middle, and the median is taken as their average.}
+\begin{termBox}{\tBoxTitle{중위수: 중간에 위치한 숫자}
+만약 데이터를 가장 작은 것부터 가장 큰 순으로 정렬한다면, \term{중위수}는 정중앙에 위치한 관측점이다.
+만약 관측점 숫자가 짝수이면, 중앙에 값이 두개 있어서 중위수는 평균을 내서 얻게 된다.}
 \end{termBox}
 
-The second step in building a box plot is drawing a rectangle to represent the middle 50\% of the data. The total length of the box, shown vertically in Figure~\ref{boxPlotLayoutNumVar}, is called the \term{interquartile range} (\hiddenterm{IQR}, for short). It, like the standard deviation, is a measure of \indexthis{variability}{variability} in data. The more variable the data, the larger the standard deviation and~IQR. The two boundaries of the box are called the \term{first quartile} \index{quartile!first quartile} (the $25^{th}$ \hiddenterm{percentile}, i.e. 25\% of the data fall below this value) and the \term{third quartile} \index{quartile!third quartile} (the $75^{th}$ percentile), and these are often labeled $Q_1$ \index{Q$_1$} and $Q_3$\index{Q$_3$}, respectively.
+상자그림을 만드는 두번째 단계는 사각형을 그려서 가운데 데이터 50\%를 나타낸다.
+그림~\ref{boxPlotLayoutNumVar}에 수직으로 나타난 상자 길이를 
+\term{사분위 범위} (interquartile range, \hiddenterm{IQR})라고 부른다.
+표준편차처럼 데이터 변동성 측도다. 데이터 변동성이 크면 클수록, 표준편차와 IQR은 더 커진다.
+상자의 두 경계값을 \term{제1사분위수} \index{사분위수!제1사분위수} ($25^{th}$ 번째 \hiddenterm{백분위}, 즉 
+데이터 25\% 가 이 값에 포함된다.) 그리고 \term{제3사분위수} \index{사분위수!제3사분위수} ($75^{th}$ 번째 백분위수).
+각각 $Q_1$ \index{Q$_1$}, $Q_3$\index{Q$_3$}로 종종 표시한다.
 
-\begin{termBox}{\tBoxTitle{Interquartile range (IQR)}
-The IQR\index{interquartile range} is the length of the box in a box plot. It is computed as
+\begin{termBox}{\tBoxTitle{사분위 범위 (IQR)}
+IQR\index{사분위 범위}는 상자그림에서 상자 길이다. 다음과 같이 계산된다.
 \begin{eqnarray*}
 IQR = Q_3 - Q_1
 \end{eqnarray*}
-where $Q_1$ and $Q_3$ are the $25^{th}$ and $75^{th}$ percentiles.}
+$Q_1$ 과 $Q_3$는 $25^{th}$번째, $75^{th}$번째 백분위수다.}
 \end{termBox}
 
 \begin{exercise}
-What percent of the data fall between $Q_1$ and the median? What percent is between the median and $Q_3$?\footnote{Since $Q_1$ and $Q_3$ capture the middle 50\% of the data and the median splits the data in the middle, 25\% of the data fall between $Q_1$ and the median, and another 25\% falls between the median and $Q_3$.}
+$Q_1$과 중위수 사이에 몇 퍼센트 데이터가 포함되는가?
+중위수와 $Q_3$ 사이에 몇 퍼센트 데이터가 포함되는가?\footnote{
+$Q_1$ 과 $Q_3$는 중간 데이터 50\%를 잡아내고, 중위수가 데이터 중간을 가르기 때문에 25\% 데이터가 $Q_1$과 중위수 사이에 포함되고, 또다른 25\% 데이터가 중위수와 $Q_3$ 사이에 포함된다.}
 \end{exercise}
 
-Extending out from the box, the \term{whiskers} attempt to capture the data outside of the box, however, their reach is never allowed to be more than $1.5\times IQR$.\footnote{While the choice of exactly 1.5 is arbitrary, it is the most commonly used value for box plots.} They capture everything within this reach. In Figure~\ref{boxPlotLayoutNumVar}, the upper whisker does not extend to the last three points, which is beyond $Q_3 + 1.5\times IQR$, and so it extends only to the last point below this limit. The lower whisker stops at the lowest value, 33, since there is no additional data to reach; the lower whisker's limit is not shown in the figure because the plot does not extend down to $Q_1 - 1.5\times IQR$. In a sense, the box is like the body of the box plot and the whiskers are like its arms trying to reach the rest of the data.
+상자로부터 쭉 연장해서, \term{상자수염}(whiskers)은 상자 밖에 있는 데이터를 잡아내는데 사용된다. 하지만, 범위는 결코 $1.5\times IQR$을 넘어가지 못한다.\footnote{정확하게 1.5를 선택한 것이 작위적이지만, 상자그림에서 가장 일반적으로 사용된다.} 상장수염은 범위내 모든 것을 포함한다.  그림~\ref{boxPlotLayoutNumVar}에서 위쪽 상자수염은 마지막 세점까지 연장되지 못했다. 세점은 $Q_3 + 1.5\times IQR$ 범위를 벗어나서 상자수염은 단지 마지막 점 아래까지만 연장되었다. 아래쪽 상자수염은 가장 낮은 값, 33에서 멈췄다. 왜냐하면, 더이상 도달할 데이터가 없기 때문이다; 아래쪽 상자수염 한계가 그림에서 나타나지 않았는데 이유는 상자그림은 $Q_1 - 1.5\times IQR$ 밑으로 연장되지 않기 때문이다. 이러한 점에서 상자는 상자그림의 몸통과 같고, 상자수염은 나머지 데이터에 도달하려고 애쓰는 팔과 같다.
 
-Any observation that lies beyond the whiskers is labeled with a dot. The purpose of labeling these points -- instead of just extending the whiskers to the minimum and maximum observed values -- is to help identify any observations that appear to be unusually distant from the rest of the data. Unusually distant observations are called \termsub{outliers}{outlier}. In this case, it would be reasonable to classify the emails with character counts of 41,623, 42,793, and 64,401 as outliers since they are numerically distant from most of the data.
+상자수염 밖에 놓여있는 관측점은 점으로 표시되었다. 이러한 점을 표시하는 목적은 -- 상자수염을 최소값과 최대값으로 연장하는 대신에 -- 나머지 데이터로부터 특이하게 멀리 떨어져 보이는 관측점을 식별하게 돕는 것이다.
+특이하게 멀리 떨어진 관측점을 \termsub{이상점}{이상점}(outlier)이라고 부른다.
+상기 사례에서, 이상점으로 문자 갯수 41,623, 42,793, 64,401 을 갖는 전자우편을 분류하는 것이 합리적인데 이유는 수치적으로 대부분의 데이터와 멀리 떨어져 있기 때문이다.
 
-\begin{termBox}{\tBoxTitle{Outliers are extreme}
-An \term{outlier} is an observation that appears extreme relative to the rest of the data.}
+\begin{termBox}{\tBoxTitle{이상점은 맨 끝에 있다}
+\term{이상점}은 나머지 데이터와 비교해서 상대적으로 비교적 맨 끝에 있어 보이는 관측점이다.}
 \end{termBox}
 
 
-\begin{tipBox}{\tipBoxTitle{Why it is important to look for outliers}
-Examination of data for possible outliers serves many useful purposes, including\vspace{-2mm}
+\begin{tipBox}{\tipBoxTitle{이상점을 찾는 것이 왜 중요한가}
+가능한 이상점에 대한 데이터 조사는 다음을 포함하는 유용한 많은 목적을 수행한다\vspace{-2mm}
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
-\item Identifying \indexthis{strong skew}{skew!example: strong} in the distribution.
-\item Identifying data collection or entry errors. For instance, we re-examined the email purported to have 64,401 characters to ensure this value was accurate.
-\item Providing insight into interesting properties of the data.\vspace{0.5mm}
+\item 분포에 \indexthis{강한 기움}{기움!예제: 강한}을 식별한다.
+\item 데이터 수집 혹은 입력 오류 식별.  예를 들어, 문자 64,401 개를 갖는다고 주장하는 전자우편을 다시 재조사해서, 해당 값이 정확한지 점검한다.
+\item 데이터에 내재한 흥미로운 특성에 대한 직관을 제공\vspace{0.5mm}
 \end{enumerate}}
 \end{tipBox}
 
 \begin{exercise}
-The observation 64,401, a suspected outlier, was found to be an accurate observation. What would such an observation suggest about the nature of character counts in emails?\footnote{That occasionally there may be very long emails.}\end{exercise}
+
+이상점으로 의심된 관측점 64,401은 정확한 관측점으로 판명났다.
+이러한 관측점은 전자우편 문자갯수의 본질에 관해 제시하는 것이 무엇일까요?\footnote{가끔 매우 긴 전자우편이 있을 수도 있다.}\end{exercise}
 
 \begin{exercise}
-Using Figure~\ref{boxPlotLayoutNumVar}, estimate the following values for \var{num\_\hspace{0.3mm}char} in the \data{email50} data set: (a) $Q_1$, (b) $Q_3$, and (c) IQR.\footnote{These visual estimates will vary a little from one person to the next: $Q_1=$ 3,000, $Q_3=$ 15,000, $\text{IQR}=Q_3 - Q_1 = $ 12,000. (The true values: $Q_1=$ 2,536, $Q_3=$ 15,411, $\text{IQR} = $ 12,875.)}
+그림~\ref{boxPlotLayoutNumVar}을 사용해서, \data{email50} 데이터셋에서 \var{num\_\hspace{0.3mm}char} 변수에 대한 다음 값을 추정하세요: (a) $Q_1$, (b) $Q_3$, (c) IQR. \footnote{시각적 추정값은 사람마다 조금씩 다를 수 있다: $Q_1=$ 3,000, $Q_3=$ 15,000, $\text{IQR}=Q_3 - Q_1 = $ 12,000. (실제값: $Q_1=$ 2,536, $Q_3=$ 15,411, $\text{IQR} = $ 12,875.)}
 \end{exercise}
 
 \CalculatorVideos{how to create statistical summaries and box plots}
 
 
-\subsection{Robust statistics}
+\subsection{강건 통계량(Robust statistics)}
 
-How are the \indexthis{sample statistics}{sample statistic} of the \data{num\_\hspace{0.3mm}char} data set affected by the observation, 64,401? What would have happened if this email wasn't observed? What would happen to these \indexthis{summary statistics}{summary statistic} if the observation at 64,401 had been even larger, say 150,000? These scenarios are plotted alongside the original data in Figure~\ref{email50NumCharDotPlotRobustEx}, and sample statistics are computed under each scenario in Table~\ref{robustOrNotTable}.
+\data{num\_\hspace{0.3mm}char} 데이터셋의 \indexthis{표본 통계량}{표본 통계량}은 64,401 관측점에 의해서 어떻게 영향을 받는가?
+만약 전자우편이 관측되지 않았다면 상황이 어떻게 됐을까? 만약 64,401 관측점이 더 큰 가령 150,000 이었다면 요약통계량은 어떻게 됐을까? 그림~\ref{email50NumCharDotPlotRobustEx}에 원데이터와 함께 이러한 시나리오를 도표에 그려놨다. 표본 통계량도 이러한 시나리오 맞춰 표~\ref{robustOrNotTable}에 계산했다.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=\textwidth]{ch_intro_to_data/figures/email50NumCharDotPlotRobustEx/email50NumCharDotPlotRobustEx}
-\caption{Dot plots of the original character count data and two modified data sets.}
+\caption{원 문자갯수 데이터와 두 변형된 데이터셋에 대한 점그림.}
 \label{email50NumCharDotPlotRobustEx}
 \end{figure}
 
@@ -1277,36 +1297,42 @@ How are the \indexthis{sample statistics}{sample statistic} of the \data{num\_\h
 \centering
 \begin{tabular}{l c cc c cc}
   \hline
-& \hspace{0mm} & \multicolumn{2}{c}{\bf robust} & \hspace{2mm} & \multicolumn{2}{c}{\bf not robust} \\
-scenario && median & IQR && $\bar{x}$ & $s$ \\ 
+& \hspace{0mm} & \multicolumn{2}{c}{\bf 강건} & \hspace{2mm} & \multicolumn{2}{c}{\bf 강건하지 않음} \\
+시나리오 && 중위수 & IQR && $\bar{x}$ & $s$ \\ 
   \hline
-original \var{num\_\hspace{0.3mm}char} data 	&& 6,890 & 12,875 && 11,600 & 13,130 \\
+원 \var{num\_\hspace{0.3mm}char} 데이터 	&& 6,890 & 12,875 && 11,600 & 13,130 \\
 % library(openintro); data(email50); d <- email50$num_char; median(d); diff(quantile(d, c(0.25,0.75))); mean(d); sd(d)
-drop 66,924 observation		&& 6,768 & 11,702 && 10,521 & 10,798 \\
+관측점 66,924 누락		&& 6,768 & 11,702 && 10,521 & 10,798 \\
 % library(openintro); data(email50); d <- email50$num_char; d <- d[-which.max(d)]; median(d); diff(quantile(d, c(0.25,0.75))); mean(d); sd(d)
-move 66,924 to 150,000		&& 6,890 & 12,875 && 13,310 & 22,434 \\
+66,924을 150,000로 취환		&& 6,890 & 12,875 && 13,310 & 22,434 \\
 % library(openintro); data(email50); d <- email50$num_char; d[which.max(d)] <- 100000; median(d); diff(quantile(d, c(0.25,0.75))); mean(d); sd(d)
    \hline
 \end{tabular}
-\caption{A comparison of how the median, IQR, mean ($\bar{x}$), and standard deviation ($s$) change when extreme observations are present.}
+\caption{극단 관측점이 존재할 때, 중위수, IQR, 평균($\bar{x}$), 표준편차($s$)가 어떻게 변화하는지 비교.}
 \label{robustOrNotTable}
 \end{table}
 
 \begin{exercise} \label{numCharWhichIsMoreRobust}
-(a) Which is more affected by extreme observations, the mean or median? Table~\ref{robustOrNotTable} may be helpful. (b) Is the standard deviation or IQR more affected by extreme observations?\footnote{(a) Mean is affected more. (b) Standard deviation is affected more. Complete explanations are provided in the material following Guided Practice~\ref{numCharWhichIsMoreRobust}.}
+(a) 극단 관측점에 의해서 평균과 중위수 중 어느 것이 더 영향을 받는가? 표~\ref{robustOrNotTable}가 도움이 될 수 있다.
+(b) 표준편차와 IQR 중 어느 것이 극단 관측점에 의해 영향을 받는가?\footnote{(a) 평균이 더 영향을 받음. (b) 표준편차가 더 영향을 받음. 전체적 설명은 다음에 오는 실습지도~\ref{numCharWhichIsMoreRobust}에 나와 있다.}
 \end{exercise}
 
-The median and IQR are called \term{robust estimates} because extreme observations have little effect on their values. The mean and standard deviation are much more affected by changes in extreme observations.
+중위수와 IQR을 \term{강건 통계량}(robust estimates)으로 부르는데 극단 관측점이 강건 통계량에 거의 영향을 주지 않기 때문이다.
+평균과 표준편차가 극단 관측점 변화에 영향을 훨씬 더 많이 받는다.
 
-\begin{example}{The median and IQR do not change much under the three scenarios in Table~\ref{robustOrNotTable}. Why might this be the case?}
-The median and IQR are only sensitive to numbers near $Q_1$, the median, and $Q_3$. Since values in these regions are relatively stable -- there aren't large jumps between observations -- the median and IQR estimates are also quite stable.
+\begin{example}{
+중위수와 IQR은 표~\ref{robustOrNotTable}의 세가지 시나리오에서 그다지 많이 변경되지 않는다. 왜 그럴까요?}
+중위수와 IQR은 $Q_1$, 중위수, $Q_3$ 근방 숫자에만 민감하다.
+해당 지역 값은 상대적으로 안정되어 있기 때문에 -- 관측점 사이에 큰 점프는 없다 -- 중위수와 IQR 추정값도 또한 꽤 안정되어 있다.
 \end{example}
 
 \begin{exercise}
-The distribution of vehicle prices tends to be right skewed, with a few luxury and sports cars lingering out into the right tail. If you were searching for a new car and cared about price, should you be more interested in the mean or median price of vehicles sold, assuming you are in the market for a regular car?\footnote{Buyers of a ``regular car'' should be concerned about the median price. High-end car sales can drastically inflate the mean price while the median will be more robust to the influence of those sales.}
+자동차 가격 분포는 고급차 몇종과 경주차가 오른쪽 꼬리에 머물고 있어서 우측으로 기운 경향이 있다. 
+만약 신차를 검색하고서 가격에 주의를 기울인다면, 일반적인 차를 구입하려고 시장에 나왔다고 가정하고서 자동차 평균 혹은 중위수 가격 중 어디에 더 관심을 둬야 하나요?\footnote{``일반적인 자동차(regular car)'' 구매자는 중위수 가격에 관심을 둬야 한다.
+고급 자동차 판매가 평균 가격을 심하게 부풀릴 수 있지만, 중위수는 고급차 판매 영향에 더 강건한다.}
 \end{exercise}
 
-\subsection{Transforming data (special topic)}
+\subsection{데이터 변환 (특별 주제)}
 \label{transformingDataSubsection}
 
 When data are very strongly skewed, we sometimes transform them so they are easier to model. Consider the histogram of salaries for Major League Baseball players' salaries from 2010, which is shown in Figure~\ref{histMLBSalariesReg}.
