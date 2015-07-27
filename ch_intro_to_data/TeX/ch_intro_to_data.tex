@@ -1335,7 +1335,9 @@ $Q_1$ 과 $Q_3$는 중간 데이터 50\%를 잡아내고, 중위수가 데이터
 \subsection{데이터 변환 (특별 주제)}
 \label{transformingDataSubsection}
 
-When data are very strongly skewed, we sometimes transform them so they are easier to model. Consider the histogram of salaries for Major League Baseball players' salaries from 2010, which is shown in Figure~\ref{histMLBSalariesReg}.
+데이터가 매우 강하게 기울어졌을 때, 종종 데이터를 변환하면 모형화하기 쉽다.
+2010년도 메이져 리그 야구선수 연봉 정보로부터 연봉을 히스토그램으로 그려보자.
+그림~\ref{histMLBSalariesReg}에 결과가 나와 있다.
 
 \begin{figure}[ht]
 \centering
@@ -1347,17 +1349,25 @@ When data are very strongly skewed, we sometimes transform them so they are easi
 \includegraphics[width=0.46\textwidth]{ch_intro_to_data/figures/histMLBSalaries/histMLBSalariesLog}
 \label{histMLBSalariesLog}
 }
-\caption{\subref{histMLBSalariesReg} Histogram of MLB player salaries for 2010, in millions of dollars. \subref{histMLBSalariesLog} Histogram of the log-transformed MLB player salaries for 2010.}
+\caption{\subref{histMLBSalariesReg} 2010년도 MLB 야구선수 연봉 히스토그램 (단위 백만달러).\subref{histMLBSalariesLog} 
+2010년도 MLB 야구선수 로그변환한 연봉 히스토그램.}
 \label{histMLBSalaries}
 \end{figure}
 
-\begin{example}{The histogram of MLB player salaries is useful in that we can see the data are extremely skewed\index{skew!example: extreme} and centered (as gauged by the median) at about \$1 million. What isn't useful about this plot?}
-Most of the data are collected into one bin in the histogram and the data are so strongly skewed that many details in the data are obscured.
+\begin{example}{
+MLB 야구선수 연봉 히스토그램은 데이터가 극단적으로 기울어져\index{기움!예제: 극단} 있고 약 \$1 백만달러(중위수로 측정됨)에 몰려 있다는 점에서 유용하다. 이 히스토그램에 관해서 어떤점은 유용하지 않은가?}
+데이터 대부분이 히스토그램 한 구간으로 수집되어 있고, 데이터가 매우 강하게 기울어져 있어서 데이터의 많은 자세한 정보가 뭉개져있다.
 \end{example}
 
-There are some standard transformations that are often applied when much of the data cluster near zero (relative to the larger values in the data set) and all observations are positive. A \term{transformation} is a rescaling of the data using a function. For instance, a plot of the natural logarithm\footnote{Statisticians often write the natural logarithm as $\log$. You might be more familiar with it being written as $\ln$.} of player salaries results in a new histogram in Figure~\ref{histMLBSalariesLog}. Transformed data are sometimes easier to work with when applying statistical models because the transformed data are much less skewed and outliers are usually less extreme.
+모든 관측점이 양수이고, 데이터 상당수가 0 근처에 몰려있을 때 (데이터셋에 상대적으로 더 많은 값), 적용되는 표준 변환이 몇가지 있다. \term{변환}(transformation)은 함수를 사용해서 데이터를 재조정하는 것이다.
+예를 들어, 야구선수 연봉에 자연로그\footnote{통계학자는 종종 자연로그를 $\log$로 사용한다. $\ln$로 자연로그를 적는데 더 익숙할 수도 있다.}를 취한 그림이 그림~\ref{histMLBSalariesLog}에 있는 새로운 히스토그램이다.
+통계적 모형을 적용할 때 변환된 데이터는 종종 더 작업하기 쉽다. 왜냐하면, 변환된 데이터는 훨씬 덜 기울어져 있고 이상점이 일반적으로 극단에 덜 위치한다.
 
-Transformations can also be applied to one or both variables in a scatterplot. A scatterplot of the \var{line\_\hspace{0.3mm}breaks} and \var{num\_\hspace{0.3mm}char} variables is shown in Figure~\ref{email50LinesCharactersMod}, which was earlier shown in Figure~\ref{email50LinesCharacters}. We can see a positive association between the variables and that many observations are clustered near zero. In Chapter~\ref{linRegrForTwoVar}, we might want to use a straight line to model the data. However, we'll find that the data in their current state cannot be modeled very well. Figure~\ref{email50LinesCharactersModLog} shows a scatterplot where both the \var{line\_\hspace{0.3mm}breaks} and \var{num\_\hspace{0.3mm}char} variables have been transformed using a log (base $e$) transformation. While there is a positive association in each plot, the transformed data show a steadier trend, which is easier to model than the untransformed data.
+산점도에서 변환을 변수 하나 혹은 둘 모두에 적용할 수 있다.
+그림~\ref{email50LinesCharactersMod}에 변수 \var{line\_\hspace{0.3mm}breaks} 와 \var{num\_\hspace{0.3mm}char}의 산점도가 나와 있다. 이것은 앞에서 살펴본 그림~\ref{email50LinesCharacters}이다. 변수 사이에 양의 연관성을 볼 수 있고 많은 관측점이 0 근처에 군집지어 있다. ~\ref{linRegrForTwoVar} 장에서 직선을 사용해서 데이터를 모형화한다.
+하지만, 현재 상태로 데이터를 모형화가 잘 안될 것을 알게 된다. 
+그림~\ref{email50LinesCharactersModLog}에 산점도가 나와 있는데 변수 \var{line\_\hspace{0.3mm}breaks} 와 \var{num\_\hspace{0.3mm}char}을 로그 (밑 $e$) 변환을 사용해서 변환했다.
+플롯 각각에 양의 연관성이 있지만, 변환된 데이터가 더 꾸준한 경향을 보이는데 변환되지 않은 데이터보다 모형화하기 더 쉽다.
 
 \begin{figure}
 \centering
@@ -1369,26 +1379,29 @@ Transformations can also be applied to one or both variables in a scatterplot. A
 \includegraphics[width=0.47\textwidth]{ch_intro_to_data/figures/email50LinesCharactersMod/email50LinesCharactersModLog}
 \label{email50LinesCharactersModLog}
 }
-\caption{\subref{email50LinesCharactersMod} Scatterplot of \var{line\_\hspace{0.3mm}breaks} against \var{num\_\hspace{0.3mm}char} for 50 emails. \subref{email50LinesCharactersModLog} A scatterplot of the same data but where each variable has been log-transformed.}
+\caption{\subref{email50LinesCharactersMod} 전자우편 50개에 대한 \var{num\_\hspace{0.3mm}char} 변수에 대한 \var{line\_\hspace{0.3mm}breaks} 변수 산점도. \subref{email50LinesCharactersModLog} 동일한 데이터의 산점도, 하지만 각 변수를 로그 변환했다.}
 \label{email50LinesCharactersModMain}
 \end{figure}
 
-Transformations other than the logarithm can be useful, too. For instance, the square root ($\sqrt{\text{original observation}}$) and inverse ($\frac{1}{\text{original observation}}$) are used by statisticians. Common goals in transforming data are to see the data structure differently, reduce skew, assist in modeling, or straighten a nonlinear relationship in a scatterplot.
+또한, 로그 말고 다른 변환도 유용하다. 예를 들어 제곱근($\sqrt{\text{원 관측점}}$)과 역($\frac{1}{\text{원 관측점}}$) 변환을 통계학자가 사용한다. 데이터를 변환하는 공통된 목적은 데이터 구조를 다르게 보고, 왜도를 줄이고, 모형화를 돕거나 산점도에 나와 있는 비선형 관계를 직선화하는데 있다.
 
-\index{data!email50|)}
+\index{데이터!email50|)}
 
-\subsection{Mapping data (special topic)}
+\subsection{데이터 매핑 (특별 주제)}
 
-\index{data!county|(}
-\index{intensity map|(}
+\index{데이터!시군|(}
+\index{강도 지도|(}
 
-The \data{county} data set offers many numerical variables that we could plot using dot plots, scatterplots, or box plots, but these miss the true nature of the data. Rather, when we encounter geographic data, we should map it using an \term{intensity map}, where colors are used to show higher and lower values of a variable. Figures~\ref{countyIntensityMaps1} and~\ref{countyIntensityMaps2} shows intensity maps for federal spending per capita (\var{fed\_\hspace{0.3mm}spend}), poverty rate in percent (\var{poverty}), homeownership rate in percent (\var{homeownership}), and median household income (\var{med\_\hspace{0.3mm}income}). The color key indicates which colors correspond to which values. Note that the intensity maps are not generally very helpful for getting precise values in any given county, but they are very helpful for seeing geographic trends and generating interesting research questions.
+\data{county} 데이터셋에는 많은 숫자형 변수가 있어서 점그림, 산점도, 상자그림을 사용해서 플롯을 그릴 수 있지만, 이러한 그림은 데이터 본질을 놓치고 있다. 그보다는 지리정보 데이터를 접했을 때, \term{강도 그림}(intensity map)을 사용해서 데이터를 매핑한다. 여기서 색깔을 사용해서 변수의 높고 낮은 값을 보여준다.
+그림~\ref{countyIntensityMaps1} 와~\ref{countyIntensityMaps2}는 일인당 연방정부지출(\var{fed\_\hspace{0.3mm}spend})과 퍼센트로 빈곤율(\var{poverty}), 퍼센트로 자가소유비율(\var{homeownership}), 중위수 가계소득(\var{med\_\hspace{0.3mm}income})을 보여주고 있다.
+컬러키(color key)는 어떤 색이 어떤 값에 대응되는지 나타낸다.
+강도 지도는 일반적으로 특정 군에 정확한 값을 얻는데는 그다지 도움이 되지 않지만, 지리적 경향성을 살펴보고 흥미로운 연구문제를 뽑아내는데는 유용한 것에 주목한다.
 
 \begin{figure}
 \centering
 \subfigure[]{\includegraphics[width=\textwidth]{ch_intro_to_data/figures/countyIntensityMaps/countyFedSpendMap}\label{countyFedSpendMap}}
 \subfigure[]{\includegraphics[width=\textwidth]{ch_intro_to_data/figures/countyIntensityMaps/countyPovertyMap}\label{countyPovertyMap}}
-\caption{\subref{countyFedSpendMap} Map of federal spending (dollars per capita). \subref{countyPovertyMap} Intensity map of poverty rate (percent).}
+\caption{\subref{countyFedSpendMap} 연방정부지출 지도 (단위: 인당 달러). \subref{countyPovertyMap} 빈곤율 강도 지도 (퍼센트).}
 \label{countyIntensityMaps1}
 \end{figure}
 
@@ -1396,24 +1409,28 @@ The \data{county} data set offers many numerical variables that we could plot us
 \centering
 \subfigure[]{\includegraphics[width=\textwidth]{ch_intro_to_data/figures/countyIntensityMaps/countyHomeownershipMap}\label{countyHomeownershipMap}}
 \subfigure[]{\includegraphics[width=\textwidth]{ch_intro_to_data/figures/countyIntensityMaps/countyMedIncomeMap}\label{countyMedIncomeMap}}
-\caption{\subref{countyHomeownershipMap} Intensity map of homeownership rate (percent). \subref{countyMedIncomeMap} Intensity map of median household income (\$1000s).}
+\caption{\subref{countyHomeownershipMap} 자가소유비율 강도 지도 (퍼센트). \subref{countyMedIncomeMap} 중위수 가계소득 강도 지도 (\$1000 달러).}
 \label{countyIntensityMaps2}
 \end{figure}
 
 \textC{\pagebreak}
 
-\begin{example}{What interesting features are evident in the \var{fed\_\hspace{0.3mm}spend} and \var{poverty} intensity maps?}
-The federal spending intensity map shows substantial spending in the Dakotas and along the central-to-western part of the Canadian border, which may be related to the oil boom in this region. There are several other patches of federal spending, such as a vertical strip in eastern Utah and Arizona and the area where Colorado, Nebraska, and Kansas meet. There are also seemingly random counties with very high federal spending relative to their neighbors. If we did not cap the federal spending range at \$18 per capita, we would actually find that some counties have extremely high federal spending while there is almost no federal spending in the neighboring counties. These high-spending counties might contain military bases, companies with large government contracts, or other government facilities with many employees.
+\begin{example}{\var{fed\_\hspace{0.3mm}spend} 와 \var{poverty} 강도 지도에서 어떤 흥미로운 특징이 명확히 드러나는가?}
 
-Poverty rates are evidently higher in a few locations. Notably, the deep south shows higher poverty rates, as does the southwest border of Texas. The vertical strip of eastern Utah and Arizona, noted above for its higher federal spending, also appears to have higher rates of poverty (though generally little correspondence is seen between the two variables).  High poverty rates are evident in the Mississippi flood plains a little north of New Orleans and also in a large section of Kentucky and West Virginia.
+정부지출금 강도 지도는 다코타주와 캐나다 국경을 접한 중서부 지역을 따라 상당한 정부지출을 보여주고 있는데, 이 지역에 오일붐과 관련되어 있다. 또다른 정부지출금 지역이 일부 있는데 예를 들어 동부 유타와 아리조나에 수직으로 난 조각과 콜로라도, 네브라스카, 캔사스가 만나는 지역이다. 다른 인접지역과 비교해서 상당한 정부지출금을 갖는 특정한 패턴이 없는 시군도 있다. 만약 일인당 \$18 달러로 연방정부지출금 상한을 두지 않았다면, 실제로 상당히 높은 연방정부지출금을 일부 시군에서 사용하는 반면에 인근 시군에서는 거의 연방정부지출금을 사용하지 않는 것을 볼 수 있다.
+이러한 지출이 많은 시군에는 군부대, 대형 정부계약 맺은 회사, 혹은 많은 공무원을 둔 정부기관시설이 포함될 수 있다.
+
+빈곤율은 분명히 몇몇 장소에서 더 높다. 주목할 점은 텍사스 남서쪽 경계지역에서 처럼, 최남동부 지역에 높은 빈곤율을 보인다.
+높은 연방정부지출에서도 표기되었듯이, 동부 유타와 아리조나 수직으로 난 조각지역도 또한 높은 빈곤율을 보인다 (일반적으로 두변수 사이에 거의 대응관계가 보이지 않지만). 높은 빈곤율은 뉴올리온스 약간 북쪽 미시시피 범람 지역과 컨터키와 웨스트 버지니아 상당지역이 눈에 띄게 나타난다.
 \end{example}
 
 \begin{exercise}
-What interesting features are evident in the \var{med\_\hspace{0.3mm}income} intensity map in Figure~\ref{countyMedIncomeMap}?\footnote{Note: answers will vary. There is a very strong correspondence between high earning and metropolitan areas. You might look for large cities you are familiar with and try to spot them on the map as dark spots.}
+그림~\ref{countyMedIncomeMap}에서 \var{med\_\hspace{0.3mm}income} 강도 지도에서 어떤 흥미로운 특징이 눈에 확실히 보이는가?\footnote{주목: 정답은 다양할 수 있다. 높은 수입과 대도시 지역 사이에 강한 상응이 있다.
+친숙한 대형 도시를 찾고 지도에 위치한 곳이 어두운 색으로 표시되어 있는지 확인해보라.}
 \end{exercise}
 
-\index{intensity map|)}
-\index{data!county|)}
+\index{강도 지도|)}
+\index{데이터!시군|)}
 
 
 
