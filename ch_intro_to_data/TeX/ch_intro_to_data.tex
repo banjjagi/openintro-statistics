@@ -1436,19 +1436,21 @@ MLB 야구선수 연봉 히스토그램은 데이터가 극단적으로 기울�
 
 \textC{\newpage}
 
-\section[Considering categorical data]{Considering categorical data \sectionvideohref{youtube-7NhNeADL8fA&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[범주형 데이터 고려하기]{Considering categorical data \sectionvideohref{youtube-7NhNeADL8fA&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{categoricalData}
 
-\index{data!email|(}
+\index{데이터!email|(}
 
-Like numerical data, categorical data can also be organized and analyzed. In this section, we will introduce tables and other basic tools for categorical data that are used throughout this book. The \data{email50} data set represents a sample from a larger email data set called \data{email}. This larger data set contains information on 3,921 emails. In this section we will examine whether the presence of numbers, small or large, in an email provides any useful value in classifying email as spam or not spam.
+숫자형 데이터와 마찬가지로, 범주형 데이터도 구조화해서 분석될 수 있다. 이번 절에는 이 책 전반적으로 사용되는 범주형 데이터에 대한 기본 도구와 표가 소개된다. \data{email50} 데이터셋은 \data{email}로 불리는 좀더 커다란 전자우편 데이터에서 추출한 표본이다. 좀더 커다란 데이터셋에는 3,921개 전자우편에 대한 정보가 포함되어 있다. 이번 절에서 전자우편에 숫자의 존재, 크거나 작은 사실이 스팸과 정상 전자우편을 분류하는데 유용한 값을 제공하는지 조사한다.
+
 % library(openintro); data(email); dim(email)
 
-\subsection{Contingency tables and bar plots}
+\subsection{분할표(Contingency tables)와 막대그림}
 
-Table~\ref{emailSpamNumberTableTotals} summarizes two variables: \var{spam} and \var{number}. Recall that \var{number} is a categorical variable that describes whether an email contains no numbers, only small numbers (values under 1 million), or at least one big number (a value of 1 million or more). A table that summarizes data for two categorical variables in this way is called a \term{contingency table}. Each value in the table represents the number of times a particular combination of variable outcomes occurred. For example, the value 149 corresponds to the number of emails in the data set that are spam \emph{and} had no number listed in the email. Row and column totals are also included. The \term{row totals} \index{contingency table!row totals} provide the total counts across each row (e.g. $149 + 168 + 50 = 367$), and \term{column totals} \index{contingency table!column totals} are total counts down each column.
+표~\ref{emailSpamNumberTableTotals}에는 요약된 두 변수가 있다: \var{spam}, \var{number}. \var{number} 변수는 범주형 변수로 전자우편이 숫자가 없거나, 작은 숫자 (백만 이하), 최소 큰 숫자 하나 (백만 혹은 그이상)를 갖는지 기술하는 범주형 변수임을 상기한다. 이러한 방식으로 두 범주형 변수에 대한 데이터를 요약하는 표를 \term{분할표}(contingency table)라고 부른다. 표에 각 값은 특정 변수결과 조합이 몇번 발생했는지 나타낸다. 예를 들어, 값 149는 데이터셋에서 스팸\emph{이며} 전자우편에 숫자가 하나도 없는 전자우편 갯수에 상응한다. 행과 열 총계도 포함되었다. \term{행 총계} \index{분할표!행 총계}는 각 행에 걸친 전체 갯수에 대한 정보를 제공한다 (즉, $149 + 168 + 50 = 367$). \term{열 총계} \index{분할표!열 총계}는 각 열에 걸친 전체 갯수가 된다.
 
-A table for a single variable is called a \term{frequency table}. Table~\ref{emailNumberTable} is a frequency table for the \var{number} variable. If we replaced the counts with percentages or proportions, the table would be called a \term{relative frequency table}.
+단일 변수에 대한 표는 \term{빈도표}(frequency table)라고 부른다. 표~\ref{emailNumberTable}는 \var{number} 변수에 대한 빈도표다. 만약 갯수를 퍼센트 혹은 비율로 교체하면 표는 \term{상대도수표}(relative frequency table)로 불린다.
+
 
 \begin{table}[ht]
 \centering
@@ -1464,7 +1466,7 @@ A table for a single variable is called a \term{frequency table}. Table~\ref{ema
 & Total & 549 & 2827 & 545 & 3921 \\
   \cline{2-6}
 \end{tabular}
-\caption{A contingency table for \var{spam} and \var{number}.}
+\caption{\var{spam} 와 \var{number}에 대한 분할표.}
 \label{emailSpamNumberTableTotals}
 %library(openintro); library(xtable); data(email); tab <- table(email[,c("spam", "number")])[2:1,]; xtable(tab); rowSums(tab); colSums(tab); sum(tab)
 \end{table}
@@ -1478,77 +1480,88 @@ none & small & big & Total \\
  549 & 2827 & 545 & 3921 \\
    \hline
 \end{tabular}
-\caption{A frequency table for the \var{number} variable.}
+\caption{\var{number} 변수에 대한 빈도표.}
 \label{emailNumberTable}
 \end{table}
 %library(openintro); library(xtable); data(email); xtable(table(email[,c("html")]))
 
-A bar plot is a common way to display a single categorical variable. The left panel of Figure~\ref{emailNumberBarPlot} shows a \term{bar plot} for the \var{number} variable. In the right panel, the counts are converted into proportions (e.g. $549/3921=0.140$ for \resp{none}), showing the proportion of observations that are in each level (i.e. in each category).
+막대그림이 단일 범주형 변수를 시각화하는 일반적인 방식이다. 그림~\ref{emailNumberBarPlot} 왼쪽 패널에 \var{number} 변수에 대한 \term{막대그림}이 나와 있다. 오른쪽 패널에는 갯수를 비율로 변환해서 (즉, \resp{none}에 대해 $549/3921=0.140$ ), 각 수준별(즉, 각 범주별)로 관측점의 비율을 보여주고 있다.
 
 \begin{figure}[bht]
    \centering
    \includegraphics[width=0.9\textwidth]{ch_intro_to_data/figures/emailNumberBarPlot/emailNumberBarPlot}
-   \caption{Two bar plots of \var{number}. The left panel shows the counts, and the right panel shows the proportions in each group.}
+   \caption{\var{number}에 대한 막대그림 두개. 왼쪽 패널은 갯수, 오른쪽 패널은 각 집단에 대한 비율을 보여준다.}
    \label{emailNumberBarPlot}
 \end{figure}
 
 
-\subsection{Row and column proportions}
+\subsection{행과 열 비율}
 
-Table~\ref{rowPropSpamNumber} shows the row proportions for Table~\ref{emailSpamNumberTableTotals}. The \termsub{row proportions}{contingency table!row proportions} are computed as the counts divided by their row totals. The value 149 at the intersection of \resp{spam} and \resp{none} is replaced by $149/367=0.406$, i.e. 149 divided by its row total, 367. So what does 0.406 represent? It corresponds to the proportion of spam emails in the sample that do not have any numbers.
+표~\ref{rowPropSpamNumber}에는 표~\ref{emailSpamNumberTableTotals}에 대한 행비율 정보가 나와있다. \termsub{행비율}{분할표!행비율}(row proportions)은 갯수를 각 행 소계로 나누어서 계산된다. \resp{spam} 과 \resp{none}이 교차하는 값 149가 $149/367=0.406$으로 대체되었다, 즉 149를 행 소계 367로 나누었다. 그래서 0.406은 무엇을 나타내는가?  이 값은 표본에서 어떤 숫자도 갖지 않는 스팸 전자우편 비율에 상응된다.
 
 \begin{table}
 \centering
 \begin{tabular}{l rrr r}
   \hline
- & none & small & big & Total \\ 
+ & none & small & big & 소계 \\ 
   \hline
 spam &  $149/367 = 0.406$ & $168/367 = 0.458$ &
 			$50/367 = 0.136$ & 1.000 \\ 
 not spam &  $400/3554 = 0.113$ & $2657/3554 = 0.748$ &
 			$495/3554 = 0.139$ & 1.000 \\ 
    \hline
-Total & $549/3921 = 0.140$ & $2827/3921 = 0.721$ &
+소계 & $549/3921 = 0.140$ & $2827/3921 = 0.721$ &
 			$545/3921 = 0.139$ & 1.000 \\
   \hline
 \end{tabular}
-\caption{A contingency table with row proportions for the \var{spam} and \var{number} variables.}
+\caption{변수 \var{spam} 과 \var{number}에 대한 행비율 정보를 갖는 분할표.}
 \label{rowPropSpamNumber}
 % library(openintro); data(email); g <- table(email$spam, email$number)[2:1,]; g / rep(rowSums(g), 3); rowSums(g)
 \end{table}
 
-A contingency table of the column proportions is computed in a similar way, where each \termsub{column proportion}{contingency table!column proportion} is computed as the count divided by the corresponding column total. Table~\ref{colPropSpamNumber} shows such a table, and here the value 0.271 indicates that 27.1\% of emails with no numbers were spam. This rate of spam is much higher compared to emails with only small numbers (5.9\%) or big numbers (9.2\%). Because these spam rates vary between the three levels of \var{number} (\resp{none}, \resp{small}, \resp{big}), this provides evidence that the \var{spam} and \var{number} variables are associated.
+열 비율의 분할표도 비슷한 방식으로 계산된다, 여기서 \termsub{열 비율}{분할표!열 비율}(column proportion)은 갯수를 상응하는 열 소계로 나눠서 계산된다.
+표~\ref{colPropSpamNumber}가 그런 표를 보여주고 있다. 여기서 값 0.271은 숫자가 없는 전자우편의 27.1\%가 스팸임을 나타낸다.
+스팸 율이 작은 숫자(5.9\%)만 갖거나 큰 숫자(9.2\%)를 갖는 전자우편과 비교해서 훨씬 더 높다.
+이러한 스팸율이 \var{number} 세가지 수준(\resp{none}, \resp{small}, \resp{big})마다 다르기 때문에, \var{spam} 과 \var{number} 변수가 연관되었다는 증거가 된다.
+
 
 \begin{table}[h]
 \centering\small
 \begin{tabular}{l rrr r}
   \hline
- & none & small & big & Total \\ 
+ & none & small & big & 소계 \\ 
   \hline
 spam &  $149/549 = 0.271$ & $168/2827 = 0.059$ &
 				$50/545 = 0.092$ & $367/3921 = 0.094$ \\ 
 not spam &  $400/549 = 0.729$ & $2659/2827 = 0.941$ &
 				$495/545 = 0.908$ & $3684/3921 = 0.906$ \\ 
    \hline
-Total & 1.000 & 1.000 & 1.000 & 1.000 \\
+소계 & 1.000 & 1.000 & 1.000 & 1.000 \\
    \hline
 \end{tabular}
-\caption{A contingency table with column proportions for the \var{spam} and \var{number} variables.}
+\caption{변수 \var{spam} 과 \var{number}에 대한 열비율 정보를 갖는 분할표.}
 \label{colPropSpamNumber}
 % library(openintro); data(email); g <- table(email$spam, email$number)[2:1,]; g / rep(colSums(g), rep(2, 3)); g; colSums(g)
 \end{table}
 
-We could also have checked for an association between \var{spam} and \var{number} in Table~\ref{rowPropSpamNumber} using row proportions. When comparing these row proportions, we would look down columns to see if the fraction of emails with no numbers, small numbers, and big numbers varied from \resp{spam} to \resp{not~spam}.
+행비율을 사용해서 표~\ref{rowPropSpamNumber}에서 \var{spam} 과 \var{number} 변수 사이에 관계를 점검할 수 있다.
+행비율을 비교할 때, 열 아래로 내려다 보고 숫자가 없는, 작은 숫자, 큰 숫자를 갖는 전자우편 비율이 \resp{spam} 과 \resp{not~spam}에 따라 달라지는지 살펴본다.
 
 \begin{exercise}
-What does 0.458 represent in Table~\ref{rowPropSpamNumber}? What does 0.059 represent in Table~\ref{colPropSpamNumber}?\footnote{0.458 represents the proportion of spam emails that had a small number. 0.059 represents the fraction of emails with small numbers that are spam.}
+표~\ref{rowPropSpamNumber}에서 0.458은 무엇을 나타내는가? 표~\ref{colPropSpamNumber}에서 0.059는 무엇을 나타내는가?
+\footnote{0.458은 작은 숫자를 갖는 스팸 전자우편 분율을 나타낸다. 0.059는 스팸인 작은 숫자를 갖는 전자우편 분율을 나타낸다.}
 \end{exercise}
 
 \begin{exercise}
-What does 0.139 at the intersection of \resp{not~spam} and \resp{big} represent in Table~\ref{rowPropSpamNumber}? What does 0.908 represent in the Table~\ref{colPropSpamNumber}?\footnote{0.139 represents the fraction of non-spam email that had a big number. 0.908 represents the fraction of emails with big numbers that are non-spam emails.}
+표~\ref{rowPropSpamNumber}에서 \resp{not~spam} 과 \resp{big}이 교차하는 값 0.139는 무엇인가?
+표~\ref{colPropSpamNumber}에서 0.908은 무엇을 나타내는가?\footnote{
+0.139는 큰 숫자를 갖는 스팸이 아닌 전자우편 분율을 나타낸다. 0.908은 스팸이 아닌 큰 숫자를 갖는 전자우편 분율이다.}
 \end{exercise}
 
-\begin{example}{Data scientists use statistics to filter spam from incoming email messages. By noting specific characteristics of an email, a data scientist may be able to classify some emails as spam or not spam with high accuracy. One of those characteristics is whether the email contains no numbers, small numbers, or big numbers. Another characteristic is whether or not an email has any HTML content. A contingency table for the \var{spam} and \var{format} variables from the \data{email} data set are shown in Table~\ref{emailSpamHTMLTableTotals}. Recall that an HTML email is an email with the capacity for special formatting, e.g. bold text. In Table~\ref{emailSpamHTMLTableTotals}, which would be more helpful to someone hoping to classify email as spam or regular email: row or column proportions?} \label{weighingRowColumnProportions}
+\begin{example}{
+
+
+Data scientists use statistics to filter spam from incoming email messages. By noting specific characteristics of an email, a data scientist may be able to classify some emails as spam or not spam with high accuracy. One of those characteristics is whether the email contains no numbers, small numbers, or big numbers. Another characteristic is whether or not an email has any HTML content. A contingency table for the \var{spam} and \var{format} variables from the \data{email} data set are shown in Table~\ref{emailSpamHTMLTableTotals}. Recall that an HTML email is an email with the capacity for special formatting, e.g. bold text. In Table~\ref{emailSpamHTMLTableTotals}, which would be more helpful to someone hoping to classify email as spam or regular email: row or column proportions?} \label{weighingRowColumnProportions}
 Such a person would be interested in how the proportion of spam changes within each email format. This corresponds to column proportions: the proportion of spam in plain text emails and the proportion of spam in HTML emails.
 
 If we generate the column proportions, we can see that a higher fraction of plain text emails are spam ($209/1195 = 17.5\%$) than compared to HTML emails ($158/2726 = 5.8\%$). This information on its own is insufficient to classify an email as spam or not spam, as over 80\% of plain text emails are not spam. Yet, when we carefully combine this information with many other characteristics, such as \var{number} and other variables, we stand a reasonable chance of being able to classify some email as spam or not spam. \GLMSection{This is a topic we will return to in Chapter~\ref{multipleRegressionAndANOVA}.}{}
