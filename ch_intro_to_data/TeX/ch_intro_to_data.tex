@@ -1,6 +1,6 @@
 % The values have been rounded to the nearest 2,000 in this plot., 12,000 Figure 1.20 29 Page
 
-\chapter{데이터 소개}
+\chapter[Introduction to data]{데이터 소개}
 \label{introductionToData}
 
 %\begin{tipBox}{\tipBoxTitle[Chapter Goal:]{Thinking about data}
@@ -139,8 +139,7 @@ Total				& 46		& 405	&&	73	& 378 \\
 
 \index{데이터(data)!뇌졸증|)}
 
-%\section[Data basics]{데이터 기초 \sectionvideohref{youtube-Mjif8PTgzUs&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
-\section[데이터 기초]{데이터 기초 \sectionvideohref{youtube-Mjif8PTgzUs&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[Data basics]{데이터 기초 \sectionvideohref{youtube-Mjif8PTgzUs&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{dataBasics}
 
 대부분 분석에서 첫번째 단계는 효과적인 자료 기술과 표현이다.
@@ -744,7 +743,7 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 
 
 %%%%%
-\section[실험]{Experiments \sectionvideohref{youtube-g7JGe_ykB3I&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[Experiments]{실험 \sectionvideohref{youtube-g7JGe_ykB3I&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{experimentsSection}
 
 연구원이 처리(treatment)를 사례에 배정하는 연구를 \termsub{실험}{experiment}이라고 부른다.
@@ -828,7 +827,7 @@ $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
 
 
 %%%%%
-\section[숫자형 데이터 살펴보기]{Examining numerical data \sectionvideohref{youtube-Xm0PPtci3JE&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[Examining numerical data]{숫자형 데이터 살펴보기 \sectionvideohref{youtube-Xm0PPtci3JE&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{numericalData}
 
 이번 절에서 숫자형 변수를 탐색하고 요약하는 기법을 소개한다.
@@ -1436,7 +1435,7 @@ MLB 야구선수 연봉 히스토그램은 데이터가 극단적으로 기울�
 
 \textC{\newpage}
 
-\section[범주형 데이터 고려하기]{Considering categorical data \sectionvideohref{youtube-7NhNeADL8fA&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
+\section[Considering categorical data]{범주형 데이터 고려하기 \sectionvideohref{youtube-7NhNeADL8fA&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8}}
 \label{categoricalData}
 
 \index{데이터!email|(}
@@ -1641,43 +1640,45 @@ not spam &  $400/549 = 0.729$ & $2659/2827 = 0.941$ &
 \begin{figure}
    \centering
    \includegraphics[width=0.44\textwidth]{ch_intro_to_data/figures/emailSpamNumberMosaicPlot/emailSpamNumberMosaicRev}
-   \caption{Mosaic plot where emails are grouped by the \var{number} variable after they've been divided into \resp{spam} and \resp{not spam}.}
+   \caption{ \resp{spam} 과 \resp{not spam}으로 전자우편을 나눈 다음에 \var{number} 변수로 전자우편을 분류한 모자이크 그래프.}
    \label{emailSpamNumberMosaicRev}
 \end{figure}
 
-This one-variable mosaic plot is further divided into pieces in Figure~\ref{emailSpamNumberMosaic} using the \var{spam} variable. Each column is split proportionally according to the fraction of emails that were spam in each number category. For example, the second column, representing emails with only small numbers, was divided into emails that were spam (lower) and not spam (upper). 
-As another example, the bottom of the third column represents spam emails that had big numbers, and the upper part of the third column represents regular emails that had big numbers. We can again use this plot to see that the \var{spam} and \var{number} variables are associated since some columns are divided in different vertical locations than others, which was the same technique used for checking an association in the standardized version of the segmented bar plot.
+일변량 모자이크 그래프를 \var{spam} 변수를 사용해서 그림~\ref{emailSpamNumberMosaic}에서 보듯이 더 쪼갠다. 각 범주별로 스팸 전자우편 분율에 따라 비례해서 각 열을 쪼갠다. 예를 들어, 단지 적은 숫자만 갖는 전자우편을 대표하는 두번째 열을 스팸(아래)과 정상(위) 전자우편으로 나눈다. 또다른 예제로, 세번째 열 하단은 큰 숫자를 갖는 스팸 전자우편을 나타내고, 세번째 열의 위쪽 부분은 큰 숫자를 갖는 정상 우편을 나타낸다. 모자이크 그래프를 사용해서 \var{spam} 과 \var{number} 변수가 연관된 것을 볼 수 있다. 왜냐하면, 일부 칼럼이 다른 칼럼보다 수직 위치가 다르게 나눠지기 때문이다. 이것은 표준화된 조각 막대그래프에서 연관성을 검사하는데 사용한 동일한 기법이다.
 
-In a similar way, a mosaic plot representing row proportions of Table~\ref{emailSpamNumberTableTotals} could be constructed, as shown in Figure~\ref{emailSpamNumberMosaicRev}. However, because it is more insightful for this application to consider the fraction of spam in each category of the \var{number} variable, we prefer Figure~\ref{emailSpamNumberMosaic}.
+유사한 방식으로, 그림~\ref{emailSpamNumberMosaicRev}에 도시된 바와 같이, 표~\ref{emailSpamNumberTableTotals}의 행비율을 나타내는 모자이크 그래프를 그릴 수 있다. 하지만, \var{number} 변수의 각 범주마다 스팸 분율을 고려하는 것이 이번 응용에는 더 많은 통찰력을 전달하기 때문에 저자는 그림~\ref{emailSpamNumberMosaic} 표현을 선호한다.
 
-\subsection{The only pie chart you will see in this book}
 
-While pie charts are well known, they are not typically as useful as other charts in a data analysis. A \term{pie chart} is shown in Figure~\vref{emailNumberPieChart} alongside a bar plot. It is generally more difficult to compare group sizes in a pie chart than in a bar plot, especially when categories have nearly identical counts or proportions. In the case of the \resp{none} and \resp{big} categories, the difference is so slight you may be unable to distinguish any difference in group sizes for either~plot!
+\subsection{이 책에서 보게 되는 유일한 파이그림(Pie Chart)}
+
+파이그림이 잘 알려졌지만, 일반적으로 데이터 분석에서 다른 그림만큼 유용하지는 않다. \term{파이그림}(pie chart)이 막대그림과 함께 그림~\vref{emailNumberPieChart}에 도시되어 있다. 일반적으로 막대그림보다 파이그림에 집단 크기를 비교하기가 더 어렵다. 특히, 범주가 거의 동일한 갯수나 비율을 갖을 때 더욱 그렇다. \resp{none} 과 \resp{big} 범주의 경우에 차이가 아주 미세해서 어떤 그림으로도 집단 크기에 차이를 구별할 수 거의 없다!
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=\textwidth]{ch_intro_to_data/figures/emailNumberPieChart/emailNumberPieChart}
-   \caption{A pie chart and bar plot of \var{number} for the \data{email} data set.}
+   \caption{ \data{email} 데이터셋에 대한 \var{number} 변수를 파이그림과 막대그림으로 표현.}
    \label{emailNumberPieChart}
 \end{figure}
 
-\index{data!email|)}
+\index{데이터!email|)}
 
-\subsection{Comparing numerical data across groups}
+\subsection{집단별로 수치 데이터를 비교하기}
 \label{comparingAcrossGroups}
 
-\index{data!county|(}
+\index{데이터!county|(}
 
-Some of the more interesting investigations can be considered by examining numerical data across groups. The methods required here aren't really new. All that is required is to make a numerical plot for each group. Here two convenient methods are introduced: side-by-side box plots and hollow histograms.
+집단별로 수치 데이터를 검사해서, 좀더 흥미로운 조사내용 중 일부를 자세히 바라볼 수 있다. 여기에 요구되는 방법은 정말 새로운 것은 아니다.
+필요한 전부는 각 집단별로 수치그림을 그리는 것이다. 여기서 두가지 편리한 방법을 소개한다: 병행 상자그림(side-by-side box plot)과 공히스토그램(hollow histogram).
 
-We will take a look again at the \data{county} data set and compare the median household income for counties that gained population from 2000 to 2010 versus counties that had no gain. While we might like to make a causal connection here, remember that these are observational data and so such an interpretation would be unjustified.
+\data{county} 데이터셋을 다시 살펴보고 2000년부터 2010년까지 인구증가된 시군과 그렇지 않는 시군에 대한 중위수 가구소득을 비교한다. 여기서 인과적인 연결을 맺고 싶지만, 관측 데이터로 인과관계를 맺는 해석이 정당화될 수 없다는 사실을 기억하라.
 
-There were 2,041 counties where the population increased from 2000 to 2010, and there were 1,099 counties with no gain (all but one were a loss). A~random sample of 100 counties from the first group and 50 from the second group are shown in Table~\ref{countyIncomeSplitByPopGainTable} to give a better sense of some of the raw data.
+2000년부터 2010년 사이 인구가 증가한 시군이 2,041 개 있고, 1,099 개 시군은 증가가 없다 (하나를 제외하고 모두 감소). 일부 원데이터에 대한 감을 잡을 수 있도록, 첫번째 집단에서 임의 표본으로 100개 시군을 뽑고, 두번째 집단에서 50개 시군을 뽑아 표~\ref{countyIncomeSplitByPopGainTable}로 나타냈다. 
+
 
 \begin{table}
 \centering
 \begin{tabular}{ ccc ccc c ccc }
-\multicolumn{6}{c}{\bf population gain} && \multicolumn{3}{c}{\bf no gain} \\ 
+\multicolumn{6}{c}{\bf 인구 증가} && \multicolumn{3}{c}{\bf 인구 무증가} \\ 
   \cline{1-6} \cline{8-10}
 41.2 & 33.1 & 30.4 & 37.3 & 79.1 & 34.5 &\hspace{5mm}\ & 40.3 & 33.5 & 34.8 \\
 22.9 & 39.9 & 31.4 & 45.1 & 50.6 & 59.4 && 29.5 & 31.8 & 41.3 \\
@@ -1698,37 +1699,39 @@ There were 2,041 counties where the population increased from 2000 to 2010, and 
 35.8 & 40.4 & 51.5 & 66.4 & 36.1 &  && 43.6 & 39.8 &  \\
 \cline{1-6} \cline{8-10}
 \end{tabular}
-\caption{In this table, median household income (in \$1000s) from a random sample of 100 counties that gained population over 2000-2010 are shown on the left. Median incomes from a random sample of 50 counties that had no population gain are shown on the right.}
+\caption{상기 표에서, 2000-2010에 걸쳐 인구가 증가한 임의 표본 100개 시군에 대한 가계소득 중위수 (\$1000 달러)가 왼편에, 
+인구가 증가하지 않은 임의 표본 50개 시군에 대한 가계소득 중위수가 오른편에 나타나 있다.}
 \label{countyIncomeSplitByPopGainTable}
 \end{table}
 
-The \term{side-by-side box plot} \index{box plot!side-by-side box plot} is a traditional tool for comparing across groups. An example is shown in the left panel of Figure~\ref{countyIncomeSplitByPopGain}, where there are two box plots, one for each group, placed into one plotting window and drawn on the same scale.
+
+\term{평행 상자그림}(side-by-side box plot) \index{상자그림!평행 상자그림}은 집단을 비교하는데 사용되는 전통적인 도구다. 그림~\ref{countyIncomeSplitByPopGain} 왼편에 예제가 나와 있는데, 상자그림이 두개 있는데 각 상자그림이 각 집단을 나타낸다. 하나의 윈도우에 동일한 척도로 두 상자그림을 위치시킨다. 
 
 \begin{figure}
    \centering
    \includegraphics[width=\textwidth]{ch_intro_to_data/figures/countyIncomeSplitByPopGain/countyIncomeSplitByPopGain}
-   \caption{Side-by-side box plot (left panel) and hollow histograms (right panel) for \var{med\_\hspace{0.3mm}income}, where the counties are split by whether there was a population gain or loss from 2000 to 2010. The income data were collected between 2006 and 2010.}
+   \caption{ 변수 \var{med\_\hspace{0.3mm}income} 가계소득 중위수에 대한 평행 상자그림(왼쪽)과 공히스토그램(오른쪽). 여기서 2000년부터 2010년 사이 인구가 증가 혹은 감소에 따라 시군을 쪼갰다. 소득 데이터는 2006년과 2010년 사이 수집됐다.}
    \label{countyIncomeSplitByPopGain}
 \end{figure}
 
-Another useful plotting method uses \termsub{hollow histograms}{hollow histogram} to compare numerical data across groups. These are just the outlines of histograms of each group put on the same plot, as shown in the right panel of Figure~\ref{countyIncomeSplitByPopGain}.
+또다른 유용한 그리기 방법으로 \termsub{공히스토그램}{공히스토그램}(hollow histograms)이 있다. 이를 사용해서 집단별 수치 데이터를 비교한다. 그림~\ref{countyIncomeSplitByPopGain} 오른쪽에 도시되어 있듯이, 동일한 그림 위에 각 집단의 히스토그램 윤곽으로 표현된다.
 
 \begin{exercise} \label{comparingPriceByTypeExercise}
-Use the plots in Figure~\ref{countyIncomeSplitByPopGain} to compare the incomes for counties across the two groups. What do you notice about the approximate center of each group? What do you notice about the variability between groups? Is the shape relatively consistent between groups? How many \emph{prominent} modes are there for each group?\footnote{Answers may vary a little. The counties with population gains tend to have higher income (median of about \$45,000) versus counties without a gain (median of about \$40,000). The variability is also slightly larger for the population gain group. This is evident in the IQR, which is about 50\% bigger in the \emph{gain} group. Both distributions show slight to moderate right skew\index{skew!example: slight to moderate} and are unimodal. There is a secondary small bump at about \$60,000 for the \emph{no gain} group, visible in the hollow histogram plot, that seems out of place. (Looking into the data set, we would find that 8 of these 15 counties are in Alaska and Texas.) The box plots indicate there are many observations far above the median in each group, though we should anticipate that many observations will fall beyond the whiskers when using such a large data set.}
+그림~\ref{countyIncomeSplitByPopGain}을 사용해서 두 집단 간 시군 소득을 비교하시오. 각 집단별 대략적 중심에 대해 알아낸 것이 무엇인가요? 집단간 변동성에 관해서 알아낸 것은 무엇인가요? 형상이 상대적으로 집단간에 일관성이 있나요? 각 집단에 대해 얼마나 많은 \emph{눈에 띄는} 모드가 있나요?\footnote{정답은 약간 다를 수 있다. 인구증가된 시군(약 \$45,000 중위수 소득)이 증가가 없는 시군(약 \$40,000 중위수 소득)과 비교해서 더 높은 소득을 갖는 경향이 있다. 변동성은 인구증가 집단에서 다소 더 크다. 변동성은 IQR에서 확연한데 \emph{증가} 집단에서 약 50\% 더 크다. 두 분포 모두 우측으로 일부 기울어진 것과 일봉을 나타내고 있다. \emph{증가 없는} 집단에서 약 \$60,000 달러 근처에 위치에 맞지 않아 보이는 두번째 작은 융기가 있고, 공히스토그램에서도 시각적으로 확인된다. (데이터셋을 살펴보면, 15 시군중에 8개 시군이 알라스카주와 텍사스주에 있다는 것을 알 수 있다.) 이러한 큰규모 데이터셋을 사용할 때 많은 관측점이 상자수염 범위를 넘어 있을 것으로 예상하지만, 많은 관측점이 각 집단에서 중위수보다 훨씬 멀리 떨어 있음을 상자그림이 나타낸다.}
 \end{exercise}
 
 \begin{exercise}
-What components of each plot in Figure~\ref{countyIncomeSplitByPopGain} do you find most useful?\footnote{Answers will vary. The side-by-side box plots are especially useful for comparing centers and spreads, while the hollow histograms are more useful for seeing distribution shape, skew, and groups of anomalies.}
+그림~\ref{countyIncomeSplitByPopGain}에서 각 그림의 어떤 구성요소가 가장 유용하다고 생각합니까?\footnote{정답은 다를 수 있다. 병행 상자그림은 중심과 퍼짐을 비교하는데 특히 유용한 반면, 공히스토그램은 분포 형상, 기움, 집단 이상(anomaly)을 확인하는데 좀더 유용하다.}
 \end{exercise}
 
-\index{data!county|)}
+\index{데이터!county|)}
 
 
 %___________________________________________
-\section[Case study: gender discrimination (special topic)]{Case study: gender discrimination \sectionvideohref{youtube-2pHhjx9hyM4&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8} \\(special topic)}
+\section[Case study: gender discrimination (special topic)]{사례 연구: 성 차별 \sectionvideohref{youtube-2pHhjx9hyM4&list=PLkIselvEzpM6pZ76FD3NoCvvgkj_p-dE8} \\(특별 주제)}
 \label{caseStudyGenderDiscrimination}
 
-\index{data!discrimination|(}
+\index{데이터!discrimination|(}
 
 \begin{example}{Suppose your professor splits the students in class into two groups: students on the left and students on the right. If $\hat{p}_{_L}$ and $\hat{p}_{_R}$ represent the proportion of students who own an Apple product on the left and right, respectively, would you be surprised if $\hat{p}_{_L}$ did not {exactly} equal $\hat{p}_{_R}$?}\label{classRightLeftSideApple}
 While the proportions would probably be close to each other, it would be unusual for them to be exactly the same. We would probably observe a small difference due to {chance}.
