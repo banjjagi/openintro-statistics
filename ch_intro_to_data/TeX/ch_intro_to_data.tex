@@ -1559,46 +1559,44 @@ not spam &  $400/549 = 0.729$ & $2659/2827 = 0.941$ &
 \end{exercise}
 
 \begin{example}{
+데이터 과학자는 통계량을 사용해서 인입되는 전자우편 메시지에서 스팸을 걸러낸다. 전자우편의 특정 문자에 주목함으로써 전자우편 일부를 스팸 혹은 정상 메일로 높은 정확도를 갖고 분류할 수도 있다. 이러한 특성 중 하나가 전자우편이 숫자가 없거나, 작은 단위 숫자, 혹은 큰 단위 숫자를 포함하는지 여부다. 또다른 특성은 전자우편이 HTML 콘텐츠를 포함했느냐 여부다. \data{email} 데이터셋으로부터 \var{spam}와 \var{format} 변수의 분할표가 표~\ref{emailSpamHTMLTableTotals}에 나와있다. HTML 전자우편은 예를 들어 굵은 텍스트 같은 특수한 서식 기능을 갖는 전자우편이다. 표~\ref{emailSpamHTMLTableTotals}에서 스팸 혹은 정상 메일을 분류(행비율 혹은 열비율)하는데 어느 쪽이 더 도움이 될까?} \label{weighingRowColumnProportions}
+이 문제에 관련있는 사람은 각 전자우편 서식 변화에 스팸비율이 얼마나 변하는지 관심있다. 이것은 열비율에 대응된다: 일반 텍스트 스팸비율과 HTML 메일에 스팸비율.
 
-
-Data scientists use statistics to filter spam from incoming email messages. By noting specific characteristics of an email, a data scientist may be able to classify some emails as spam or not spam with high accuracy. One of those characteristics is whether the email contains no numbers, small numbers, or big numbers. Another characteristic is whether or not an email has any HTML content. A contingency table for the \var{spam} and \var{format} variables from the \data{email} data set are shown in Table~\ref{emailSpamHTMLTableTotals}. Recall that an HTML email is an email with the capacity for special formatting, e.g. bold text. In Table~\ref{emailSpamHTMLTableTotals}, which would be more helpful to someone hoping to classify email as spam or regular email: row or column proportions?} \label{weighingRowColumnProportions}
-Such a person would be interested in how the proportion of spam changes within each email format. This corresponds to column proportions: the proportion of spam in plain text emails and the proportion of spam in HTML emails.
-
-If we generate the column proportions, we can see that a higher fraction of plain text emails are spam ($209/1195 = 17.5\%$) than compared to HTML emails ($158/2726 = 5.8\%$). This information on its own is insufficient to classify an email as spam or not spam, as over 80\% of plain text emails are not spam. Yet, when we carefully combine this information with many other characteristics, such as \var{number} and other variables, we stand a reasonable chance of being able to classify some email as spam or not spam. \GLMSection{This is a topic we will return to in Chapter~\ref{multipleRegressionAndANOVA}.}{}
+만약 열비율을 만들어 내면, HTML 전자우편($158/2726 = 5.8\%$)보다 일반 텍스트 전자우편($209/1195 = 17.5\%$)의 분율이 더 높음을 볼 수 있다. 하지만, 이 정보를 많은 다른 특성, 예를 들어 \var{number}와 다른 변수와 주의깊이 결합하게 될 때, 전자우편을 스팸과 일반메일로 분류할 가능성이 높게 된다. \GLMSection{~\ref{multipleRegressionAndANOVA} 장에서 다룰 주제다.}{}
 \end{example}
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{l cc r}
   \hline
- & text & HTML & Total \\ 
+ & 텍스트 & HTML & 총계 \\ 
   \hline
-spam & 209 & 158 & 367 \\ 
-not spam & 986 & 2568 & 3554 \\ 
+스팸 & 209 & 158 & 367 \\ 
+일반 메일 & 986 & 2568 & 3554 \\ 
    \hline
-Total & 1195 & 2726 & 3921 \\
+총계 & 1195 & 2726 & 3921 \\
    \hline
 \end{tabular}
-\caption{A contingency table for \var{spam} and \var{format}.}
+\caption{\var{spam} 와 \var{format} 변수에 대한 분할표.}
 \label{emailSpamHTMLTableTotals}
 %library(openintro); library(xtable); data(email); tab <- table(email[,c("spam", "format")])[2:1,]; tab; colSums(tab); rowSums(tab)
 \end{table}
 
-Example~\ref{weighingRowColumnProportions} points out that row and column proportions are not equivalent. Before settling on one form for a table, it is important to consider each to ensure that the most useful table is constructed.
+행비율과 열비율이 동치되지 않다는 것을 예제~\ref{weighingRowColumnProportions}가 지적하고 있다. 한 형태로 표를 정하기 전에, 각각을 고려해서 가장 유용한 표가 구축되었는지 확실히 하는 것이 중요하다.
 
 \begin{exercise}
-Look back to Tables~\ref{rowPropSpamNumber} and~\ref{colPropSpamNumber}. Which would be more useful to someone hoping to identify spam emails using the \var{number} variable?\footnote{The column proportions in Table~\ref{colPropSpamNumber} will probably be most useful, which makes it easier to see that emails with small numbers are spam about 5.9\% of the time (relatively rare). We would also see that about 27.1\% of emails with no numbers are spam, and 9.2\% of emails with big numbers are spam.}
+다시 표~\ref{rowPropSpamNumber} 와~\ref{colPropSpamNumber}을 살펴보자. \var{number} 변수를 사용해서 스팸 전자우편을 식별하려는 사람에게 어느 표가 더 유용할까?\footnote{표~\ref{colPropSpamNumber}에 열비율 정보가 아마도 가장 유용할 것이다. 왜냐하면 작은 숫자를 갖는 전자우편의 약 5.9\%(상대적으로 드문 경우)가 스팸 전자우편이라는 것을 더 쉽게 볼 수 있게 한다. 추가로 숫자가 없는 전자우편의 약 27.1\%가 스팸이고, 큰 숫자를 갖는 전자우편의 9.2\%가 스팸이라는 것도 알 수 있다.}
 \end{exercise}
 
 
 \textC{\newpage}
 
-\subsection{Segmented bar and mosaic plots}
+\subsection{조각 막대그래프와 모자이크 그래프}
 \label{segmentedBarPlotsAndIndependence}
 
-Contingency tables using row or column proportions are especially useful for examining how two categorical variables are related. Segmented bar and mosaic plots provide a way to visualize the information in these tables.
+행비율 혹은 열비율을 갖는 분할표는 특히 두 범주형 변수가 어떻게 연관되었는지 조사할 때 유용하다. 조각 막대그래프와 모자이크 그래프는 이러한 분할표 정보를 시각화하는 방법을 제공한다.
 
-A \termsub{segmented bar plot}{bar plot!segmented bar plot} is a graphical display of contingency table information. For example, a segmented bar plot representing Table~\ref{colPropSpamNumber} is shown in Figure~\ref{emailSpamNumberSegBar}, where we have first created a bar plot using the \var{number} variable and then divided each group by the levels of \var{spam}. The column proportions of Table~\ref{colPropSpamNumber} have been translated into a standardized segmented bar plot in Figure~\ref{emailSpamNumberSegBarSta}, which is a helpful visualization of the fraction of spam emails in each level of \var{number}.
+\termsub{조각 막대그래프}{막대그래프!조각 막대그래프}는 분할표 정보의 시각적 표현이다. 예를 들어, 표~\ref{colPropSpamNumber}을 나타내는 조각 막대그래프가 그림~\ref{emailSpamNumberSegBar}에 나와 있다. 여기서 var{number} 변수를 사용해서 막대그래프를 먼저 생성했다. 그리고 나서 \var{spam} 변수 수준에 따라 집단별로 나누었다. 표~\ref{colPropSpamNumber}의 열비율 정보가 그림~\ref{emailSpamNumberSegBarSta}에 표준화된 조각 막대그래프로 옮겨졌다. \var{number} 변수 각 수준별로 스팸 전자우편 분율을 유용하게 시각화했다.
 
 \begin{figure}[h]
 \centering
@@ -1610,17 +1608,18 @@ A \termsub{segmented bar plot}{bar plot!segmented bar plot} is a graphical displ
 \includegraphics[width=0.46\textwidth]{ch_intro_to_data/figures/emailSpamNumberSegBar/emailSpamNumberSegBarSta}
 \label{emailSpamNumberSegBarSta}
 }
-\caption{\subref{emailSpamNumberSegBar} Segmented bar plot for numbers found in emails, where the counts have been further broken down by \var{spam}. \subref{emailSpamNumberSegBarSta} Standardized version of Figure~\subref{emailSpamNumberSegBar}.}
+\caption{\subref{emailSpamNumberSegBar} 
+전자우편에서 발견된 숫자에 대한 조각 막대그래프로, 갯수는 \var{spam} 여부에 따라 더 나누었다. \subref{emailSpamNumberSegBarSta} 그림~\subref{emailSpamNumberSegBar}의 표준화된 버젼.}
 \label{emailSpamNumberSegBarPlot}
 \end{figure}
 
-\begin{example}{Examine both of the segmented bar plots. Which is more useful?}
-Figure~\ref{emailSpamNumberSegBar} contains more information, but Figure~\ref{emailSpamNumberSegBarSta} presents the information more clearly. This second plot makes it clear that emails with no number have a relatively high rate of spam email -- about 27\%! On the other hand, less than 10\% of email with small or big numbers are spam.
+\begin{example}{양쪽 조각 막대그래프를 면밀히 살펴보라. 어느 것이 더 유용한가?}
+그림~\ref{emailSpamNumberSegBar}에 더 많은 정보가 포함되어 있지만, 그림~\ref{emailSpamNumberSegBarSta}은 정보를 좀더 명확히 제시한다. 두번째 그래프는 숫자가 없는 전자우편이 상대적으로 스팸 전자우편율이 더 높다는 것을 명확히 한다 -- 약 27\%. 다른 한편으로, 작은 숫자나 큰 숫자를 갖는 전자우편은 10\% 미만이 스팸이다.
 \end{example}
 
-Since the proportion of spam changes across the groups in Figure~\ref{emailSpamNumberSegBarSta}, we can conclude the variables are dependent, which is something we were also able to discern using table proportions. Because both the \resp{none} and \resp{big} groups have relatively few observations compared to the \resp{small} group, the association is more difficult to see in Figure~\ref{emailSpamNumberSegBar}.
+스팸 비율이 그림~\ref{emailSpamNumberSegBarSta}에서 나타나듯이 집단에 따라 변하기 때문에, 변수가 종속된다고 결론 내릴 수 있는데, 분할표 비율을 사용해서 분간할 수 있었던 것이다.  \resp{none} 와 \resp{big} 집단은 \resp{small} 집단과 비교해서 상대적으로 관측점이 적기 때문에, 연관을 그림~\ref{emailSpamNumberSegBar}에서 알아채기가 더 어렵다.
 
-In some other cases, a segmented bar plot that is not standardized will be more useful in communicating important information. Before settling on a particular segmented bar plot, create standardized and non-standardized forms and decide which is more effective at communicating features of the data.
+일부 다른 경우에, 표준화되지 않은 조각 막대그래프가 중요한 정보를 의사소통하는데 더 유용하다. 특정 조각 막대그래프를 결정하기 전에, 표준화된 형태와 표준화되지 않은 형태를 모두 생성하고 어느 것이 해당 데이터 특징을 의사소통하는데 더 효과적인 판단하라.
 
 \begin{figure}
 \centering
@@ -1632,11 +1631,12 @@ In some other cases, a segmented bar plot that is not standardized will be more 
 \includegraphics[width=0.46\textwidth]{ch_intro_to_data/figures/emailSpamNumberMosaicPlot/emailSpamNumberMosaic}
 \label{emailSpamNumberMosaic}
 }
-\caption{The one-variable mosaic plot for \var{number} and the two-variable mosaic plot for both \var{number} and \var{spam}.}
+\caption{ \var{number} 변수에 대한 일변량 모자이크 그래프와 \var{number} 와 \var{spam} 변수에 대한 이변량 모자이크 그래프.}
 \label{emailSpamNumberMosaicPlot}
 \end{figure}
 
-A \term{mosaic plot} is a graphical display of contingency table information that is similar to a bar plot for one variable or a segmented bar plot when using two variables. Figure~\ref{emailNumberMosaic} shows a mosaic plot for the \var{number} variable. Each column represents a level of \var{number}, and the column widths correspond to the proportion of emails for each number~type. For~instance, there are fewer emails with no numbers than emails with only small numbers, so the no number email column is slimmer. In general, mosaic plots use box \emph{areas} to represent the number of observations that box represents.
+\term{모자이크 그래프}(mosaic plot)는 변수 하나에 대한 막대그래프 혹은 두 변수에 대한 조각 막대그래프와 유사하게 분할표 정보를 시각적으로 표현한다. 그림~\ref{emailNumberMosaic}에 \var{number} 변수에 대한 모자이크 그래프가 나와 있다. 열 각각은 \var{number} 변수의 수준을 나타내고, 열 넓이는 각 숫자 유형에 대한 전자우편 비율에 대응된다.
+예를 들어, 작은 숫자를 갖는 전자우편보다 숫자가 없는 전자우편이 더 적다. 그래서 숫자가 없는 전자우편 열이 더 가늘다. 일반적으로, 모자이크 그래프는 상자 \emph{면적}을 사용해서 상자가 표현하는 관측점 갯수를 나타낸다.
 
 \begin{figure}
    \centering
