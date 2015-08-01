@@ -1,95 +1,103 @@
-\chapter{Probability (special topic)}
+\chapter[Probability (special topic)]{확률 (특별 주제)}
 \label{probability}
 
-\index{probability|(}
+\index{확률|(}
 
-Probability forms a foundation for statistics. You might already be familiar with many aspects of probability, however, formalization of the concepts is new for most. This chapter aims to introduce probability on familiar terms using processes most people have seen before.
+확률이 통계학의 근본을 구성한다. 이미 확률의 여러면에 친숙할 수도 있지만, 확률 개념을 형식한 것은 대부분 사람들에게 새로울 수 있다. 이번장에서 대부분 사람들이 이전에 봤던 과정을 사용해서 확률을 친숙한 용어로 소개하려고 한다.
 
-\section{Defining probability (special topic)}
+\section{확률 정의하기 (특별 주제)}
 \label{basicsOfProbability}
 
-\begin{example}{A ``die'', the singular of dice, is a cube with six faces numbered \resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, and \resp{6}. What is the chance of getting \resp{1} when rolling a die?}\label{probOf1}
-If the die is fair, then the chance of a \resp{1} is as good as the chance of any other number. Since there are six outcomes, the chance must be 1-in-6 or, equivalently, $1/6$.
+
+\begin{example}{``주사위(die, 복수형 dice)''는 \resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, \resp{6} 숫자가 6 면에 세겨진 정육면체다. 주사위를 던졌을 때 1 이 나올 확률은 얼마인가?}\label{probOf1}
+만약 주사위가 공정하다면, \resp{1}이 나올 확률은 다른 어떤 숫자가 나올 확률과 같다. 6 개 결과가 나올 수 있기 때문에, 가능성은 6개 중에 1개로, 즉, $1/6$다.
 \end{example}
 
-\begin{example}{What is the chance of getting a \resp{1} or \resp{2} in the next roll?}\label{probOf1Or2}
-\resp{1} and \resp{2} constitute two of the six equally likely possible outcomes, so the chance of getting one of these two outcomes must be $2/6 = 1/3$.
+\begin{example}{다음 주사위 던지기에서 \resp{1} 혹은 \resp{2}가 나올 확률은 얼마인가?}\label{probOf1Or2}
+\resp{1} 과 \resp{2} 는 6 가지 동일한 가능한 결과 중 둘로, 두 가지 결과 중에 하나를 얻을 가능성은 $2/6 = 1/3$이 된다.
 \end{example}
 
-\begin{example}{What is the chance of getting either \resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, or \resp{6} on the next roll?}\label{probOf123456}
-100\%. The outcome must be one of these numbers.
+\begin{example}{다음번 주사위를 던져서 \resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, \resp{6} 중에서 하나가 나올 확률은 얼마인가?}\label{probOf123456}
+100\%. 결과는 상기 6개 숫자 중에 하나가 되어야만 된다.
 \end{example}
 
-\begin{example}{What is the chance of not rolling a \resp{2}?}\label{probNot2}
-Since the chance of rolling a \resp{2} is $1/6$ or $16.\bar{6}\%$, the chance of not rolling a \resp{2} must be $100\% - 16.\bar{6}\%=83.\bar{3}\%$ or $5/6$.
+\begin{example}{ \resp{2}가 나오지 않을 가능성은 얼마인가?}\label{probNot2}
+\resp{2}가 나올 가능성이 $1/6$ 혹은 $16.\bar{6}\%$이기 때문에, \resp{2}가 나오지 않을 가능성은 $100\% - 16.\bar{6}\%=83.\bar{3}\%$ 혹은 $5/6$가 된다.
 
-Alternatively, we could have noticed that not rolling a \resp{2} is the same as getting a \resp{1}, \resp{3}, \resp{4}, \resp{5}, or \resp{6}, which makes up five of the six equally likely outcomes and has probability $5/6$.
+다른 방식으로, \resp{2}가 나오지 않는 것은 \resp{1}, \resp{3}, \resp{4}, \resp{5}, \resp{6} 중 하나를 얻는 것과 동일하다는 것을 알아챘을 것이다. 즉, 6개 동일한 가능성을 갖는 결과 중에서 5개로 확률이 $5/6$가 된다.
 \end{example}
 
-\begin{example}{Consider rolling two dice. If $1/6^{th}$ of the time the first die is a \resp{1} and $1/6^{th}$ of those times the second die is a \resp{1}, what is the chance of getting two \resp{1}s?}\label{probOf2Ones}
-If $16.\bar{6}$\% of the time the first die is a \resp{1} and $1/6^{th}$ of \emph{those} times the second die is also a \resp{1}, then the chance that both dice are \resp{1} is $(1/6)\times (1/6)$ or $1/36$.
+\begin{example}{주사위를 두개 던진다고 가정하자. 첫번째 주사위가 \resp{1}이 나올 가능성 $1/6^{th}$이고, 두번째 주사위도 \resp{1}이 나올 가능성이 $1/6^{th}$이라면, 모두 \resp{1}이 나올 확률은 얼마인가?}\label{probOf2Ones}
+만약 첫번째 주사위가 \resp{1}이 나올 확률이 $16.\bar{6}$\%이고, 두번째 주사위도 \resp{1}이 나올 확률이 $16.\bar{6}$\%이라면, 양쪽 주사위 모두 \resp{1}이 나올 확률은 $(1/6)\times (1/6)$ 혹은 $1/36$이 된다.
 \end{example}
 
-\subsection{Probability}
+\subsection{확률}
 
-\index{random process|(}
+\index{확률 과정|(}
 
-We use probability to build tools to describe and understand apparent randomness. We often frame probability in terms of a \term{random process} giving rise to an \term{outcome}.
+명백한 임의성(randomness)을 기술하고 이해하는 도구를 구축하는데 확률을 사용한다. 
+\term{결과}(outcome)를 생기게 하는 \term{확률 과정}(random process) 관점으로 확률을 종종 표현한다.
+
 \begin{center}
 \begin{tabular}{lll}
-Roll a die &$\rightarrow$ & \resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, or \resp{6} \\
-Flip a coin &$\rightarrow$ & \resp{H} or \resp{T} \\
+주사위 굴리기 &$\rightarrow$ & \resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, \resp{6} \\
+동전 던지기 &$\rightarrow$ & \resp{H} 혹은 \resp{T} \\
 \end{tabular}
 \end{center}
-Rolling a die or flipping a coin is a seemingly random process and each gives rise to an outcome. 
 
-\begin{termBox}{\tBoxTitle{Probability}
-The \term{probability} of an outcome is the proportion of times the outcome would occur if we observed the random process an infinite number of times.}
+주사위 굴리기 혹은 동전 던지기는 확률 과정이며 각각은 결과를 생기게 한다.
+
+\begin{termBox}{\tBoxTitle{확률}
+결과의 \term{확률}은 만약 무한번 확률과정을 관측했다면 결과가 일어난 횟수의 비율이다.}
 \end{termBox}
 
-Probability is defined as a proportion, and it always takes values between 0~and~1 (inclusively). It may also be displayed as a percentage between 0\% and 100\%.
+확률은 비율로 정의되고, 항상 0~과~1 사이 값을 갖는다 (전부 통틀어).또한 0\% 에서 100\% 사이 퍼센티지로 표현될 수도 있다.
 
-Probability can be illustrated by rolling a die many times. Let $\hat{p}_n$ be the proportion of outcomes that are \resp{1} after the first $n$ rolls. As the number of rolls increases, $\hat{p}_n$ will converge to the probability of rolling a \resp{1}, $p = 1/6$. Figure~\ref{dieProp} shows this convergence for 100,000 die rolls. The tendency of $\hat{p}_n$ to stabilize around $p$ is described by the \term{Law of Large Numbers}. 
+확률은 주사위를 많이 굴려서 실증할 수도 있다. $\hat{p}_n$을 $n$번 주사위를 굴려서 \resp{1}이 나온 결과 비율로 놓자. 주사위 굴리기 횟수가 증가함에 따라, $\hat{p}_n$은 \resp{1}을 굴려 나온 확률에 수렴한다, 즉, $p = 1/6$. 그림~\ref{dieProp}은 주사위를 100,000번 굴린 수렴결과가 도시되어 있다. $\hat{p}_n$이 $p$ 주위 안정화되는 경향성을 \term{대수의 법칙}(Law of Large Numbers)으로 기술된다.
+
 
 \begin{figure}[bt]
 \centering
 \includegraphics[width=0.85\textwidth]{ch_probability/figures/dieProp/dieProp}
-\caption{The fraction of die rolls that are 1 at each stage in a simulation. The proportion tends to get closer to the probability $1/6 \approx 0.167$ as the number of rolls increases.}
+\caption{모의실험에서 각 단계에 1 인 주사위 던지기 분율. 던지기 횟수가 증가함에 따라 비율은 확률 $1/6 \approx 0.167$에 가까워지는 경향이 있다.}
 \label{dieProp}
 \end{figure}
 
-\begin{termBox}{\tBoxTitle{Law of Large Numbers}
-As more observations are collected, the proportion $\hat{p}_n$ of occurrences with a particular outcome converges to the probability $p$ of that outcome.}
+\begin{termBox}{\tBoxTitle{대수의 법칙}
+더 많은 관측점이 수집됨에 따라, 특정 결과를 갖는 출현 비율, $\hat{p}_n$은 해당 결과 $p$에 수렴한다.}
 \end{termBox}
 
-Occasionally the proportion will veer off from the probability and appear to defy the Law of Large Numbers, as $\hat{p}_n$ does many times in Figure~\ref{dieProp}. However, these deviations become smaller as the number of rolls increases.
+경우에 따라서, 그림~\ref{dieProp}에서 $\hat{p}_n$이 여러번 하듯이, 비율이 확률로부터 방향을 바꾸어 벗어나 대수의 법칙을 부정하는 것처럼 보인다. 하지만, 이러한 편차는 던기지 횟수가 증가함에 따라 점점 작아진다.
 
-Above we write $p$ as the probability of rolling a \resp{1}. We can also write this probability as
+위에서 굴려서 \resp{1}이 나온 확률을 $p$로 표기했다. 또한 해당 확률을 다음과 같이 작성할 수도 있다.
+
 \begin{eqnarray*}
-P(\text{rolling a \resp{1}})
+P(\text{\resp{1}} 굴리기)
 \end{eqnarray*}
 \marginpar[\raggedright\vspace{-13mm}
 
 $P(A)$\vspace{1mm}\\\footnotesize Probability of\\outcome $A$]{\raggedright\vspace{-13mm}
 
-$P(A)$\vspace{1mm}\\\footnotesize Probability of\\outcome $A$}As we become more comfortable with this notation, we will abbreviate it further. For instance, if it is clear that the process is ``rolling a die'', we could abbreviate $P($rolling a \resp{1}$)$ as~$P($\resp{1}$)$. 
+$P(A)$\vspace{1mm}\\\footnotesize 결과 $A$ \\ 확률} 상기 표기에 편안해지면, 더 축약한다. 예를 들어, 만약 과정이 ``주사위 굴리기''가 명확하면, $P($\resp{1} 굴리기$)$ 을~$P($\resp{1}$)$으로 축약한다.
 
 \begin{exercise} \label{randomProcessExercise}
-Random processes include rolling a die and flipping a coin. (a) Think of another random process. (b) Describe all the possible outcomes of that process. For instance, rolling a die is a random process with possible outcomes \mbox{\resp{1}, \resp{2}, ..., \resp{6}}.\footnote{Here are four examples. (i) Whether someone gets sick in the next month or not is an apparently random process with outcomes \resp{sick} and \resp{not}. (ii) We can \emph{generate} a random process by randomly picking a person and measuring that person's height. The outcome of this process will be a positive number. (iii) Whether the stock market goes up or down next week is a seemingly random process with possible outcomes \resp{up}, \resp{down}, and \resp{no\_\hspace{0.3mm}change}. Alternatively, we could have used the percent change in the stock market as a numerical outcome. (iv) Whether your roommate cleans her dishes tonight probably seems like a random process with possible outcomes \resp{cleans\_\hspace{0.3mm}dishes} and \resp{leaves\_\hspace{0.3mm}dishes}.}
+확률과정은 주사위 굴리기와 동전던지기가 포함된다. (a) 또다른 확률과정을 생각해보라. 
+(b) 생각해본 과정의 가능한 모든 결과를 기술하라. 예를 들어, 주사위 굴리기는 확률과정으로 \mbox{\resp{1}, \resp{2}, ..., \resp{6}} 사이 가능한 결과가 나온다.\footnote{네가지 예제가 있다. (i) 누군가 다음달에 아플지 아프지 않을지는 명백하게 \resp{아프다} 와 \resp{아프지 않다}라는 결과가 있는 확률과정이다. (ii) 사람을 임의로 골라서 신장을 측정해서 확률과정을 \emph{생성}할 수 있다. 이 과정 결과는 양수다. (iii) 주식시장이 다음주에 오르고 내리는 것은 \resp{상승}, \resp{하락}, \resp{변동 없음} 가능한 결과를 갖는 확률 과정이다. 다른 방법으로 숫자 결과로 주식시장 변동율을 사용할 수 수도 있다. (iv) 방짝이 오늘밤 설겆이를 했는지는 \resp{설겆이\_\hspace{0.3mm}했음} 과 \resp{설겆이\_\hspace{0.3mm}안했음} 가능한 결과를 갖는 확률과정처럼 보인다.}
 \end{exercise}
 
-What we think of as random processes are not necessarily random, but they may just be too difficult to understand exactly. The fourth example in the footnote solution to Guided Practice~\ref{randomProcessExercise} suggests a roommate's behavior is a random process. However, even if a roommate's behavior is not truly random, modeling her behavior as a random process can still be useful. 
+확률과정으로 생각하는 것이 꼭 확률적일 필요는 없다. 하지만, 너무나 어려워서 정확하게 이해될 수는 없다. Guided Practice~\ref{randomProcessExercise}의 네번째 예제 주석 해답으로 방짝 행동은 확률과정이라고 제시했다. 하지만, 방짝 행동이 완전히 확률적이지는 않을지라도, 방짝의 행동을 확률과정으로 모형화하는 것은 여전히 유용하다.
 
-\begin{tipBox}{\tipBoxTitle{Modeling a process as random}
-It can be helpful to model a process as random even if it is not truly random.}
+\begin{tipBox}{\tipBoxTitle{과정을 확률로 모형화}
+설사 과정이 엄밀히 확률적이는 않지만, 확률로 모형화하는 것이 도움이 될 수 있다.}
 \end{tipBox}
 
-\index{random process|)}
+\index{확률 과정|)}
 
-\subsection{Disjoint or mutually exclusive outcomes}
+\subsection{서로 겹치지 않거나 상호 배반적인 결과}
 
-\index{disjoint|(}
-\index{mutually exclusive|(}
+\index{서로 겹치지 않는|(}
+\index{상호 배반적인|(}
+
 
 Two outcomes are called \term{disjoint} or \term{mutually exclusive} if they cannot both happen. For instance, if we roll a die, the outcomes \resp{1} and \resp{2} are disjoint since they cannot both occur. On the other hand, the outcomes \resp{1} and ``rolling an odd number'' are not disjoint since both occur if the outcome of the roll is a \resp{1}. The terms \emph{disjoint} and \emph{mutually exclusive} are equivalent and interchangeable.
 
