@@ -1733,118 +1733,131 @@ not spam &  $400/549 = 0.729$ & $2659/2827 = 0.941$ &
 
 \index{데이터!discrimination|(}
 
-\begin{example}{Suppose your professor splits the students in class into two groups: students on the left and students on the right. If $\hat{p}_{_L}$ and $\hat{p}_{_R}$ represent the proportion of students who own an Apple product on the left and right, respectively, would you be surprised if $\hat{p}_{_L}$ did not {exactly} equal $\hat{p}_{_R}$?}\label{classRightLeftSideApple}
-While the proportions would probably be close to each other, it would be unusual for them to be exactly the same. We would probably observe a small difference due to {chance}.
+\begin{example}{교수님이 교실 학생을 두 집단으로 쪼갠다고 가정하자:왼편에 있는 학생과 오른편에 있는 학생. 각각 $\hat{p}_{_L}$ 과 $\hat{p}_{_R}$ 가 애플 제품을 소유하고 있는 학생비율을 나타낸다면, 만약 $\hat{p}_{_L}$이 $\hat{p}_{_R}$?}와 정확하게 같다면 놀랄 일인가?}\label{classRightLeftSideApple}
+비율이 아마도 두 집단 모두 가까울 것이지만, 정확하게 같은 것은 매우 이례적일 것이다. 확률적 이유로 아마도 작은 차이를 관측할 것이다.
 \end{example}
 
 \begin{exercise}
-If we don't think the side of the room a person sits on in class is related to whether the person owns an Apple product, what assumption are we making about the relationship between these two variables?\footnote{We would be assuming that these two variables are independent.}
+교실에 학생이 앉아 있는 위치가 왼편이냐 오른편이냐에 따라 애플 제품 소유 여부가 연관되어 있다고 생각하지 않는다면,
+이 두 변수 사이 관계에 대해서 어떤 가정을 할까요?\footnote{두 변수는 독립적이라는 가정을 하고 있다.}
 \end{exercise}
 
-\subsection{Variability within data}
+\subsection{데이터 내부 변동성}
 \label{variabilityWithinData}
 
-We consider a study investigating gender discrimination in the 1970s, which is set in the context of personnel decisions within a bank.\footnote{Rosen B and Jerdee T. 1974. Influence of sex role stereotypes on personnel decisions. Journal of Applied Psychology 59(1):9-14.} The research question we hope to answer is, ``Are females unfairly discriminated against in promotion decisions made by male managers?"
+은행 내부 인사결정 맥락에서 1970년대 성차별을 조사하는 연구를 고려해보자. \footnote{Rosen B and Jerdee T. 1974. Influence of sex role stereotypes on personnel decisions. Journal of Applied Psychology 59(1):9-14.} 답하고자 하는 연구 질문은 다음과 같다. ``여성이 승진 심사에서 불공정하게 남성 매니져에 의해서 차별을 받는가?"
 
-The participants in this study are 48 male bank supervisors attending a management institute at the University of North Carolina in 1972. They were asked to assume the role of the personnel director of a bank and were given a personnel file to judge whether the person should be promoted to a branch manager position. The files given to the participants were identical, except that half of them indicated the candidate was male and the other half indicated the candidate was female. These files were randomly assigned to the subjects.
+본 연구에 참가자는 1972년 North Carolina 대학 경영자 과정에 참석한 남성 은행 감독자 48명이다. 은행 인사담당 임원 역할을 수행하도록 했다. 인사정보를 제공해서 해당 직원을 은행지점 관리자로 승진시켜야 하는지 판단하도록 했다. 참가자에게 주어진 파일의 절반은 대상자가 남성, 다른 절반은 여성이라는 점만 제외하면 동일했다. 해당 파일은 무작위로 실험 개체, 즉 연구잠여자에게 배정되었다.
 
 \begin{exercise}
-Is this an observational study or an experiment? What implications does the study type have on what can be inferred from the results?\footnote{The study is an experiment, as subjects were randomly assigned a male file or a female file. Since this is an experiment, the results can be used to evaluate a causal relationship between gender of a candidate and the promotion decision.}
+본연구는 관측연구인가 혹은 실험인가? 연구 유형이 결과로부터 추론한 것에 대해 어떤 함의를 갖는가?\footnote{무작위로 남성서류와 여성 서류를 개체에게 배정했다는 점에서 해당 연구는 실험이다. 실험이기 때문에, 승진결정과 대상자의 성별 사이에 인과관계를 평가하는데 결과를 사용할 수 있다.}
 \end{exercise}
 
-For each supervisor we record the gender associated with the assigned file and the promotion decision. Using the results of the study summarized in Table~\ref{discriminationResults}, we would like to evaluate if females are unfairly discriminated against in promotion decisions. In this study, a smaller proportion of females are promoted than males (0.583 versus 0.875), but it is unclear whether the difference provides \emph{convincing evidence} that females are unfairly discriminated against.
+각 감독자마다 배정된 파일에 관련된 성별과 승진결정을 기록했다. 표~\ref{discriminationResults}에 요약된 연구결과를 사용해서, 여성이 불공정하게 승진결정에 차별을 받았는지 평가한다. 본 연구에서, 남성보다 여성 중 더 적은 비율만이 승진했다 (0.583 vs. 0.875). 하지만, 이러한 차이가 여성이 불공정하게 차별을 받았다는 \emph{설득력있는 증거}가 되는지는 불명확하다.
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{l l cc rr}
 & & \multicolumn{2}{c}{\var{decision}} \\
   \cline{3-4}
-		&			& 	{promoted} 	& {not promoted} & Total & \hspace{3mm}  \\ 
+		&			& 	{승진} 	& {탈락} & 합계 & \hspace{3mm}  \\ 
   \cline{2-5}
-		&	{male} 			& 21    		& 3   & 24  	 \\ 
-  \raisebox{1.5ex}[0pt]{\var{gender}}		&	{female} 	& 14    		& 10     & 24	 \\ 
+		&	{남성} 			& 21    		& 3   & 24  	 \\ 
+  \raisebox{1.5ex}[0pt]{\var{gender}}		&	{여성} 	& 14    		& 10     & 24	 \\ 
   \cline{2-5}
-  		&	Total		& 35	& 13	&  48 \\
+  		&	총계		& 35	& 13	&  48 \\
   \cline{2-5}
 \end{tabular}
-\caption{Summary results for the gender discrimination study.}
+\caption{성차별 연구 요약 결과.}
 \label{discriminationResults}
 \end{table}
 
-\begin{example}{Statisticians are sometimes called upon to evaluate the strength of evidence. When looking at the rates of promotion for males and females in this study, what comes to mind as we try to determine whether the data show convincing evidence of a real difference?} \label{discriminationResultsWhatIsConvincingEvidence}
-The observed promotion rates (58.3\% for females versus 87.5\% for males) suggest there might be discrimination against women in promotion decisions. However, we cannot be sure if the observed difference represents discrimination or is just from random chance. Generally there is a little bit of fluctuation in sample data, and we wouldn't expect the sample proportions to be \emph{exactly} equal, even if the truth was that the promotion decisions were independent of gender.
+\begin{example}{종종 통계학자를 호출해서 증거의 강도를 평가한다. 해당 연구에서 남성과 여성에 대한 승진율을 살펴볼 때, 데이터가 실제 차이에 대한 설득력있는 증거를 제시하는지 판단하려고 할 때 무엇이 떠오르나요?} \label{discriminationResultsWhatIsConvincingEvidence}관측된 승진율 (여성 58.3\% vs 남성87.5\%) 정보가 승진결정에 여성에 대한 차별이 있을 수 있다는 것을 제시한다. 하지만, 관측된 차이가 차별을 나타내는지 혹은 우연적 요인에 의한 것인지에 대해서는 확신할 수 없다. 일반적으로, 표본 데이터에 일부 변동성이 있다. 그리고, 설사 승진율이 성별에 무관하다는 사실이 있음에도 불구하고, 표본 비율이 \emph{정확하게} 같을 것으로 예상하지는 못한다.
 \end{example}
 
-Example~\ref{discriminationResultsWhatIsConvincingEvidence} is a reminder that the observed outcomes in the sample may not perfectly reflect the true relationships between variables in the underlying population. Table~\ref{discriminationResults} shows there were 7 fewer promotions in the female group than in the male group, a difference in promotion rates of 29.2\% $\left( \frac{21}{24} - \frac{14}{24} = 0.292 \right)$. This difference is large, but the sample size for the study is small, making it unclear if this observed difference represents discrimination or whether it is simply due to chance. We label these two competing claims, $H_0$ and $H_A$:
+
+예제~\ref{discriminationResultsWhatIsConvincingEvidence}를 통해 표본에서 관측된 결과가 밑에 있는 모집단 변수간 참된 관계를 완벽하게 반영하지 못할 수도 있다는 점이 상기된다. 표~\ref{discriminationResults}에는 남성집단보다 여성집단의 승진 건수가 7개 적다고 나와있다 (승진율 차이가 29.2\%, $\left( \frac{21}{24} - \frac{14}{24} = 0.292 \right)$). 이 차이가 상당하지만, 연구에 사용된 표본 크기가 작아서, 관측된 차이가 성차별을 나타내는지 혹은 단순히 확률적인 요인 때문인지 불명확하다. 두 경쟁하는 주장을 $H_0$ 와 $H_A$ 로 표식한다:
+
 \begin{itemize}
 \setlength{\itemsep}{0mm}
-\item[$H_0$:] \textbf{Independence model.} The variables \var{gender} and \var{decision} are independent. They have no relationship, and the observed difference between the proportion of males and females who were promoted, 29.2\%, was due to chance.
-\item[$H_A$:] \textbf{Alternative model.} The variables \var{gender} and \var{decision} are \emph{not} independent. The difference in promotion rates of 29.2\% was not due to chance, and equally qualified females are less likely to be promoted than males.
+\item[$H_0$:] \textbf{독립 모형.} 변수 \var{gender} 와 \var{decision}는 독립적이다. 두 변수는 관계가 없고, 승진된 여성비율과 남성비율 사이 관측된 차이, 29.2\%는 우연 때문이다. 
+\item[$H_A$:] \textbf{대안 모형.} 변수 \var{gender} 와 \var{decision}는 독립적이 \emph{아니다}. 승진율 29.2\%의 차이는 우연때문이 아니고, 동일한 자격을 갖춘 여성이 남성보다 덜 승진될 것 같다.
 \end{itemize}
 
-What would it mean if the independence model, which says the variables \var{gender} and \var{decision} are unrelated, is true? It would mean each banker was going to decide whether to promote the candidate without regard to the gender indicated on the file. That~is, the difference in the promotion percentages was due to the way the files were randomly divided to the bankers, and the randomization just happened to give rise to a relatively large difference of 29.2\%.
+변수 \var{gender} 와 \var{decision}가 연관되지 않았다고 말하는 독립 모형이 참이라면 어떤 의미일까요? 이것이 의미하는 바는 은행원 각자는 서류철에 표기된 성별에 상관없이 승진 대상자를 승진하는 결정을 한 다는 것이다. 즉, 승진 퍼센트에 나타난 차이는 파일이 무작위로 은행원에게 나눠졌고, 임의화(randomization) 과정을 통해서 상대적으로 큰 차이, 29.2\%가 발생했다.
 
-Consider the alternative model: bankers were influenced by which gender was listed on the personnel file. If this was true, and especially if this influence was substantial, we would expect to see some difference in the promotion rates of male and female candidates. If this gender bias was against females, we would expect a smaller fraction of promotion decisions for female personnel files relative to the male files.
+대안 모형을 고려해 보자: 은행원은 인사서류철에 어느 성별이 목록에 올라갔느냐에 영향을 받는다. 만약 이것이 사실이고, 특히 이러한 영향이 상당하다면, 남성 승진 대상자와 여성 승진 대상자의 승진율에 있어 일부 차이를 볼 것으로 예상된다. 만약 이러한 성 편향이 여성에 불리하게 작용한다면, 남성 인사 서류철에 비해 여성 인사 서류철에서 더 적은 승진 분율이 예상된다.
 
-We choose between these two competing claims by assessing if the data conflict so much with $H_0$ that the independence model cannot be deemed reasonable. If this is the case, and the data support $H_A$, then we will reject the notion of independence and conclude there was discrimination.
+데이터가 $H_0$와 상당히 충돌되서 독립 모형을 합리적으로 받아들일 수 없는지를 평가함으로써, 두 경쟁하는 주장 중에서 하나를 선택한다. 만약 이것이 그런 경우이고, 데이터가 $H_A$를 지지한다면, 독립 개념을 받아들이지 않고, 차별이 존재했다고 결론낸다.
 
-\subsection{Simulating the study}
+\subsection{연구 모의실험}
 \label{simulatingTheStudy}
 
-Table~\ref{discriminationResults} shows that 35 bank supervisors recommended promotion and 13 did not. Now, suppose the bankers' decisions were independent of gender. Then, if we conducted the experiment again with a different random arrangement of files, differences in promotion rates would be based only on random fluctuation. We can actually perform this \term{randomization}, which simulates what would have happened if the bankers' decisions had been independent of gender but we had distributed the files differently.
 
-In this \term{simulation}, we thoroughly shuffle 48 personnel files, 24 labeled \resp{male\_\hspace{0.3mm}sim} and 24 labeled \resp{female\_\hspace{0.3mm}sim}, and deal these files into two stacks. We will deal 35 files into the first stack, which will represent the 35 supervisors who recommended promotion. The second stack will have 13 files, and it will represent the 13 supervisors who recommended against promotion. Then, as we did with the original data, we tabulate the results and determine the fraction of \resp{male\_\hspace{0.3mm}sim} and \resp{female\_\hspace{0.3mm}sim} who were promoted. The randomization of files in this simulation is independent of the promotion decisions, which means any difference in the two fractions is entirely due to chance. Table~\ref{discriminationRand1} show the results of such a simulation.
+표~\ref{discriminationResults}에 은행 감독자 35명이 승진 대상으로 추천되었고, 13명은 추천되지 않았다는 것이 나와있다. 이제, 은행원의 결정은 성별에 독립적이라고 가정하자. 그리고 나서, 만약 서류철을 다른 방식으로 임의적으로 배정해서 다시 실험을 수행한다면, 승진율 차이는 단지 확률적 변동 때문일 것이다. 실지로 이러한 \term{임의화}(randomization)를 수행할 수 있다. 즉, 만약 은행원 결정이 성별에 독립적이라면 무슨 일이 일어날지를 모의실험한다. 하지만, 서류철은 다르게 분배한다.
+
+해당 \term{모의실험}(\term{simulation})에서, 인사서류철 48개를 철저하게 뒤섞고, 각각 24개 \resp{male\_\hspace{0.3mm}sim} 와 24개 \resp{female\_\hspace{0.3mm}sim}로 표식해서 이를 두 더미에 분배해서 넣는다. 첫번째 더미에 35개 서류철이 분배되었는데, 승진을 추천한 지점 감독관 35명을 나타낸다. 두번재 더미는 서류철 13개가 있는데 승진에 추천되지 못한 대상자 13명을 나타낸다. 그리고 나서, 원데이터에 수행했던 것처럼, 결과를 표로 그려서, \resp{male\_\hspace{0.3mm}sim} 과 \resp{female\_\hspace{0.3mm}sim}에 대한 승진 분율을 결정한다. 이번 실험에서 서류철을 임의화한 것은 승진 결정과 독립으로, 두 분율에 어떤 차이도 완전히 우연 때문임을 의미한다. 표~\ref{discriminationRand1}에 이런 모의실험 결과가 도시되어 있다.
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{l l cc rr}
 & & \multicolumn{2}{c}{\var{decision}} \\
   \cline{3-4}
-		&			& 	{promoted} 	& {not promoted} & Total & \hspace{3mm}  \\ 
+		&			& 	{승진} 	& {탈락} & 총계 & \hspace{3mm}  \\ 
   \cline{2-5}
 		&	\resp{male\_\hspace{0.3mm}sim} 					& 18    		& 6    & 24 	 \\ 
   \raisebox{1.5ex}[0pt]{\var{gender\_\hspace{0.3mm}sim}}		&	\resp{female\_\hspace{0.3mm}sim} 	& 17    		& 7 & 24    	 \\ 
   \cline{2-5}
-  & Total	& 35 & 13 & 48
+  & 총계	& 35 & 13 & 48
 \end{tabular}
-\caption{Simulation results, where any difference in promotion rates between \resp{male\_\hspace{0.3mm}sim} and \resp{female\_\hspace{0.3mm}sim} is purely due to chance.}
+\caption{모의실험 결과, 여기서 변수 \resp{male\_\hspace{0.3mm}sim} 와 \resp{female\_\hspace{0.3mm}sim}의 승진율에 대한 어떤 차이도 순전히 우연 때문이다.}
 \label{discriminationRand1}
 \end{table}
 
 \begin{exercise} \label{sampleDifferenceInMaleAndFemaleDiscrimination}
-What is the difference in promotion rates between the two simulated groups in Table~\ref{discriminationRand1}? How does this compare to the observed 29.2\% in the actual groups?\footnote{$18/24 - 17/24=0.042$ or about 4.2\% in favor of the men. This difference due to chance is much smaller than the difference observed in the actual groups.}
+표~\ref{discriminationRand1}에 두 모의실험 집단 사이에 승진율 차이는 얼마인가? 실제 집단에서 관측된 29.2\%와 이 결과가 어떻게 비교되는가?\footnote{$18/24 - 17/24=0.042$ 즉, 약 4.2\% 정도 남성에게 이익이 된다. 우연 때문에 이러한 차이는 실제 집단에서 관측된 차이보다 훨씬 더 작다.}
 \end{exercise}
 
 
-\textC{\pagebreak}
+%\textC{\pagebreak}
 
-\subsection{Checking for independence}
+\subsection{독립성 검사}
 
-We computed one possible difference under the independence model in Guided Practice~\ref{sampleDifferenceInMaleAndFemaleDiscrimination}, which represents one difference due to chance. While in this first simulation, we physically dealt out files, it is more efficient to perform this simulation using a computer. Repeating the simulation on a computer, we get another difference due to chance: -0.042. And another: 0.208. And so on until we repeat the simulation enough times that we have a good idea of what represents the \emph{distribution of differences from chance alone}. Figure~\ref{discRandDotPlot} shows a plot of the differences found from 100 simulations, where each dot represents a simulated difference between the proportions of male and female files that were recommended for promotion.
+Guided Practice~\ref{sampleDifferenceInMaleAndFemaleDiscrimination}에서 독립모형을 놓고 가능한 차이(우연 때문에 차이)를 계산했다.
+첫번째 모의실험에서 물리적으로 파일을 배분했지만, 컴퓨터를 사용해서 이러한 모의실험을 수행하는 것이 더 효율적이다.
+컴퓨터로 모의실험을 반복해서, 우연으로 인한 또다른 차이값을 얻는다: -0.042. 또다른 모의실험은 0.208. \emph{우연에서만 얻은 차이 분포}를 나타낸다는 생각을 들때가지 충분히 모의실험을 반복한다. 
+그림~\ref{discRandDotPlot}에 모의실험 100번에서 나온 차이를 도식했다. 여기서 각 점은 승진에 추천된 남성과 여성 서류철 비율의 모의실험 차이를 나타낸다.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.85\textwidth]{ch_intro_to_data/figures/discRandDotPlot/discRandDotPlot}
-\caption{A stacked dot plot of differences from 100 simulations produced under the independence model, $H_0$, where \var{gender\_\hspace{0.3mm}sim} and \var{decision} are independent. Two of the 100 simulations had a difference of at least 29.2\%, the difference observed in the study.}
+\caption{
+독립모형 $H_0$ 아래서 생산된 모의실험 100개로부터 차이를 스택 점그림으로 표현. 여기서 \var{gender\_\hspace{0.3mm}sim} 와 \var{decision}는 독립이다. 모의실험 100번 중 2번은 적어도 29.2\% 차이를 보이는데, 연구에서 관측된 차이다.}
 \label{discRandDotPlot}
 \end{figure}
 
-Note that the distribution of these simulated differences is centered around 0. We simulated these differences assuming that the independence model was true, and under this condition, we expect the difference to be zero with some random fluctuation. We would generally be surprised to see a difference of \emph{exactly} 0: sometimes, just by chance, the difference is higher than 0, and other times it is lower than zero.
+상기 모의실험 차이 분포는 0 주위에 중심으로 몰려있음에 주목한다. 독립 모형이 참이고, 이러한 조건에서 차이는 0에 확률적 변동이 있다고 가정하고 차이를 모의실험했다. 일반적으로 차이가 \emph{정확하게} 0이 되면 놀라게 된다: 종종 우연으로 차이는 0보다 크고, 다른 때는 0보다 작다.
 
-\begin{example}{How often would you observe a difference of at least 29.2\% (0.292) according to Figure~\ref{discRandDotPlot}? Often, sometimes, rarely, or never?}
-It appears that a difference of at least 29.2\% due to chance alone would only happen about 2\% of the time according to Figure~\ref{discRandDotPlot}. Such a low probability indicates a rare event.
+\begin{example}{표~\ref{discRandDotPlot}에 따르면 적어도 29.2\% (0.292) 차이를 얼마나 자주 관측할까요? 자주, 때때로, 거의 없거나, 전혀 없거나?}
+그림~\ref{discRandDotPlot}에 따르면, 우연으로 인해 적어도 29.2\% 차이는 약 2\% 정도 발생할 것으로 보인다. 이러한 낮은 확률은 드문 사례임을 나타낸다.
 \end{example}
 
-\textC{\newpage}
+%\textC{\newpage}
 
-The difference of 29.2\% being a rare event suggests two possible interpretations of the results of the study:
+29.2\% 차이가 드문 사례라는 것은 연구 결과에 대한 두가지 가능한 해석을 제시한다:
+
 \begin{itemize}
 \setlength{\itemsep}{0mm}
-\item[$H_0$] \textbf{Independence model.} Gender has no effect on promotion decision, and we observed a difference that would only happen rarely.
-\item[$H_A$] \textbf{Alternative model.} Gender has an effect on promotion decision, and what we observed was actually due to equally qualified women being discriminated against in promotion decisions, which explains the large difference of 29.2\%.
+\item[$H_0$] \textbf{독립 모형.} 성별은 승진결정에 영향을 주지 않고, 드물게만 발생하는 차이를 관측했다.
+\item[$H_A$] \textbf{대안 모형.} 성별은 승진결정에 영향이 있고, 관측한 것은 실지로 동일한 자격이 갖춘 여성이 승진결정에 차별을 받았기 때문이고, 이것이 29.2\% 큰 차이를 설명한다.
 \end{itemize}
-Based on the simulations, we have two options. (1)~We conclude that the study results do not provide strong evidence against the independence model. That is, we do not have sufficiently strong evidence to conclude there was gender discrimination. (2)~We conclude the evidence is sufficiently strong to reject $H_0$ and assert that there was gender discrimination. When we conduct formal studies, usually we reject the notion that we just happened to observe a rare event.\footnote{This reasoning does not generally extend to anecdotal observations. Each of us observes incredibly rare events every day, events we could not possibly hope to predict. However, in the non-rigorous setting of anecdotal evidence, almost anything may appear to be a rare event, so the idea of looking for rare events in day-to-day activities is treacherous. For example, we might look at the lottery: there was only a 1 in 176 million chance that the Mega Millions numbers for the largest jackpot in history (March 30, 2012) would be (2, 4, 23, 38, 46) with a Mega ball of (23), but nonetheless those numbers came up! However, no matter what numbers had turned up, they would have had the same incredibly rare odds. That is, \emph{any set of numbers we could have observed would ultimately be incredibly rare}. This type of situation is typical of our daily lives: each possible event in itself seems incredibly rare, but if we consider every alternative, those outcomes are also incredibly rare. We should be cautious not to misinterpret such anecdotal evidence.} So in this case, we reject the independence model in favor of the alternative. That is, we are concluding the data provide strong evidence of gender discrimination against women by the supervisors.
 
-\index{data!discrimination|)}
+모의실험에 근거해서 두가지 선택옵션이 있다. (1)~연구결과 독립모형에 반하는 강력한 증거가 제시되지 못했다고 결정한다.
+즉, 성차별이 있었다고 결정할 정도로 충분히 강력한 증거를 발견하지 못했다. (2)~$H_0$를 기각할 충분히 강력한 증거가 있다고 결정내고 성차별이 존재했다고 주장한다. 공식적인 연구를 수행할 때, 일반적으로 단지 드문 사례가 관측되었다는 개념은 기각된다.\footnote{일반적으로 이러한 추론은 일화적 관측에 확장되지는 않는다. 우리들 각각은 매일 놀랍도록 드문 사건을 목격한다. 즉, 아마도 예측할 수 없는 사건. 하지만, 일화적 증거를 엄격하지 않은 환경에서는 거의 모든 것이 드문 사건처럼 보인다. 그래서 일상 생활에서 드문 사건을 찾는 생각은 신뢰할 수 없다. 예를 들어, 복권을 살펴보자: 역사상 가장 큰 당첨금(2012년 3월 30일)은 메가 번호 (23)을 갖는 (2, 4, 23, 38, 46) 번호로 1.76 억개 중 1의 확률이다. 하지만, 이 번호가 나왔다! 하지만, 무슨 번호가 나오던지, 번호 모두 놀랍도록 같은 드문 가능성을 갖는다. 즉, \emph{관측한 어떤 번호 조합도 궁극적으로 믿을 수 없을 정도로 드문 경우다}. 이러한 상황이 전형적인 일상생활이다: 그 자체로 가능한 각 사건은 믿을 수 없을 정도록 드물다. 하지만, 만약 모든 대안을 고려해보면, 이러한 결과도 또한 믿을 수 없을 정도로 드물다. 이러한 일화적 증거를 잘못 해석하지 않도록 주의해야 한다.}
+그래서, 이번 사례에서 대안 모형에 대해 독립 모형을 기각한다. 즉, 감독관에서 의한 여성에 대한 성차별의 강력한 증거를 데이터가 제시하고 있다고 결론낸다.
 
-One field of statistics, statistical inference, is built on evaluating whether such differences are due to chance. In statistical inference, statisticians evaluate which model is most reasonable given the data. Errors do occur, just like rare events, and we might choose the wrong model. While we do not always choose correctly, statistical inference gives us tools to control and evaluate how often these errors occur. In Chapter~\ref{foundationsForInference}, we give a formal introduction to the problem of model selection. We spend the next two chapters building a foundation of probability and theory necessary to make that discussion rigorous.
+
+\index{데이터!discrimination|)}
+
+통계의 한 분야, 통계적 추론은 이러한 차이가 우연 때문인지를 평가하는 것이다. 통계적 추론에서, 통계학자는 어느 모형이 주어진 데이터에 가장 함리적인지를 평가한다. 드문 사례처럼, 오차가 발생하고, 틀린 모형을 선택할 수도 있다.
+항상 올바르게 선택하지는 못하지만, 통계적 추론은 이러한 오차가 얼마나 자주 발생하는지 제어하고 평가할 수 있는 도구다. ~\ref{foundationsForInference}장에 모형선택 문제에 정형화된 안내가 나와 있다. 이러한 논의를 엄격하게 진행하는데 필요한 기초 확률과 이론을 다음 두 장에 걸쳐 다룰 것이다.
