@@ -72,7 +72,7 @@
 위에서 굴려서 \resp{1}이 나온 확률을 $p$로 표기했다. 또한 해당 확률을 다음과 같이 작성할 수도 있다.
 
 \begin{eqnarray*}
-P(\text{\resp{1}} 굴리기)
+P(\text{\resp{1} 굴리기} )
 \end{eqnarray*}
 \marginpar[\raggedright\vspace{-13mm}
 
@@ -96,28 +96,32 @@ $P(A)$\vspace{1mm}\\\footnotesize 결과 $A$ \\ 확률} 상기 표기에 편안�
 \subsection{서로 겹치지 않거나 상호 배반적인 결과}
 
 \index{서로 겹치지 않는|(}
-\index{상호 배반적인|(}
+\index{상호 배반적|(}
 
+만약 두 결과가 함께 발생하지 않는다면, 두 결과는 \term{서로 겹치지 않는}(disjoint) 혹은 \term{상호 배반적}(mutually exclusive)이라고 부른다. 예를 들어, 주사위를 던지면, 결과 \resp{1} 와 \resp{2}는 서로 겹치지 않는다라고 하는데 둘다 함께 일어날 수 없기 때문이다. 다른 한편으로, 결과 \resp{1} 과 ``홀수 굴리기는'' 서로 겹친다 왜냐 하면 주사위 굴린 결과 \resp{1} 이 나오면 두 사건이 동시에 일어난 것이기 때문이다. 용어 \term{서로 겹치지 않는}(disjoint), \term{상호 배반적}(mutually exclusive)은 동치이고 서로 교환가능하다. 
 
-Two outcomes are called \term{disjoint} or \term{mutually exclusive} if they cannot both happen. For instance, if we roll a die, the outcomes \resp{1} and \resp{2} are disjoint since they cannot both occur. On the other hand, the outcomes \resp{1} and ``rolling an odd number'' are not disjoint since both occur if the outcome of the roll is a \resp{1}. The terms \emph{disjoint} and \emph{mutually exclusive} are equivalent and interchangeable.
+서로 겹치지 않는 결과의 확률을 계산하는 것은 쉽다. 주사위를 굴릴 때, \resp{1} 와 \resp{2} 결과는 서로 겹치지 않아서 이들 중 하나가 일어날 확률은 개별 확률을 더해서 계산한다:
 
-Calculating the probability of disjoint outcomes is easy. When rolling a die, the outcomes \resp{1} and \resp{2} are disjoint, and we compute the probability that one of these outcomes will occur by adding their separate probabilities:
 \begin{eqnarray*}
-P(\text{\resp{1} or \resp{2}}) = P(\text{\resp{1}})+P(\text{\resp{2}}) = 1/6 + 1/6 = 1/3
+P(\text{\resp{1} 혹은 \resp{2}}) = P(\text{\resp{1}})+P(\text{\resp{2}}) = 1/6 + 1/6 = 1/3
 \end{eqnarray*}
-What about  the probability of rolling a \resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, or \resp{6}? Here again, all of the outcomes are disjoint so we add the probabilities:
+
+주사위를 굴려서 \resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, \resp{6} 이 나올 확률은 얼마인가? 여기서 다시, 모든 결과는 서로 겹치지 않아서 각각의 확률을 더한다:
+
 \begin{eqnarray*}
-&&P(\text{\resp{1} or \resp{2} or \resp{3} or \resp{4} or \resp{5} or \resp{6}}) \\
+&&P(\text{\resp{1} 혹은 \resp{2} 혹은 \resp{3} 혹은 \resp{4} 혹은 \resp{5} 혹은 \resp{6}}) \\
 	&&\quad= P(\text{\resp{1}})+P(\text{\resp{2}})+P(\text{\resp{3}})+P(\text{\resp{4}})+P(\text{\resp{5}})+P(\text{\resp{6}}) \\
 	&&\quad= 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 1.
 \end{eqnarray*}
-The \term{Addition Rule} guarantees the accuracy of this approach when the outcomes are disjoint. 
 
-\begin{termBox}{\tBoxTitle{Addition Rule of disjoint outcomes} If $A_1$ and $A_2$ represent two disjoint outcomes, then the probability that one of them occurs is given by
+결과가 서로 겹치지 않을 때, \term{가산 규칙}(Addition Rule)은 이러한 접근법의 정확성을 보증한다.
+
+\begin{termBox}{\tBoxTitle{서로 겹치지 않는 결과의 가산 규칙}
+만약 $A_1$ 과 $A_2$가 두 서로 겹치지 않는 결과라면, 이들 결과 중 하나가 발생할 확률은 다음과 같이 주어진다.
 \begin{eqnarray*}
-P(A_1\text{ or } A_2) = P(A_1) + P(A_2)
+P(A_1\text{ 혹은 } A_2) = P(A_1) + P(A_2)
 \end{eqnarray*}
-If there are many disjoint outcomes $A_1$, ..., $A_k$, then the probability that one of these outcomes will occur is
+만약 서로 겹치지 않는 많은 결과 $A_1$, ..., $A_k$ 이 있다면, 이들 결과 중 하나가 발생할 확률은 다음과 같다.
 \begin{eqnarray}
 P(A_1) + P(A_2) + \cdots + P(A_k)
 \end{eqnarray}
@@ -125,46 +129,47 @@ P(A_1) + P(A_2) + \cdots + P(A_k)
 \end{termBox}
 
 \begin{exercise}
-We are interested in the probability of rolling a \resp{1}, \resp{4}, or \resp{5}. (a) Explain why the outcomes \resp{1}, \resp{4}, and \resp{5} are disjoint. (b) Apply the Addition Rule for disjoint outcomes to determine $P($\resp{1} or \resp{4} or \resp{5}$)$.\footnote{(a) The random process is a die roll, and at most one of these outcomes can come up. This means they are disjoint outcomes. (b)~$P($\resp{1} or \resp{4} or \resp{5}$) = P($\resp{1}$)+P($\resp{4}$)+P($\resp{5}$) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{3}{6} = \frac{1}{2}$}
+주사위를 굴려서 \resp{1}, \resp{4}, \resp{5} 이 나올 확률에 관심이 있다. (a) \resp{1}, \resp{4}, \resp{5} 결과가 왜 서로 겹치지 않는지 설명하시요. (b) 가산 규칙을 적용해서 서로 겹치지 않는 결과 $P($\resp{1} or \resp{4} or \resp{5}$)$ 확률을 결정하시요.\footnote{(a) 확률과정은 주사위 굴리기다. 많아야 주사위 결과 중 하나가 나올 수 있다. 이것이 의미하는 것은 주사위 굴린 결과는 서로 겹치지 않는 결과가 된다. (b)~$P($\resp{1} 혹은 \resp{4} 혹은 \resp{5}$) = P($\resp{1}$)+P($\resp{4}$)+P($\resp{5}$) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{3}{6} = \frac{1}{2}$}
 \end{exercise}
 
-\index{data!email|(}
+\index{데이터!email|(}
 \begin{exercise}
-In the \data{email} data set in Chapter~\ref{introductionToData}, the \var{number} variable described whether no number (labeled \resp{none}), only one or more small numbers (\resp{small}), or whether at least one big number appeared in an email (\resp{big}). Of the 3,921 emails, 549 had no numbers, 2,827 had only one or more small numbers, and 545 had at least one big number. (a) Are the outcomes \resp{none}, \resp{small}, and \resp{big} disjoint? (b) Determine the proportion of emails with value \resp{small} and \resp{big} separately. (c) Use the Addition Rule for disjoint outcomes to compute the probability a randomly selected email from the data set has a number in it, small or big.\footnote{(a) Yes. Each email is categorized in only one level of \var{number}. (b) Small: $\frac{2827}{3921} = 0.721$. Big: $\frac{545}{3921} = 0.139$. (c) $P($\resp{small} or \resp{big}$) = P($\resp{small}$) + P($\resp{big}$) = 0.721 + 0.139 = 0.860$.}
+~\ref{introductionToData} 장 \data{email} 데이터셋에서, \var{number} 변수는 숫자가 없는지 (표식자는 \resp{none}), 단지 작은 하나 혹은 그이상 숫자가 있는지(\resp{small}), 혹은 전자우편에 적어도 하나 큰 숫자(\resp{big})가 나타나는지를 기술한다. 3,921 개 전자우편 중에서 549는 숫자가 없고, 2,827개 전자우편은 단지 작은 하나 혹은 그이상 숫자가 있고, 545는 적어도 하나 큰 숫자가 전자우편에 있다. (a) \resp{none}, \resp{small}, \resp{big} 결과는 서로 겹치지 않는가? (b) 별도로 \resp{small} 와 \resp{big} 값을 갖는 전자우편 비율을 알아내시오. (c) 서로 겹치지 않는 결과에 대해서 가산규칙을 사용해서 데이터셋에서 무작위로 고른 전자우편 내부에 큰던 작던 숫자가를 갖을 확률을 계산하시오.\footnote{
+(a) 맞습니다. \var{number} 수준 중 하나로만 각 전자우편이 분류된다. (b) \resp{small}: $\frac{2827}{3921} = 0.721$. \resp{big}: $\frac{545}{3921} = 0.139$. (c) $P($\resp{small} 혹은 \resp{big}$) = P($\resp{small}$) + P($\resp{big}$) = 0.721 + 0.139 = 0.860$.}
 \end{exercise}
-\index{data!email|)}
+\index{데이터!email|)}
 
-\index{event|(}
-
-Statisticians rarely work with individual outcomes and instead consider \indexthis{\emph{sets}}{sets} or \indexthis{\emph{collections}}{collections} of outcomes. Let $A$ represent the event where a die roll results in \resp{1} or \resp{2} and $B$~represent the event that the die roll is a \resp{4} or a \resp{6}. We write $A$ as the set of outcomes $\{$\resp{1},~\resp{2}$\}$ and $B=\{$\resp{4}, \resp{6}$\}$. These sets are commonly called \termsub{events}{event}. Because $A$ and $B$ have no elements in common, they are disjoint events. $A$ and $B$ are represented in Figure~\ref{disjointSets}.
+\index{사건|(}
+통계학자는 거의 개별 결과로 작업하지 않고 대신에 결과 \indexthis{\emph{집합}}{sets}(set) or \indexthis{\emph{모임}}{collections}(collections)을 고려한다. $A$가 주사위를 굴렸을 때 \resp{1} 혹은 \resp{2}가 나올 사건을 나타내고, $B$가 주사위 굴렸을 때 \resp{4} 혹은 \resp{6} 이 나올 사건을 나타낸다고 하자. $A$ 를 $\{$\resp{1},~\resp{2}$\}$ 의 결과 집합으로 적고, $B=\{$\resp{4}, \resp{6}$\}$ 와 같이 적는다. 이러한 집합을 일반적으로 \termsub{사건}{event}(events)으로 불린다. $A$ 와 $B$ 는 공통된 요소가 없기 때문에, 서로 겹치지 않는 사건이다. $A$ 와 $B$ 가 그림~\ref{disjointSets}에 나타나 있다.
 
 \begin{figure}[hhh]
 \centering
 \includegraphics[width=0.55\textwidth]{ch_probability/figures/disjointSets/disjointSets}
-\caption{Three events, $A$, $B$, and $D$, consist of outcomes from rolling a die. $A$ and $B$ are disjoint since they do not have any outcomes in common.}
+\caption{$A$, $B$, $D$, 세가지 사건은 주사위를 굴려 나온 결과로 구성된다. $A$ 와 $B$는 서로 겹치지 않는데 이유는 어떤 공통된 결과도 없기 때문이다.}
 \label{disjointSets}
 \end{figure}
 
-The Addition Rule applies to both disjoint outcomes and disjoint events. The probability that one of the disjoint events $A$ or $B$ occurs is the sum of the separate probabilities:
+가산규칙은 서로 겹치지 않는 결과와 서로 겹치지 않는 사건에 모두 적용된다. 서로 겹치지 않는 사건 $A$ 혹은 $B$ 가 일어날 확률은 개별 확률의 합이다:
+
 \begin{align*}
-P(A\text{ or }B) = P(A) + P(B) = 1/3 + 1/3 = 2/3
+P(A\text{ 혹은 }B) = P(A) + P(B) = 1/3 + 1/3 = 2/3
 \end{align*}
 
 \begin{exercise}
-(a) Verify the probability of event $A$, $P(A)$, is $1/3$ using the Addition Rule. (b) Do the same for event $B$.\footnote{(a) $P(A) = P($\resp{1} or \resp{2}$) = P($\resp{1}$) + P($\resp{2}$) = \frac{1}{6} + \frac{1}{6} = \frac{2}{6} = \frac{1}{3}$. (b) Similarly, $P(B) = 1/3$.}
+(a) 가산 규칙을 사용해서 사건 $A$의 확률, $P(A)$가 $1/3$임을 입증하시오. (b) 사건 $B$에 대해 동일한 작업을 수행하시오.\footnote{(a) $P(A) = P($\resp{1} 혹은 \resp{2}$) = P($\resp{1}$) + P($\resp{2}$) = \frac{1}{6} + \frac{1}{6} = \frac{2}{6} = \frac{1}{3}$. (b) 마찬가지 방식으로, $P(B) = 1/3$.}
 \end{exercise}
 
 \begin{exercise} \label{exerExaminingDisjointSetsABD}
-(a) Using Figure~\ref{disjointSets} as a reference, what outcomes are represented by event $D$? (b) Are events $B$ and $D$ disjoint? (c) Are events $A$ and $D$ disjoint?\footnote{(a)~Outcomes \resp{2} and \resp{3}. (b)~Yes, events $B$ and $D$ are disjoint because they share no outcomes. (c)~The events $A$ and $D$ share an outcome in common, \resp{2}, and so are not disjoint.}
+(a) 그림~\ref{disjointSets}을 참조하여, 사건 $D$는 어떤 결과를 나타내는가? (b) 사건 $B$ 와 $D$는 서로 겹치지 않는가? (c) 사건 $A$ 와 $D$는 서로 겹치지 않는가? \footnote{(a)~결과 \resp{2} 와 \resp{3}. (b)~예, 사건 $B$ 와 $D$ 는 서로 겹치지 않는데 이유는 두 사건 모두 어떤 결과도 공유하지 않는다. (c)~사건 $A$ 와 $D$ 는 공통된 결과, \resp{2}를 공유해서, 서로 겹친다.}
 \end{exercise}
 
 \begin{exercise}
-In Guided Practice~\ref{exerExaminingDisjointSetsABD}, you confirmed $B$ and $D$ from Figure~\ref{disjointSets} are disjoint. Compute the probability that event $B$ or event $D$~occurs.\footnote{Since $B$ and $D$ are disjoint events, use the Addition Rule: $P(B$ or $D) = P(B) + P(D) = \frac{1}{3} + \frac{1}{3} = \frac{2}{3}$.}
+Guided Practice~\ref{exerExaminingDisjointSetsABD}에서 그림~\ref{disjointSets}으로부터 $B$ 와 $D$가 서로 겹치지 않는다는 것을 확인했다. 사건 $B$ 혹은 $D$ 이 일어날 확률을 계산하시오.\footnote{$B$ 와 $D$ 는 서로 겹치지 않는 사건이기 때문에, 가산 규칙을 사용한다: $P(B$ 혹은 $D) = P(B) + P(D) = \frac{1}{3} + \frac{1}{3} = \frac{2}{3}$.}
 \end{exercise}
 
-\index{event|)}
-\index{disjoint|)}
-\index{mutually exclusive|)}
+\index{사건|)}
+\index{서로 겹치지 않는|)}
+\index{상호 배반적|)}
 
 \subsection{Probabilities when events are not disjoint}
 
