@@ -171,9 +171,10 @@ Guided Practice~\ref{exerExaminingDisjointSetsABD}에서 그림~\ref{disjointSet
 \index{서로 겹치지 않는|)}
 \index{상호 배반적|)}
 
-\subsection{Probabilities when events are not disjoint}
+\subsection{사건이 서로 겹칠 때 확률}
 
-Let's consider calculations for two events that are not disjoint in the context of a \indexthis{regular deck of 52 cards}{deck of cards}, represented in Table~\ref{deckOfCards}. If you are unfamiliar with the cards in a regular deck, please see the footnote.\footnote{The 52 cards are split into four \term{suits}: $\clubsuit$ (club), {\color{redcards}$\diamondsuit$} (diamond), {\color{redcards}$\heartsuit$} (heart), $\spadesuit$ (spade). Each suit has its 13 cards labeled: \resp{2}, \resp{3}, ..., \resp{10}, \resp{J} (jack), \resp{Q} (queen), \resp{K} (king), and \resp{A} (ace). Thus, each card is a unique combination of a suit and a label, e.g. {\color{redcards}\resp{4$\heartsuit$}} and \resp{J$\clubsuit$}. The 12 cards represented by the jacks, queens, and kings are called \termsub{\resp{face cards}}{face card}. The cards that are {\color{redcards}$\diamondsuit$} or {\color{redcards}$\heartsuit$} are typically colored {\color{redcards}red} while the other two suits are typically colored black.}
+표~\ref{deckOfCards}에 나타낸 \indexthis{52개 정규 카드 한벌}{deck of cards} 맥락에서 서로 겹치는 두 사건을 계산하는 문제를 생각해 보자. 만약 정규 한벌 카드에 친숙하지 않다면, 아래 주석\footnote{카드 52개는 4 \term{묶음}(suite)으로 쪼개진다: $\clubsuit$ (클럽, club), {\color{redcards}$\diamondsuit$} (다이아몬드, diamond), {\color{redcards}$\heartsuit$} (하트, heart), $\spadesuit$ (스페이드, spade). 묶음 각각은 다음 라벨이 붙은 13개 카드로 구성된다: \resp{2}, \resp{3}, ..., \resp{10}, \resp{J} (잭, jack), \resp{Q} (퀸, queen), \resp{K} (킹, king), \resp{A} (에이스, ace). 따라서, 카드 각각은 묶음과 라벨의 유일무이한 조합이 된다, 즉, {\color{redcards}\resp{4$\heartsuit$}}, \resp{J$\clubsuit$}. 잭, 퀸, 킹을 나타내는 카드 12개는 \termsub{\resp{그림카드}}{그림카드}(face card)로 불린다. 일반적으로 {\color{redcards}$\diamondsuit$} 혹은 {\color{redcards}$\heartsuit$} 카드묶음은 {\color{redcards}빨간색}으로 다른 두 묶음 카드는 검은색이다.}을 참조한다.
+
 
 \begin{table}[h]
 \centering
@@ -183,20 +184,20 @@ Let's consider calculations for two events that are not disjoint in the context 
 \color{redcards}\resp{2$\heartsuit$} & \color{redcards}\resp{3$\heartsuit$} & \color{redcards}\resp{4$\heartsuit$} & \color{redcards}\resp{5$\heartsuit$} & \color{redcards}\resp{6$\heartsuit$} & \color{redcards}\resp{7$\heartsuit$} & \color{redcards}\resp{8$\heartsuit$} & \color{redcards}\resp{9$\heartsuit$} & \color{redcards}\resp{10$\heartsuit$} & \color{redcards}\resp{J$\heartsuit$} & \color{redcards}\resp{Q$\heartsuit$} & \color{redcards}\resp{K$\heartsuit$} & \color{redcards}\resp{A$\heartsuit$} \\
 \resp{2$\spadesuit$} & \resp{3$\spadesuit$} & \resp{4$\spadesuit$} & \resp{5$\spadesuit$} & \resp{6$\spadesuit$} & \resp{7$\spadesuit$} & \resp{8$\spadesuit$} & \resp{9$\spadesuit$} & \resp{10$\spadesuit$} & \resp{J$\spadesuit$} & \resp{Q$\spadesuit$} & \resp{K$\spadesuit$} & \resp{A$\spadesuit$}
 \end{tabular}
-\caption{Representations of the 52 unique cards in a deck.}
+\caption{카드 한벌에 52개 유일무이한 카드를 표현.}
 \label{deckOfCards}
 \end{table}
 
 \begin{exercise}
-(a) What is the probability that a randomly selected card is a diamond? (b)~What is the probability that a randomly selected card is a face card?\footnote{(a) There are 52 cards and 13 diamonds. If the cards are thoroughly shuffled, each card has an equal chance of being drawn, so the probability that a randomly selected card is a diamond is $P({\color{redcards}\diamondsuit}) = \frac{13}{52} = 0.250$. (b)~Likewise, there are 12 face cards, so $P($face card$) = \frac{12}{52} = \frac{3}{13} = 0.231$.}
+(a) 무작위로 선택된 카드가 다이아몬드일 확률은 얼마인가? (b)무작위로 선택된 카드가 그림카드일 확률은 얼마인가?\footnote{(a) 카드가 52개, 다이아몬드가 13개 있다. 만약 카드를 철저히 뒤섞는다면, 카드 각각이 뽑힐 가능성은 동일하다. 그래서 무작위로 선택된 카드가 다이아몬드일 확률은 $P({\color{redcards}\diamondsuit}) = \frac{13}{52} = 0.250$. (b)~마찬가지 방식으로, 그림카드 12개가 있다. 그래서 $P($그림카드$) = \frac{12}{52} = \frac{3}{13} = 0.231$.}
 \end{exercise}
 
-\term{Venn diagrams} are useful when outcomes can be categorized as ``in'' or ``out'' for two or three variables, attributes, or random processes. The Venn diagram in Figure~\ref{cardsDiamondFaceVenn} uses a circle to represent diamonds and another to represent face cards. If a card is both a diamond and a face card, it falls into the intersection of the circles. If it is a diamond but not a face card, it will be in part of the left circle that is not in the right circle (and so on). The total number of cards that are diamonds is given by the total number of cards in the diamonds circle: $10+3=13$. The probabilities are also shown (e.g. $10/52 = 0.1923$).
+둘 혹은 셋 변수, 속성, 확률과정에 대한 결과를 ``포함(in)'' 혹은 ``제외(out)''로 범주화할 때 \term{벤다이어그램}(Venn diagrams)이 유용하다. 그림~\ref{cardsDiamondFaceVenn}에 벤다이어그램은 원을 사용해서 다이아몬드를 나타내고, 또다른 원을 사용해서 그림카드를 나타낸다. 만약 카드가 다이아몬드이고 그림카드라면, 해당 카드는 두 원의 교차지점에 포함된다. 만약 카드가 다이아몬드지만 그림카드가 아니라면, 오른쪽 원이 아닌 왼쪽 원부분이 된다. 다이아몬드인 카드 전체 숫자는 다이아몬드 원의 카드 전체 숫자로 주어진다: $10+3=13$. 또한 확률도 도시되어 있다 (즉, $10/52 = 0.1923$).
 
 \begin{figure}
 \centering
 \includegraphics[width=0.65\textwidth]{ch_probability/figures/cardsDiamondFaceVenn/cardsDiamondFaceVenn}
-\caption{A Venn diagram for diamonds and face cards.}
+\caption{다이아몬드와 그림카드를 위한 벤다이어그램.}
 \label{cardsDiamondFaceVenn}
 \end{figure}
 
@@ -204,43 +205,45 @@ Let's consider calculations for two events that are not disjoint in the context 
 %Using Figure~\ref{cardsDiamondFaceVenn}, verify $P($face card$) = 12/52=3/13$.\footnote{The Venn diagram shows face cards split up into ``face card but not {\color{redcards}$\diamondsuit$}'' and ``face card and {\color{redcards}$\diamondsuit$}''. Since these correspond to disjoint events, $P($face card$)$ is found by adding the two corresponding probabilities: $\frac{3}{52} + \frac{9}{52} = \frac{12}{52} = \frac{3}{13}$.}
 %\end{exercise}
 
-Let $A$ represent the event that a randomly selected card is a diamond and $B$ represent the event that it is a face card. How do we compute $P(A$ or $B)$? Events $A$ and $B$ are not disjoint -- the cards {\color{redcards}$J\diamondsuit$}, {\color{redcards}$Q\diamondsuit$}, and {\color{redcards}$K\diamondsuit$} fall into both categories -- so we cannot use the Addition Rule for disjoint events. Instead we use the Venn diagram. We start by adding the probabilities of the two events:
+$A$가 무작위로 선택된 카드가 다이아몬드를 나타내고, $B$는 그림카드 사건을 나타낸다. $P(A$ 혹은 $B)$ 확률을 어떻게 계산하나요? 사건 $A$ 와 $B$ 는 서로 겹친다 -- 카드 {\color{redcards}$J\diamondsuit$}, {\color{redcards}$Q\diamondsuit$}, {\color{redcards}$K\diamondsuit$} 는 양쪽 범주에 포함된다 -- 그래서 서로 겹치지 않는 사건에 대한 가산 법칙을 사용할 수는 없다. 대신에 벤다이어그램을 사용한다. 두 사건에 대한 확률을 더해서 시작한다:
+
 \begin{eqnarray*}
-P(A) + P(B) = P({\color{redcards}\diamondsuit}) + P(\text{face card}) = 12/52 + 13/52
+P(A) + P(B) = P({\color{redcards}\diamondsuit}) + P(\text{그림카드}) = 12/52 + 13/52
 \label{overCountFaceDiamond}
 \end{eqnarray*}
-However, the three cards that are in both events were counted twice, once in each probability. We must correct this double counting:
+하지만, 양쪽 사건에 해당되는 세 카드가, 확률 각각에 대해서 한번씩, 중복 계수되었다. 이중으로 계수된 것을 수정해야만 된다:
 \begin{eqnarray}
-P(A\text{ or } B) &=&P(\text{face card or }{\color{redcards}\diamondsuit})  \notag \\
- &=& P(\text{face card}) + P({\color{redcards}\diamondsuit}) - P(\text{face card and }{\color{redcards}\diamondsuit}) \label{diamondFace} \\
+P(A\text{ or } B) &=&P(\text{그림카드 혹은 }{\color{redcards}\diamondsuit})  \notag \\
+ &=& P(\text{그림카드}) + P({\color{redcards}\diamondsuit}) - P(\text{그림카드 그리고 }{\color{redcards}\diamondsuit}) \label{diamondFace} \\
  &=& 13/52 + 12/52 - 3/52 \notag \\
  &=& 22/52 = 11/26 \notag
 \end{eqnarray}
-Equation~(\ref{diamondFace}) is an example of the \term{General Addition Rule}. 
 
-\begin{termBox}{\tBoxTitle{General Addition Rule} If $A$ and $B$ are any two events, disjoint or not, then the probability that at least one of them will occur is
+방정식~(\ref{diamondFace})은 \term{일반 가산법칙}(General Addition Rule)의 한 사례다.
+
+\begin{termBox}{\tBoxTitle{일반 가산규칙} 만약 $A$ 와 $B$ 를 서로 겹치든, 겹치지 않든 임의 두 사건이라고 가정하면, 두 사건 중 하나가 일어날 확률은 다음과 같다.
 \begin{eqnarray}
-P(A\text{ or }B) = P(A) + P(B) - P(A\text{ and }B)
+P(A\text{ 혹은 }B) = P(A) + P(B) - P(A\text{ 그리고 }B)
 \label{generalAdditionRule}
 \end{eqnarray}
-where $P(A$ and $B)$ is the probability that both events occur.}
+여기서 $P(A$ 그리고 $B)$ 는 두 사건이 모두 일어날 확률이다.}
 \end{termBox}
 
-\begin{tipBox}{\tipBoxTitle{``or'' is inclusive}
-When we write ``or'' in statistics, we mean ``and/or'' unless we explicitly state otherwise. Thus, $A$ or $B$ occurs means $A$, $B$, or both $A$ and $B$ occur.}
+\begin{tipBox}{\tipBoxTitle{``혹은(or)'' 의 의미는 일체를 포함함.}
+통계학에서 ``혹은(or)''을 적을 때, 명시적으로 달리 언급되지 않는다면 ``그리고/혹은 (and/or)'' 의미가 된다. 따라서, $A$ 혹은(or) $B$ 가 일어난다는 의미는 $A$, $B$, 혹은 $A$ 와 $B$ 함께 일어난다는 의미가 된다.}
 \end{tipBox}
 
 \begin{exercise}
-(a) If $A$ and $B$ are disjoint, describe why this implies $P(A$ and $B) = 0$. (b) Using part (a), verify that the General Addition Rule simplifies to the simpler Addition Rule for disjoint events if $A$ and $B$ are disjoint.\footnote{(a) If $A$ and $B$ are disjoint, $A$ and $B$ can never occur simultaneously. (b) If $A$ and $B$ are disjoint, then the last term of Equation~(\ref{generalAdditionRule}) is 0 (see part (a)) and we are left with the Addition Rule for disjoint events.}
+(a) 만약 $A$ 그리고 $B$ 가 서로 겹치지 않는다면, 왜 이것이 $P(A$ 그리고 $B) = 0$를 암시하는지 기술하시오. (b) (a) 부분을 사용해서, 만약 $A$ 그리고 $B$ 가 서로 겹치지 않는다면 일반가산법칙이 서로 겹치지 않는 사건에 대해서 더 간단한 가산규칙으로 단순화됨을 확증하시오.\footnote{(a) 만약 $A$ 그리고 $B$ 가 서로 겹치지 않는다면, 사건 $A$ 그리고 $B$ 는 결코 동시에 일어날 수 없다. (b) 만약 $A$ 그리고 $B$ 가 서로 겹치지 않는다면, 방정식~(\ref{generalAdditionRule}) 의 마지막 항은 0 이 되고 ((a) 부분 참조), 서로 겹치지 않는 사건에 대한 가산 규칙으로 된다.}
 \end{exercise}
 
-\index{data!email|(}
+\index{데이터!email|(}
 
 \begin{exercise}\label{emailSpamNumberVennExer}
 % library(openintro); data(email); table(email[,c("spam", "number")]); table(email[,c("number")]); table(email[,c("spam")])
-In the \data{email} data set with 3,921 emails, 367 were spam, 2,827 contained some small numbers but no big numbers, and 168 had both characteristics. Create a Venn diagram for this setup.\footnote{%
+전자우편 3,921개를 갖는 \data{email} 데이터셋에는 367개 스팸 전자우편이, 전자우편 2,827개는 일부 작은 숫자 하지만 크지 않은 숫자를 갖는 있으며, 전자우편 168개는 두 특성을 모두 지니고 있다. 이런 설정에 대한 벤다이어그램을 생성하시오.\footnote{%
 \begin{minipage}[t]{0.65\textwidth}
-Both the counts and corresponding {\color{oiB}probabilities} (e.g. $2659/3921 = 0.678$) are shown. Notice that the number of emails represented in the left circle corresponds to $2659 + 168 = 2827$, and the number represented in the right circle is $168 + 199 = 367$.
+갯수와 상응하는 {\color{oiB}확률} 이 도시되었다 (즉, $2659/3921 = 0.678$). 왼쪽 원에 나타난 전자우편 숫자는 $2659 + 168 = 2827$에 대응되고, 오른쪽 원에 나타난 숫자는 $168 + 199 = 367$ 이 된다.
 \end{minipage}\ %
 \begin{minipage}[c]{0.3\textwidth}
 \hfill\includegraphics[height=13mm]{ch_probability/figures/emailSpamNumberVenn/emailSpamNumberVenn} \vspace{-13mm}
@@ -249,12 +252,13 @@ Both the counts and corresponding {\color{oiB}probabilities} (e.g. $2659/3921 = 
 \end{exercise}
 
 \begin{exercise}
-(a) Use your Venn diagram from Guided Practice~\ref{emailSpamNumberVennExer} to determine the probability a randomly drawn email from the \data{email} data set is spam and had small numbers (but not big numbers). (b)~What is the probability that the email had either of these attributes?\footnote{(a)~The solution is represented by the intersection of the two circles: 0.043. (b)~This is the sum of the three disjoint probabilities shown in the circles: $0.678 + 0.043 + 0.051 = 0.772$.}
-\index{data!email|)}
+(a) Guided Practice~\ref{emailSpamNumberVennExer}에 나온 벤다이어그램을 사용해서 \data{email} 데이터셋으로부터 무작위로 뽑힌 전자우편이 스팸이며 적은 숫자(하지만 큰 숫자는 아닌)를 포함할 확률을 알아내시오. (b) 전자우편이 이러한 속성 중 하나를 가질 확률은 얼마인가요?\footnote{
+(a)~정답은 두 원의 교차지역으로 나타난다: 0.043. 해답은 원으로 보여진 서로 겹치지 않는 세 확률의 합이다: $0.678 + 0.043 + 0.051 = 0.772$.}
+\index{데이터!email|)}
 \end{exercise}
 
 
-\subsection{Probability distributions}
+\subsection{확률 분포}
 
 
 A \term{probability distribution} is a table of all disjoint outcomes and their associated probabilities. Table~\ref{diceProb} shows the probability distribution for the sum of two dice. 
