@@ -260,8 +260,7 @@ P(A\text{ 혹은 }B) = P(A) + P(B) - P(A\text{ 그리고 }B)
 
 \subsection{확률 분포}
 
-
-A \term{probability distribution} is a table of all disjoint outcomes and their associated probabilities. Table~\ref{diceProb} shows the probability distribution for the sum of two dice. 
+\term{확률분포}(probability distribution)는 서로 겹치지 않는 모든 결과와 연관된 확률의 표다. 표~\ref{diceProb}에는 주사위 두개를 굴려나온 결과의 합계에 대한 확률분포가 나와있다.
 
 \begin{table}[h] \small
 \centering
@@ -272,121 +271,131 @@ Dice sum\vspace{0.3mm} & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12  \\
 Probability & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{3}{36}$ & $\frac{4}{36}$ & $\frac{5}{36}$ & $\frac{6}{36}$ & $\frac{5}{36}$ & $\frac{4}{36}$ & $\frac{3}{36}$ & $\frac{2}{36}$ & $\frac{1}{36}$\vspace{1mm} \\
    \hline
 \end{tabular}
-\caption{Probability distribution for the sum of two dice.}
+\caption{주사위 두개를 굴려나온 결과의 합계에 대한 확률분포.}
 \label{diceProb}
 \end{table}
 
-\begin{termBox}{\tBoxTitle{Rules for probability distributions}
-A probability distribution is a list of the possible outcomes with corresponding probabilities that satisfies three rules: \vspace{-2mm}
+\begin{termBox}{\tBoxTitle{확률분포에 대한 규칙}
+확률분포는 다음 세가지 규칙을 만족하는 가능한 결과와 대응되는 확률에 대한 목록이다: \vspace{-2mm}
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
-\item The outcomes listed must be disjoint.
-\item Each probability must be between 0 and 1.
-\item The probabilities must total 1. \vspace{1mm}
+\item 목록에 나온 결과는 서로 겹치지 않아야 된다.
+\item 확률 각각은 0 과 1 사이에 놓여야만 한다.
+\item 확률은 합이 1 이다. \vspace{1mm}
 \end{enumerate}}
 \end{termBox}
 
 \begin{exercise}\label{usHouseholdIncomeDistsExercise}
-Table~\ref{usHouseholdIncomeDists} suggests three distributions for household income in the United States. Only one is correct. Which one must it be? What is wrong with the other two?\footnote{The probabilities of (a) do not sum to 1. The second probability in (b) is negative. This leaves (c), which sure enough satisfies the requirements of a distribution. One of the three was said to be the actual distribution of US household incomes, so it must be (c).}
+표~\ref{usHouseholdIncomeDists}는 미국 세가지 가구소득에 대한 분포를 제시한다. 단지 하나만 옳다. 어느 분포가 맞을까? 다른 두개 잘못된 분포는 무엇인가?\footnote{분포 (a)는 합이 1이 아니다. 분포 (b)에 두번째 확률은 음수다. 따라서 (c)가 분포 요건을 만족한다. 세가지 분포 중 하나가 실제 미국 가구소득분포이며, 그것은 (c)가 된다.}
 \end{exercise}
 
 \begin{table}
 \centering
 \begin{tabular}{r | rr rr}
   \hline
-Income range (\$1000s) & 0-25    & 25-50    & 50-100     & 100+    \\
+소득 구간 (\$1000 달러) & 0-25    & 25-50    & 50-100     & 100+    \\
   \hline
 (a)\hspace{0.2mm}	 & 0.18 & 0.39 & 0.33 & 0.16 \\
 (b)				 & 0.38 & -0.27 & 0.52 & 0.37 \\
 (c)\hspace{0.2mm}	 & 0.28 & 0.27 & 0.29 & 0.16 \\
   \hline
 \end{tabular}
-\caption{Proposed distributions of US household incomes (Guided Practice~\ref{usHouseholdIncomeDistsExercise}).}
+\caption{미국 가구소득으로 제시된 분포들 (Guided Practice~\ref{usHouseholdIncomeDistsExercise}).}
 \label{usHouseholdIncomeDists}
 \end{table}
 
-Chapter~\ref{introductionToData} emphasized the importance of plotting data to provide quick summaries. Probability distributions can also be summarized in a bar plot. For instance, the distribution of US household incomes is shown in Figure~\ref{usHouseholdIncomeDistBar} as a bar plot. %\footnote{It is also possible to construct a distribution plot when income is not artificially binned into four groups. \emph{Continuous} distributions are considered in Section~\ref{contDist}.}
-The probability distribution for the sum of two dice is shown in Table~\ref{diceProb} and plotted in Figure~\ref{diceSumDist}.
+~\ref{introductionToData} 장은  신속한 요약을 위해서 데이터 도식화의 중요성을 강조했다. 확률분포도 막대그래프로 요약될 수 있다. 예를 들어, 미국 가구소득 분포를 막대그래프를 사용해서 그림~\ref{usHouseholdIncomeDistBar}으로 도식화했다.  주사위 두개를 굴려 나온 합계에 대한 확률분포도 표~\ref{diceProb}로 나와있고, 그림~\ref{diceSumDist}으로 도식화했다. %\footnote{It is also possible to construct a distribution plot when income is not artificially binned into four groups. \emph{Continuous} distributions are considered in Section~\ref{contDist}.}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.68\textwidth]{ch_probability/figures/usHouseholdIncomeDistBar/usHouseholdIncomeDistBar}
-\caption{The probability distribution of US household income.}
+\caption{미국 가구소득의 확률분포.}
 \label{usHouseholdIncomeDistBar}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.73\textwidth]{ch_probability/figures/diceSumDist/diceSumDist}
-\caption{The probability distribution of the sum of two dice.}
+\caption{주사위 두개를 던져 나온 합계의 확률분포.}
 \label{diceSumDist}
 \end{figure}
 
-In these bar plots, the bar heights represent the probabilities of outcomes. If the outcomes are numerical and discrete, it is usually (visually) convenient to make a bar plot that resembles a histogram, as in the case of the sum of two dice. Another example of plotting the bars at their respective locations is shown in Figure~\ref{bookCostDist} on page~\pageref{bookCostDist}.
+이러한 막대그래프에서, 막대높이는 결과의 확률을 나타낸다. 만약 결과가 숫자이고 이산형이라면, 주사위를 던져 나온 합계의 경우처럼, 대체로 (시각적으로) 히스토그램을 닮은 막대그래프로 표현하는 것이 편리하다. 각각의 위치에서 막대를 그리는 또다른 예제가 ~\pageref{bookCostDist}쪽 그림~\ref{bookCostDist}에 나와있다.
 
-\subsection{Complement of an event}
+\subsection{여사건}
 
-Rolling a die produces a value in the set $\{$\resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, \resp{6}$\}$. This set of all possible outcomes is called the \term{sample space} ($S$)\marginpar[\raggedright\vspace{-5mm}
+주사위를 굴리면 집합 $\{$\resp{1}, \resp{2}, \resp{3}, \resp{4}, \resp{5}, \resp{6}$\}$ 중 값이 하나 나온다. 주사위를 굴릴 때 모든 가능한 결과 집합을 \term{표본공간} ($S$)\marginpar[\raggedright\vspace{-5mm}
 
-$S$\\\footnotesize Sample space]{\raggedright\vspace{-5mm}
+$S$\\\footnotesize 표본공간]{\raggedright\vspace{-5mm}
 
-$S$\\\footnotesize Sample space}\index{S@$S$} for rolling a die. We often use the sample space to examine the scenario where an event does not occur.
+$S$\\\footnotesize 표본공간}\index{S@$S$}이라고 부른다. 
+사건이 일어나지 않는 시나리오를 조사하는데 종종 표본 공간을 사용한다.
 
-Let $D=\{$\resp{2}, \resp{3}$\}$ represent the event that the outcome of a die roll is \resp{2} or \resp{3}. Then the \term{complement}\marginpar[\raggedright\vspace{0.2mm}
+$D=\{$\resp{2}, \resp{3}$\}$를 주사위를 굴린 결과가 \resp{2} 혹은 \resp{3}인 사건을 나타낸다고 두자. 
+그러면 $D$의 \term{여}\marginpar[\raggedright\vspace{0.2mm}
 
-$A^c$\\\footnotesize Complement\\of outcome $A$]{\raggedright\vspace{0.2mm}
+$A^c$\\\footnotesize $A$ 결과의 \\여]{\raggedright\vspace{0.2mm}
 
-$A^c$\\\footnotesize Complement\\of outcome $A$}\index{Ac@$A^c$} of $D$ represents all outcomes in our sample space that are not in $D$, which is denoted by $D^c = \{$\resp{1}, \resp{4}, \resp{5}, \resp{6}$\}$. That is, $D^c$ is the set of all possible outcomes not already included in $D$. Figure~\ref{complementOfD} shows the relationship between $D$, $D^c$, and the sample space $S$. 
+$A^c$\\\footnotesize $A$ 결과의 \\여}\index{Ac@$A^c$}는 $D$에 포함되지 않는 표본공간의 모든 결과를 나타내고, $D^c = \{$\resp{1}, \resp{4}, \resp{5}, \resp{6}$\}$로 표시한다. 즉, $D^c$는 $D$에 이미 포함되지 않는 가능한 모든 결과 집합이다. 그림~\ref{complementOfD} 에 $D$, $D^c$, 표본공간 $S$ 사이 관계가 나와있다.
 
 \begin{figure}[hht]
 \centering
 \includegraphics[width=0.55\textwidth]{ch_probability/figures/complementOfD/complementOfD}
-\caption{Event $D=\{$\resp{2}, \resp{3}$\}$ and its complement, $D^c = \{$\resp{1}, \resp{4}, \resp{5}, \resp{6}$\}$. $S$~represents the sample space, which is the set of all possible events.}
+\caption{사건 $D=\{$\resp{2}, \resp{3}$\}$와 여사건 $D^c = \{$\resp{1}, \resp{4}, \resp{5}, \resp{6}$\}$. $S$~는 표본공간을 나타내는데 모든 가능한 사건 집합이다.}
 \label{complementOfD}
 \end{figure}
 
 \begin{exercise}
-(a) Compute $P(D^c) = P($rolling a \resp{1}, \resp{4}, \resp{5}, or \resp{6}$)$. (b) What is $P(D) + P(D^c)$?\footnote{(a)~The outcomes are disjoint and each has probability $1/6$, so the total probability is $4/6=2/3$. (b)~We can also see that $P(D)=\frac{1}{6} + \frac{1}{6} = 1/3$. Since $D$ and $D^c$ are disjoint, $P(D) + P(D^c) = 1$.}
+(a) 
+$P(D^c) = P($ \resp{1}, \resp{4}, \resp{5}, or \resp{6} 굴리기$)$ 을 계산하시요. (b) $P(D) + P(D^c)$ 은 얼마인가?\footnote{(a)~결과는 서로 겹치지 않고, 각각은 확률 $1/6$ 이 되고, 전체 확률은 $4/6=2/3$ 이 된다. (b)~$P(D)=\frac{1}{6} + \frac{1}{6} = 1/3$ 이 된다. $D$ 와 $D^c$ 가 서로 겹치지 않기 때문에, $P(D) + P(D^c) = 1$.}
 \end{exercise}
 
 \begin{exercise}
-Events $A=\{$\resp{1}, \resp{2}$\}$ and $B=\{$\resp{4}, \resp{6}$\}$ are shown in Figure~\ref{disjointSets} on page~\pageref{disjointSets}. (a) Write out what $A^c$ and $B^c$ represent. (b)~Compute $P(A^c)$ and $P(B^c)$. (c)~Compute $P(A)+P(A^c)$ and $P(B)+P(B^c)$.\footnote{Brief solutions: (a)~$A^c=\{$\resp{3}, \resp{4}, \resp{5}, \resp{6}$\}$ and $B^c=\{$\resp{1}, \resp{2}, \resp{3}, \resp{5}$\}$. (b)~Noting that each outcome is disjoint, add the individual outcome probabilities to get $P(A^c)=2/3$ and $P(B^c)=2/3$. (c)~$A$~and~$A^c$ are disjoint, and the same is true of $B$~and~$B^c$. Therefore, $P(A) + P(A^c) = 1$ and $P(B) + P(B^c) = 1$.}
+사건 $A=\{$\resp{1}, \resp{2}$\}$ 와 $B=\{$\resp{4}, \resp{6}$\}$ 가 ~\pageref{disjointSets} 쪽 그림~\ref{disjointSets}에 나와있다. (a) $A^c$ 와 $B^c$ 가 무엇을 나타내는지 적으시오. (b) $P(A^c)$ 와 $P(B^c)$ 확률을 계산하시오. (c) $P(A)+P(A^c)$ 와 $P(B)+P(B^c)$ 확률을 계산하시오.\footnote{간략한 해답: (a)~$A^c=\{$\resp{3}, \resp{4}, \resp{5}, \resp{6}$\}$ 와 $B^c=\{$\resp{1}, \resp{2}, \resp{3}, \resp{5}$\}$. (b)~
+결과 각각은 서로 겹치지 않음에 주목한다. 개별 결과 확률을 더하면 $P(A^c)=2/3$ 와 $P(B^c)=2/3$ 을 얻게된다. (c)~$A$~와~$A^c$ 은 서로 겹치지 않는다. 그리고, 동일한 것이 $B$~와~$B^c$ 에도 사실이다. 따라서, $P(A) + P(A^c) = 1$ 와 $P(B) + P(B^c) = 1$ 이 된다.}
 \end{exercise}
 
-A complement of an event $A$ is constructed to have two very important properties: (i) every possible outcome not in $A$ is in $A^c$, and (ii) $A$ and $A^c$ are disjoint. Property (i) implies
+집합의 여사건은 매우 중요한 두가지 속성을 갖도록 만들어진다: 
+(i) $A$ 에 존재하지 않는 모든 가능한 결과는 $A^c$ 내부에 있다. (ii) $A$ 와 $A^c$ 는 서로 겹치지 않는다. 속성 (i) 는 다음을 암시한다.
+
 \begin{eqnarray}
 P(A\text{ or }A^c) = 1
 \label{complementSumTo1}
 \end{eqnarray}
-That is, if the outcome is not in $A$, it must be represented in $A^c$. We use the Addition Rule for disjoint events to apply Property (ii):
+
+즉, 만약 결과가 $A$ 내부에 있지 않는다면, $A^c$ 내부에 나타내야만 된다. 특성 (ii) 을 적용하려면 서로 겹치지 않는 사건에 대한 가산 균칙을 사용한다:
+
 \begin{eqnarray}
 P(A\text{ or }A^c) = P(A) + P(A^c)
 \label{complementDisjointEquation}
 \end{eqnarray}
-Combining Equations~(\ref{complementSumTo1}) and~(\ref{complementDisjointEquation}) yields a very useful relationship between the probability of an event and its complement.
 
-\begin{termBox}{\tBoxTitle{Complement}
-The complement of event $A$ is denoted $A^c$, and $A^c$ represents all outcomes not in~$A$. $A$ and $A^c$ are mathematically related: \vspace{-2mm}
+방정식~(\ref{complementSumTo1}) 와~(\ref{complementDisjointEquation}) 을 결합하면 사건 확률과 여사건 확률 사이에 매우 유용한 관계를 이끌어낸다.
+
+\begin{termBox}{\tBoxTitle{여(Complement)}
+$A$ 의 여사건은 $A^c$ 로 표기되고, $A^c$는 $A$ 에 없는 모든 결과를 나타낸다. $A$ 와 $A^c$ 는 수학적으로 다음과 같이 관련된다: \vspace{-2mm}
 \begin{eqnarray}\label{complement}
 P(A) + P(A^c) = 1, \quad\text{i.e.}\quad P(A) = 1-P(A^c)
 \end{eqnarray}\vspace{-6.5mm}}
 \end{termBox}
 
-In simple examples, computing $A$ or $A^c$ is feasible in a few steps. However, using the complement can save a lot of time as problems grow in complexity.
+간단한 예로, $A$ 혹은 $A^c$ 을 계산하는 것은 몇 단계로 실행 가능하다. 하지만, 여(complement)를 사용하면 문제 복잡성이 늘어나면 상당한 시간을 절약할 수 있다.
 
 \begin{exercise}
-Let $A$ represent the event where we roll two dice and their total is less than \resp{12}. (a) What does the event $A^c$ represent? (b) Determine $P(A^c)$ from Table~\ref{diceProb} on page~\pageref{diceProb}. (c) Determine $P(A)$.\footnote{(a)~The complement of $A$: when the total is equal to \resp{12}. (b)~$P(A^c) = 1/36$. (c)~Use the probability of the complement from part (b), $P(A^c) = 1/36$, and Equation~(\ref{complement}): $P($less than \resp{12}$) = 1 - P($\resp{12}$) = 1 - 1/36 = 35/36$.}
+
+$A$ 가 주사위를 두번 굴려서 합이 \resp{12} 보다 적은 사건을 나타낸다고 하자. (a) 사건 $A^c$ 은 무엇을 나타낼가요? (b) ~\pageref{diceProb} 쪽 표~\ref{diceProb} 에서 $P(A^c)$ 을 알아내세요. (c) $P(A)$ 를 알아내시오.\footnote{(a)~$A$의 여: 합이 \resp{12} 와 같을 때. (b)~$P(A^c) = 1/36$. (c) $P(A^c) = 1/36$, (b) 에서 얻은 여확률과  방정식~(\ref{complement})을 사용: $P($ \resp{12} 보다 적음$) = 1 - P($\resp{12}$) = 1 - 1/36 = 35/36$.}
 \end{exercise}
 
-\begin{exercise} Consider again the probabilities from Table~\ref{diceProb} and rolling two dice. Find the following probabilities: (a)~The sum of the dice is \emph{not} \resp{6}. (b)~The sum is at least \resp{4}. That is, determine the probability of the event $B=\{$\resp{4}, \resp{5}, ..., \resp{12}$\}$. (c) The sum is no more than \resp{10}. That is, determine the probability of the event $D=\{$\resp{2}, \resp{3}, ..., \resp{10}$\}$.\footnote{(a)~First find $P($\resp{6}$)=5/36$, then use the complement: $P($not \resp{6}$) = 1 - P($\resp{6}$) = 31/36$.
+\begin{exercise} 주사위 두개 굴리기와 표~\ref{diceProb}에서 나온 확률을 다시 고려해보자. 다음 확률을 계산하시오: (a) 주사위 합이 6 이 \emph{아닐} 확률. (b) 합이 적어도 \resp{4} 일 확률. 즉, 
+$B=\{$\resp{4}, \resp{5}, ..., \resp{12}$\}$ 일 사건이 일어날 확률을 알아낸다. (c) 합이 \resp{10} 보다 크지 않다. 즉, $D=\{$\resp{2}, \resp{3}, ..., \resp{10}$\}$ 일 사건이 일어날 확률을 알아낸다.\footnote{(a)~먼저 $P($\resp{6}$)=5/36$ 을 알아내고 나서, 여(complement)를 사용: $P($not \resp{6}$) = 1 - P($\resp{6}$) = 31/36$.
 
-(b)~First find  the complement, which requires much less effort: $P($\resp{2} or \resp{3}$)=1/36+2/36=1/12$. Then calculate $P(B) = 1-P(B^c) = 1-1/12 = 11/12$.
+(b)~먼저 여(complement)를 알아내는데, 훨씬 적은 노력이 든다: $P($\resp{2} 혹은 \resp{3}$)=1/36+2/36=1/12$. 그리고 나서 $P(B) = 1-P(B^c) = 1-1/12 = 11/12$ 을 계산한다.
 
-(c)~As before, finding the complement is the clever way to determine $P(D)$. First find $P(D^c) = P($\resp{11} or \resp{12}$)=2/36 + 1/36=1/12$. Then calculate $P(D) = 1 - P(D^c) = 11/12$.}
+(c)~이전처럼, 여(complement)를 찾아내는 것이 $P(D)$ 을 알아내는 현명한 방법이다. 먼저 $P(D^c) = P($\resp{11} 혹은 \resp{12}$)=2/36 + 1/36=1/12$ 을 알아내고 나서, $P(D) = 1 - P(D^c) = 11/12$ 을 계산한다.}
 \end{exercise}
 
 
-\subsection{Independence}
+\subsection{독립(Independence)}
 \label{probabilityIndependence}
 
 Just as variables and observations can be independent, random processes can be independent, too. Two processes are \term{independent} if knowing the outcome of one provides no useful information about the outcome of the other. For instance, flipping a coin and rolling a die are two independent processes -- knowing the coin was heads does not help determine the outcome of a die roll. On the other hand, stock prices usually move up or down together, so they are not independent.
