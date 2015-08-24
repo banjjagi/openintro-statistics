@@ -409,14 +409,16 @@ $B=\{$\resp{4}, \resp{5}, ..., \resp{12}$\}$ 일 사건이 일어날 확률을 �
 \label{indepForRollingTwo1s}
 \end{figure}
 
+\textC{\newpage}
+
 \begin{example}{기존 주사위와 다른 파란 주사위가 있다면 어떨까? 주사위 세개를 굴려서 모두 \resp{1}이 나올 확률은 얼마인가? }\label{threeDice}
 예제~\ref{probOf2Ones}와 동일한 로직을 적용한다. 하얀색과 빨간색 주사위가 모두 \resp{1}일 경우 확률이 $1/36^{th}$이면, 파란색 주사위도 \resp{1}이 나올 확률도 $1/6^{th}$이다. 그래서 곱한다:
 
 {\begin{align*}
-P(하얀색=\text{\small\resp{1} and } 빨간색=\text{\small\resp{1} and } 파란색=\text{\small\resp{1}})
-	&= P(하얀색=\text{\small\resp{1}})\times P(빨간색=\text{\small\resp{1}})\times P(파란색=\text{\small\resp{1}}) \\
-	&= (1/6)\times (1/6)\times (1/6)
-	= 1/216
+P(\text{하얀색}=\text{\small\resp{1} and } \text{빨간색}=\text{\small\resp{1} and } \text{파란색}=\text{\small\resp{1}}) 
+&= P(\text{하얀색}=\text{\small\resp{1}})\times P(\text{빨간색}=\text{\small\resp{1}})\times P(\text{파란색}=\text{\small\resp{1}}) \\
+&= (1/6)\times (1/6)\times (1/6)
+= 1/216
 \end{align*}} \vspace{-7mm}
 \end{example}
 
@@ -469,14 +471,15 @@ P(\text{모두 \resp{RH}가 아님})
 \end{exercise}
 
 변수 \var{handedness}(잘쓰는 손), \var{gender}(성별)이 독립이라고 가정하자. 즉, 누군가의 \var{gender}(성별)을 안다는 것이 \var{handedness}(잘쓰는 손)에 대한 어떤 정보도 제공하지 못하고 반대의 경우도 그렇다. 그러면, 곱셈정리를 사용해서, 무작위로 고른 사람이 오른손잡이고, 동시에 여성일 확률을 계산할 수 있다.\footnote{미국 인구에서 실제 \resp{female}(여성) 비율이 약 50\%다. 그래서 여성 표본확률로 0.5를 사용한다. 하지만, 이 확률은 국가마다 다르다.}:
+
 \begin{eqnarray*}
-P(\text{오른손잡이 그리고 여성}) &=& P(\text{오른손잡이) \times  P(\text{여성}) \\
+P(\text{오른손잡이 그리고 여성}) &=& P(\text{오른손잡이} \times  P(\text{여성}) \\
 &=& 0.91 \times  0.50 = 0.455
 \end{eqnarray*}
 
 
 \begin{exercise}
-무작위로 세명을 뽑았다.\footnote{간략한 정답은 다음과 같다. (a)~This can be written in probability notation as $P($무작위로 뽑힌 사람이 남성이고 오른손잡이$)같은 확률표기법으로 적는다=0.455$. (b) 0.207. (c) 0.045. (d) 0.0093.} \vspace{-1.5mm}
+무작위로 세명을 뽑았다고 가정하자.\footnote{간략한 정답은 다음과 같다. (a)~다음과 같이 확률표기법으로 적으면 $P($무작위로 뽑힌 사람이 남성이고 오른손잡이$)=0.455$. (b) 0.207. (c) 0.045. (d) 0.0093.} \vspace{-1.5mm}
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
 \item[(a)] 첫번째 사람이 남성이고 오른손잡이일 확률은 얼마인가?
@@ -486,38 +489,40 @@ P(\text{오른손잡이 그리고 여성}) &=& P(\text{오른손잡이) \times  
 \end{enumerate}
 \end{exercise}
 
-Sometimes we wonder if one outcome provides useful information about another outcome. The question we are asking is, are the occurrences of the two events independent? We say that two events $A$ and $B$ are independent if they satisfy Equation~\eqref{eqForIndependentEvents}.
+종종 한 결과가 또다른 결과에 관한 유용한 정보를 제공할 수 있는지 궁금하다. 지금 묻는 질문은, 출현된 두 사건은 독립인가? 수식~\eqref{eqForIndependentEvents}을 만족하면 두 사건 $A$ 와 $B$가 독립이라고 한다.
 
-\begin{example}{If we shuffle up a deck of cards and draw one, is the event that the card is a heart independent of the event that the card is an ace?}
-The probability the card is a heart is $1/4$ and the probability that it is an ace is $1/13$. The probability the card is the ace of hearts is $1/52$. We check whether Equation~\ref{eqForIndependentEvents} is satisfied:
+\begin{example}{만약 카드 한벌을 섞어 카드 하나를 뽑는다면, 카드가 하트가 나올 사건은 카드가 에이스가 나올 사건과 독립인가?}
+카드가 하트일 확률은 $1/4$이고 카드가 에이스일 확률은 $1/13$이다. 카드가 하트 에이스일 확률은 $1/52$이다. 수식~\ref{eqForIndependentEvents}이 만족되는지 검사하자:
+
 \begin{align*}
-P({\color{redcards}\heartsuit})\times P(\text{ace}) = \frac{1}{4}\times \frac{1}{13} = \frac{1}{52} 
-					= P({\color{redcards}\heartsuit}\text{ and ace})
+P({\color{redcards}\heartsuit})\times P(\text{에이스}) = \frac{1}{4}\times \frac{1}{13} = \frac{1}{52} 
+					= P({\color{redcards}\heartsuit}\text{ and 에이스})
 \end{align*}
-Because the equation holds, the event that the card is a heart and the event that the card is an ace are independent events.
+방정식이 만족되기 때문에, 카드가 하트라는 사건과 카드가 에이스라는 사건은 서로 독립 사건이다.
 \end{example}
 
 %_________________
-\section{Conditional probability (special topic)}
+\section{조건부 확률 (특별 주제)}
 \label{conditionalProbabilitySection}
 
-\index{data!family\_college|(}
+\index{데이터!family\_college|(}
 
-The \data{family\_\hspace{0.3mm}college} data set contains a sample of 792 cases with two variables, \var{teen} and \var{parents}, and is summarized in Table~\ref{contTableOfParStCollege}.\footnote{A simulated data set based on real population summaries at \oiRedirect{textbook-student_parent_college_2001}{nces.ed.gov/pubs2001/2001126.pdf}.} The \var{teen} variable is either \resp{college} or \resp{not}, where the \var{college} label means the teen went to college immediately after high school. The~\var{parents} variable takes the value \resp{degree} if at least one parent of the teenager competed a college degree.
+\data{family\_\hspace{0.3mm}college} 데이터셋은 \var{teen} 과 \var{parents} 변수 두개를 갖는 792 표본 사례로 구성되어 있다. 표~\ref{contTableOfParStCollege}에 데이터셋이 요약되어 있다.\footnote{\oiRedirect{textbook-student_parent_college_2001}{nces.ed.gov/pubs2001/2001126.pdf}에서 실제 모집단 요약정보에 기반한 모의시험 데이터셋} 
+변수 \var{teen}은 \resp{college} 대학진학 혹은 \resp{not} 미진학으로, \var{college} 라벨은 고등학교 졸업 후에 십대자녀가 즉시 대학에 진학한 것을 의미한다. 십대자녀의 부모님 중 적어도 한명이 학사학위를 받았으면 변수 \var{parents}는 \resp{degree} 값을 갖는다.
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{ll rr r rr}
-  && \multicolumn{2}{c}{\var{parents}} & \hspace{1cm} &  \\
+  && \multicolumn{2}{c}{\var{부모}} & \hspace{1cm} &  \\
   \cline{3-4}
-	&& \resp{degree} & \resp{not} & Total  \\
+	&& \resp{degree} & \resp{not} & 합계  \\
   \cline{2-5}
 	& \resp{college}     & 231 & 214 & 445 \\
-\raisebox{1.5ex}[0pt]{\var{teen}}	& \resp{not} \hspace{0.5cm} & 49 & 298 & 347   \\
+\raisebox{1.5ex}[0pt]{\var{십대 자녀}}	& \resp{not} \hspace{0.5cm} & 49 & 298 & 347   \\
   \cline{2-5}
-	& Total & 280 & 512 & 792 \\
+	& 합계 & 280 & 512 & 792 \\
 \end{tabular}
-\caption{Contingency table summarizing the \data{family\_\hspace{0.3mm}college} data set.}
+\caption{\data{family\_\hspace{0.3mm}college} 데이터셋을 요약하는 분할표}
 \label{contTableOfParStCollege}
 \end{table}
 %set.seed(5); n <- 792
@@ -530,29 +535,30 @@ The \data{family\_\hspace{0.3mm}college} data set contains a sample of 792 cases
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.7\textwidth]{ch_probability/figures/familyCollegeVenn/familyCollegeVenn}
-\caption{A Venn diagram using boxes for the \data{family\_\hspace{0.3mm}college} data set.}
+\caption{\data{family\_\hspace{0.3mm}college} 데이터셋을 상자로 나타낸 벤다이어그램}
 \label{familyCollegeVenn}
 \end{figure}
 
-\begin{example}{If at least one parent of a teenager completed a college degree, what is the chance the teenager attended college right after high school?}
-We can estimate this probability using the data. Of the 280 cases in this data set where \var{parents} takes value \resp{degree}, 231 represent cases where the \var{teen} variable takes value \resp{college}:
+\begin{example}{만약 적어도 십대자녀의 부모 중에 한명이 학사학위를 가졌다면, 고등학교 졸업 후에 바로 대학에 십대자녀가 들어갈 확률은 얼마인가?}
+데이터를 사용해서 확률을 추정한다. 데이터셋에서 부모 \var{parents}가 학위 \resp{degree}를 갖는 280 사례중에서 변수 \var{teen}이 대학진학 \resp{college} 값을 갖는 사례가 231이다:
+
 \begin{eqnarray*}
 P(\text{\var{teen} \resp{college} given \var{parents} \resp{degree}}) = \frac{231}{280} = 0.825
 \end{eqnarray*}
 \end{example}
 
-\begin{example}{A teenager is randomly selected from the sample and she did not attend college right after high school. What is the probability that at least one of her parents has a college degree?}\label{collegeProbOfParentsGivenStudentNot}
-If the teenager did not attend, then she is one of the 347 teens in the second row. Of~these 347 teens, 49 had at least one parent who got a college degree:
+\begin{example}{표본에서 십대를 무작위로 뽑았는데 고등학교 졸업후에 곧바로 대학에 진학하지 않았다. 부모 중에 적어도 한명이 학사학위를 갖을 확률은 얼마인가?}\label{collegeProbOfParentsGivenStudentNot}
+만약 십대가 대학에 진학하지 않았다면, 두번째 행에 십대 347명 중 한명이고, 적어도 부모 한명이 학사학위를 갖는 경우는 49명이다:
 \begin{eqnarray*}
 P(\text{\var{parents} \resp{degree} given \var{teen} \resp{not}}) = \frac{49}{347} = 0.141
 \end{eqnarray*}
 \end{example}
 
-\subsection{Marginal and joint probabilities}
+\subsection{주변확률과 결합확률}
 \label{marginalAndJointProbabilities}
 
-\index{marginal probability|(}
-\index{joint probability|(}
+\index{주변확률|(}
+\index{결합확률|(}
 
 Table~\ref{contTableOfParStCollege} includes row and column totals for each variable separately in the \data{family\_\hspace{0.3mm}college} data set. These totals represent \termsub{marginal probabilities}{marginal probability} for the sample, which are the probabilities based on a single variable without regard to any other variables. For instance, a probability based solely on the \var{teen} variable is a marginal probability:
 \begin{align*}
