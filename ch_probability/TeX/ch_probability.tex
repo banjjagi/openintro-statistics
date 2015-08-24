@@ -398,88 +398,91 @@ $B=\{$\resp{4}, \resp{5}, ..., \resp{12}$\}$ 일 사건이 일어날 확률을 �
 \subsection{독립(Independence)}
 \label{probabilityIndependence}
 
-Just as variables and observations can be independent, random processes can be independent, too. Two processes are \term{independent} if knowing the outcome of one provides no useful information about the outcome of the other. For instance, flipping a coin and rolling a die are two independent processes -- knowing the coin was heads does not help determine the outcome of a die roll. On the other hand, stock prices usually move up or down together, so they are not independent.
+변수와 관측점이 독립이듯이, 확률과정도 또한 독립일 수 있다. 만약 한 확률과정 결과 정보를 아는 것이 다른 확률과정 결과에 대한 어떠한 정보도 제공하지 않는다면, 두 확률과정은 \term{독립}(independent)이다. 예를 들어, 동전 던지기와 주사위 던지기는 독립된 두 확률과정이다 -- 동전 앞면을 안다는 것이 주사위 굴리기 결과를 확인하는데 도움이 되지 못한다. 다른 한편으로, 주식 가격은 함께 올라가고 내려가서, 독립적이지 않다.
 
-Example~\ref{probOf2Ones} provides a basic example of two independent processes: rolling two dice. We want to determine the probability that both will be \resp{1}. Suppose one of the dice is red and the other white. If the outcome of the red die is a \resp{1}, it provides no information about the outcome of the white die. We first encountered this same question in Example~\ref{probOf2Ones} (page~\pageref{probOf2Ones}), where we calculated the probability using the following reasoning: $1/6^{th}$ of the time the red die is a \resp{1}, and $1/6^{th}$ of \emph{those} times the white die will also be \resp{1}. This is illustrated in Figure~\ref{indepForRollingTwo1s}. Because the rolls are independent, the probabilities of the corresponding outcomes can be multiplied to get the final answer: $(1/6)\times(1/6)=1/36$. This can be generalized to many independent processes. 
+예제~\ref{probOf2Ones}에 독립된 두 확률과정 기본 예제가 나와있다: 주사위 두개 굴리기. 두 주사위 모두 \resp{1}이 나올 확률을 알고자 한다. 주사위 하나는 빨간색이고, 다른 하나는 하얀색으로 가정하자. 만약 빨간 주사위 결과가 \resp{1}이 나오면, 하얀색 주사위 결과에 대해서는 어떤 정보도 제공하지 못한다. 먼저,  예제~\ref{probOf2Ones} (페이지~\pageref{probOf2Ones})에 나온 동일한 문제와 마주한다. 다음 추론엔진을 사용해서 확률을 계산했다: 빨간 주사위가 \resp{1}나올 경우의 수는 $1/6^{th}$이고, 하얀색 주사위가 \resp{1}나올 경우의 수는 $1/6^{th}$이다. 그림~\ref{indepForRollingTwo1s}에 주사위 두개를 굴리는 사례를 도식화했다. 주사위는 서로 독립이기 때문에, 최종 결과값을 도출하는데 상응하는 결과 확률을 곱한다: $(1/6)\times(1/6)=1/36$. 이 사례를 많은 독립 확률과정으로 일반화할 수 있다.  
 
 \begin{figure}[hht]
 \centering
 \includegraphics[width=0.6\textwidth]{ch_probability/figures/indepForRollingTwo1s/indepForRollingTwo1s}
-\caption{$1/6^{th}$ of the time, the first roll is a \resp{1}. Then $1/6^{th}$ of \emph{those} times, the second roll will also be a \resp{1}.}
+\caption{첫번째 주사위 굴린 결과가 \resp{1}인 것은 $1/6^{th}$. 두번째 주사위 굴리기도 \resp{1}인 것도 $1/6^{th}$이다.}
 \label{indepForRollingTwo1s}
 \end{figure}
 
-\begin{example}{What if there was also a blue die independent of the other two? What is the probability of rolling the three dice and getting all \resp{1}s?}\label{threeDice}
-The same logic applies from Example~\ref{probOf2Ones}. If $1/36^{th}$ of the time the white and red dice are both \resp{1}, then $1/6^{th}$ of \emph{those} times the blue die will also be \resp{1}, so multiply:
+\begin{example}{기존 주사위와 다른 파란 주사위가 있다면 어떨까? 주사위 세개를 굴려서 모두 \resp{1}이 나올 확률은 얼마인가? }\label{threeDice}
+예제~\ref{probOf2Ones}와 동일한 로직을 적용한다. 하얀색과 빨간색 주사위가 모두 \resp{1}일 경우 확률이 $1/36^{th}$이면, 파란색 주사위도 \resp{1}이 나올 확률도 $1/6^{th}$이다. 그래서 곱한다:
+
 {\begin{align*}
-P(white=\text{\small\resp{1} and } red=\text{\small\resp{1} and } blue=\text{\small\resp{1}})
-	&= P(white=\text{\small\resp{1}})\times P(red=\text{\small\resp{1}})\times P(blue=\text{\small\resp{1}}) \\
+P(하얀색=\text{\small\resp{1} and } 빨간색=\text{\small\resp{1} and } 파란색=\text{\small\resp{1}})
+	&= P(하얀색=\text{\small\resp{1}})\times P(빨간색=\text{\small\resp{1}})\times P(파란색=\text{\small\resp{1}}) \\
 	&= (1/6)\times (1/6)\times (1/6)
 	= 1/216
 \end{align*}} \vspace{-7mm}
 \end{example}
 
-Example~\ref{threeDice} illustrates what is called the Multiplication Rule for independent processes. 
+예제~\ref{threeDice}는 소위 독립 확률과정에 대한 곱셈정리(Multiplication Rule)를 보여주고 있다.
 
-\begin{termBox}{\tBoxTitle{\term{Multiplication Rule} for independent processes}
-If $A$ and $B$ represent events from two different and independent processes, then the probability that both $A$ and $B$ occur can be calculated as the product of their separate probabilities: \vspace{-1.5mm}
+\begin{termBox}{\tBoxTitle{독립 확률과정에 대한 \term{곱셈정리}(Multiplication Rule)}
+만약 $A$ 와 $B$가 서로 다른 두 독립 확률과정이라면, $A$ 와 $B$가 모두 발생할 확률은 각각의 확률 곱으로 계산된다: \vspace{-1.5mm}
 \begin{eqnarray}\label{eqForIndependentEvents}
 P(A \text{ and }B) = P(A) \times  P(B)
 \end{eqnarray}
-Similarly, if there are $k$ events $A_1$, ..., $A_k$ from $k$ independent processes, then the probability they all occur is\vspace{-1.5mm}
+
+유사하게, 만약 $k$ 개 독립 확률과정에서 나온 $k$개 사건 $A_1$, ..., $A_k$가 있다면, 모든 사건이 일어날 확률은 다음과 같다. \vspace{-1.5mm}
 \begin{eqnarray*}
 P(A_1) \times  P(A_2)\times  \cdots \times  P(A_k)
 \end{eqnarray*}\vspace{-6mm}}
 \end{termBox}
 
 \begin{exercise} \label{ex2Handedness}
-About 9\% of people are left-handed. Suppose 2 people are selected at random from the U.S. population. Because the sample size of 2 is very small relative to the population, it is reasonable to assume these two people are independent. (a)~What is the probability that both are left-handed? (b)~What is the probability that both are right-handed?\footnote{(a) The probability the first person is left-handed is $0.09$, which is the same for the second person. We apply the Multiplication Rule for independent processes to determine the probability that both will be left-handed: $0.09\times 0.09 = 0.0081$.
+사람의 약 9\%가 왼손잡이다. 미국 인구집단에서 무작위로 사람을 두명 뽑았다고 가정하자. 표본크기 2는 전체 모집단과 연관해서 매우 작기 때문에, 뽑힌 두 사람이 서로 독립이라고 가정해도 합리적이다. (a)~두 사람 모두 왼손잡이일 확률은 얼마인가? (b)~두 사람 모두 오른손잡이일 확률은 얼마인가?\footnote{(a) 첫번째 사람이 왼손잡이일 확률은 $0.09$이고, 두번째 사람도 동일하다. 독립 확률과정에 대한 곱셈정리를 적용해서 두사람이 모두 왼손잡이일 확률을 계산한다: $0.09\times 0.09 = 0.0081$
 
-(b) It is reasonable to assume the proportion of people who are ambidextrous (both right and left handed) is nearly 0, which results in $P($right-handed$)=1-0.09=0.91$. Using the same reasoning as in part~(a), the probability that both will be right-handed is $0.91\times 0.91 = 0.8281$.}
+(b) 양손잡이인 인구비율이 거의 0으로 가정하는 것도 합리적으로, 오른손잡이 확률은 $P($right-handed$)=1-0.09=0.91$이 된다. (a)와 동일한 추론엔진을 사용해서 두사람이 모두 오른손잡이일 확률은 $0.91\times 0.91 = 0.8281$이 된다.}
 \end{exercise}
 
 \textC{\newpage}
 
 \begin{exercise} \label{ex5Handedness}
-Suppose 5 people are selected at random.\footnote{(a)~The abbreviations \resp{RH} and \resp{LH} are used for right-handed and left-handed, respectively. Since each are independent, we apply the Multiplication Rule for independent processes:
+무작위로 5명을 뽑았다고 가정하자.\footnote{
+(a)~오른손잡이(right-handed)와 왼손잡이(left-handed)를 각각 \resp{RH}와 \resp{LH} 줄임말로 표현한다. 각각은 서로 독립이기 때문에, 독립 확률과정에 대한 곱셈정리를 적용한다: 
 \begin{align*}
-P(\text{all five are \resp{RH}})
-&= P(\text{first = \resp{RH}, second = \resp{RH}, ..., fifth = \resp{RH}}) \\
-&= P(\text{first = \resp{RH}})\times P(\text{second = \resp{RH}})\times  \dots \times P(\text{fifth = \resp{RH}}) \\
+P(\text{5명 모두 \resp{RH}})
+&= P(\text{첫번째 = \resp{RH}, 두번째 = \resp{RH}, ..., 다섯번째 = \resp{RH}}) \\
+&= P(\text{첫번째 = \resp{RH}})\times P(\text{두번째 = \resp{RH}})\times  \dots \times P(\text{다섯번째 = \resp{RH}}) \\
 &= 0.91\times 0.91\times 0.91\times 0.91\times 0.91 = 0.624
 \end{align*}
 
-(b)~Using the same reasoning as in~(a), $0.09\times 0.09\times 0.09\times 0.09\times 0.09 = 0.0000059$
+(b)~(a)와 동일한 추론엔진을 사용해서, $0.09\times 0.09\times 0.09\times 0.09\times 0.09 = 0.0000059 이 된다.$
 
-(c)~Use the complement, $P($all five are \resp{RH}$)$, to answer this question:
+(c)~이 질문에 답하기 위해서 보수, $P($all five are \resp{RH}$)$, 를 사용한다:
 \begin{align*}
-P(\text{not all \resp{RH}})
-	= 1 - P(\text{all \resp{RH}})
+P(\text{모두 \resp{RH}가 아님})
+	= 1 - P(\text{모두 \resp{RH}})
 	= 1 - 0.624 = 0.376
 \end{align*}} \vspace{-1.5mm}
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
-\item[(a)] What is the probability that all are right-handed?
-\item[(b)] What is the probability that all are left-handed?
-\item[(c)] What is the probability that not all of the people are right-handed?
+\item[(a)] 모두 오른손잡이일 확률은 얼마인가?
+\item[(b)] 모두 왼손잡이일 확률은 얼마인가?
+\item[(c)] 모든 사람이 오른손잡이가 아닐 확률은 얼마인가?
 \end{enumerate}
 \end{exercise}
 
-Suppose the variables \var{handedness} and \var{gender} are independent, i.e. knowing someone's \var{gender} provides no useful information about their \var{handedness} and vice-versa. Then we can compute whether a randomly selected person is right-handed and female\footnote{The actual proportion of the U.S. population that is \resp{female} is about 50\%, and so we use 0.5 for the probability of sampling a woman. However, this probability does differ in other countries.} using the Multiplication Rule:
+변수 \var{handedness}(잘쓰는 손), \var{gender}(성별)이 독립이라고 가정하자. 즉, 누군가의 \var{gender}(성별)을 안다는 것이 \var{handedness}(잘쓰는 손)에 대한 어떤 정보도 제공하지 못하고 반대의 경우도 그렇다. 그러면, 곱셈정리를 사용해서, 무작위로 고른 사람이 오른손잡이고, 동시에 여성일 확률을 계산할 수 있다.\footnote{미국 인구에서 실제 \resp{female}(여성) 비율이 약 50\%다. 그래서 여성 표본확률로 0.5를 사용한다. 하지만, 이 확률은 국가마다 다르다.}:
 \begin{eqnarray*}
-P(\text{right-handed and female}) &=& P(\text{right-handed}) \times  P(\text{female}) \\
+P(\text{오른손잡이 그리고 여성}) &=& P(\text{오른손잡이) \times  P(\text{여성}) \\
 &=& 0.91 \times  0.50 = 0.455
 \end{eqnarray*}
 
 
 \begin{exercise}
-Three people are selected at random.\footnote{Brief answers are provided. (a)~This can be written in probability notation as $P($a randomly selected person is male and right-handed$)=0.455$. (b) 0.207. (c) 0.045. (d) 0.0093.} \vspace{-1.5mm}
+무작위로 세명을 뽑았다.\footnote{간략한 정답은 다음과 같다. (a)~This can be written in probability notation as $P($무작위로 뽑힌 사람이 남성이고 오른손잡이$)같은 확률표기법으로 적는다=0.455$. (b) 0.207. (c) 0.045. (d) 0.0093.} \vspace{-1.5mm}
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
-\item[(a)] What is the probability that the first person is male and right-handed?
-\item[(b)] What is the probability that the first two people are male and right-handed?.
-\item[(c)] What is the probability that the third person is female and left-handed?
-\item[(d)] What is the probability that the first two people are male and right-handed and the third person is female and left-handed?
+\item[(a)] 첫번째 사람이 남성이고 오른손잡이일 확률은 얼마인가?
+\item[(b)] 첫 두사람이 남성이고 오른손잡이일 확률은 얼마인가?
+\item[(c)] 세번째 사람이 여성이고 왼손잡이일 확률은 얼마인가?
+\item[(d)] 첫 두사람이 남성이고 오른손잡이고, 세번째 사람이 여성이고 왼손잡이일 확률은 얼마인가?
 \end{enumerate}
 \end{exercise}
 
