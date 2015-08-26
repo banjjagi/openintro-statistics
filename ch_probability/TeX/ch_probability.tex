@@ -560,26 +560,33 @@ P(\text{\var{parents} \resp{degree} given \var{teen} \resp{not}}) = \frac{49}{34
 \index{주변확률|(}
 \index{결합확률|(}
 
-Table~\ref{contTableOfParStCollege} includes row and column totals for each variable separately in the \data{family\_\hspace{0.3mm}college} data set. These totals represent \termsub{marginal probabilities}{marginal probability} for the sample, which are the probabilities based on a single variable without regard to any other variables. For instance, a probability based solely on the \var{teen} variable is a marginal probability:
-\begin{align*}
+\data{family\_\hspace{0.3mm}college} 데이터셋에서 별도로 각 변수에 대한 행합계와 열합계가 표~\ref{contTableOfParStCollege}에 포함되어 있다. 이런 합계는 표본에 대한 \termsub{주변확률}{주변확률}(marginal probability)을 나타내는데 다른 변수에 관계없이 단일 변수에 대한 확률이다. 예를 들어, \var{teen} 십대 변수에 한정된 확률은 주변확률이다: 
+
+ \begin{align*}
 P(\text{\var{teen} \resp{college}}) = \frac{445}{792} = 0.56
 \end{align*}
-A probability of outcomes for two or more variables or processes is called a \termsub{joint \mbox{probability}}{joint probability}:
+
+두개 혹은 그 이상 변수에 대한 결과 확률을 \termsub{결합 \mbox{확률}}{결합확률}(joint probability)이라고 한다:
 \begin{align*}
 P(\text{\var{teen} \resp{college} and \var{parents} \resp{not}}) = \frac{214}{792} = 0.27
 \end{align*}
-It is common to substitute a comma for ``and'' in a joint probability, although either is acceptable. That is,
+
+두가지 표기법이 모두 통용되지만, ``and'' 자리를 콤마로 치환하는 것이 일반적이다. 즉,
 \begin{center}
 $P(\text{\var{teen} \resp{college}, \var{parents} \resp{not}})$ \\[2mm]
-means the same thing as \\[2mm]
+상기 표현식은 다음과 동일하다.\\[2mm]
 $P(\text{\var{teen} \resp{college} and \var{parents} \resp{not}})$
 \end{center}
 
-\begin{termBox}{\tBoxTitle{Marginal and joint probabilities}
-If a probability is based on a single variable, it is a \emph{\hiddenterm{marginal probability}}. The probability of outcomes for two or more variables or processes is called a \emph{\hiddenterm{joint probability}}.}
+\begin{termBox}{\tBoxTitle{주변확률과 결합확률}
+만약 확률이 단일 변수에 기반하면,  \emph{\hiddenterm{주변확률}}(marginal probability)이다. 두개 혹은 그이상 변수 혹은 확률과정에 대한 결과 확률을 \emph{\hiddenterm{결합확률}}(joint probability)이라고 부른다.}
 \end{termBox}
 
-We use \term{table proportions} to summarize joint probabilities for the \data{family\_\hspace{0.3mm}college} sample. These proportions are computed by dividing each count in Table~\ref{contTableOfParStCollege} by the table's total, 792, to obtain the proportions in Table~\ref{familyCollegeProbTable}. The joint probability distribution of the \var{parents} and \var{teen} variables is shown in Table~\ref{familyCollegeDistribution}.
+\data{family\_\hspace{0.3mm}college} 표본에 대한 결합확률을 요약하는데 \term{표비율}(table proportions)을 사용한다. 
+Table~\ref{familyCollegeProbTable}
+
+
+We use \term{table proportions} to summarize joint probabilities for the \data{family\_\hspace{0.3mm}college} sample. These proportions are computed by dividing each count in Table~\ref{contTableOfParStCollege} by the table's total, 792, to obtain the proportions in . The joint probability distribution of the \var{parents} and \var{teen} variables is shown in Table~\ref{familyCollegeDistribution}.
 
 \begin{table}[h]
 \centering
