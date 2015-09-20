@@ -560,29 +560,35 @@ P(\text{\var{parents} \resp{degree} given \var{teen} \resp{not}}) = \frac{49}{34
 \index{주변확률|(}
 \index{결합확률|(}
 
-\data{family\_\hspace{0.3mm}college} 데이터셋에서 개별적으로 각 변수에 대한 열합계와 행합계가 표~\ref{contTableOfParStCollege}에 나와 있다.
+\data{family\_\hspace{0.3mm}college} 데이터셋에서 별도로 각 변수에 대한 행합계와 열합계가 표~\ref{contTableOfParStCollege}에 포함되어 있다. 이런 합계는 표본에 대한 \termsub{주변확률}{주변확률}(marginal probability)을 나타내는데 다른 변수에 관계없이 단일 변수에 대한 확률이다. 예를 들어, \var{teen} 십대 변수에 한정된 확률은 주변확률이다: 
 
-
- includes row and column totals for each variable separately in the \data{family\_\hspace{0.3mm}college} data set. These totals represent \termsub{marginal probabilities}{marginal probability} for the sample, which are the probabilities based on a single variable without regard to any other variables. For instance, a probability based solely on the \var{teen} variable is a marginal probability:
 \begin{align*}
 P(\text{\var{teen} \resp{college}}) = \frac{445}{792} = 0.56
 \end{align*}
-A probability of outcomes for two or more variables or processes is called a \termsub{joint \mbox{probability}}{joint probability}:
+
+두개 혹은 그 이상 변수에 대한 결과 확률을 \termsub{결합 \mbox{확률}}{결합확률}(joint probability)이라고 한다:
 \begin{align*}
 P(\text{\var{teen} \resp{college} and \var{parents} \resp{not}}) = \frac{214}{792} = 0.27
 \end{align*}
-It is common to substitute a comma for ``and'' in a joint probability, although either is acceptable. That is,
+
+두가지 표기법이 모두 통용되지만, ``and'' 자리를 콤마로 치환하는 것이 일반적이다. 즉,
 \begin{center}
 $P(\text{\var{teen} \resp{college}, \var{parents} \resp{not}})$ \\[2mm]
-means the same thing as \\[2mm]
+상기 표현식은 다음과 동일하다.\\[2mm]
 $P(\text{\var{teen} \resp{college} and \var{parents} \resp{not}})$
 \end{center}
 
-\begin{termBox}{\tBoxTitle{Marginal and joint probabilities}
-If a probability is based on a single variable, it is a \emph{\hiddenterm{marginal probability}}. The probability of outcomes for two or more variables or processes is called a \emph{\hiddenterm{joint probability}}.}
+\begin{termBox}{\tBoxTitle{주변확률과 결합확률}
+만약 확률이 단일 변수에 기반하면,  \emph{\hiddenterm{주변확률}}(marginal probability)이다. 두개 혹은 그이상 변수 혹은 확률과정에 대한 결과 확률을 \emph{\hiddenterm{결합확률}}(joint probability)이라고 부른다.}
 \end{termBox}
 
-We use \term{table proportions} to summarize joint probabilities for the \data{family\_\hspace{0.3mm}college} sample. These proportions are computed by dividing each count in Table~\ref{contTableOfParStCollege} by the table's total, 792, to obtain the proportions in Table~\ref{familyCollegeProbTable}. The joint probability distribution of the \var{parents} and \var{teen} variables is shown in Table~\ref{familyCollegeDistribution}.
+\data{family\_\hspace{0.3mm}college} 표본에 대한 결합확률을 요약하는데 \term{표비율}(table proportions)을 사용한다. 
+Table~\ref{familyCollegeProbTable}
+
+
+\term{표 비율(table proportions)}을 사용해서 \data{family\_\hspace{0.3mm}college} 표본에 대한 결합확률을 요약한다.
+표~\ref{familyCollegeDistribution}에 나타난 비율을 얻으려면, 표 합계 792 로 표~\ref{contTableOfParStCollege}의 각 빈도수를 나누면 표 비율이 계산된다.
+변수 \var{parents} 와 \var{teen}의 결합 확률분포가 표~\ref{familyCollegeDistribution}에 나와 있다.
 
 \begin{table}[h]
 \centering
@@ -596,7 +602,7 @@ We use \term{table proportions} to summarize joint probabilities for the \data{f
 Total & 0.35 & 0.65 & 1.00 \\
 \hline
 \end{tabular}
-\caption{Probability table summarizing whether at least one parent had a college degree and the teenager attended college.}
+\caption{적어도 부모 중 한명이 학사학위가 있고, 십대 자녀가 대학에 입학했는지 요약하는 확률 표.}
 \label{familyCollegeProbTable}
 \end{table}
 
@@ -614,13 +620,15 @@ Joint outcome & Probability \\
 Total & 1.00 \\
 \hline
 \end{tabular}
-\caption{Joint probability distribution for the \data{family\_\hspace{0.3mm}college} data set.}
+\caption{\data{family\_\hspace{0.3mm}college} 데이터셋에 대한 결합확률분포.}
 \label{familyCollegeDistribution}
 \end{table}
 
 \begin{exercise}
-Verify Table~\ref{familyCollegeDistribution} represents a probability distribution: events are disjoint, all probabilities are non-negative, and the probabilities sum to~1.\footnote{Each of the four outcome combination are disjoint, all probabilities are indeed non-negative, and the sum of the probabilities is $0.29 + 0.06 + 0.27 + 0.38 = 1.00$.}
+표~\ref{familyCollegeDistribution}가 확률분포를 나타내는지 입증하라: 사건이 서로 겹치지 않고, 모든 확률값이 음수가 아니고, 확률합이 1이 된다.\footnote{각각의 네가지 결과 조합은 서로 겹치지 않고, 모든 확률은 실제로 음수가 아니고, 확률값을 모두 합하면 $0.29 + 0.06 + 0.27 + 0.38 = 1.00$.}
 \end{exercise}
+
+간단한 경우에 결합확률을 사용해서 주변확률을 계산할 수 있다. 예를 들어, 조사에서 십대 자녀가 대학에 진학한 확률은 변수 \var{teen}이 \resp{college} 값을 갖는 결과를 합치면 구할 수 있다:
 
 We can compute marginal probabilities using joint probabilities in simple cases. For example, the probability a random teenager from the study went to college is found by summing the outcomes where \var{teen} takes value \resp{college}:\index{marginal probability|)}\index{joint probability|)}
 \begin{align*}
@@ -632,19 +640,23 @@ P(\text{\underline{\color{black}\var{teen} \resp{college}}})
 \end{align*}
 
 
-\subsection{Defining conditional probability}
+\subsection{조건부 확률 정의}
 
-\index{conditional probability|(}
+\index{조건부 확률|(}
 
-There is some connection between education level of parents and of the teenager: a college degree by a parent is associated with college attendance of the teenager. In this section, we discuss how to use information about associations between two variables to improve probability estimation.
+부모의 학력수준과 십대 자녀의 학력수준 사이에 일부 연결이 있다: 부모의 학사학위가 십대 자녀의 대학입학과 연관되어 있다. 이번 절에서, 확률 추정을 향상시키는데 두 변수 사이에 연관된 정보를 사용하는 방법을 논의한다. 
 
-The probability that a random teenager from the study attended college is 0.56. Could we update this probability if we knew that one of the teen's parents has a college degree? Absolutely. To do so, we limit our view to only those 280 cases where a parent has a college degree and look at the fraction where the teenager attended college:
+조사에서 십대자녀가 대학에 입학할 확률은 0.56이다. 만약 십대자녀 부모 중 한명이 학사학위를 가졌는지 안다면 이 확률을 갱신할 수 있을까? 물론 그렇다.
+이를 위해서, 부모가 학사학위를 갖고 있는 280개 사례로만 관점을 제한하고서 십대 자녀가 대학에 입학한 분율을 조사한다:
+
 \begin{eqnarray*}
 P(\text{\var{teen} \resp{college} given \var{parents} \resp{degree}}) = \frac{231}{280} = 0.825
 \end{eqnarray*}
-We call this a \term{conditional probability} because we computed the probability under a condition: a parent has a college degree. There are two parts to a conditional probability, the \term{outcome of interest} and the \term{condition}. It is useful to think of the condition as information we know to be true, and this information usually can be described as a known outcome or~event.
 
-We separate the text inside our probability notation into the outcome of interest and the condition:
+이것을 \term{조건부 확률}(conditional probability)이라고 부르는데 이유는 특정 조건(부모가 학사학위를 소유) 아래 확률을 계산했기 때문이다. 조건부 확률에는 두 부분으로 구성된다. 즉, \term{관심 결과}(outcome of interest)와 \term{조건}(condition)이다. 조건을 우리가 이미 사실로 알고 있는 정보로 간주하는 것이 유익하다. 대체로 이러한 정보는 알려진 결과 혹은 사건으로 기술될 수 있다.
+
+확률 표기한 내부 텍스트를 관심 결과와 조건으로 구분한다:
+
 \begin{eqnarray}
 && P(\text{\var{teen} \resp{college} given \var{parents} \resp{degree}}) \notag \\
 && = P(\text{\var{teen} \resp{college}}\ |\ \text{\var{parents} \resp{degree}}) = \frac{231}{280} = 0.825
@@ -652,39 +664,48 @@ We separate the text inside our probability notation into the outcome of interes
 \end{eqnarray}
 \marginpar[\raggedright\vspace{-10mm}
 
-$P(A | B)$\vspace{1mm}\\\footnotesize Probability of\\outcome $A$\\given $B$]{\raggedright\vspace{-10mm}
+$P(A | B)$\vspace{1mm}\\\footnotesize $B$가 주어진\\결과 $A$가 나올\\확률]{\raggedright\vspace{-10mm}
 
-$P(A | B)$\vspace{1mm}\\\footnotesize Probability of\\outcome $A$\\given $B$}The vertical bar ``$|$'' is read as \emph{given}.
+$P(A | B)$\vspace{1mm}\\\footnotesize $B$가 주어진\\결과 $A$가 나올\\확률}
 
-In Equation~\eqref{probStudentUsedIfParentsUsedInFormalNotation}, we computed the probability a teen attended college based on the condition that at least one parent has a college degree as a fraction:\vspaceB{-1mm}
+수직 막대 ``$|$''를 \emph{주어진}(given)으로 읽는다.
+
+
+방정식~\eqref{probStudentUsedIfParentsUsedInFormalNotation}에서, 부모중 적어도 한명이 학사학위를 갖는 조건에서 십대자녀가 대학에 입학할 확률을 분수로 계산한다:\vspaceB{-1mm}
 \begin{eqnarray}
 && P(\text{\var{teen} \resp{college}}\ |\ \text{\var{parents} \resp{degree}}) \notag \\
-&&\quad = \frac{\text{\# cases where \var{teen} \resp{college} and \var{parents} \resp{degree}}}{\text{\# cases where \var{parents} \resp{degree}}} \label{ratioOfBothToRatioOfConditionalForParentsAndStudent} \\
+&&\quad = \frac{\text{\# \var{teen}변수가 \resp{college}값을 갖고 \var{parents} 변수가 \resp{degree} 값을 갖는 사례}}{\text{\# \var{parents}변수가 \resp{degree}값을 갖는 사례}} \label{ratioOfBothToRatioOfConditionalForParentsAndStudent} \\
 &&\quad = \frac{231}{280} = 0.825 \notag
 \end{eqnarray}
-We considered only those cases that met the condition, \var{parents} \resp{degree}, and then we computed the ratio of those cases that satisfied our outcome of interest, the teenager attended college.
 
-Frequently, marginal and joint probabilities are provided instead of count data. For example, disease rates are commonly listed in percentages rather than in a count format. We would like to be able to compute conditional probabilities even when no counts are available, and we use Equation~(\ref{ratioOfBothToRatioOfConditionalForParentsAndStudent}) as an example demonstrating this technique.
+\var{parents} 변수와 \resp{degree} 값 조건을 만족하는 사례만 고려하고 나서, 십대 자녀가 대학에 진학하는지에 대한 관심 결과를 만족하는 사례의 비율을 계산했다.
 
-We considered only those cases that satisfied the condition, \var{parents} \resp{degree}. Of these cases, the conditional probability was the fraction who represented the outcome of interest, \var{teen} \resp{college}. Suppose we were provided only the information in Table~\ref{familyCollegeProbTable}, i.e. only probability data. Then if we took a sample of 1000 people, we would anticipate about 35\% or $0.35\times 1000 = 350$ would meet the information criterion (\var{parents} \resp{degree}). Similarly, we would expect about 29\% or $0.29\times 1000 = 290$ to meet both the information criteria and represent our outcome of interest. Then the conditional probability can be computed as
+종종, 주변확률과 결합확률이 데이터 빈도 대신에 제공된다. 예를 들어, 질병발병률은 빈도 형식보다는 백분율로 일반적으로 작성된다. 빈도 정보를 이용할 수 없을 때 조건부 확률을 계산하고자 한다면, 방정식~(\ref{ratioOfBothToRatioOfConditionalForParentsAndStudent})을 예제로 사용한다.
+
+\var{parents} 변수와  \resp{degree} 값을 만족하는 조건 사례만 고려한다. 이 사례 중에서 조건부 확률은 관심 결과 \var{teen} 변수 \resp{college} 값 를 나타내는 분율이다. 
+표~\ref{familyCollegeProbTable}에 정보만 제공된다고 가정하자, 즉, 확률 데이터. 그리고 나서, 만약 표본 1000 명을 뽑았다면, 약 35\% 혹은 $0.35\times 1000 = 350$ 명이 정보 조건(\var{parents} 변수 \resp{degree} 값)을 만족할 것을 예상한다. 마찬가지로, 29\% 혹은 $0.29\times 1000 = 290$ 명이 정보 조건을 만족하고 관심 결과를 나타낸다고 예상할 수 있다. 그리고 나면, 조건부 확률을 다음과 같이 계산할 수 있다.
+
 \begin{align}
 &P(\text{\var{teen} \resp{college}}\ |\ \text{\var{parents} \resp{degree}}) \notag \\
 	&= \frac{\text{\# (\var{teen} \resp{college} and \var{parents} \resp{degree})}}{\text{\# (\var{parents} \resp{degree})}} \notag \\
 	&= \frac{290}{350}
 		= \frac{0.29}{0.35}
-		= 0.829\quad\text{(different from 0.825 due to rounding error)}
+		= 0.829\quad\text{(반올림 오차로 인해 0.825와 다르다)}
 \label{stUserPUsedHypSampSize}
 \end{align}
-In Equation~(\ref{stUserPUsedHypSampSize}), we examine exactly the fraction of two probabilities, 0.29 and 0.35, which we can write as
+
+방정식~(\ref{stUserPUsedHypSampSize})에서, 두 확률 0.29 와 0.35 분율을 정확하게 조사했고, 다음과 같이 쓸 수 있다.
+
 \begin{align*}
 P(\text{\var{teen} \resp{college} and \var{parents} \resp{degree}})
 	\quad\text{and}\quad
 	P(\text{\var{parents} \resp{degree}}).
 \end{align*}
-The fraction of these probabilities is an example of the general formula for conditional probability.
+
+이러한 확률 분율이 조건부 확률에 대한 일반 공식에 대한 한가지 사례다.
 
 \begin{termBox}{\tBoxTitle{Conditional probability}
-The conditional probability of the outcome of interest $A$ given condition $B$ is computed as the following:
+조건 $B$가 주어진 관심 결과 $A$의 조건부 확률은 다음과 같이 계산된다:
 \begin{align}
 P(A | B) = \frac{P(A\text{ and }B)}{P(B)}
 \label{condProbEq}
@@ -692,8 +713,9 @@ P(A | B) = \frac{P(A\text{ and }B)}{P(B)}
 \end{termBox}
 
 \begin{exercise}\label{familyCollegeProbOfParentsEqualNotGivenTeen}
-(a) Write out the following statement in conditional probability notation: ``\emph{The probability a random case where neither parent has a college degree if it is known that the teenager didn't attend college right after high school}''. Notice that the condition is now based on the {teenager}, not the {parent}. \\[1mm]
-(b)~Determine the probability from part (a). Table~\vref{familyCollegeProbTable} may be helpful.\footnote{(a) $P(\text{\var{parents} \resp{not}}\ |\ \text{\var{teen} \resp{not}})$. (b)~Equation~(\ref{condProbEq}) for conditional probability indicates we should first find $P(\text{\var{parents} \resp{not} and \var{teen} \resp{not}}) = 0.38$ and $P(\text{\var{teen} \resp{not}}) = 0.44$. Then the ratio represents the conditional probability: $0.38 / 0.44 = 0.864$.}
+(a) 다음 문장을 조건부 확률 표기법으로 작성하시오: ``\emph{십대 자녀가 고등학교 졸업 후에 바로 대학에 진학하지 않았는 것을 안다면 부모 중 어느 누구도 학사학위가 없을 확률}''. 이제 조건이 부모가 아니라 십대 자녀가 기준인 것에 주목한다. \\[1mm]
+(b)~(a)의 확률을 계산하라. 표~\vref{familyCollegeProbTable}가 도움이 될 수 있다.\footnote{(a) $P(\text{\var{parents} \resp{not}}\ |\ \text{\var{teen} \resp{not}})$. (b)
+~조건부 확률에 대한 방정식~(\ref{condProbEq})이 나타내는 것은 먼저 $P(\text{\var{parents} \resp{not} 와 \var{teen} \resp{not}}) = 0.38$ and $P(\text{\var{teen} \resp{not}}) = 0.44$을 찾고나서, 비율이 조건부 확률이 됨을 나타낸다: $0.38 / 0.44 = 0.864$.}
 \end{exercise}
 
 \textC{\pagebreak}
