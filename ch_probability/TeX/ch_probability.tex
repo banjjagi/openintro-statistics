@@ -718,30 +718,31 @@ P(A | B) = \frac{P(A\text{ and }B)}{P(B)}
 ~조건부 확률에 대한 방정식~(\ref{condProbEq})이 나타내는 것은 먼저 $P(\text{\var{parents} \resp{not} 와 \var{teen} \resp{not}}) = 0.38$ and $P(\text{\var{teen} \resp{not}}) = 0.44$을 찾고나서, 비율이 조건부 확률이 됨을 나타낸다: $0.38 / 0.44 = 0.864$.}
 \end{exercise}
 
-\textC{\pagebreak}
 
 \begin{exercise}\label{whyCondProbSumTo1}
-(a)~Determine the probability that one of the parents has a college degree if it is known the teenager did not attend college. \\[1mm]
-(b)~Using the answers from part~(a) and Guided Practice~\ref{familyCollegeProbOfParentsEqualNotGivenTeen}(b), compute\\[1mm]
+(a)~만약 십대 자녀가 대학에 진학하지 않았다면 부모 중에 한명이 학사학위가 있을 확률을 알아내시오. \\[1mm]
+(b)~(a)와 Guided Practice~\ref{familyCollegeProbOfParentsEqualNotGivenTeen}에서 나온 정답을 사용해서, \\[1mm]
 \textC{{\color{white}.\hspace{5mm}}}$P(\text{\var{parents} \resp{degree}}\ |\ \text{\var{teen} \resp{not}})
-\ + \ P(\text{\var{parents} \resp{not}}\ |\ \text{\var{teen} \resp{not}})$\\[1mm]
-(c)~Provide an intuitive argument to explain why the sum in (b) is~1.\footnote{(a)~This probability is $\frac{P(\text{\var{parents} \resp{degree}, \var{teen} \resp{not}})}{P(\text{\var{teen} \resp{not}})} = \frac{0.06}{0.44} = 0.136$. (b)~The total equals~1. (c)~Under the condition the teenager didn't attend college, the parents must either have a college degree or not. The complement still works for conditional probabilities, provided the probabilities are conditioned on the same information.}
+\ + \ P(\text{\var{parents} \resp{not}}\ |\ \text{\var{teen} \resp{not}})$을 계산하시오.\\[1mm]
+(c)~(b)의 합이 1이라는 것을 직관적으로 설명하시오.\footnote{(a)~확률은 $\frac{P(\text{\var{parents} \resp{degree}, \var{teen} \resp{not}})}{P(\text{\var{teen} \resp{not}})} = \frac{0.06}{0.44} = 0.136 이다.$. (b)~합은~1이다. (c)~십대자녀가 대학에 진학을 하지 않은 조건아래에서 부모는 학사 학위를 갖거나 갖지 못하거나 해야 된다. 확률이 같은 정보 조건이 부여된다면, 여사건은 조건부 확률에도 여전히 동작된다.}
 \end{exercise}
 
 \begin{exercise}
-The data indicate there is an association between parents having a college degree and their teenager attending college. Does this mean the parents' college degree(s) \emph{caused} the teenager to go to college?\footnote{No. While there is an association, the data are observational. Two potential confounding variables include \var{income} and \var{region}. Can you think of others?}
-\index{conditional probability|)}
-\index{data!family\_college|)}
+학사학위를 갖는 부모와 대학진학하는 십대자녀 사이에 연관이 있음을 데이터가 나타낸다. 이것이 부모 학사학위가 십대자녀의 대학진학에 \emph{인과관계}가 있음을 의미하는가?
+\footnote{아니다. 연관은 있지만, 데이터는 관측된 것이다. 두가지 가능한 교락변수(confounding variable)에는 \var{소득}(income) and \var{종교}(region)가 포함된다. 다른 변수를 생각해 낼 수 있는가?}
+\index{조건부 확률|)}
+\index{데이터!family\_college|)}
 \end{exercise}
 
 
-\subsection{Smallpox in Boston, 1721}
+\subsection{1721년 보스톤 천연두}
 
-\index{data!smallpox|(}
+\index{데이터!smallpox|(}
 
-The \data{smallpox} data set provides a sample of 6,224 individuals from the year 1721 who were exposed to smallpox in Boston.\footnote{Fenner F. 1988. \emph{Smallpox and Its Eradication (History of International Public Health, No. 6)}. Geneva: World Health Organization. ISBN 92-4-156110-6.} Doctors at the time believed that inoculation, which involves exposing a person to the disease in a controlled form, could reduce the likelihood of death.
+\data{smallpox} 데이터셋에는 1721년부터 보스톤 지역에서 천연두에 노출된 6,224 명 표본이 담겨있다.\footnote{Fenner F. 1988. \emph{Smallpox and Its Eradication (History of International Public Health, No. 6)}. Geneva: World Health Organization. ISBN 92-4-156110-6.} 그 당시 의사는 제어된 형태로 질병에 사람을 노출시키는 예방접종(inoculation)이 사망우도를 줄일 수 있다고 믿었다.
 
-Each case represents one person with two variables: \var{inoculated} and \var{result}. The variable \var{inoculated} takes two levels: \resp{yes} or \resp{no}, indicating whether the person was inoculated or not. The variable \var{result} has outcomes \resp{lived} or \resp{died}. These data are summarized in Tables~\ref{smallpoxContingencyTable} and~\ref{smallpoxProbabilityTable}.
+두 변수를 갖는 사람이 각 사례를 나타낸다: \var{inoculated}(예방접종) 와 \var{result}(결과). 변수 \var{inoculated}(예방접종)은 두 수준을 갖는다: \resp{yes} 혹은 \resp{no}, 사람이 예방접종을 했는지 혹은 예방접종하지 않았는지를 나타낸다. 변수 \var{result}(결과)는 \resp{lived}(생존) 혹은 \resp{died}(사망) 결과를 나타낸다. 데이터가 표~\ref{smallpoxContingencyTable}와 표~\ref{smallpoxProbabilityTable}에 요약되어 있다.
+
 
 \begin{table}[h]
 \centering
@@ -755,7 +756,7 @@ Each case represents one person with two variables: \var{inoculated} and \var{re
 \cline{2-5}
 	& Total & 244 & 5980 & 6224 \\
 \end{tabular}
-\caption{Contingency table for the \data{smallpox} data set.}
+\caption{\data{smallpox} 데이터에 대한 분할표.}
 \label{smallpoxContingencyTable}
 \end{table}
 
@@ -771,7 +772,7 @@ Each case represents one person with two variables: \var{inoculated} and \var{re
    \cline{2-5}
 & Total & 0.0392 & 0.9608 & 1.0000 \\
 \end{tabular}
-\caption{Table proportions for the \data{smallpox} data, computed by dividing each count by the table total, 6224.\textC{\vspace{-2mm}}}
+\caption{전체 합, 6224로 각 빈도를 나누어서 계산된 \data{smallpox} 데이터에 대한 표 비율. \textC{\vspace{-2mm}}}
 \label{smallpoxProbabilityTable}
 \end{table}
 
