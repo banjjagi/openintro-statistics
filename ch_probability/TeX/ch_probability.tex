@@ -779,87 +779,96 @@ P(A | B) = \frac{P(A\text{ and }B)}{P(B)}
 %\textC{\newpage}
 
 \begin{exercise} \label{probDiedIfNotInoculated}
-Write out, in formal notation, the probability a randomly selected person who was not inoculated died from smallpox, and find this \mbox{probability.}\footnote{$P($\var{result} = \resp{died} $|$ \var{inoculated} = \resp{no}$) = \frac{P(\text{\var{result} = \resp{died} and \var{inoculated} = \resp{no}})}{P(\text{\var{inoculated} = \resp{no}})} = \frac{0.1356}{0.9608} = 0.1411$.}
+예방접종을 받지 못한 사람이 천연두로 사망한 확률을 형식을 갖춘 표기법으로 작성하고, \mbox{확률}을 계산하시오.\footnote{$P($\var{결과} = \resp{사망} $|$ \var{예방접종} = \resp{미실시}$) = \frac{P(\text{\var{결과} = \resp{사망} and \var{예방접종} = \resp{미실시}})}{P(\text{\var{예방접종} = \resp{않함}})} = \frac{0.1356}{0.9608} = 0.1411$.}
 \end{exercise}
 
 \begin{exercise}
-Determine the probability that an inoculated person died from smallpox. How does this result compare with the result of Guided Practice~\ref{probDiedIfNotInoculated}?\footnote{$P($\var{result} = \resp{died} $|$ \var{inoculated} = \resp{yes}$) = \frac{P(\text{\var{result} = \resp{died} and \var{inoculated} = \resp{yes}})}{P(\text{\var{inoculated} = \resp{yes}})} = \frac{0.0010}{0.0392} = 0.0255$. The death rate for individuals who were inoculated is only about 1~in~40 while the death rate is about 1~in~7 for those who were not inoculated.}
+예방접종 받은 사람이 천연두로 사망한 확률을 알아내시오. 이 결과를 Guided Practice~\ref{probDiedIfNotInoculated}의 결과와 어떻게 비교되는가?\footnote{$P($\var{결과} = \resp{사망} $|$ \var{예방접종} = \resp{실시}$) = \frac{P(\text{\var{결과} = \resp{사망} and \var{예방접종} = \resp{실시}})}{P(\text{\var{예방접종} = \resp{실시}})} = \frac{0.0010}{0.0392} = 0.0255$. 예방접종을 받은 사람에 대한 사망률은 40 명중에 1명인 반면에 예방접종을 받은 사람에 대한 사망률은 7명 중 1명이다.}
 \end{exercise}
 
 \begin{exercise}\label{SmallpoxInoculationObsExpExercise}
-The people of Boston self-selected whether or not to be inoculated. (a) Is this study observational or was this an experiment? (b) Can we infer any causal connection using these data? (c) What are some potential confounding variables that might influence whether someone \resp{lived} or \resp{died} and also affect whether that person was inoculated?\footnote{Brief answers: (a)~Observational. (b)~No, we cannot infer causation from this observational study. (c)~Accessibility to the latest and best medical care. There are other valid answers for part~(c).}
+예방접종을 받을지 받지 않을지는 보스톤 주민 본인 선택사항이다. (a) 본 조사는 관측조사인가 실험인가? (b) 데이터에서 어떤 인과관계를 추론할 수 있는가? (c) \resp{생존}(lived) 혹은 \resp{사망}(died)에 영향을 미칠 수 있고 또한 예방접종을 받는데 영향을 줄 수 있는 잠재적 중첩변수(confounding variable)는 무엇인가?\footnote{간략 해답: (a)~관측. (b)~아니요, 관측 조사에서 인과관계를 추론할 수 없다. (c)~최고 최신 의료에 접근성. (c)에 대해서 다른 타당한 해답도 있다.}
 \end{exercise}
 
-\subsection{General multiplication rule}
+\subsection{일반곱셈정리}
 
-Section~\ref{probabilityIndependence} introduced the Multiplication Rule for independent processes. Here we provide the \term{General Multiplication Rule} for events that might not be independent.
+\ref{probabilityIndependence}~절에서 독립 과정에 대한 곱셈정리를 소개했다. 독립이 아닐 수도 있는 사건에 대한 \term{일반곱셈정리}(General Multiplication Rule)가 다음에 있다.
 
-\begin{termBox}{\tBoxTitle{General Multiplication Rule}
-If $A$ and $B$ represent two outcomes or events, then \vspace{-1.5mm}
+\begin{termBox}{\tBoxTitle{일반곱셈정리}(General Multiplication Rule)
+만약 $A$ 와 $B$가 두 결과 혹은 사건을 나타내면, \vspace{-1.5mm}
 \begin{eqnarray*}
 P(A\text{ and }B) = P(A | B)\times P(B)
 \end{eqnarray*} \vspace{-6.5mm} \par
-It is useful to think of $A$ as the outcome of interest and $B$ as the condition.}
+$A$를 관심 갖는 결과로 $B$를 조건으로 간주하는 것이 좋다.}
 \end{termBox}
-This General Multiplication Rule is simply a rearrangement of the definition for conditional probability in Equation~(\ref{condProbEq}) on page~\pageref{condProbEq}.
+일반곱셈정리는 \pageref{condProbEq}~페이지 방정식~(\ref{condProbEq})에 나온 조건부 확률에 대한 정의를 단수히 재배열한 것이다.
 
-\begin{example}{Consider the \data{smallpox} data set. Suppose we are given only two pieces of information: 96.08\% of residents were not inoculated, and 85.88\% of the residents who were not inoculated ended up surviving. How could we compute the probability that a resident was not inoculated and lived?}
-We will compute our answer using the General Multiplication Rule and then verify it using Table~\ref{smallpoxProbabilityTable}. We want to determine
+\begin{example}{ \data{smallpox}(천연두) 데이터셋을 생각해보자. 단지 정보 두 조각만 주어졌다고 가정하자: 96.08\% 주민은 예방접종을 받지 않았고, 예방접종 받지 않은 85.88\% 주민만 생존했다. 주민인 예방접종받지 않고 생존할 확률을 어떻게 계산할 수 있을까?}
+일반곱셈정리를 사용해서 해답을 계산하고 나서, 표~\ref{smallpoxProbabilityTable}를 사용해서 해답을 검증한다. 알아내고자 하는 것은 다음과 같다.
+
 \begin{eqnarray*}
 P(\text{\var{result} = \resp{lived} and \var{inoculated} = \resp{no}})
 \end{eqnarray*}
-and we are given that
+
+그리고, 다음 정보가 주어졌다.
+
 \begin{eqnarray*}
 P(\text{\var{result} = \resp{lived} }|\text{ \var{inoculated} = \resp{no}})=0.8588 \\
 P(\text{\var{inoculated} = \resp{no}})=0.9608
 \end{eqnarray*}
-Among the 96.08\% of people who were not inoculated, 85.88\% survived:
+
+예방접종을 받지 않은 주민 96.08\% 중에서, 85.88\% 주민이 생존했다:
+
 \begin{eqnarray*}
 P(\text{\var{result} = \resp{lived} and \var{inoculated} = \resp{no}}) = 0.8588\times 0.9608 = 0.8251
 \end{eqnarray*}
-This is equivalent to the General Multiplication Rule. We can confirm this probability in Table~\ref{smallpoxProbabilityTable} at the intersection of \resp{no} and \resp{lived} (with a small rounding error).
+
+상기식은 일반곱셈정리에 상응한다. 표~\ref{smallpoxProbabilityTable}에서 (일부 반올림 오차를 갖는) \resp{no} 와 \resp{lived} 교차점에 나타난 확률을 확인할 수 있다.
 \end{example}
 
 \begin{exercise}
-Use $P($\var{inoculated} = \resp{yes}$) = 0.0392$ and $P($\var{result} = \resp{lived} $|$ \var{inoculated} = \resp{yes}$) = 0.9754$ to determine the probability that a person was both inoculated and lived.\footnote{The answer is 0.0382, which can be verified using Table~\ref{smallpoxProbabilityTable}.}
+$P($\var{inoculated} = \resp{yes}$) = 0.0392$ 와 $P($\var{result} = \resp{lived} $|$ \var{inoculated} = \resp{yes}$) = 0.9754$을 사용해서 예방접종하고 생존한 사람의 확률을 알아내시오.\footnote{정답은 0.0382이다. 표~\ref{smallpoxProbabilityTable}에서 검증할 수 있다.}
 \end{exercise}
 
 \begin{exercise}
-If 97.45\% of the people who were inoculated lived, what proportion of inoculated people must have died?\footnote{There were only two possible outcomes: \resp{lived} or \resp{died}. This means that 100\% - 97.45\% = 2.55\% of the people who were inoculated died.}
+예방접종 받은 97.45\% 사람이 생존했다면, 얼마의 예방접종 받은 사람이 사망해야만 하는가?\footnote{
+단지 두가지 가능한 결과가 있다: \resp{생존}(lived) 혹은 \resp{사망}(died). 이것이 의미하는 바는 예방접종 받은 사람중에서 100\% - 97.45\% = 2.55\% 사람이 사망해야만 된다는 것이다.}
 \end{exercise}
 
-\begin{termBox}{\tBoxTitle{Sum of conditional probabilities}
-Let $A_1$, ..., $A_k$ represent all the disjoint outcomes for a variable or process. Then if $B$ is an event, possibly for another variable or process, we have: \vspace{-1mm}
+\begin{termBox}{\tBoxTitle{조건부 확률 합}
+$A_1$, ..., $A_k$ 가 변수 혹은 과정에 대한 서로 겹치지 않는 모든 결과를 나타낸다고 두자. 그러면, $B$가 또 다른 변수 혹은 과정에 대한 사건이라면, 다음이 성립한다: \vspace{-1mm}
 \begin{eqnarray*}
 P(A_1|B)+\cdots+P(A_k|B) = 1
 \end{eqnarray*}\vspace{-5.5mm} \par
-The rule for complements also holds when an event and its complement are conditioned on the same information: \vspace{-1.5mm}
+해당 사건과 여사건이 동일한 정보에 대한 조건일 때, 여사건에 대한 규칙도 성립한다: \vspace{-1.5mm}
 \begin{eqnarray*}
 P(A | B) = 1 - P(A^c | B)
 \end{eqnarray*}}
 \end{termBox}
 
 \begin{exercise}
-Based on the probabilities computed above, does it appear that inoculation is effective at reducing the risk of death from smallpox?\footnote{The samples are large relative to the difference in death rates for the ``inoculated'' and ``not inoculated'' groups, so it seems there is an association between \var{inoculated} and \var{outcome}. However, as noted in the solution to Guided Practice~\ref{SmallpoxInoculationObsExpExercise}, this is an observational study and we cannot be sure if there is a causal connection. (Further research has shown that inoculation is effective at reducing death rates.)}
+위에서 계산된 확률에 기반해서, 천연두로부터 예방접종이 사망위험을 줄이는데 효과적인 것처럼 보이는가?\footnote{
+``예방접종 받은'' 집단과 ``예방접종 받지않은'' 집단에 사망률에 표본차이가 상대적으로 크다. 그래서 \var{inoculated} 와 \var{outcome} 사이에 연관이 있어 보인다. 하지만, Guided Practice~\ref{SmallpoxInoculationObsExpExercise} 해답에서 주목했듯이, 관측조사로 인과관계가 있는지 확신할 수는 없다. (추후 연구를 통해서 예방접종이 사망률을 줄이는데 효과적이라는 것이 밝혀졌다.)}
 \end{exercise}
 
-\subsection{Independence considerations in conditional probability}
+\subsection{조건부 확률에서 독립 생각해보기}
 
-If two events are independent, then knowing the outcome of one should provide no information about the other. We can show this is mathematically true using conditional probabilities.
+만약 두 사건이 독립이라면, 하나의 결과를 알고 있다는 것이 또다른 것에 대한 정보를 제공하지 말아야 된다. 조건부 확률을 사용해서 수학적으로 참임을 보일 수 있다.
 
 \begin{exercise} \label{condProbOfRollingA1AfterOne1}
-Let $X$ and $Y$ represent the outcomes of rolling two dice.\footnote{Brief solutions: (a) $1/6$. (b) $1/36$. (c)~$\frac{P(Y = \text{ \resp{1} and }X=\text{ \resp{1}})}{P(X=\text{ \resp{1}})} = \frac{1/36}{1/6} = 1/6$. (d)~The probability is the same as in part~(c): $P(Y=1)=1/6$. The probability that $Y=1$ was unchanged by knowledge about $X$, which makes sense as $X$ and $Y$ are independent.}
+$X$ 와 $Y$가 두 주사위를 굴려 나온 결과를 나타낸다고 두자.\footnote{간략 해답: (a) $1/6$. (b) $1/36$. (c)~$\frac{P(Y = \text{ \resp{1} and }X=\text{ \resp{1}})}{P(X=\text{ \resp{1}})} = \frac{1/36}{1/6} = 1/6$. 
+(d)~확률은 (c)에서 나온 것과 같다: $P(Y=1)=1/6$. $X$에 관한 지식에 의해 $Y=1$ 확률은 변하지 않는다. $X$ 와 $Y$가 독립임으로 이해가 된다.}
 \begin{enumerate}[(a)]
-\item What is the probability that the first die, $X$, is \resp{1}?
-\item What is the probability that both $X$ and $Y$ are \resp{1}?
-\item Use the formula for conditional probability to compute $P(Y =$ \resp{1}$\ |\ X = $ \resp{1}$)$.
-\item What is $P(Y=1)$? Is this different from the answer from part (c)? Explain.
+\item 첫번째 주사위, $X$이 \resp{1}이 될 확률은 얼마인가?
+\item $X$ 와 $Y$ 모두가 \resp{1}이 될 확률은 얼마인가?
+\item 조건부 확률에 대한 공식을 사용해서 $P(Y =$ \resp{1}$\ |\ X = $ \resp{1}$)$을 계산하시요.
+\item $P(Y=1)$은 얼마인가? (c)에서 나온 정답과 다른가? 설명해보세요.
 \end{enumerate}
 \end{exercise}
 
 \textC{\newpage}
 
-We can show in Guided Practice~\ref{condProbOfRollingA1AfterOne1}(c) that the conditioning information has no influence by using the Multiplication Rule for independence processes:
+Guided Practice~\ref{condProbOfRollingA1AfterOne1}(c)에서 독립 과정에 대해서 곱셈정리를 사용하는데 조건을 주는 정보가 어떠한 영향도 주지 않는 것을 보일 수 있다:
 \begin{eqnarray*}
 P(Y=\text{\resp{1}}\ |\ X=\text{\resp{1}})
 	&=& \frac{P(Y=\text{\resp{1} and }X=\text{\resp{1}})}{P(X=\text{\resp{1}})} \\
@@ -868,25 +877,30 @@ P(Y=\text{\resp{1}}\ |\ X=\text{\resp{1}})
 \end{eqnarray*}
 
 \begin{exercise}
-Ron is watching a roulette table in a casino and notices that the last five outcomes were \resp{black}. He figures that the chances of getting \resp{black} six times in a row is very small (about $1/64$) and puts his paycheck on red. What is wrong with his reasoning?\footnote{He has forgotten that the next roulette spin is independent of the previous spins. Casinos do employ this practice; they post the last several outcomes of many betting games to trick unsuspecting gamblers into believing the odds are in their favor. This is called the \term{gambler's fallacy}.}
+정훈이는 카지노에서 룰렛 테이블을 지켜보고 있다가 마지막 다섯번 결과가 \resp{black}이 나온 것을 알아챘다. \resp{black}이 6번 연속해서 나올 확률은 매우 낮은 것(약 $1/64$)을 알아냈기 때문에 \resp{red}에 돈을 걸었다. 정훈이의 이러한 추론에 대해 잘못된 점은 무엇인가?\footnote{다음번 룰렛이 이전 룰렛과 독립이라는 것을 잊었다. 카지노에서는 이런 관행을 적극 이용한다; 
+이상한 낌새를 알아채지 못하는 도박사를 속여서 배당률이 본인에게 유리하게 믿도록 많은 내기 게임에서 나온 마지막 일부 결과를 카지노에서 게시한다. 이것을 \term{도박사의 오류}(gambler's fallacy)라고 부른다.}
 \end{exercise}
 
 
-\subsection{Tree diagrams}
+\subsection{수형도(Tree diagrams)}
 
-\index{data!smallpox|)}
-\index{tree diagram|(}
+\index{데이터!smallpox|)}
+\index{수형도|(}
 
-\termsub{Tree diagrams}{tree diagram} are a tool to organize outcomes and probabilities around the structure of the data. They are most useful when two or more processes occur in a sequence and each process is conditioned on its predecessors.
+\termsub{수형도}{수형도}(tree diagram)는 데이터 구조 주위로 결과와 확률을 조직화하는 도구다.
+두개 혹은 그 이상 과정이 연이어 발생하고 각 과정이 이전 과정에 조건부로 일어날 때 가장 유용하게 사용된다.
 
-The \data{smallpox} data fit this description. We see the population as split by \var{inoculation}: \resp{yes} and \resp{no}. Following this split, survival rates were observed for each group. This structure is reflected in the \term{tree diagram} shown in Figure~\ref{smallpoxTreeDiagram}. The first branch for \var{inoculation} is said to be the \term{primary} branch while the other branches are \term{secondary}.
+\data{smallpox} 데이터가 이런 기술에 적합한다. 모집단을 \var{inoculation} 예방접종 변수로 쪼갠다: \resp{yes} 와 \resp{no}.
+쪼개진 것을 따라서, 생존률이 각 집단에 대해 관측된다. 그림~\ref{smallpoxTreeDiagram}에 나타난 \term{수형도}에 이러한 구조가 반영되어 있다. \var{inoculation} 변수 첫번째 분지를 \term{최초} 분지(Primary branch)라고 하고, 다른 분지를 \term{이차} 분지 (secondary branch)라고 부른다. 
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.93\textwidth]{ch_probability/figures/smallpoxTreeDiagram/smallpoxTreeDiagram}
-\caption{A tree diagram of the \data{smallpox} data set.}
+\caption{\data{smallpox} 데이터셋에 대한 수형도}
 \label{smallpoxTreeDiagram}
 \end{figure}
+
+
 
 Tree diagrams are annotated with marginal and conditional probabilities, as shown in Figure~\ref{smallpoxTreeDiagram}. This tree diagram splits the smallpox data by \var{inoculation} into the \resp{yes} and \resp{no} groups with respective marginal probabilities 0.0392 and 0.9608. The secondary branches are conditioned on the first, so we assign conditional probabilities to these branches. For example, the top branch in Figure~\ref{smallpoxTreeDiagram} is the probability that \var{result} = \resp{lived} conditioned on the information that \var{inoculated} = \resp{yes}. We may (and usually do) construct joint probabilities at the end of each branch in our tree by multiplying the numbers we come across as we move from left to right. These joint probabilities are computed using the General Multiplication Rule:
 \begin{eqnarray*}
