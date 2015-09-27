@@ -1204,106 +1204,111 @@ Guided Practice~\ref{raffleOf30TicketsWWOReplacement}에 나온 정답과 비교
 \index{확률 변수|(}
 
 \begin{example}{
-Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20\% of enrolled students do not buy either book, 55\% buy the textbook only, and 25\% buy both books, and these percentages are relatively constant from one term to another. If~there are 100 students enrolled, how many books should the bookstore expect to sell to this class?}\label{bookStoreSales}
-Around 20 students will not buy either book (0 books total), about 55 will buy one book (55 books total), and approximately 25 will buy two books (totaling 50 books for these 25 students). The bookstore should expect to sell about 105 books for this class.
+통계학 수업에 교과서 두권이 배정됐다: 교과서와 대응되는 학습지도서. 수업신청한 학생 중 20\%는 책 둘다 구매하지 않고, 55\% 학생은 교과서만, 25\% 학생은 책 둘다 구매할 것으로 대학서점이 알아냈는데, 이 백분율은 상대적으로 매학기 일정했다. 만약 학생 100 명이 수강신청했다면, 대학서점이 얼마나 많은 교과서가 통계학 수업에 사용될 교재로 판매할 것으로 예측되나?}\label{bookStoreSales}
+약 학생 20명은 책을 전혀 구매하지 않는다 (책 0권), 약 55 명 학생이 교과서 한권 구매 (전체 책 55권), 약 25 명 학생이 교과서 두권 구매(25명 학생에 대해서 전체 50권). 이번학기 통계학 수업으로 약 105 권 판매가 예상된다.
 \end{example}
 
 \begin{exercise}
-Would you be surprised if the bookstore sold slightly more or less than 105 books?\footnote{If they sell a little more or a little less, this should not be a surprise. Hopefully Chapter~\ref{introductionToData} helped make clear that there is natural variability in observed data. For example, if we would flip a coin 100 times, it will not usually come up heads exactly half the time, but it will probably be close.}
+만약 대학서점이 책을 105권 보다 약간 더 혹은 적게 판매한다면 놀라운 사건일까?
+\footnote{만약 책이 105권 보다 약간 더 혹은 적게 판매한다면, 전혀 놀라운 일이 아니다. 관측된 데이터에 자연적인 변동성이 있다는 것이 \ref{introductionToData}~장에서 명확히 했다. 예를 들어, 동전을 100번 던지면, 동전앞면이 정확하게 절반이 잘 나오지 않지만, 아마도 근사하게 나올 것이다.}
 \end{exercise}
 
-\begin{example}{The textbook costs \$137 and the study guide \$33. How much revenue should the bookstore expect from this class of 100 students?}\label{bookStoreRev}
-About 55 students will just buy a textbook, providing revenue of
+\begin{example}{교과서는 \$137 이고, 학습지도서는 \$33 다. 통계학 수업에 100 명 학생이 수강신청했다면 얼마의 매출을 대학서점은 기대할 수 있을까?}\label{bookStoreRev}
+약 학생 55명만 교과서를 구매해서, 다음 매출이 기대된다.
 \begin{eqnarray*}
 \$137 \times  55 = \$7,535
 \end{eqnarray*}
-The roughly 25 students who buy both the textbook and the study guide would pay a total of
+교과서와 학습지도서를 모두 구매하는 학생은 대략 25명으로 총계로 다음 금액을 지불할 것이다.
 \begin{eqnarray*}
 (\$137 + \$33) \times  25 = \$170 \times  25 = \$4,250
 \end{eqnarray*}
-Thus, the bookstore should expect to generate about $\$7,535 + \$4,250 = \$11,785$ from these 100 students for this one class. However, there might be some \emph{sampling variability} so the actual amount may differ by a little bit.
+따라서, 통계학 수업에 100 명 학생이 수강신청한 사실에서 대학서점은 약 $\$7,535 + \$4,250 = \$11,785$ 매출을 기대할 수 있다. 하지만, 
+일부 \emph{표본 변동성}(sampling variability)이 있을 수 있어서, 실제 매출금액은 약간 차이가 있을 수도 있다.
 \end{example}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.65\textwidth]{ch_probability/figures/bookCostDist/bookCostDist}
-\caption{Probability distribution for the bookstore's revenue from a single student. The distribution balances on a triangle representing the average revenue per student.}
+\caption{단일 학생으로부터 나온 대학서점 매출 대한 확률 분포. 분포의 삼각형이 균형점으로 학생당 평균 매출을 나타낸다.}
 \label{bookCostDist}
 \end{figure}
 
-\begin{example}{What is the average revenue per student for this course?}\label{revFromStudent}
-The expected total revenue is \$11,785, and there are 100 students. Therefore the expected revenue per student is $\$11,785/100 =  \$117.85$.
+\begin{example}{통계학 과목에 학생당 평균 매출금액은 얼마인가?}\label{revFromStudent}
+예상되는 총 매출은 \$11,785 이고, 학생이 100 명 있다. 따라서, 학생당 예상되는 매출은 $\$11,785/100 =  \$117.85$이 된다.
 \end{example}
 
-\subsection{Expectation}
+\subsection{기대(expectation)}
 
-\index{expectation|(}
+\index{기대|(}
+수치결과를 갖는 변수 혹은 과정을 \term{확률변수}(random variable)라고 부른다. 대체로 확률변수를 $X$, $Y$, $Z$ 처럼 영어 대문자로 나타낸다. 단일 학생이 통계학 교과서에 지불하는 금액은 확률변수로 $X$ 으로 나타낸다.
 
-We call a variable or process with a numerical outcome a \term{random variable}, and we usually represent this random variable with a capital letter such as $X$, $Y$, or $Z$. The amount of money a single student will spend on her statistics books is a random variable, and we represent it by $X$.
-
-\begin{termBox}{\tBoxTitle{Random variable}
-A random process or variable with a numerical outcome.}
+\begin{termBox}{\tBoxTitle{확률변수(Random variable)}
+수치결과를 갖는 변수 혹은 확률과정.}
 \end{termBox}
 
-The possible outcomes of $X$ are labeled with a corresponding lower case letter $x$ and subscripts. For example, we write $x_1=\$0$, $x_2=\$137$, and $x_3=\$170$, which occur with probabilities $0.20$, $0.55$, and $0.25$. The distribution of $X$ is summarized in Figure~\ref{bookCostDist} and Table~\ref{statSpendDist}.
+$X$ 의 가능한 결과를 상응하는 영문 소문자 $x$ 와 아래첨자로 표식한다. 예를 들어, $x_1=\$0$, $x_2=\$137$, $x_3=\$170$ 로 적는데, $0.20$, $0.55$, $0.25$ 확률로 발생한다. $X$ 분포는 그림~\ref{bookCostDist}과 표~\ref{statSpendDist}에 요약되어 있다. 
 
 \begin{table}[h]
 \centering
 \begin{tabular}{l ccc r}
 \hline
-$i$	  & 1 & 2 & 3  & Total\\
+$i$	  & 1 & 2 & 3  & 총계\\
 \hline
 $x_i$ & \$0 & \$137 & \$170 & --\\
 $P(X=x_i)$ & 0.20 & 0.55 & 0.25 & 1.00 \\
 \hline
 \end{tabular}
-\caption{The probability distribution for the random variable $X$, representing the bookstore's revenue from a single student.}
+\caption{단일 학생으로부터 나온 대학서점 매출을 나타내는 확률변수 $X$에 대한 확률분포.}
 \label{statSpendDist}
 \end{table}
 
-We computed the average outcome of $X$ as \$117.85 in Example~\ref{revFromStudent}. We call this average the \term{expected value} of $X$, denoted by $E(X)$\index{EX@$E(X)$}\marginpar[\raggedright\vspace{-3mm}
+예제~\ref{revFromStudent}로부터 $X$ 평균결과값을 \$117.85 로 계산했다.
+이 평균을 $X$에 대한 \term{기대값}(expected value)으로 부르고, $E(X)$로 표기한다. \index{EX@$E(X)$}\marginpar[\raggedright\vspace{-3mm}
 
 $E(X)$\vspace{1mm}\\\footnotesize Expected\\value of $X$]{\raggedright\vspace{-3mm}
 
-$E(X)$\vspace{1mm}\\\footnotesize Expected\\value of $X$}. The expected value of a random variable is computed by adding each outcome weighted by its probability:
+$E(X)$\vspace{1mm}\\\footnotesize $X$에 대한 \\기대값}.
+확률변수의 기대값은 확률로 가중된 각 결과를 더해서 계산된다:
+
 \begin{align*}
 E(X) &= 0 \times  P(X=0) + 137 \times  P(X=137) + 170 \times  P(X=170) \\
 	&= 0 \times  0.20 + 137 \times  0.55 + 170 \times  0.25 = 117.85
 \end{align*}
 
-\begin{termBox}{\tBoxTitle{Expected value of a Discrete Random Variable}
-If $X$ takes outcomes $x_1$, ..., $x_k$ with probabilities $P(X=x_1)$, ..., $P(X=x_k)$, the expected value of $X$ is the sum of each outcome multiplied by its corresponding probability:
+\begin{termBox}{\tBoxTitle{이산 확률변수에 대한 기대값}
+만약 $X$가 $x_1$, ..., $x_k$ 결과와 확률 $P(X=x_1)$, ..., $P(X=x_k)$을 갖는다면, $X$에 대한 기대값은 각 결과를 대응되는 확률로 곱한 것의 합이다:
+
 \begin{align}
 E(X) 	&= x_1\times P(X=x_1) + \cdots + x_k\times P(X=x_k) \notag \\
 	&= \sum_{i=1}^{k}x_iP(X=x_i)
 \end{align}
-The Greek letter $\mu$\index{Greek!mu ($\mu$)} may be used in place of the notation $E(X)$.}
+$E(X)$ 표기된 자리에 그리스 문자 $\mu$\index{그리스 문자!뮤 ($\mu$)}가 사용될 수도 있다.}
 \end{termBox}
 
-The expected value for a random variable represents the average outcome. For example, $E(X)=117.85$ represents the average amount the bookstore expects to make from a single student, which we could also write as $\mu=117.85$.
+확률변수에 대한 기대값은 평균결과를 나타낸다. 예를 들어, $E(X)=117.85$ 이 나타내는 것은 대학서점이 단일 학생으로부터 기대되는 평균 매출이 되고, $\mu=117.85$ 로 쓸 수도 있다.
 
-It is also possible to compute the expected value of a continuous random variable (see Section~\ref{contDist}). However, it requires a little calculus and we save it for a later class.\footnote{$\mu = \int xf(x)dx$ where $f(x)$ represents a function for the density curve.}
+연속확률변수에 대한 기대값도 계산하는 것이 가능하다 (\ref{contDist}~절 참조). 하지만, 약간의 미적분 지식이 필요해서 향후 학습주제로 남겨둔다.\footnote{$\mu = \int xf(x)dx$, 여기서 $f(x)$ 는 밀도곡선에 대한 함수를 나타낸다.}
 
-In physics, the expectation holds the same meaning as the center of gravity. The distribution can be represented by a series of weights at each outcome, and the mean represents the balancing point. This is represented in Figures~\ref{bookCostDist} and~\ref{bookWts}. The idea of a center of gravity also expands to continuous probability distributions. Figure~\ref{contBalance} shows a continuous probability distribution balanced atop a wedge placed at the mean.
+물리학에서, 기대(expectation)는 무게중심과 동일한 의미를 갖는다. 분포는 일련의 각 결과 지점에서 가중치로 표현될 수 있고, 평균은 균형점을 나타낸다. 그림~\ref{bookCostDist}와 그림~\ref{bookWts}에 이 점이 나타났다. 무게중심 아이디어는 연속확률분포에도 연장될 수 있다. 평균에 위치한 쐐기 꼭대기에 균형을 맞춘 연속확률분포가 그림~\ref{contBalance}에 나타나있다.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.72\textwidth]{ch_probability/figures/bookWts/bookWts}
-\caption{A weight system representing the probability distribution for $X$. The string holds the distribution at the mean to keep the system balanced.}
+\caption{$X$에 대한 확률분포를 나타내는 가중시스템. 시스템 균형을 잡는데 줄이 평균에서 분포를 잡고 있다.}
 \label{bookWts}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.68\textwidth]{ch_probability/figures/contBalance/contBalance}
-\caption{A continuous distribution can also be balanced at its mean.}
+\caption{연속분포도 평균에 균형을 잡을 수 있다.}
 \label{contBalance}
 \end{figure}
 
-\index{expectation|)}
+\index{기대|)}
 
 
-\subsection{Variability in random variables}
+\subsection{확률변수 변동성}
 
 Suppose you ran the university bookstore. Besides how much revenue you expect to generate, you might also want to know the volatility (variability) in your revenue. 
 
