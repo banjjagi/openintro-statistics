@@ -977,127 +977,141 @@ P(\text{변수 2에 관한 문장 } | \text{ 변수 1에 관한 문장})
 먼저 조건부 확률을 반전하는 예제를 살펴보는데, 여전히 수형도를 적용할 수 있다.
 
 \begin{example}{
-
-
-In Canada, about 0.35\% of women over 40 will develop breast cancer in any given year. A common screening test for cancer is the mammogram, but this test is not perfect. In about 11\% of patients with breast cancer, the test gives a \term{false negative}: it indicates a woman does not have breast cancer when she does have breast cancer. Similarly, the test gives a \term{false positive} in 7\% of patients who do not have breast cancer: it indicates these patients have breast cancer when they actually do not.\footnote{The probabilities reported here were obtained using studies reported at \oiRedirect{textbook-breastCancerDotOrg_20090831b}{www.breastcancer.org} and \oiRedirect{textbook-ncbi_nih_breast_cancer}{www.ncbi.nlm.nih.gov/pmc/articles/PMC1173421}.} If we tested a random woman over 40 for breast cancer using a mammogram and the test came back positive -- that is, the test suggested the patient has cancer -- what is the probability that the patient actually has breast cancer?} 
+캐나다에서 40세이상 여성의 약 0.35\%가 당해연도에 유방암으로 발병한다. 유방조영상(mammogram)이 일반적인 유방암 선별시험이지만, 이 시험방법이 완벽하지는 않다. 유방암을 갖는 환자 약 11\% 에서 시험결과 \term{허위음성}(false negative) 판정이 나왔다: 한 여성이 유방암이 있을 때 유방암이 없다는 것을 나타낸다. 마찬가지로, 유방암을 갖지 않은 환자 7\%에서 \term{허위 양성}(false positive) 판정이 나왔다: 환자가 실질적으로 유방암이 없는데 유방암을 갖는 것을 나타낸다.\footnote{여기서 사용된 확률은 \oiRedirect{textbook-breastCancerDotOrg_20090831b}{www.breastcancer.org} 와 \oiRedirect{textbook-ncbi_nih_breast_cancer}{www.ncbi.nlm.nih.gov/pmc/articles/PMC1173421}에서 가져왔다.} 만약 무작위로 40대 이상 여성에 대해서 유방조영상을 사용해서 유방암 시험을 했는데 시험결과 양성이 나왔다 -- 즉, 시험결과 환자가 유방암이 있다고 제시한다 -- 해당 환자가 실제로 유방암을 갖는 확률이 얼마인가?} 
 
 \label{probabilityOfBreastCancerGivenPositiveTestExample}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.93\textwidth]{ch_probability/figures/BreastCancerTreeDiagram/BreastCancerTreeDiagram}
-\caption{Tree diagram for Example~\ref{probabilityOfBreastCancerGivenPositiveTestExample}, computing the probability a random patient who tests positive on a mammogram actually has breast cancer.}
+\caption{예제~\ref{probabilityOfBreastCancerGivenPositiveTestExample}에 대한 수형도. 유방조형상에 양성 시험판정이 나온 환자가 유방암을 갖는 확률을 계산.}
 \label{BreastCancerTreeDiagram}
 \end{figure}
 
-Notice that we are given sufficient information to quickly compute the probability of testing positive if a woman has breast cancer ($1.00-0.11=0.89$). However, we seek the inverted probability of cancer given a positive test result. (Watch out for the non-intuitive medical language: a~\emph{positive} test result suggests the possible presence of cancer in a mammogram screening.) This inverted probability may be broken into two pieces:
+만약 한 여성이 유방암을 갖는다면 시험판정이 양성인 확률을 재빠르게 계산하는데 필요한 충분한 정보가 주어진 것에 주목한다($1.00-0.11=0.89$). 하지만, 하지만, 양성판정 시험결과가 주어진 상태에서 유방암 반전발병확률을 찾고 있다. (비직관적인 의료 언에 주의한다: \emph{양성}(positive) 시험판정결과는 유방조형상에 암의 존재 가능성을 제시한다.) 역전된 확률은 두 조각으로 쪼갤 수 있다:
+
 \begin{align*}
 P(\text{has BC } | \text{ mammogram$^+$}) = \frac{P(\text{has BC and mammogram$^+$})}{P(\text{mammogram$^+$})}
 \end{align*}
-where ``has BC'' is an abbreviation for the patient actually having breast cancer and ``mammogram$^+$'' means the mammogram screening was positive. A tree diagram is useful for identifying each probability and is shown in Figure~\ref{BreastCancerTreeDiagram}. The probability the patient has breast cancer and the mammogram is positive is
+여기서, ``has BC''는 실제로 유방암을 갖는 환자에 대한 축약어고, ``mammogram$^+$''은 유방조영상 선별시험이 양성으로 나왔다는 것을 의미한다. 수형도는 각 확률을 식별하는데 도움이 되고 그림~\ref{BreastCancerTreeDiagram}에 나타나있다. 환자가 유방암이 있고, 유방조영상이 양성인 확률은 다음과 같다.
+
 \begin{align*}
 P(\text{has BC and mammogram$^+$}) &= P(\text{mammogram$^+$ } | \text{ has BC})P(\text{has BC}) \\
 	&= 0.89\times 0.0035 = 0.00312
 \end{align*}
-The probability of a positive test result is the sum of the two corresponding scenarios:
+
+양성 시험판정결과 확률은 두가지 대응되는 시나리오 합이다:
+
 \begin{align*}
 P(\text{\underline{\color{black}mammogram$^+$}}) &= P(\text{\underline{\color{black}mammogram$^+$} and has BC}) + P(\text{\underline{\color{black}mammogram$^+$} and no BC}) \\
 	&= P(\text{has BC})P(\text{mammogram$^+$ } | \text{ has BC}) \\
 	&\qquad\qquad	+ P(\text{no BC})P(\text{mammogram$^+$ } | \text{ no BC}) \\
 	&= 0.0035\times 0.89 + 0.9965\times 0.07 = 0.07288
 \end{align*}
-Then if the mammogram screening is positive for a patient, the probability the patient has breast cancer is
+
+그리고 나서, 만약 유방조영상 선별시험결과 양성이 나오면, 해당 환자가 유방암을 갖을 확률은 다음과 같다.
+
 \begin{align*}
 P(\text{has BC } | \text{ mammogram$^+$})
 	&= \frac{P(\text{has BC and mammogram$^+$})}{P(\text{mammogram$^+$})}\\
 	&= \frac{0.00312}{0.07288} \approx 0.0428
 \end{align*}
-That is, even if a patient has a positive mammogram screening, there is still only a~4\%~chance that she has breast cancer.
+
+즉, 만약 환자가 양성 유방조영상 선별시험결과를 갖는다면, 유방암을 갖을 확률은 단지 4\% 에 지나지 않는다.
 \end{example}
 
-Example~\ref{probabilityOfBreastCancerGivenPositiveTestExample} highlights why doctors often run more tests regardless of a first positive test result. When a medical condition is rare, a single positive test isn't generally definitive.
+예제~\ref{probabilityOfBreastCancerGivenPositiveTestExample}가 왜 의사가 종종 첫번째 양성 시험결과에 관계없이 좀더 많은 시험을 시행해야 되는지 중요성을 강조하고 있다. 특정 질병이 드문 경우에, 단 한번의 양성 시험은 일반적으로 결정적이지 못하다.
 
-Consider again the last equation of Example~\ref{probabilityOfBreastCancerGivenPositiveTestExample}.
-Using the tree diagram, we can see that the numerator (the top of the fraction) is equal to the following product:
+예제~\ref{probabilityOfBreastCancerGivenPositiveTestExample} 마지막 방정식을 다시 생각해보자. 수형도를 사용해서, 분자(분수의 상단)는 다음 곱과 같다:
+
 \begin{align*}
 P(\text{has BC and mammogram$^+$}) = P(\text{mammogram$^+$ } | \text{ has BC})P(\text{has BC})
 \end{align*}
-The denominator -- the probability the screening was positive -- is equal to the sum of probabilities for each positive screening scenario:
+
+분모 -- 선별시험 결과 양성이 나올 확률 -- 는 각각 양성 선별시험 시나리오에 대한 확률 합계와 같다:
+
 \begin{align*}
 P(\text{\underline{\color{black}mammogram$^+$}})
 	&= P(\text{\underline{\color{black}mammogram$^+$} and no BC})
 		+ P(\text{\underline{\color{black}mammogram$^+$} and has BC})
 \end{align*}
-In the example, each of the probabilities on the right side was broken down into a product of a conditional probability and marginal probability using the tree diagram.
+
+예제에서, 방정식 우측에 확률 각각을 수형도를 사용해서 조건부확률과 주변확률의 곱으로 쪼갠다.
+
 \begin{align*}
 P(\text{mammogram$^+$})
 	&= P(\text{mammogram$^+$ and no BC}) + P(\text{mammogram$^+$ and has BC}) \\
 	&= P(\text{mammogram$^+$ } | \text{ no BC})P(\text{no BC}) \\
 			   &\qquad\qquad + P(\text{mammogram$^+$ } | \text{ has BC})P(\text{has BC})
 \end{align*}
-We can see an application of Bayes' Theorem by substituting the resulting probability expressions into the numerator and denominator of the original conditional probability.
+
+결과로 도출되는 확률 표현식을 최초 조건부 확률 분자와 분모로 대입하면 베이즈 정리가 적용된 것을 알 수 있다.
+
 \begin{align*}
 & P(\text{has BC } | \text{ mammogram$^+$})  \\
 & \qquad= \frac{P(\text{mammogram$^+$ } | \text{ has BC})P(\text{has BC})}
 	{P(\text{mammogram$^+$ } | \text{ no BC})P(\text{no BC}) + P(\text{mammogram$^+$ } | \text{ has BC})P(\text{has BC})}
 \end{align*}
 
-\begin{termBox}{\tBoxTitle{Bayes' Theorem: inverting probabilities}
-Consider the following conditional probability for variable 1 and variable 2:\vspace{-1.5mm}
+\begin{termBox}{\tBoxTitle{베이즈 정리: 확률 반전}
+변수 1과 변수 2에 대한 다음 조건부 확률을 생각해보자:\vspace{-1.5mm}
 \begin{align*}
-P(\text{outcome $A_1$ of variable 1 } | \text{ outcome $B$ of variable 2})
+P(\text{ 변수 1의 결과 $A_1$ } | \text{ 변수 2의 결과 $B$ })
 \end{align*}
-Bayes' Theorem states that this conditional probability can be identified as the following fraction:\vspace{-1.5mm}
+베이즈 정리는 조건부 확률이 다음 분수로 식별될 수 있다는 것을 말해준다:\vspace{-1.5mm}
 \begin{align}
 \frac{P(B | A_1) P(A_1)}
 	{P(B | A_1) P(A_1) + P(B | A_2) P(A_2) + \cdots + P(B | A_k) P(A_k)}
 	\label{equationOfBayesTheorem}
 \end{align}
-where $A_2$, $A_3$, ..., and $A_k$ represent all other possible outcomes of the first variable.}\index{Bayes' Theorem|textbf}
+여기서 $A_2$, $A_3$, ..., and $A_k$는 첫번째 변수에 대한 모든 가능한 다른 결과를 나타낸다.}\index{베이즈 정리|textbf}
 \end{termBox}
 
-Bayes' Theorem is just a generalization of what we have done using tree diagrams. The numerator identifies the probability of getting both $A_1$ and $B$. The denominator is the marginal probability of getting $B$. This bottom component of the fraction appears long and complicated since we have to add up probabilities from all of the different ways to get $B$. We always completed this step when using tree diagrams. However, we usually did it in a separate step so it didn't seem as complex.
+베이즈 정리는 수형도를 사용해서 지금까지 해왔던 것을 일반화한 것에 불과하다.
+분자는 $A_1$ 와 $B$을 함께 얻을 확률을 나타낸다. 분모는 $B$를 얻을 주변확률이다. 분모 아래 구성요소는 길고 복잡해 보인다. 왜냐하면, $B$를 얻는 다른 방식에서 나온 확률을 모두 더해야 되기 때문이다. 수형도를 사용했을 때, 이 단계를 항상 완성했다. 하지만, 일반적으로 별도 단계로 이 작업을 수행해서 보기보다 복잡해 보이지는 않는다.
 
-To apply Bayes' Theorem correctly, there are two preparatory steps:
+베이즈 정리를 올바르게 적용하기 위해서, 다음 준비 단계가 있다:
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
-\item[(1)] First identify the marginal probabilities of each possible outcome of the first variable: $P(A_1)$, $P(A_2)$, ..., $P(A_k)$.
-\item[(2)] Then identify the probability of the outcome $B$, conditioned on each possible scenario for the first variable: $P(B | A_1)$, $P(B | A_2)$, ..., $P(B | A_k)$.
+\item[(1)] 먼저, 첫번째 변수에 대한 가능한 결과 각각의 주변확률을 식별한다: $P(A_1)$, $P(A_2)$, ..., $P(A_k)$.
+\item[(2)] 그리고 나서, 첫번째 변수에 대한 가능한 각 시나리오의 조건부로 결과 $B$의 확률을 식별한다: $P(B | A_1)$, $P(B | A_2)$, ..., $P(B | A_k)$.
 \end{enumerate}
-Once each of these probabilities are identified, they can be applied directly within the formula.
+필요한 확률 각각이 식별되면, 공식에 직접 대입해서 적용할 수 있다.
 
-\begin{tipBox}{\tipBoxTitle{Only use Bayes' Theorem when tree diagrams are difficult}
-Drawing a tree diagram makes it easier to understand how two variables are connected. Use Bayes' Theorem only when there are so many scenarios that drawing a tree diagram would be complex.}
+\begin{tipBox}{\tipBoxTitle{수형도가 어려울 때만 베이즈 정리를 사용하라}
+수형도를 그리면 두 변수가 어떻게 연결되는지 이해하기 더 쉽다. 시나리오가 너무 많아서 수형도를 그리는 것이 복잡할 때만 베이즈 정리를 사용하라.}
 \end{tipBox}
 
 \textC{\newpage}
 
 \begin{exercise} \label{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereIsASportingEvent}
-Jose visits campus every Thursday evening. However, some days the parking garage is full, often due to college events. There are academic events on 35\% of evenings, sporting events on 20\% of evenings, and no events on 45\% of evenings. When there is an academic event, the garage fills up about 25\% of the time, and it fills up 70\% of evenings with sporting events. On evenings when there are no events, it only fills up about 5\% of the time. If Jose comes to campus and finds the garage full, what is the probability that there is a sporting event? Use a tree diagram to solve this problem.\footnote{\begin{minipage}[t]{0.47\linewidth}
-The tree diagram, with three primary branches, is shown to the right. Next, we identify two probabilities from the tree diagram. (1) The probability that there is a sporting event and the garage is full: 0.14. (2) The probability the garage is full: $0.0875 + 0.14 + 0.0225 = 0.25$. Then the solution is the ratio of these probabilities: $\frac{0.14}{0.25} = 0.56$. If the garage is full, there is a 56\% probability that there is a sporting event. \vspace{0.1mm} \\\ 
+정훈이가 매주 목요일 저녁 학교캠퍼스를 놀러간다. 하지만, 어떤 날은 주차장이 만차로 종종 학교행사에 기인한다. 35\% 저녁은 학교행사, 20\% 저녁은 스포츠 행사, 45\% 저녁은 행사가 없다. 학교행사가 있을 때, 주차장이 만차일 확률은 25\%, 스포츠 행사가 거행될 때는 70\%까지 올라간다. 교내행사가 없을 때는 약 5\% 정도만 만차일 가능성이 있다. 만약 정훈이가 학교캠퍼스에 와서 주차장이 만차된 것을 알게된다면, 스포츠행사가 거행될 확률은 얼마인가? 수형도를 사용해서 문제를 풀어보세요. 
+\footnote{\begin{minipage}[t]{0.47\linewidth} 최초 분지 세개를 갖는 수형도가 우측에 나와 있다. 다음으로, 수형도에서 두 확률을 식별한다. (1) 스포츠 행사가 있고 주차장이 만차일 확률: 0.14. (2) 주차장이 만차일 확률: $0.0875 + 0.14 + 0.0225 = 0.25$. 그리고 나서, 해답은 두 확률비가 된다: $\frac{0.14}{0.25} = 0.56$. 만약 주차장이 만차라면, 스프츠 행사가 있을 확률은 56\%이다. \vspace{0.1mm} \\\ 
 \end{minipage}
 \begin{minipage}[c]{0.5\linewidth}
 \includegraphics[width=\textwidth]{ch_probability/figures/treeDiagramGarage/treeDiagramGarage}\vspace{-30mm}
 \end{minipage}}
 \end{exercise}
 
-\begin{example}{Here we solve the same problem presented in Guided Practice~\ref{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereIsASportingEvent}, except this time we use Bayes' Theorem.}
-The outcome of interest is whether there is a sporting event (call this $A_1$), and the condition is that the lot is full ($B$). Let $A_2$ represent an academic event and $A_3$ represent there being no event on campus. Then the given probabilities can be written as
+\begin{example}{여기서 Guided Practice~\ref{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereIsASportingEvent}에 나온 동일한 문제를 푼다. 이번에는 베이즈 정리를 사용한다.}
+관심있는 결과는 스포츠 행사가 열리느냐($A_1$로 정의), 그리고 조건은 주차장이 만차($B$)라는 것이다. 
+$A_2$가 학교행사를 $A_3$가 교내행사가 없다는 것은 나타낸다고 두자. 그러면 주어진 확률은 다음과 같이 작성된다.
+
 \begin{align*}
 &P(A_1) = 0.2 &&P(A_2) = 0.35 &&P(A_3) = 0.45 \\
 &P(B | A_1) = 0.7 &&P(B | A_2) = 0.25 &&P(B | A_3) = 0.05
 \end{align*}
-Bayes' Theorem can be used to compute the probability of a sporting event ($A_1$) under the condition that the parking lot is full ($B$):
+베이즈 정리를 사용해서 주차장이 만차($B$)라는 조건 아래에서 스포츠 행사($A_1$)가 열릴 확률을 계산한다:
 \begin{align*}
 P(A_1 | B) &= \frac{P(B | A_1) P(A_1)}{P(B | A_1) P(A_1) + P(B | A_2) P(A_2) + P(B | A_3) P(A_3)} \\
 		&= \frac{(0.7)(0.2)}{(0.7)(0.2) + (0.25)(0.35) + (0.05)(0.45)} \\
 		&= 0.56 
 \end{align*}
-Based on the information that the garage is full, there is a 56\% probability that a sporting event is being held on campus that evening.
+주차장이 만차라는 정보에 기반해서, 해당 저녁에 스포츠 행사가 열릴 확률은 56\%가 된다.
 \end{example}
 
 \begin{exercise} \label{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereIsAnAcademicEvent}
-Use the information in the previous exercise and example to verify the probability that there is an academic event conditioned on the parking lot being full is 0.35.\footnote{Short answer:
+이전 연습문제와 예제에 나온 정보를 사용해서 주차장이 만차라는 조건에서 학교행사가 있을 확률이 0.35\% 임을 입증하시오.\footnote{간략 답변:
 \begin{align*}
 P(A_2 | B) &= \frac{P(B | A_2) P(A_2)}{P(B | A_1) P(A_1) + P(B | A_2) P(A_2) + P(B | A_3) P(A_3)} \\
 		&= \frac{(0.25)(0.35)}{(0.7)(0.2) + (0.25)(0.35) + (0.05)(0.45)} \\
@@ -1106,15 +1120,16 @@ P(A_2 | B) &= \frac{P(B | A_2) P(A_2)}{P(B | A_1) P(A_1) + P(B | A_2) P(A_2) + P
 \end{exercise}
 
 \begin{exercise} \label{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereIsNoEvent}
-In Guided Practice~\ref{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereIsASportingEvent} and~\ref{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereIsAnAcademicEvent}, you found that if the parking lot is full, the probability there is a sporting event is 0.56 and the probability there is an academic event is 0.35. Using this information, compute $P($no event $|$ the lot is full$)$.\footnote{Each probability is conditioned on the same information that the garage is full, so the complement may be used: $1.00 - 0.56 - 0.35 = 0.09$.}
+Guided Practice~\ref{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereIsASportingEvent} 와~\ref{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereIsAnAcademicEvent}를 통해서, 만약 주차장이 만차라면 스포츠 행사가 열릴 확률이 0.56, 학교행사가 있을 확률이 0.35임을 알아냈다. 이 정보를 사용해서, $P($ 행사 없음 $|$ 주차장 만차$)$를 계산하시오.\footnote{
+확률 각각은 주차장이 만차라는 동일한 정보에 조건부로 주어졌다. 그래서 여확률이 사용될 수 있다: $1.00 - 0.56 - 0.35 = 0.09$.}
 \end{exercise}
 
-The last several exercises offered a way to update our belief about whether there is a sporting event, academic event, or no event going on at the school based on the information that the parking lot was full. This strategy of \emph{updating beliefs} using Bayes' Theorem is actually the foundation of an entire section of statistics called \term{Bayesian statistics}. While Bayesian statistics is very important and useful, we will not have time to cover much more of it in this book.
+주차장이 만차라는 정보에 기반해서 학교에 스포츠 행사, 학교행사, 행사없음에 관한 믿음을 갱신하는 방식을 마지막 몇가지 연습을 통해 알아봤다. 베이즈 정리를 사용해서 \emph{믿음을 갱신}(updating belief)하는 전략이 실질적으로 \term{베이지안 통계}(Bayesian statistics)로 불리는 전체 통계의 근본이 된다. 베이지안 통계가 매우 중요하고 유용하지만, 이 책에서는 더 다룰 시간이 없을 것이다.
 
-\index{Bayes' Theorem|)}
-\index{tree diagram|)}
-\index{conditional probability|)}
-\index{probability|)}
+\index{베이즈 정리|)}
+\index{수형도|)}
+\index{조건부 확률|)}
+\index{확률|)}
 
 
 
