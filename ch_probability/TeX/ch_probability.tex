@@ -1310,32 +1310,35 @@ $E(X)$ 표기된 자리에 그리스 문자 $\mu$\index{그리스 문자!뮤 ($\
 
 \subsection{확률변수 변동성}
 
-Suppose you ran the university bookstore. Besides how much revenue you expect to generate, you might also want to know the volatility (variability) in your revenue. 
+여러분이 대학서점을 운영한다고 가정하자. 얼마나 많은 매출을 예상할지 차치하고, 매출에 변동성(volatility, variability)도 알고 싶다.
 
-The \indexthis{variance}{variance} and \indexthis{standard deviation}{standard deviation} can be used to describe the variability of a random variable. Section~\ref{variability}
-introduced a method for finding the variance and standard deviation for a data set. We first computed deviations from the mean ($x_i - \mu$), squared those deviations, and took an average to get the variance. In the case of a random variable, we again compute squared deviations. However, we take their sum weighted by their corresponding probabilities, just like we did for the expectation. This weighted sum of squared deviations equals the variance, and we calculate the standard deviation by taking the square root of the variance, just as we did in Section~\ref{variability}.
+\indexthis{분산}{분산}과 \indexthis{표준편차}{표준편차}를 사용해서 확률변수 변동성을 기술한다. \ref{variability}~절에서 데이터셋에 대한 분산과 표준편차를 찾는 방법을 소개했다. 먼저 분산을 얻으려면 평균에서 편차 ($x_i - \mu$)를 계산하고, 편차를 제곱하고 나서 평균을 낸다. 확률변수의 경우에 다시 제곱편차를 계산한다. 하지만, 기대값에 대해서 했듯이, 대응되는 확률로 가중합을 얻는다. 제곱편차의 가중합이 분산과 같다. \ref{variability}~절에서 했듯이, 분산에 제곱근을 취해서 표준편차를 계산한다. 
 
-\begin{termBox}{\tBoxTitle{General variance formula}
-If $X$ takes outcomes $x_1$, ..., $x_k$ with probabilities $P(X=x_1)$, ..., $P(X=x_k)$ and expected value $\mu=E(X)$, then the variance of $X$, denoted by $Var(X)$ or the symbol $\sigma^2$, is
+
+\begin{termBox}{\tBoxTitle{일반분산공식}
+만약 $X$가 $P(X=x_1)$, ..., $P(X=x_k)$ 확률로 결과 $x_1$, ..., $x_k$와 기대값 $\mu=E(X)$를 갖는다면, 
+$Var(X)$ 혹은 기호 $\sigma^2$로 표기되는 $X$의 분산은 다음과 같다.
+
 \begin{align}
 \sigma^2 &= (x_1-\mu)^2\times P(X=x_1) + \cdots \notag \\
 	& \qquad\quad\cdots+ (x_k-\mu)^2\times P(X=x_k) \notag \\
 	&= \sum_{j=1}^{k} (x_j - \mu)^2 P(X=x_j)
 \end{align}
-The standard deviation of $X$, labeled $\sigma$\index{Greek!sigma ($\sigma$)}, is the square root of the variance.}
+$\sigma$\index{그리스 문자!시그마 ($\sigma$)}로 표식되는 $X$의 표준편차는 분산의 제곱근이 된다.}
 \end{termBox}
 \marginpar[\raggedright\vspace{-47mm}
 
 $Var(X)$\vspace{1mm}\\\footnotesize Variance\\of $X$]{\raggedright\vspace{-47mm}
 
-$Var(X)$\vspace{1mm}\\\footnotesize Variance\\of $X$}
+$Var(X)$\vspace{1mm}\\\footnotesize $X$의 분산 }
 
-\begin{example}{Compute the expected value, variance, and standard deviation of $X$, the revenue of a single statistics student for the bookstore.}
-It is useful to construct a table that holds computations for each outcome separately, then add up the results.
+\begin{example}{대학서점에서 단일 통계학과 학생에 대한 매출 변수, $X$에 대한 기대값, 분산, 표준편차를 계산하시오.}
+따로따로 각 결과에 대한 계산결과를 담고 있는 표를 구성하고 나서 결과를 더하는 것이 유익하다.
+
 \begin{center}
 \begin{tabular}{l rrr r}
 \hline
-$i$ & 1 & 2 & 3 & Total \\
+$i$ & 1 & 2 & 3 & 합계 \\
 \hline
 $x_i$ & \$0 & \$137 & \$170 &  \\
 $P(X=x_i)$ & 0.20 & 0.55 & 0.25 &  \\
@@ -1343,11 +1346,11 @@ $x_i \times  P(X=x_i)$ & 0 & 75.35 & 42.50 & 117.85 \\
 \hline
 \end{tabular}
 \end{center}
-Thus, the expected value is $\mu=117.85$, which we computed earlier. The variance can be constructed by extending this table:
+따라서, 기대값은 $\mu=117.85$으로 앞서 계산한 것이다. 분산은 상기 표를 확장해서 구해나갈 수 있다:
 \begin{center}
 \begin{tabular}{l rrr r}
 \hline
-$i$ & 1 & 2 & 3 & Total \\
+$i$ & 1 & 2 & 3 & 합계 \\
 \hline
 $x_i$ & \$0 & \$137 & \$170 &  \\
 $P(X=x_i)$ & 0.20 & 0.55 & 0.25 &  \\
@@ -1358,15 +1361,16 @@ $(x_i-\mu)^2\times P(X=x_i)$ & 2777.7 & 201.7 & 679.9 & 3659.3 \\
 \hline
 \end{tabular}
 \end{center}
-The variance of $X$ is $\sigma^2 = 3659.3$, which means the standard deviation is $\sigma = \sqrt{3659.3} = \$60.49$.
+$X$에 대한 분산은 $\sigma^2 = 3659.3$ 이고, 이것은 표준편차가 $\sigma = \sqrt{3659.3} = \$60.49$ 라는 의미가 된다.
 \end{example}
 
 \begin{exercise}
-The bookstore also offers a chemistry textbook for \$159 and a book supplement for \$41. From past experience, they know about 25\% of chemistry students just buy the textbook while 60\% buy both the textbook and supplement.\footnote{(a) 100\% - 25\% - 60\% = 15\% of students do not buy any books for the class. Part~(b) is represented by the first two lines in the table below. The expectation for part~(c) is given as the total on the line $y_i\times P(Y=y_i)$. The result of part~(d) is the square-root of the variance listed on in the total on the last line: $\sigma = \sqrt{Var(Y)} = \$69.28$.
+대학서점에서 또한 화학교과서는 \$159, 부교재는 \$41 에 판매하고 있다. 이전 경험에서, 화학전공 학생 중에서 약 25\% 학생만이 교과서만 구매하는 반면에 60\% 학생은 교과서와 부교재를 함께 구매한다.\footnote{(a) 100\% - 25\% - 60\% = 15\% 학생이 화학수업을 위한 어떤 교과서도 구매하지 않는다. (b)는 아래표 첫 두줄에 나타낸다. (c)에 언급된 기대는 $y_i\times P(Y=y_i)$ 행에 합계에 계산되었다. (d) 결과는 마지막 행에 합계에 올라온 분산에 제곱근을 취한다: $\sigma = \sqrt{Var(Y)} = \$69.28$.
+
 \begin{center}
 \begin{tabular}{rrrrr}
   \hline
-$i$ (scenario) & 1 (\resp{noBook}) & 2 (\resp{textbook}) & 3 (\resp{both}) & Total \\
+$i$ (시나리오) & 1 (\resp{교과서 없음}) & 2 (\resp{교과서만}) & 3 (\resp{모두}) & 합계 \\
   \hline
 $y_i$ & 0.00 & 159.00 & 200.00 &  \\
 $P(Y=y_i)$ & 0.15 & 0.25 & 0.60 & \\
@@ -1378,31 +1382,36 @@ $(y_i-E(Y))^2\times P(Y)$ & 3828.0 & 0.1 & 972.0 & $Var(Y) \approx 4800$ \\
 \end{tabular}
 \end{center}}
 \begin{enumerate}
-\item[(a)] What proportion of students don't buy either book? Assume no students buy the supplement without the textbook.
-\item[(b)] Let $Y$ represent the revenue from a single student. Write out the probability distribution of $Y$, i.e. a table for each outcome and its associated probability.
-\item[(c)] Compute the expected revenue from a single chemistry student. 
-\item[(d)] Find the standard deviation to describe the variability associated with the revenue from a single student.
+\item[(a)] 교재를 어떤 것도 구매하지 않는 학생비율은 얼마인가? 교과서 없는 학생은 부교재도 구매하지 않는다고 가정한다.
+\item[(b)] $Y$가 단일 학생에서 나오는 매출을 나타낸다고 두자. $Y$에 대한 확률분포를 작성하지오. 즉, 각 결과와 그 결과와 연관된 확률에 대한 표.
+\item[(c)] 단일 화학과 학생에서 나올 것으로 기대되는 매출을 계산하시오.
+\item[(d)] 단일 화학과 학생과 연관된 변동성을 기술하는 표준편차를 알아내시오.
 \end{enumerate}
 \end{exercise}
 
-\subsection{Linear combinations of random variables}
+\subsection{확률변수 선형결합}
 
-So far, we have thought of each variable as being a complete story in and of itself. Sometimes it is more appropriate to use a combination of variables. For instance, the amount of time a person spends commuting to work each week can be broken down into several daily commutes. Similarly, the total gain or loss in a stock portfolio is the sum of the gains and losses in its components.
+지금까지, 각 변수를 그 자체로 온전한 스토리로 간주했다. 때로는 변수 조합을 사용하는 것이 더 적절하다. 예를 들어, 회사원이 매주 출퇴근에 사용하는 시간의 양은 요일별로 쪼갤 수 있다. 유사하게, 주식 포트폴리오에서 전체 이익과 손실은 구성된 주식의 손실과 이익의 합이다. 
 
-\begin{example}{John travels to work five days a week. We will use $X_1$ to represent his travel time on Monday, $X_2$ to represent his travel time on Tuesday, and so on. Write an equation using $X_1$, ..., $X_5$ that represents his travel time for the week, denoted by $W$.}
-His total weekly travel time is the sum of the five daily values:
+\begin{example}{정훈이는 일주일에 5일 직장에 출근한다. $X_1$을 사용해서 월요일에 소요된 출근 시간, $X_2$는 화요일에 소요된 출근 시간을 나타낸다. 일주일간 출근에 소요되는 시간을 나타내는 변수 $X_1$, ..., $X_5$을 사용하는 방정식을 $W$로 작성하시오.}
+전체 주간 출근에 소요되는 시간은 5일간 일별 값을 합한 것이다:
+
 $$ W = X_1 + X_2 + X_3 + X_4 + X_5 $$
-Breaking the weekly travel time $W$ into pieces provides a framework for understanding each source of randomness and is useful for modeling $W$.
+
+주별 출근 시간 $W$를 쪼개면 변동성의 각 원천을 이해하는 얼개를 제공하고 $W$를 모형화 하는데 유용하다.
 \end{example}
 
-\begin{example}{It takes John an average of 18 minutes each day to commute to work. What would you expect his average commute time to be for the week?}
-We were told that the average (i.e. expected value) of the commute time is 18 minutes per day: $E(X_i) = 18$. To get the expected time for the sum of the five days, we can add up the expected time for each individual day:
+\begin{example}{정훈이가 매일 직장에 출근하는데 평균 18 분이 소요된다. 해당 주차에 정훈이의 평균 출근 시간이 얼마나 될 것으로 예상하는가?}
+
+평균(즉, 기대값) 출근소요시간이 일별 18분이라고 들었다: $E(X_i) = 18$. 5일치 합에 대한 기대값을 얻으려면, 각 개별 일별로 예상되는 시간을 더한다:
+
 \begin{align*}
 E(W) &= E(X_1 + X_2 + X_3 + X_4 + X_5) \\
 	&= E(X_1) + E(X_2) + E(X_3) + E(X_4) + E(X_5) \\
-	&= 18 + 18 + 18 + 18 + 18 = 90\text{ minutes}
+	&= 18 + 18 + 18 + 18 + 18 = 90\text{ 분}
 \end{align*}
-The expectation of the total time is equal to the sum of the expected individual times. More generally, the expectation of a sum of random variables is always the sum of the expectation for each random variable.
+
+전체 소요시간에 대한 기대값은 예상되는 각 시간의 합과 같다. 좀더 일반적으로, 확률변수 합의 기대값은 항상 확률변수에 각가에 대한 기대값 합이 된다.
 \end{example}
 
 \begin{exercise} \label{elenaIsSellingATVAndBuyingAToasterOvenAtAnAuction}
