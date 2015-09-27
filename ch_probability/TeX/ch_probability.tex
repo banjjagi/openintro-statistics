@@ -900,49 +900,58 @@ P(Y=\text{\resp{1}}\ |\ X=\text{\resp{1}})
 \label{smallpoxTreeDiagram}
 \end{figure}
 
+그림~\ref{smallpoxTreeDiagram}에서 처럼, 수형도는 주변확률과 조건확률로 주석(annotation)이 달려 있다. 수형도는 천연두 데이터를 \var{inoculation} 예방접종 변수를 각각 주변확률 0.0392 와 0.9608을 갖는 \resp{yes} 와 \resp{no} 집단으로 쪼갠다. 두번째 분지는 첫번째에 조건부로 되어 있어서, 조건부확률을 해당 분지에 할당한다. 예를 들어, 그림~\ref{smallpoxTreeDiagram}의 최상단 분지는 \var{inoculated} = \resp{yes} 예방접종 받은 조건부로 \var{result} = \resp{lived} 생존한 확률인다. 일반적으로 수형도 왼쪽에 오른쪽으로 옮겨오면서 거쳐온 숫자를 곱해서 분지 각각의 끝부분에 결합확률을 계산해낸다. 이런 방식의 결합확률은 일반곱셈정리를 사용해서 계산한다:
 
-
-Tree diagrams are annotated with marginal and conditional probabilities, as shown in Figure~\ref{smallpoxTreeDiagram}. This tree diagram splits the smallpox data by \var{inoculation} into the \resp{yes} and \resp{no} groups with respective marginal probabilities 0.0392 and 0.9608. The secondary branches are conditioned on the first, so we assign conditional probabilities to these branches. For example, the top branch in Figure~\ref{smallpoxTreeDiagram} is the probability that \var{result} = \resp{lived} conditioned on the information that \var{inoculated} = \resp{yes}. We may (and usually do) construct joint probabilities at the end of each branch in our tree by multiplying the numbers we come across as we move from left to right. These joint probabilities are computed using the General Multiplication Rule:
 \begin{eqnarray*}
 && P(\text{\var{inoculated} = \resp{yes} and \var{result} = \resp{lived}}) \\
 	&&\quad = P(\text{\var{inoculated} = \resp{yes}})\times P(\text{\var{result} = \resp{lived}}|\text{\var{inoculated} = \resp{yes}}) \\
 	&&\quad = 0.0392\times 0.9754=0.0382
 \end{eqnarray*}
 
-\begin{example}{Consider the midterm and final for a statistics class. Suppose 13\% of students earned an \resp{A} on the midterm. Of those students who earned an \resp{A} on the midterm, 47\% received an \resp{A} on the final, and 11\% of the students who earned lower than an \resp{A} on the midterm received an \resp{A} on the final. You randomly pick up a final exam and notice the student received an \resp{A}. What is the probability that this student earned an \resp{A} on the midterm?} \label{exerciseForTreeDiagramOfStudentGettingAOnMidtermGivenThatSheGotAOnFinal}
-The end-goal is to find $P(\text{\var{midterm} = \resp{A}} | \text{\var{final} = \resp{A}})$. To calculate this conditional probability, we need the following probabilities:
+\begin{example}{통계학 수업에 중간고사와 기말고사 점수를 생각해보자. 중간고사에서 통계학 수강생 중 13\%만 \resp{A}를 받았다고 가정하자. 중간시험에서 \resp{A}를 받은 학생중 47\%가 기말시험에서 \resp{A} 학점을 받았고, \resp{A} 보다 낮은 학점을 받은 학생중에 11\% 학생이 기말시험에서 \resp{A}를 받았다. 무작위로 기말고사에서 학생을 뽑았고, 이 학생이 \resp{A} 학점을 받은 것을 알아냈다. 이 학생이 중간고사에서 \resp{A} 학점을 받을 확률은 얼마인가?} \label{exerciseForTreeDiagramOfStudentGettingAOnMidtermGivenThatSheGotAOnFinal}
+
+최종 목적지는 $P(\text{\var{midterm} = \resp{A}} | \text{\var{final} = \resp{A}})$ 을 알아내는 것이다. 이 조건부확률을 계산하기 위해서는 다음 확률값이 필요하다:
+
 \begin{eqnarray*}
 P(\text{\var{midterm} = \resp{A} and \var{final} = \resp{A}}) \qquad\text{and}\qquad
 P(\text{\var{final} = \resp{A}})
 \end{eqnarray*}
-However, this information is not provided, and it is not obvious how to calculate these probabilities. Since we aren't sure how to proceed, it is useful to organize the information into a tree diagram, as shown in Figure~\ref{testTree}. When constructing a tree diagram, variables provided with marginal probabilities are often used to create the tree's primary branches; in this case, the marginal probabilities are provided for midterm grades. The final grades, which correspond to the conditional probabilities provided, will be shown on the secondary branches.
+
+하지만, 상기 정보는 제공되지 않아서, 즉각적으로 확률을 계산하는 것이 명확하지는 않다. 어떻게 풀어나갈지 확실하지 않기 때문에, 그림~\ref{testTree}에서 보여주듯이, 수형도로 정보를 구조화하는 것이 유용하다. 수형도를 만들어 나갈 때, 주변확률을 갖는 변수가 종종 수형도의 최초분지를 만드는데 사용된다; 이 경우에는 주변확률이 중간고사로 제공되었다. 제공된 조건부 확률에 상응하는 기말고사는 이차 분지로 나타난다.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{ch_probability/figures/testTree/testTree}
-\caption{A tree diagram describing the \var{midterm} and \var{final} variables.}
+\caption{중간고사 \var{midterm} 과 기말고사 \var{final} 변수를 기술하는 수형도.}
 \label{testTree}
 \end{figure}
 
-With the tree diagram constructed, we may compute the required probabilities:
+수형도를 만들고서 문제의 확률을 계산한다:
+
 \begin{eqnarray*}
 &&P(\text{\var{midterm} = \resp{A} and \var{final} = \resp{A}}) = 0.0611 \\
 &&P(\text{\underline{\color{black}\var{final} = \resp{A}}})  \\
 && \quad= P(\text{\var{midterm} = \resp{other} and \underline{\color{black}\var{final} = \resp{A}}}) + P(\text{\var{midterm} = \resp{A} and \underline{\color{black}\var{final} = \resp{A}}}) \\
 && \quad= 0.0957 + 0.0611  = 0.1568
 \end{eqnarray*}
-The marginal probability, $P($\var{final} = \resp{A}$)$, was calculated by adding up all the joint probabilities on the right side of the tree that correspond to \var{final} = \resp{A}. We may now finally take the ratio of the two probabilities:
+
+주변확률, $P($\var{final} = \resp{A}$)$은 \var{final} = \resp{A}에 상응하는 수형도 우측의 모든 결합확률을 더해서 계산된다.
+이제 마지막으로 두 확률 비율을 취해서 계산한다:
+
 \begin{eqnarray*}
 P(\text{\var{midterm} = \resp{A}} | \text{\var{final} = \resp{A}}) &=& \frac{P(\text{\var{midterm} = \resp{A} and \var{final} = \resp{A}})}{P(\text{\var{final} = \resp{A}})} \\
 &=& \frac{0.0611}{0.1568} = 0.3897
 \end{eqnarray*}
-The probability the student also earned an A on the midterm is about 0.39.
+중간고사에서 \resp{A} 학점을 받을 확률은 약 0.39다.
 \end{example}
 
 \begin{exercise}
-After an introductory statistics course, 78\% of students can successfully construct tree diagrams. Of those who can construct tree diagrams, 97\% passed, while only 57\% of those students who could not construct tree diagrams passed. (a)~Organize this information into a tree diagram. (b)~What is the probability that a randomly selected student passed? (c)~Compute the probability a student is able to construct a tree diagram if it is known that she passed.\footnote{\begin{minipage}[t]{0.47\linewidth}
-(a) The tree diagram is shown to the right.
-(b)~Identify which two joint probabilities represent students who passed, and add them: $P($passed$) = 0.7566+0.1254= 0.8820$. (c)~$P($construct tree diagram $|$ passed$) = \frac{0.7566}{0.8820} = 0.8578$. \vspace{15mm} \\\ 
+통계학 개론 수업 후에, 78\% 학생이 성공적으로 수형도를 만들어 낼 수 있게 되었다. 수형도를 만들 수 있는 학생 중에서 97\% 학생이 통계학 개론 수업을 과락없이 통과(pass)한 반면에 수형도를 만들 수 없는 학생중에서는 57\% 만 통과했다. 
+(a) 상기 정보를 사용해서 수형도를 만들어 보세요. (b) 임의로 뽑은 학생이 과락없이 통계학 수업을 이수할 확률은 얼마인가?
+(c) 만약 한 학생이 통계학 수업을 이수한 것을 알고 있다면 이 학생이 수형도를 만들어 낼 수 있는 확률을 계산하시오.\footnote{\begin{minipage}[t]{0.47\linewidth}
+(a) 수형도는 우측에 나와 있다. 
+(b)~수업을 이수한 학생을 나타내는 결합확률 두개를 식별해내고, 둘을 더한다: $P($passed$) = 0.7566+0.1254= 0.8820$. 
+(c)~$P($construct tree diagram $|$ passed$) = \frac{0.7566}{0.8820} = 0.8578$. \vspace{15mm} \\\ 
 \end{minipage}
 \begin{minipage}[c]{0.5\linewidth}
 \includegraphics[width=\textwidth]{ch_probability/figures/treeDiagramAndPass/treeDiagramAndPass} \vspace{-25mm}
@@ -950,24 +959,27 @@ After an introductory statistics course, 78\% of students can successfully const
 \end{exercise}
 
 
-\subsection{Bayes' Theorem}
+\subsection{베이즈 정리(Bayes' Theorem)}
 \label{bayesTheoremSubsection}
 
-\index{Bayes' Theorem|(}
+\index{베이즈 정리|(}
 
-In many instances, we are given a conditional probability of the form
+많은 경우에, 다음 형태로 조건부 확률이 주어진다.
 \begin{align*}
-P(\text{statement about variable 1 } | \text{ statement about variable 2})
+P(\text{변수 1에 관한 문장} | \text{ 변수 2에 관한 문장})
 \end{align*}
-but we would really like to know the inverted conditional probability:
+하지만, 정말 알고 있은 것은 반전된 조건부 확률이다.
 \begin{align*}
-P(\text{statement about variable 2 } | \text{ statement about variable 1})
+P(\text{변수 2에 관한 문장 } | \text{ 변수 1에 관한 문장})
 \end{align*}
-Tree diagrams can be used to find the second conditional probability when given the first. However, sometimes it is not possible to draw the scenario in a tree diagram. In these cases, we can apply a very useful and general formula: Bayes' Theorem.
 
-We first take a critical look at an example of inverting conditional probabilities where we still apply a tree diagram.
+수형도를 사용해서 첫번째 조건부 확률이 주어졌을 때 두번째 조건부 확률을 구한다. 하지만, 종종 수형도로 이러한 시나리오를 그릴 수 없는 경우가 있다. 이와 같은 경우에 매우 유용하고 일반적인 공식을 적용할 수 있다: 베이즈 정리.
+먼저 조건부 확률을 반전하는 예제를 살펴보는데, 여전히 수형도를 적용할 수 있다.
 
-\begin{example}{In Canada, about 0.35\% of women over 40 will develop breast cancer in any given year. A common screening test for cancer is the mammogram, but this test is not perfect. In about 11\% of patients with breast cancer, the test gives a \term{false negative}: it indicates a woman does not have breast cancer when she does have breast cancer. Similarly, the test gives a \term{false positive} in 7\% of patients who do not have breast cancer: it indicates these patients have breast cancer when they actually do not.\footnote{The probabilities reported here were obtained using studies reported at \oiRedirect{textbook-breastCancerDotOrg_20090831b}{www.breastcancer.org} and \oiRedirect{textbook-ncbi_nih_breast_cancer}{www.ncbi.nlm.nih.gov/pmc/articles/PMC1173421}.} If we tested a random woman over 40 for breast cancer using a mammogram and the test came back positive -- that is, the test suggested the patient has cancer -- what is the probability that the patient actually has breast cancer?} 
+\begin{example}{
+
+
+In Canada, about 0.35\% of women over 40 will develop breast cancer in any given year. A common screening test for cancer is the mammogram, but this test is not perfect. In about 11\% of patients with breast cancer, the test gives a \term{false negative}: it indicates a woman does not have breast cancer when she does have breast cancer. Similarly, the test gives a \term{false positive} in 7\% of patients who do not have breast cancer: it indicates these patients have breast cancer when they actually do not.\footnote{The probabilities reported here were obtained using studies reported at \oiRedirect{textbook-breastCancerDotOrg_20090831b}{www.breastcancer.org} and \oiRedirect{textbook-ncbi_nih_breast_cancer}{www.ncbi.nlm.nih.gov/pmc/articles/PMC1173421}.} If we tested a random woman over 40 for breast cancer using a mammogram and the test came back positive -- that is, the test suggested the patient has cancer -- what is the probability that the patient actually has breast cancer?} 
 
 \label{probabilityOfBreastCancerGivenPositiveTestExample}
 
