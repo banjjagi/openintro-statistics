@@ -1132,74 +1132,79 @@ Guided Practice~\ref{exerciseForParkingLotOnCampusBeingFullAndWhetherOrNotThereI
 \index{확률|)}
 
 
-
 %_________________
-\section{Sampling from a small population (special topic)}
+\section{소모집단에서 표본 추출 (특별 주제)}
 \label{smallPop}
 
-\begin{example}{Professors sometimes select a student at random to answer a question. If each student has an equal chance of being selected and there are 15 people in your class, what is the chance that she will pick you for the next question?}
-If there are 15 people to ask and none are skipping class, then the probability is $1/15$, or about $0.067$.
+\begin{example}{때때로 교수가 무작위로 학생을 골라 질문을 한다. 만약 학생이 뽑힐 가능성이 동일하고 교실에 15명이 있다면, 다음 질문에 교수가 여러분을 뽑을 가능성은 얼마나 될까요?}
+질문할 학생이 15명 있고, 누구도 수업을 빼먹지 않았다면, 확률은 $1/15$, 혹은 약 $0.067$.
 \end{example}
 
-\begin{example}{If the professor asks 3 questions, what is the probability that you will not be selected? Assume that she will not pick the same person twice in a given lecture.}\label{3woRep}
-For the first question, she will pick someone else with probability $14/15$. When she asks the second question, she only has 14 people who have not yet been asked. Thus, if you were not picked on the first question, the probability you are again not picked is $13/14$. Similarly, the probability you are again not picked on the third question is $12/13$, and the probability of not being picked for any of the three questions is
+\begin{example}{교수가 질문을 3개 가지고 있다면, 여러분이 선택되지 않을 확률은 얼마인가? 해당 강의에서 동일한 사람에게는 두번이상 질문하지 않는다고 가정한다.}\label{3woRep}
+첫번째 질문으로, $14/15$ 확률을 갖고 누군가 뽑을 것이다. 두번째 질문할 때, 아직 질문을 받지 않은 학생이 14명 있다. 그래서, 만약 첫번째 질문에서 뽑해지 않았다면, 여러분이 다시 뽑히지 않을 확률은 $13/14$. 마찬가지로, 세번째 질문에서 다시 뽑히지 않을 확률은 $12/13$ 이고, 질문 세개 중에서 어떤것에 대해서도 뽑히지 않을 확률은 다음과 같다.
 \begin{eqnarray*}
-&&P(\text{not picked in 3 questions}) \\
+&&P(\text{세개 질문에서 뽑히지 않음}) \\
 &&\quad = P(\text{\var{Q1}} = \text{\resp{not\_\hspace{0.3mm}picked}, }\text{\var{Q2}} = \text{\resp{not\_\hspace{0.3mm}picked}, }\text{\var{Q3}} = \text{\resp{not\_\hspace{0.3mm}picked}.}) \\
 &&\quad = \frac{14}{15}\times\frac{13}{14}\times\frac{12}{13} = \frac{12}{15} = 0.80
 \end{eqnarray*}
 \end{example}
 
 \begin{exercise}
-What rule permitted us to multiply the probabilities in Example~\ref{3woRep}?\footnote{The three probabilities we computed were actually one marginal probability, $P($\var{Q1}$ = $\resp{not\_\hspace{0.3mm}picked}$)$, and two conditional probabilities:
+예제~\ref{3woRep}에서 무슨 정리가 확률을 곱하게 허락했는가? \footnote{
+계산한 세가지 확률은 주변확률 한개, $P($\var{Q1}$ = $\resp{not\_\hspace{0.3mm}picked}$)$와 조건부 확률 두개:
 \begin{eqnarray*}
 &&P(\text{\var{Q2}} =  \text{\resp{not\_\hspace{0.3mm}picked} }|\text{ \var{Q1}} = \text{\resp{not\_\hspace{0.3mm}picked}}) \\
 &&P(\text{\var{Q3}} =  \text{\resp{not\_\hspace{0.3mm}picked} }|\text{ \var{Q1}} = \text{\resp{not\_\hspace{0.3mm}picked}, }\text{\var{Q2}} = \text{\resp{not\_\hspace{0.3mm}picked}})
 \end{eqnarray*}
-Using the General Multiplication Rule, the product of these three probabilities is the probability of not being picked in 3 questions.}
+일반곱셈정리를 사용해서, 세가지 확률 곱이 세개 질문에서 뽑히지 않을 확률이 된다.}
 \end{exercise}
 
 \textC{\newpage}
 
-\begin{example}{Suppose the professor randomly picks without regard to who she already selected, i.e. students can be picked more than once. What is the probability that you will not be picked for any of the three questions?}\label{3wRep}
-Each pick is independent, and the probability of not being picked for any individual question is $14/15$. Thus, we can use the Multiplication Rule for independent processes.
+\begin{example}{
+학생을 이미 뽑았는지에 관계없이 무작위로 교수가 학생을 뽑는다고 가정하자. 즉, 학생은 한번이상 뽑힐 수 있다. 세가지 질문에서 단 한번도 뽑히지 않을 확률은 얼마인가?}\label{3wRep}
+매번 질문에서 뽑히는 사건은 독립이고, 개별 질문에 대해서 뽑히지 않을 확률은 $14/15$. 그래서, 독립 확률과정에 대한 곱셉정리를 사용할 수 있다.
 \begin{eqnarray*}
-&&P(\text{not picked in 3 questions}) \\
+&&P(\text{세개 질문에서 뽑히지 않음}) \\
 &&\quad = P(\text{\var{Q1}} = \text{\resp{not\_\hspace{0.3mm}picked}, }\text{\var{Q2}} = \text{\resp{not\_\hspace{0.3mm}picked}, }\text{\var{Q3}} = \text{\resp{not\_\hspace{0.3mm}picked}.}) \\
 &&\quad = \frac{14}{15}\times\frac{14}{15}\times\frac{14}{15} = 0.813
 \end{eqnarray*}
-You have a slightly higher chance of not being picked compared to when she picked a new person for each question. However, you now may be picked more than once.
+교수가 각 질문에 대해서 새로운 학생을 뽑을 때와 비교해서 뽑히지 않을 가능성이 약간 높아졌다. 하지만, 이제 한번 이상 뽑힐 수도 있다.
 \end{example}
 
 \begin{exercise}
-Under the setup of Example~\ref{3wRep}, what is the probability of being picked to answer all three questions?\footnote{$P($being picked to answer all three questions$) = \left(\frac{1}{15}\right)^3 = 0.00030$.}
+예제~\ref{3wRep} 설정하에서, 질문 세개를 모두 대답하는데 뽑힐 확률은 얼마인가?\footnote{$P($질문 세개를 모두 대답하는데 뽑힘$) = \left(\frac{1}{15}\right)^3 = 0.00030$.}
 \end{exercise}
 
-If we sample from a small population \term{without replacement}, we no longer have independence between our observations. In Example~\ref{3woRep}, the probability of not being picked for the second question was conditioned on the event that you were not picked for the first question. In Example~\ref{3wRep}, the professor sampled her students \term{with replacement}: she repeatedly sampled the entire class without regard to who she already picked. 
+\term{비복원}(without replacement)없이 소모집단에서 표본을 추출한다면, 관측점 간에 독립성을 갖지 않는다. 
+예제~\ref{3woRep}에서, 두번째 질문에서 뽑히지 않을 확률은 첫번째 뽑히지 않는 사건에 조건부로 걸려있다. 
+예제~\ref{3wRep}에서는 교수가 학생을 \term{복원}(with replacement): 이미 학생을 뽑았는지에 관계없이 전체 학습에서 반복적으로 학생을 표본추출했다.
 
 \begin{exercise} \label{raffleOf30TicketsWWOReplacement}
-Your department is holding a raffle. They sell 30 tickets and offer seven prizes. (a) They place the tickets in a hat and draw one for each prize. The tickets are sampled without replacement, i.e. the selected tickets are not placed back in the hat. What is the probability of winning a prize if you buy one ticket? (b)~What if the tickets are sampled with replacement?\footnote{(a) First determine the probability of not winning. The tickets are sampled without replacement, which means the probability you do not win on the first draw is $29/30$, $28/29$ for the second, ..., and $23/24$ for the seventh. The probability you win no prize is the product of these separate probabilities: $23/30$. That is, the probability of winning a prize is $1 - 23/30 = 7/30 = 0.233$. (b)~When the tickets are sampled with replacement, there are seven independent draws. Again we first find the probability of not winning a prize: $(29/30)^7 = 0.789$. Thus, the probability of winning (at least) one prize when drawing with replacement is 0.211.}
+통계학과에서 추첨식 판매를 시작했다. 응모권을 30개 판매하고 경품은 7개를 준다.
+(a) 모자속에 표를 넣고 각 경품마다 표를 하나씩 뽑는다. 표는 비복원 방식으로 표본추출한다. 즉, 뽑힌 응모권은 다시 모자속으로 넣지 않는다. 응모권을 하나 사면 경품을 받을 확률은 얼마인가? (b) 복원방식으로 뽑는다면 어떨까?
+
+\footnote{(a) 먼저 경품에 뽑히지 않을 확률을 알아내자. 응모권은 비복원 방식으로 추출된다. 이것이 의미하는 바는 첫번째 추첨에서 뽑히지 않을 확률이 $29/30$, 두번째 추첨에서는 $28/29$, ... 그리고 일곱번째 추첨에서는 $23/24$. 경품을 전혀 받지 못할 확률은 개별 확률의 곱이다: $23/30$. 즉, 경품을 받을 확률은 $1 - 23/30 = 7/30 = 0.233$. (b) 응모권을 복원 추출한다면, 독립적인 일곱번의 추첨기회가 있다. 다시 한번 경품에 뽑히지 않을 확률을 먼저 알아낸다: $(29/30)^7 = 0.789$. 따라서, 복원 추출 방식일 때, (적어도) 한번 경품을 받을 확률은 0.211.}
 \end{exercise}
 
 \begin{exercise} \label{followUpToRaffleOf30TicketsWWOReplacement}
-Compare your answers in Guided Practice~\ref{raffleOf30TicketsWWOReplacement}. How much influence does the sampling method have on your chances of winning a prize?\footnote{There is about a 10\% larger chance of winning a prize when using sampling without replacement. However, at most one prize may be won under this sampling procedure.}
+Guided Practice~\ref{raffleOf30TicketsWWOReplacement}에 나온 정답과 비교해보자. 경품을 받을 가능성에 표본 추출방식이 얼마나 영향을 미치는가?\footnote{비복원 표본 추출방법을 사용할 때 경품을 받을 가능성이 약 10\% 가량 더 높다. 하지만, 비복원추출방식 아래서는 많아야 경품 하나만 받을 수 있다.}
 \end{exercise}
 
-Had we repeated Guided Practice~\ref{raffleOf30TicketsWWOReplacement} with 300 tickets instead of 30, we would have found something interesting: the results would be nearly identical. The probability would be 0.0233 without replacement and 0.0231 with replacement. When the sample size is only a small fraction of the population (under 10\%), observations are nearly independent even when sampling without replacement.
-
-
+응모권 30 대신에 300개로 Guided Practice~\ref{raffleOf30TicketsWWOReplacement}를 반복한다면, 흥미로운 것을 발견할 수 있다: 결과가 거의 동일하다. 비복원인 경우 0.0233, 복원인 경우 0.0231 이 나온다. 표본 크기가 모집단에 비해 작은 비율일 때(10\% 이하), 비복원으로 표본을 추출할 때조차도 관측점은 거의 독립이다.
 
 \textC{\newpage}
 
 
 
 %_________________
-\section{Random variables (special topic)}
+\section{확률 변수 (특별 주제)}
 \label{randomVariablesSection}
 
-\index{random variable|(}
+\index{확률 변수|(}
 
-\begin{example}{Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20\% of enrolled students do not buy either book, 55\% buy the textbook only, and 25\% buy both books, and these percentages are relatively constant from one term to another. If~there are 100 students enrolled, how many books should the bookstore expect to sell to this class?}\label{bookStoreSales}
+\begin{example}{
+Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20\% of enrolled students do not buy either book, 55\% buy the textbook only, and 25\% buy both books, and these percentages are relatively constant from one term to another. If~there are 100 students enrolled, how many books should the bookstore expect to sell to this class?}\label{bookStoreSales}
 Around 20 students will not buy either book (0 books total), about 55 will buy one book (55 books total), and approximately 25 will buy two books (totaling 50 books for these 25 students). The bookstore should expect to sell about 105 books for this class.
 \end{example}
 
