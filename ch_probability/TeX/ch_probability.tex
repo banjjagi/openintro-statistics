@@ -1415,224 +1415,250 @@ E(W) &= E(X_1 + X_2 + X_3 + X_4 + X_5) \\
 \end{example}
 
 \begin{exercise} \label{elenaIsSellingATVAndBuyingAToasterOvenAtAnAuction}
-Elena is selling a TV at a cash auction and also intends to buy a toaster oven in the auction. If $X$ represents the profit for selling the TV and $Y$ represents the cost of the toaster oven, write an equation that represents the net change in Elena's cash.\footnote{She will make $X$ dollars on the TV but spend $Y$ dollars on the toaster oven: $X-Y$.}
+영아는 현금경매사이트에서 TV를 판매하고, 동일한 경매사이트에 토스터 오븐을 구매하려고 한다. 만약 $X$가 TV 판매에서 나온 이익을, $Y$가 토스터 오븐 구입 비용을 나타낸다면, 방정식을 작성해서 영아의 순자산에 대한 변동을 표현하시오.
+\footnote{영아는 TV를 판매해서 $X$ 달러를 받고, 토스터 오븐을 구매해서 $Y$를 지불한다: $X-Y$.}
 \end{exercise}
 
 \begin{exercise}
-Based on past auctions, Elena figures she should expect to make about \$175 on the TV and pay about \$23 for the toaster oven. In total, how much should she expect to make or spend?\footnote{$E(X-Y) = E(X) - E(Y) = 175 - 23 = \$152$. She should expect to make about \$152.}
+과거 경매를 통해서, 영아는 TV 판매로 \$175 달러를 받고 토스터 오븐 구매로 \$23 달러를 지불할 것을 알아냈다. 합계로, 영아가 얼마를 더 받거나 지불할 것으로 예상하는가?
+\footnote{$E(X-Y) = E(X) - E(Y) = 175 - 23 = \$152$. 약 \$152 달러 더 받을 것으로 예상된다.}
 \end{exercise}
 
 \begin{exercise} \label{explainWhyThereIsUncertaintyInTheSum}
-Would you be surprised if John's weekly commute wasn't exactly 90 minutes or if Elena didn't make exactly \$152? Explain.\footnote{No, since there is probably some variability. For example, the traffic will vary from one day to next, and auction prices will vary depending on the quality of the merchandise and the interest of the attendees.}
+만약 정훈가 매주 출근 소요시간이 정확하게 90분이 아니고, 영아가 정확하게 \$152 달러를 받지 못한다면 놀라운 사건이 된는가?
+\footnote{아니다, 왜냐하면 변동성이 있기 때문이다. 예를 들어, 교통상황은 매일 매일 변동하고, 경매물건 품질과 경매 참여자의 관삼에 따라 경매가격도 변동한다.}
 \end{exercise}
 
-Two important concepts concerning combinations of random variables have so far been introduced. First, a final value can sometimes be described as the sum of its parts in an equation. Second, intuition suggests that putting the individual average values into this equation gives the average value we would expect in total. This second point needs clarification -- it is guaranteed to be true in what are called \emph{linear combinations of random variables}.
+지금까지 확률변수 조합에 관한 두가지 중요한 개념을 소개했다. 첫째로, 최종값을 때로는 방정식의 부분을 합해 기술할 수 있다. 둘째로, 방정식에 개별 평균값을 넣으면 총합으로 평균값이 되다는 것을 직관적으로 제시하고 있다. 두번째 점을 명확히 할 필요성이 있다 -- 
+\emph{확률변수 선형결합}(linear combinations of random variables)으로 일컷는 것은 참으로 보장된다.
 
-A \term{linear combination} of two random variables $X$ and $Y$ is a fancy phrase to describe a combination
+두 확률변수 $X$ 와 $Y$ 의 \term{선형결합}(linear combination)은 다음 조합을 기술하는 멋진 문구다.
 $$ aX + bY$$
-where $a$ and $b$ are some fixed and known numbers. For John's commute time, there were five random variables -- one for each work day -- and each random variable could be written as having a fixed coefficient of 1:
+여기서, $a$ 와 $b$ 는 고정되고 알고 있는 숫자다. 정훈이의 출근 소요시간 경우에, 확률변수가 5개 있다 -- 요일별 하나씩 -- 각 확률변수는 고정된 계수 1을 갖는 것으로 작성할 수 있다:
 $$ 1X_1 + 1 X_2 + 1 X_3 + 1 X_4 + 1 X_5 $$
-For Elena's net gain or loss, the $X$ random variable had a coefficient of +1 and the $Y$ random variable had a coefficient of -1.
+영아의 순수익 혹은 순손실의 경우에, 확률변수 $X$ 는 +1 계수를 갖고, 확률변수 $Y$는 -1 계수를 갖는다.
 
-When considering the average of a linear combination of random variables, it is safe to plug in the mean of each random variable and then compute the final result. For a few examples of nonlinear combinations of random variables -- cases where we cannot simply plug in the means -- see the footnote.\footnote{If $X$ and $Y$ are random variables, consider the following combinations: $X^{1+Y}$, $X\times Y$, $X/Y$. In such cases, plugging in the average value for each random variable and computing the result will not generally lead to an accurate average value for the end result.}
+선형결합된 확률변수 평균을 내려면, 각 확률변수 평균을 꽂아 넣고 나서 최종 결과를 계산한다. 비선형 확률변수 예제에 대해서 -- 평균을 단순하게 꽂아넣을 수 없는 경우 -- 각주를 참조한다.
+\footnote{$X$ 와 $Y$가 확률변수라면, 다음 조합을 생각해보자: $X^{1+Y}$, $X\times Y$, $X/Y$. 이런 경우에, 각 확률변수에 대해서 평균값을 꽂아넣고 결과를 계산하면 일반적으로 최종결과가 정확한 평균값을 도출하지 못한다.}
 
-\begin{termBox}{\tBoxTitle{Linear combinations of random variables and the average result}
-If $X$ and $Y$ are random variables, then a linear combination of the random variables is given by
+\begin{termBox}{\tBoxTitle{확률변수 선형결합과 평균결과}
+만약 $X$ 와 $Y$ 가 확률변수라면, 확률변수 선형결합은 다음과 같이 주어진다
 \begin{align}\label{linComboOfRandomVariablesXAndY}
 aX + bY
 \end{align}
-where $a$ and $b$ are some fixed numbers. To compute the average value of a linear combination of random variables, plug in the average of each individual random variable and compute the result:
+여기서, $a$ 와 $b$는 고정된 숫자다. 선형결합된 확률변수의 평균값을 계산하려면, 각 확률변수 평균을 꽂아넣고 결과를 계산한다:
 \begin{align*}
 a\times E(X) + b\times E(Y)
 \end{align*}
-Recall that the expected value is the same as the mean, e.g. $E(X) = \mu_X$.}
+기대값은 평균과 같다는 것을 상기하라, 즉 $E(X) = \mu_X$.}
 \end{termBox}
 
-\begin{example}{Leonard has invested \$6000 in Google Inc. (stock ticker: GOOG) and \$2000 in Exxon Mobil Corp. (XOM). If $X$ represents the change in Google's stock next month and $Y$ represents the change in Exxon Mobil stock next month, write an equation that describes how much money will be made or lost in Leonard's stocks for the month.}
-For simplicity, we will suppose $X$ and $Y$ are not in percents but are in decimal form (e.g. if Google's stock increases 1\%, then $X=0.01$; or if it loses 1\%, then $X=-0.01$). Then we can write an equation for Leonard's gain as
+\begin{example}{
+정훈이는 구글 회사(주식시세 표시기: GOOG)에 \$6000 달러, 엑슨 모빌 회사(XOM)에 \$2000 달러를 투자했다.
+만약 $X$가 다음달 구글 주식 변동을 나타내고, $Y$가 다음달 엑슨 모빌 주식 변동을 나타낸다면, 방정식을 작성해서 정훈이가 다음달 얼마나 많은 수익 혹은 손실을 낼지 기술하시오.}
+단순화를 위해서, $X$ 와 $Y$는 백분율이 아닌 소수점 형태로 가정하다 (예를 들어, 구글 주식이 1\% 올라가면, $X=0.01$; 혹은 1\% 내려가면, $X=-0.01$). 그렇다면, 정훈이 손익에 대한 방정식은 다음과 같이 작성할 수 있다.
 \begin{align*}
 \$6000\times X + \$2000\times Y
 \end{align*}
-If we plug in the change in the stock value for $X$ and $Y$, this equation gives the change in value of Leonard's stock portfolio for the month. A positive value represents a gain, and a negative value represents a loss.
+
+만약 $X$ 와 $Y$에 대한 주식값 변동을 꽂아넣으면, 방정식을 통해서 해당월에 정훈이 주식 포트폴리오 변동을 확인할 수 있다. 양수값은 이익을 음수값은 손실을 나타낸다.
 \end{example}
 
 \begin{exercise}\label{expectedChangeInLeonardsStockPortfolio}
-Suppose Google and Exxon Mobil stocks have recently been rising 2.1\% and 0.4\% per month, respectively. Compute the expected change in Leonard's stock portfolio for next month.\footnote{$E(\$6000\times X + \$2000\times Y) = \$6000\times 0.021 + \$2000\times 0.004 = \$134$.}
+최근 구글과 모빌 엑슨 주식인 월마다 2.1\%, 0.4\% 각각 상승했다고 가정하자. 다음달 정훈이 주식 포트폴리오 예상 변동을 계산하시오.
+\footnote{$E(\$6000\times X + \$2000\times Y) = \$6000\times 0.021 + \$2000\times 0.004 = \$134$.}
 % library(stockPortfolio); gr <- getReturns(c("GOOG", "XOM"), start="2006-01-01"); gr
 \end{exercise}
 
 \begin{exercise}
-You should have found that Leonard expects a positive gain in Guided Practice~\ref{expectedChangeInLeonardsStockPortfolio}. However, would you be surprised if he actually had a loss this month?\footnote{No. While stocks tend to rise over time, they are often volatile in the short term.}
+Guided Practice~\ref{expectedChangeInLeonardsStockPortfolio}에서 정훈이가 순이익을 예상하고 있다는 것을 알아냈다. 하지만, 실제로 이번달에 순손실을 기록했다면 놀라운 사건일까?
+\footnote{아니다. 주식이 시간에 따라 오르는 경향이 있더라도, 종종 단기에는 변동성이 있다.}
 \end{exercise}
 
-\subsection{Variability in linear combinations of random variables}
+\subsection{선형결합 확률변수 변동성}
 
-Quantifying the average outcome from a linear combination of random variables is helpful, but it is also important to have some sense of the uncertainty associated with the total outcome of that combination of random variables. The expected net gain or loss of Leonard's stock portfolio was considered in Guided Practice~\ref{expectedChangeInLeonardsStockPortfolio}. However, there was no quantitative discussion of the volatility of this portfolio. For instance, while the average monthly gain might be about \$134 according to the data, that gain is not guaranteed. Figure~\ref{changeInLeonardsStockPortfolioFor36Months} shows the monthly changes in a portfolio like Leonard's during the 36 months from 2009 to 2011. The gains and losses vary widely, and quantifying these fluctuations is important when investing in stocks.
+선형결합 확률변수에서 나온 평균 결과를 정량화하는 것이 도움이 되지만, 선형결합 확률변수 전체결과와 연관된 불확실성을 알아두는 것도 중요하다. 정훈이 주식 포트폴리오에 대한 예상 순익 혹은 순손실이 Guided Practice~\ref{expectedChangeInLeonardsStockPortfolio}에서 생각해봤다. 하지만, 해당 포트폴리오에 변동성 대한 정량적인 논의는 없었다. 예를 들어, 데이터에 따르면 평균 월별 순익은 약 \$134 달러지만, 손익이 보장된 것은 아니다. 그림~\ref{changeInLeonardsStockPortfolioFor36Months}에 2009년부터 2011년까지 36개월 동안 정훈이 같은 포트폴리오에 대한 월별 변동이 나타나있다. 순익과 순손실의 변동성이 크고, 주식을 투자할 때, 이러한 변동성을 정량화하는 것이 중요하다.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.65\textwidth]{ch_probability/figures/changeInLeonardsStockPortfolioFor36Months/changeInLeonardsStockPortfolioFor36Months}
-\caption{The change in a portfolio like Leonard's for the 36 months from 2009 to 2011, where \$6000 is in Google's stock and \$2000 is in Exxon Mobil's.}
+\caption{2009년부터 2011년까지 36개월 동안 정훈이 같은 포트폴리오에 대한 월별 변동, 여기서 \$6000 은 구글 주식에 \$2000 엑슨 모빌 주식에 투자되었다.}
 \label{changeInLeonardsStockPortfolioFor36Months}
 \end{figure}
 
-Just as we have done in many previous cases, we use the variance and standard deviation to describe the uncertainty associated with Leonard's monthly returns. To do so, the variances of each stock's monthly return will be useful, and these are shown in Table~\ref{sumStatOfGOOGXOM}. The stocks' returns are nearly independent.
+이전 사례에서 많이 했듯이, 정훈이 월별 수익과 연관된 불확실성을 기술하는데 분산과 표준편차를 사용한다. 이를 위해서, 각 주식의 월별수익에 대한 분산정보가 유익할 것이다. 표~\ref{sumStatOfGOOGXOM}에 분산정보가 나와있다. 주식들간 수익은 거의 독립니다.
 
 \begin{table}
 \centering
 \begin{tabular}{lrrr}
 \hline
-	& Mean ($\bar{x}$) & Standard deviation ($s$) & Variance ($s^2$) \\
+	& 평균 ($\bar{x}$) & 표준편차 ($s$) & 분산 ($s^2$) \\
 \hline
-GOOG & 0.0210	& 0.0846					&	0.0072	\\
-XOM & 0.0038		& 0.0519					&	0.0027	\\
+구글(GOOG) & 0.0210	& 0.0846					&	0.0072	\\
+엑슨모빌(XOM) & 0.0038		& 0.0519					&	0.0027	\\
 \hline
 \end{tabular}
-\caption{The mean, standard deviation, and variance of the GOOG and XOM stocks. These statistics were estimated from historical stock data, so notation used for sample statistics has been used.}
+\caption{구글과 엑슨 모빌 주식에 대한 평균, 표준편차, 분산. 과거 주식데이터에서 통계량을 추정해서 표본 통계량에 사용된 표기법이 사용됐다.}
 \label{sumStatOfGOOGXOM}
 \end{table}
 
-Here we use an equation from probability theory to describe the uncertainty of Leonard's monthly returns; we leave the proof of this method to a dedicated probability course. The variance of a linear combination of random variables can be computed by plugging in the variances of the individual random variables and squaring the coefficients of the random variables:
+여기서, 확률이론에서 나온 방정식을 사용해서 정훈이 월별 수익 불확실을 기술한다; 이 방법에 대한 증명은 전문 확률과정수업에 맡겨둔다. 선형결합 확률변수 분산을 각 확률변수 분산을 꽂아 넣고 확률변수 계수를 제곱해서 계산한다:
 \begin{align*}
 Var(aX + bY) = a^2\times Var(X) + b^2\times Var(Y)
 \end{align*}
-It is important to note that this equality assumes the random variables are independent; if independence doesn't hold, then more advanced methods are necessary. This equation can be used to compute the variance of Leonard's monthly return:
+상기 방정식은 확률변수가 독립임을 가정하고 있다는 것에 주목한다; 만약 독립이 성립하지 않는다면, 좀더 고급 방법이 필요하다. 상기 방정식을 사용해서 정훈이 월별 수익에 대한 분산을 계산한다:
 \begin{align*}
 Var(6000\times X + 2000\times Y)
 	&= 6000^2\times Var(X) + 2000^2\times Var(Y) \\
 	&= 36,000,000\times 0.0072 + 4,000,000\times 0.0027 \\
 	&= 270,000
 \end{align*}
-The standard deviation is computed as the square root of the variance: $\sqrt{270,000} = \$520$. While an average monthly return of \$134 on an \$8000 investment is nothing to scoff at, the monthly returns are so volatile that Leonard should not expect this income to be very stable.
+표준편차는 분산에 제곱근을 취해서 계산된다: $\sqrt{270,000} = \$520$.
+\$8000 투자에 평균 월별 수익 \$134 는 아무것도 아니지만, 월별 수익의 변동성이 있어서 정훈이는 이러한 수입이 매우 안정적이라고 기대해서는 안된다.
 
-\begin{termBox}{\tBoxTitle{Variability of linear combinations of random variables}
-The variance of a linear combination of random variables may be computed by squaring the constants, substituting in the variances for the random variables, and computing the result:
+\begin{termBox}{\tBoxTitle{선형결합 확률변수 변동성}
+선형결합 확률변수 분산은 상수를 제곱하고, 확률변수에 대한 분산으로 대체하고 결과를 계산한다:
 \begin{align*}
 Var(aX + bY) = a^2\times Var(X) + b^2\times Var(Y)
 \end{align*}
-This equation is valid as long as the random variables are independent of each other. The standard deviation of the linear combination may be found by taking the square root of the variance.}
+상기 방정식은 확률변수 각각이 서로 독립이면 성립한다. 선형결합 표준편차는 분산에 제곱근을 씌워서 계산한다.}
 \end{termBox}
 
-\begin{example}{Suppose John's daily commute has a standard deviation of 4 minutes. What is the uncertainty in his total commute time for the week?} \label{sdOfJohnsCommuteWeeklyTime}
-The expression for John's commute time was
+\begin{example}{정훈이 출근 소요시간에 대한 표준편차는 4분이라고 가정하자. 주당 전체 출근 소요시간에 대한 불확실성은 얼마나 되나?} \label{sdOfJohnsCommuteWeeklyTime}
+정훈이 출근 소요시간에 대한 표현식은 다음과 같다.
 \begin{align*}
 X_1 + X_2 + X_3 + X_4 + X_5
 \end{align*}
-Each coefficient is 1, and the variance of each day's time is $4^2=16$. Thus, the variance of the total weekly commute time is
+각 계수는 1이고, 매일 소요시간에 대한 분산은 $4^2=16$. 따라서, 전체 주당 출근소요시간에 대한 분산은 다음과 같다.
 \begin{align*}
 &\text{variance }= 1^2 \times  16 + 1^2 \times  16 + 1^2 \times  16 + 1^2 \times  16 + 1^2 \times  16 = 5\times 16 = 80 \\
 &\text{standard deviation } = \sqrt{\text{variance}} = \sqrt{80} = 8.94
 \end{align*}
-The standard deviation for John's weekly work commute time is about 9 minutes.
+정훈이 주당 출근 소요시간에 대한 표준편차는 약 9 분이다.
 \end{example}
 
 \begin{exercise}
-The computation in Example~\ref{sdOfJohnsCommuteWeeklyTime} relied on an important assumption: the commute time for each day is independent of the time on other days of that week. Do you think this is valid? Explain.\footnote{One concern is whether traffic patterns tend to have a weekly cycle (e.g. Fridays may be worse than other days). If that is the case, and John drives, then the assumption is probably not reasonable. However, if John walks to work, then his commute is probably not affected by any weekly traffic cycle.}
+
+예제~\ref{sdOfJohnsCommuteWeeklyTime}에 계산은 중요한 가정에 기반한다: 매일 출근 소요시간이 해당 주의 다른 날과 독립이다. 이러한 가정이 타당하다고 생각하나요? 설명해보세요.
+\footnote{교통량 패턴이 매주 사이클을 갖는 경향이 있다 (예를 들어, 월요일은 다른 요일보다 교통상황이 더 안좋다.) 만약, 이러한 상황에서 정훈이가 자가 운전을 한다면, 가정이 아마도 그렇듯 하지 않을 수 있다. 하지만, 만약 정훈이가 걸어서 출근한다면, 출근 소요시간은 주별 교통량 사이클에 영향을 받지 않을 것이다.}
 \end{exercise}
 
 \begin{exercise}\label{elenaIsSellingATVAndBuyingAToasterOvenAtAnAuctionVariability}
-Consider Elena's two auctions from Guided Practice~\ref{elenaIsSellingATVAndBuyingAToasterOvenAtAnAuction} on page~\pageref{elenaIsSellingATVAndBuyingAToasterOvenAtAnAuction}. Suppose these auctions are approximately independent and the variability in auction prices associated with the TV and toaster oven can be described using standard deviations of \$25 and \$8. Compute the standard deviation of Elena's net gain.\footnote{The equation for Elena can be written as
+\pageref{elenaIsSellingATVAndBuyingAToasterOvenAtAnAuction}~페이지 Guided Practice~\ref{elenaIsSellingATVAndBuyingAToasterOvenAtAnAuction}에 나온 영아의 두가지 경매를 생각해보자. 대략 두 경매가 독립이고 TV와 토스터 오븐에 연관된 경매 가격 변동성을 표준편차 \$25 와 \$8 로 기술한다고 가정하자. 영아의 순익에 대한 표준편차를 계산하시오.
+\footnote{영아 경매에 대한 방정식은 다음과 같이 작성된다.
 \begin{align*}
 (1)\times X + (-1)\times Y
 \end{align*}
-The variances of $X$ and $Y$ are 625 and 64. We square the coefficients and plug in the variances:
+$X$ 와 $Y$ 의 분산은 625 and 64. 계수를 제곱하고 분산을 꽂아 넣는다:
 \begin{align*}
 (1)^2\times Var(X) + (-1)^2\times Var(Y) = 1\times 625 + 1\times 64 = 689
 \end{align*}
-The variance of the linear combination is 689, and the standard deviation is the square root of 689: about \$26.25.}
+선형결합 분산은 689, 표준편차는 689에 제곱근을 씌운다: 약 \$26.25.}
 \end{exercise}
 
-Consider again Guided Practice~\ref{elenaIsSellingATVAndBuyingAToasterOvenAtAnAuctionVariability}. The negative coefficient for $Y$ in the linear combination was eliminated when we squared the coefficients. This generally holds true: negatives in a linear combination will have no impact on the variability computed for a linear combination, but they do impact the expected value computations.
+Guided Practice~\ref{elenaIsSellingATVAndBuyingAToasterOvenAtAnAuctionVariability}를 다시 생각해보자. 계수를 제곱할 때 선형결합에 $Y$에 대한 음의 계수가 제거되었다. 일반적으로 이것은 성립한다: 선형결합에 음수는 선형결합에 계산되는 변동성에 어떤 영향도 주지 못하지만, 기대값 계산에는 영향을 준다.
 
-\index{random variable|)}
+\index{확률변수|)}
 
 %_________________
-\section{Continuous distributions (special topic)}
+\section{연속분포 (특별 주제)}
 \label{contDist}
 
-\index{data!FCID|(}
-\index{hollow histogram|(}
-\begin{example}{Figure~\ref{fdicHistograms} shows a few different hollow histograms of the variable \var{height} for 3 million US adults from the mid-90's.\footnote{This sample can be considered a simple random sample from the US population. It relies on the USDA Food Commodity Intake Database.} How does changing the number of bins allow you to make different interpretations of the data?}\label{usHeights}
-Adding more bins provides greater detail. This sample is extremely large, which is why much smaller bins still work well. Usually we do not use so many bins with smaller sample sizes since small counts per bin mean the bin heights are very volatile.
+\index{데이터!FCID|(}
+\index{속빈 히스토그램|(}
+
+\begin{example}{
+
+그림~\ref{fdicHistograms}에는 90년대 중반부터 미국 성인 3백만명에서 나온 신장 변수 \var{height}에 대한 다른 속빈 히스토그램이 나와있다.
+\footnote{ 미국 모집단에서 나온 단순임의표본으로 볼 수 있다. 데이터는 USDA 식료품섭취 데이터베이스에서 나왔다} 
+구간(bin) 갯수를 바꾸는 것이 데이터에 대한 다른 해석을 어떻게 가능하게 하나요?}\label{usHeights}
+더 많은 구간을 추가하면 좀더 자세한 상세정보를 제공한다. 표본이 극도로 커서, 훨씬 더 작은 구간에서도 잘 동작하는 이유가 된다. 대체로 작은 표본크기에 대해서 많은 구간을 사용하지는 않는데 이유는 구간단 작은 갯수가 구간 높이에 매우 큰 변동성을 의미하기 때문이다.
 \end{example}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{ch_probability/figures/fdicHistograms/fdicHistograms}
-\caption{Four hollow histograms of US adults heights with varying bin widths.}
+\caption{미국 성인 신장에 대한 다양한 구간폭을 갖는 네가지 속빈 히스토그램.}
 \label{fdicHistograms}
 \end{figure}
 
-\begin{example}{What proportion of the sample is between \resp{180} cm and \resp{185} cm tall (about 5'11" to 6'1")?}\label{contDistProb}
-We can add up the heights of the bins in the range \resp{180} cm and \resp{185} and divide by the sample size. For instance, this can be done with the two shaded bins shown in Figure~\ref{usHeightsHist180185}. The two bins in this region have counts of 195,307 and 156,239 people, resulting in the following estimate of the probability:
+\begin{example}{
+신장 \resp{180} cm 에서 \resp{185} cm (약 5'11" -- 6'1") 사이 표본 비율은 얼마인가?}\label{contDistProb}
+\resp{180} cm 과 \resp{185} 범위에 구간 높이를 더하고 표본크기로 나눈다. 예를 들어, 그림~\ref{usHeightsHist180185}에 나온 두 음영처리한 구간이다. 음영처리된 두 구간에는 각각 195,307, 156,239 명이 있다. 따라서 다음 확률 추정값이 도출된다:
+
 \begin{eqnarray*}
 \frac{195307+156239}{\text{3,000,000}} = 0.1172
 \end{eqnarray*}
-This fraction is the same as the proportion of the histogram's area that falls in the range \resp{180} to \resp{185} cm.
+이 분수값은 \resp{180} 와 \resp{185} 범위에 걸친 히스토그램 넓이 비율과 동일하다.
 \end{example}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{ch_probability/figures/usHeightsHist180185/usHeightsHist180185}
-\caption{A histogram with bin sizes of 2.5 cm. The shaded region represents individuals with heights between \resp{180} and \resp{185} cm. }
+\caption{구간 크기 2.5 cm를 갖는 히스토그램. 음영처리된 영역은 \resp{180} -- \resp{185} cm 신장을 갖는 사람을 나타낸다.}
 \label{usHeightsHist180185}
 \end{figure}
 
-\subsection{From histograms to continuous distributions}
+\subsection{히스토그램에서 연속분포로}
 
-Examine the transition from a boxy hollow histogram in the top-left of Figure~\ref{fdicHistograms} to the much smoother plot in the lower-right. In this last plot, the bins are so slim that the hollow histogram is starting to resemble a smooth curve. This suggests the population height as a \emph{continuous} numerical variable might best be explained by a curve that represents the outline of extremely slim bins.
+그림~\ref{fdicHistograms} 좌측상단 상자형태 속빈 히스토그램에서 우측하단 좀더 매끄러운 그림으로 전이되는 것을 자세히 살펴보자. 마지막 그림에서, 구간이 너무 얇아서 속빈 히스토그램이 평활곡선(smooth curve)과 닮아간다. \emph{연속} 수치변수로 모집단 신장을 극도로 얇은 구간을 나타내는 곡선으로 가장 잘 설명될 수 있다는 것을 제시한다.
 
-This smooth curve represents a \term{probability density function} (also called a \term{density} or \term{distribution}), and such a curve is shown in Figure~\ref{fdicHeightContDist} overlaid on a histogram of the sample. A density has a special property: the total area under the density's curve is 1. 
+이러한 평활곡선이 \term{확률밀도함수}(probability density function)를 나타낸다 (\term{density}(밀도) 혹은 \term{distribution}(분포)라고도 부른다).  이러한 곡선이 표본 히스토그램과 겹쳐서 그림~\ref{fdicHeightContDist}에 나와있다. 밀도는 특별한 특성이 있다: 밀도 곡선 아래 전체 영역은 1 이 된다.
 
 \begin{figure}[tbh]
 \centering
 \includegraphics[width=0.9\textwidth]{ch_probability/figures/fdicHeightContDist/fdicHeightContDist}
-\caption{The continuous probability distribution of heights for US adults.}
+\caption{미국 성인 신장에 대한 연속확률분포.}
 \label{fdicHeightContDist}
 \end{figure}
 
-\index{hollow histogram|)}
+\index{속빈 히스토그램|)}
 
-\subsection{Probabilities from continuous distributions}
+\subsection{연속분포에서 나온 확률}
 
-We computed the proportion of individuals with heights \resp{180} to \resp{185} cm in Example~\ref{contDistProb} as a fraction:
+예제~\ref{contDistProb}에서 신장 \resp{180} -- \resp{185} cm 을 갖는 사람 비율을 다음 분수로 계산했다:
+
 \begin{eqnarray*}
-\frac{\text{number of people between \resp{180} and \resp{185}}}{\text{total sample size}}
+\frac{\text{\resp{180} -- \resp{185} 사이 사람 숫자}}{\text{전체 표본 크기}}
 \end{eqnarray*}
-We found the number of people with heights between \resp{180} and \resp{185} cm by determining the fraction of the histogram's area in this region. Similarly, we can use the area in the shaded region under the curve to find a probability (with the help of a computer):
+
+\resp{180} -- \resp{185} cm 사이 신장을 갖는 사람 숫자를 해당 영역의 히스토그램 면적에 대한 분수로 알아냈다. 유사하게, (컴퓨터의 도움으로) 확률을 계산하는데 곡선 아래 음영처리된 영역에 면적을 사용한다:
 \begin{eqnarray*}
-P(\text{\var{height} between \resp{180} and \resp{185}})
-	= \text{area between \resp{180} and \resp{185}}
+P(\text{\resp{180} -- \resp{185} 사이 \var{height} })
+	= \text{ \resp{180} -- \resp{185} 사이 면적 }
 	= 0.1157
 \end{eqnarray*}
-The probability that a randomly selected person is between \resp{180} and \resp{185} cm is 0.1157. This is very close to the estimate from Example~\ref{contDistProb}: 0.1172. 
+
+무작위로 뽑은 사람 신장이 \resp{180} -- \resp{185} 사이일 확률은 0.1157. 예제~\ref{contDistProb}에서 나온 추정치(0.1172)에 매우 가깝다.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{ch_probability/figures/fdicHeightContDistFilled/fdicHeightContDistFilled}
-\caption{Density for heights in the US adult population with the area between 180 and 185 cm shaded. Compare this plot with Figure~\ref{usHeightsHist180185}.}
+\caption{음영처리된 180 -- 185 cm 사이 면적을 갖는 미국 성인 모집단 신장에 대한 밀도. 그림~\ref{usHeightsHist180185}과 비교해 보세요.}
 \label{fdicHeightContDistFilled}
 \end{figure}
 
 \begin{exercise}
-Three US adults are randomly selected. The probability a single adult is between \resp{180} and \resp{185} cm is 0.1157.\footnote{Brief answers: (a) $0.1157 \times 0.1157 \times 0.1157 = 0.0015$. (b) $(1-0.1157)^3 = 0.692$} \vspace{-1.5mm}
+미국 성인 남성을 무작위로 뽑았다. 성인 한명 신장이 \resp{180} -- \resp{185} cm 사이에 있을 확률이 0.1157 이다. 
+\footnote{간략 해답: (a) $0.1157 \times 0.1157 \times 0.1157 = 0.0015$. (b) $(1-0.1157)^3 = 0.692$} \vspace{-1.5mm}
 \begin{enumerate}
 \setlength{\itemsep}{0mm}
-\item[(a)] What is the probability that all three are between \resp{180} and \resp{185} cm tall?
-\item[(b)] What is the probability that none are between \resp{180} and \resp{185} cm?
+\item[(a)] 세명 모두 \resp{180} -- \resp{185} cm 사이 있을 확률은 얼마인가?
+\item[(b)] 세명 모두 \resp{180} -- \resp{185} cm 사이 없을 확률은 얼마인가?
 \end{enumerate}
 \end{exercise}
 
-\begin{example}{What is the probability that a randomly selected person is \textbf{exactly} \resp{180}~cm? Assume you can measure perfectly.}
+\begin{example}{무작위로 뽑은 사람이 \textbf{정확하게} \resp{180}~cm 일 확률은 얼마인가? 완벽하게 측정할 수 있다고 가정한다.}
 \label{probabilityOfExactly180cm}
-This probability is zero. A person might be close to \resp{180} cm, but not exactly \resp{180} cm tall. This also makes sense with the definition of probability as area; there is no area captured between \resp{180}~cm and \resp{180}~cm.
+확률은 영이다. 사람신장이 \resp{180} cm에 근접할 수는 있지만, 정확하게 \resp{180} cm는 아니다. 이 또한 면적을 확률로 정의한다는 면에서 의미가 상통한다: \resp{180}~cm -- \resp{180}~cm 사이에 잡아낼 수 있는 면적은 없다.
 \end{example}
 
 \begin{exercise}
-Suppose a person's height is rounded to the nearest centimeter. Is there a chance that a random person's \textbf{measured} height will be \resp{180} cm?\footnote{This has positive probability. Anyone between \resp{179.5} cm and \resp{180.5} cm will have a \emph{measured} height of \resp{180} cm. This is probably a more realistic scenario to encounter in practice versus Example~\ref{probabilityOfExactly180cm}.}
+한 사람 신장이 가장 가까운 센티미터에 반올림된다고 가정하자. 무작위로 뽑은 사람을 \emph{측정한} 신장이 \resp{180} cm 일 가능성이 있는가?
+\footnote{이것은 양의 확률이다. \resp{179.5} cm -- \resp{180.5} cm 사이 누구나 신장 \resp{180} cm 로 \emph{측정될} 것이다. 아마도 이것이 현실에서 맞닥드리는 좀더 현실감있는 시나리오가 될 것이다. 예제~\ref{probabilityOfExactly180cm}와 비교하라.}
 \end{exercise}
 
-\index{data!FCID|)}
+\index{데이터!FCID|)}
 
 
 
