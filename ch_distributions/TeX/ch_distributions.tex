@@ -1,67 +1,75 @@
-\chapter{Distributions of random variables}
+\chapter{확률 변수 분포}
 \label{modeling}
 
-\index{distribution!normal|(}
+\index{분포!정규|(}
 
 %_________________
-\section{Normal distribution}
+\section{정규 분포}
 \label{normalDist}
 
-Among all the distributions we see in practice, one is overwhelmingly the most common. The symmetric, unimodal, bell curve is ubiquitous throughout statistics. Indeed it is so common, that people often know it as the \term{normal curve} or \termsub{normal distribution}{distribution!normal},\footnote{It is also introduced as the Gaussian distribution after Frederic Gauss, the first person to formalize its mathematical expression.} shown in Figure~\ref{simpleNormal}. Variables such as SAT scores and heights of US adult males closely follow the normal distribution.
+실무에서 보게되는 모든 분포 중에서, 분포 하나가 가장 일반적이다. 좌우대칭, 단봉, 종모양은 통계학에서 어디서나 산재한다. 사실, 그림~\ref{simpleNormal}에 나왔듯이, 너무나 일반적이라 사람들이 종종 \term{정규곡선}(normal curve) 혹은 \termsub{정규 분포}{분포!정규}로 알고 있다.
+\footnote{수학 표현식으로 형식화한 첫번째 사람, 가우스(Frederic Gauss)을 따라 가우스 분포(Gaussian distribution)로도 소개된다.}
+SAT 점수와 미국 성인 신장 같은 변수는 정규분포를 가깝게 따른다.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.7\textwidth]{ch_distributions/figures/simpleNormal/simpleNormal}
-\caption{A normal curve.}
+\caption{정규 곡선}
 \label{simpleNormal}
 \end{figure}
 
-\begin{termBox}{\tBoxTitle{Normal distribution facts}
-Many variables are nearly normal, but none are exactly normal. Thus the normal distribution, while not perfect for any single problem, is very useful for a variety of problems. We will use it in data exploration and to solve important problems in statistics.\vspace{0.7mm}}
+\begin{termBox}{\tBoxTitle{정규분포에 대한 사실}
+많은 변수가 거의 정규분포지만, 어떤 것도 정확하게 정규분포는 아니다. 따라서, 어떤 단일 문제 대해 완벽하지는 않지만 정규분포가 다양한 문제에 매우 유용하다. 자료 탐색과 통계학에서 중요한 문제를 푸는데 정규분포를 사용한다.\vspace{0.7mm}}
 \end{termBox}
 
 
-\subsection{Normal distribution model}
+\subsection{정규 분포 모형}
 
-The normal distribution model always describes a symmetric, unimodal, bell-shaped curve. However, these curves can look different depending on the details of the model. Specifically, the normal distribution model can be adjusted using two parameters: mean and standard deviation. As you can probably guess, changing the mean shifts the bell curve to the left or right, while changing the standard deviation stretches or constricts the curve. Figure~\ref{twoSampleNormals} shows the normal distribution with mean $0$ and standard deviation $1$ in the left panel and the normal distributions with mean $19$ and standard deviation $4$ in the right panel. Figure~\ref{twoSampleNormalsStacked} shows these distributions on the same axis.
+항상 좌우대칭, 단봉, 종모양 곡선으로 정규분포모형이 기술된다. 하지만, 모형 세부사항에 따라 정규분포곡선은 달라 보인다. 구체적으로, 정규분포모형은 매개변수 두개로 조정될 수 있다: 평균과 표준편차. 아마도 추측했듯이, 평균을 바꾸면 종모양 곡선이 왼쪽 혹은 오른쪽으로 이동하고, 표준편차를 바꾸면 곡선을 늘이고 줄인다. 그림~\ref{twoSampleNormals}에서 왼쪽 패널에 평균 0과 표준편차 1, 오른쪽 패널에 평균 19, 표준편차 4를 갖는 정규분포가 나와있다. 그림~\ref{twoSampleNormalsStacked}에 동일한 축에 두 분포를 나타냈다.
 
 \begin{figure}[hht]
 \centering
 \includegraphics[width=0.85\textwidth]{ch_distributions/figures/twoSampleNormals/twoSampleNormals}
-\caption{Both curves represent the normal distribution, however, they differ in their center and spread. The normal distribution with mean 0 and standard deviation 1 is called the \term{standard normal distribution}.}
+\caption{두 곡선은 정규분포를 나타낸다. 하지만, 중심과 퍼짐에서 차이가 있다. 평균 0과 표준편차 1을 갖는 정규분포를 \term{표준정규분포}(standard normal distribution)라고 부른다.}
 \label{twoSampleNormals}
 \end{figure}
 
 \begin{figure}[hht]
 \centering
 \includegraphics[width=0.6\textwidth]{ch_distributions/figures/twoSampleNormalsStacked/twoSampleNormalsStacked}
-\caption{The normal models shown in Figure~\ref{twoSampleNormals} but plotted together and on the same scale.}
+\caption{그림~\ref{twoSampleNormals}에 나온 정규모형, 하지만 동일한 척도로 함께 도식화했다.}
 \label{twoSampleNormalsStacked}
 \end{figure}
 
-If a normal distribution has mean $\mu$ and standard deviation $\sigma$, we may write the distribution as $N(\mu, \sigma)$\marginpar[\raggedright\vspace{-5mm}
+만약 정규분포가 평균 $\mu$ 와 표준편차 $\sigma$ 를 갖는다면, 정규분포를 $N(\mu, \sigma)$ 작성한다.\marginpar[\raggedright\vspace{-5mm}
 
-$N(\mu, \sigma)$\vspace{1mm}\\\footnotesize Normal dist.\\with mean $\mu$\\\& st. dev. $\sigma$]{\raggedright\vspace{-5mm}
+$N(\mu, \sigma)$\vspace{1mm}\\\footnotesize 평균 $\mu$ \& \\표준편차 $\sigma$를 \\갖는 정규분포]{\raggedright\vspace{-5mm}
 
-$N(\mu, \sigma)$\vspace{1mm}\\\footnotesize Normal dist.\\with mean $\mu$\\\& st. dev. $\sigma$}. The two distributions in Figure~\ref{twoSampleNormalsStacked} can be written as
+$N(\mu, \sigma)$\vspace{1mm}\\\footnotesize Normal dist.\\with mean $\mu$\\\& st. dev. $\sigma$}.
+
+그림~\ref{twoSampleNormalsStacked}에 나온 두 분포를 다음과 같이 작성한다.
 \begin{align*}
 N(\mu=0,\sigma=1)\quad\text{and}\quad N(\mu=19,\sigma=4)
 \end{align*}
-Because the mean and standard deviation describe a normal distribution exactly, they are called the distribution's \termsub{parameters}{parameter}.
+
+평균과 표준편차가 정규분포를 정확하게 기술하기 때문에, 평균과 표준편차를 \termsub{모수}{모수}라고 부른다.
 
 \begin{exercise}
-Write down the short-hand for a normal distribution with\footnote{(a)~$N(\mu=5,\sigma=3)$. (b)~$N(\mu=-100, \sigma=10)$. (c)~$N(\mu=2, \sigma=9)$.}
+
+다음을 모수를 갖는 정규분포를 간략하게 작성하시오.\footnote{(a)~$N(\mu=5,\sigma=3)$. (b)~$N(\mu=-100, \sigma=10)$. (c)~$N(\mu=2, \sigma=9)$.}
 \begin{parts}
-\item mean~5 and standard deviation~3,
-\item mean~-100 and standard deviation~10, and
-\item mean~2 and standard deviation~9.
+\item 평균~5, 표준편차~3,
+\item 평균~-100, 표준편차~10, 
+\item 평균~2, 표준편차~9.
 \end{parts}
 \end{exercise}
 
-\subsection{Standardizing with Z-scores}
+\subsection{Z-점수 표준화}
 
-\begin{example}{Table~\vref{satACTstats} shows the mean and standard deviation for total scores on the SAT and ACT. The distribution of SAT and ACT scores are both nearly normal. Suppose Ann scored 1800 on her SAT and Tom scored 24 on his ACT. Who performed better?}\label{actSAT}
-We use the standard deviation as a guide. Ann is 1 standard deviation above average on the SAT: $1500 + 300=1800$. Tom is 0.6 standard deviations above the mean on the ACT: $21+0.6\times 5=24$. In Figure~\ref{satActNormals}, we can see that Ann tends to do better with respect to everyone else than Tom did, so her score was better.
+\begin{example}{
+표~\vref{satACTstats}에 SAT와 ACT 총점에 대한 평균과 표준편차가 나와있다.
+SAT와 ACT 점수 분포는 둘다 거의 정규분포다. 영아가 SAT에서 1800점 받았고, 정훈이가 ACT에서 24점 받았다. 누가 더 좋은 성적은 냈는가?}\label{actSAT}
+참고로 표준편차를 사용한다. 영아는 SAT 평균에 보다 1 표준편차 높다: $1500 + 300=1800$. 정훈이는 ACT 평균보다 1 표준편차 높다: $21+0.6\times 5=24$. 그림~\ref{satActNormals}에서, 영아가 정훈이보다 더 좋은 경향이 있음을 볼 수 있다. 그래서 영아의 점수가 더 낫다.
 \end{example}
 
 \begin{table}
@@ -70,62 +78,75 @@ We use the standard deviation as a guide. Ann is 1 standard deviation above aver
   \hline
   & SAT & ACT \\
   \hline
-Mean \hspace{0.3cm} & 1500 & 21 \\
-SD & 300 & 5 \\
+평균 \hspace{0.3cm} & 1500 & 21 \\
+표준편차 & 300 & 5 \\
    \hline
 \end{tabular}
-\caption{Mean and standard deviation for the SAT and ACT.}
+\caption{SAT 와 ACT에 대한 평균과 표준편차.}
 \label{satACTstats}
 \end{table}
 
 \begin{figure}
 \centering
 \includegraphics[width=65mm]{ch_distributions/figures/satActNormals/satActNormals}
-\caption{Ann's and Tom's scores shown with the distributions of SAT and ACT scores.}
+\caption{SAT와 ACT 점수 분포와 함께 영아와 정훈이 점수가 나와 있다.}
 \label{satActNormals}
 \end{figure}
 
-Example~\ref{actSAT} used a standardization technique called a Z-score, a method most commonly employed for nearly normal observations but that may be used with any distribution. The \term{Z-score}\marginpar[\raggedright\vspace{-3mm}
+
+예제~\ref{actSAT}는 Z-점수라는 표준화기법을 사용했다. 거의 정규분포 관측점에 가장 흔히 사용되는 방법이지만, 임의 분포에도 사용될 수 있다. 관측점 \term{Z-점수}(Z-score)\marginpar[\raggedright\vspace{-3mm}
 
 $Z$\vspace{1mm}\\\footnotesize Z-score, the\\standardized\\observation]{\raggedright\vspace{-3mm}
 
-$Z$\vspace{1mm}\\\footnotesize Z-score, the\\standardized\\observation}\index{Z@$Z$} of an observation is defined as the number of standard deviations it falls above or below the mean. If the observation is one standard deviation above the mean, its Z-score is 1. If it is 1.5 standard deviations \emph{below} the mean, then its Z-score is -1.5. If $x$ is an observation from a distribution $N(\mu, \sigma)$, we define the Z-score mathematically as
+$Z$\vspace{1mm}\\\footnotesize Z-점수, \\표준화된\\관측점}\index{Z@$Z$}는 관측점이 평균 위 혹은 아래 위치한 표준편차 숫자로 정의된다. 
+만약 관측점이 평균보다 1 표준편차 위라면, Z-점수는 1 이다. 만약 평균보다 1.5 표준편차 \emph{아래} 위치한다면, Z-점수는 -1.5가 된다. 만약 $x$가 분포 $N(\mu, \sigma)$에서 나온 관측점이라면, Z-점수를 수학적으로 다음과 같이 정의한다.
+
 \begin{eqnarray*}
 Z = \frac{x-\mu}{\sigma}
 \end{eqnarray*}
-Using $\mu_{SAT}=1500$, $\sigma_{SAT}=300$, and $x_{Ann}=1800$, we find Ann's Z-score:
+
+$\mu_{SAT}=1500$, $\sigma_{SAT}=300$, $x_{영아}=1800$ 정보를 사용해서, 영아 Z-점수를 찾는다:
+
 \begin{eqnarray*}
-Z_{Ann} = \frac{x_{Ann} - \mu_{SAT}}{\sigma_{SAT}} = \frac{1800-1500}{300} = 1
+Z_{영아} = \frac{x_{영아} - \mu_{SAT}}{\sigma_{SAT}} = \frac{1800-1500}{300} = 1
 \end{eqnarray*}
 
-\begin{termBox}{\tBoxTitle{The Z-score}
-The Z-score of an observation is the number of standard deviations it falls above or below the mean. We compute the Z-score for an observation $x$ that follows a distribution with mean $\mu$ and standard deviation $\sigma$ using
+\begin{termBox}{\tBoxTitle{Z-점수(Z-score)}
+관측점 Z-점수는 관측점이 평균 위 혹은 아래 위치한 표준편차 숫자다. 다음 식을 사용해서 모수로 평균 $\mu$와 표준편차 $\sigma$를 갖는 분포를 따르는 관측점 $x$에 대한 Z-점수를 계산한다.
 \begin{eqnarray*}
 Z = \frac{x-\mu}{\sigma}
 \end{eqnarray*}}
 \end{termBox}
 
 \begin{exercise}
-Use Tom's ACT score, 24, along with the ACT mean and standard deviation to compute his Z-score.\footnote{$Z_{Tom} = \frac{x_{Tom} - \mu_{ACT}}{\sigma_{ACT}} = \frac{24 - 21}{5} = 0.6$}
+ACT 평균과 표준편차와 함께 정훈이 ACT 점수 24를 사용해서 Z-점수를 계산하라.
+\footnote{$Z_{Tom} = \frac{x_{Tom} - \mu_{ACT}}{\sigma_{ACT}} = \frac{24 - 21}{5} = 0.6$}
 \end{exercise}
 
-Observations above the mean always have positive Z-scores while those below the mean have negative Z-scores. If an observation is equal to the mean (e.g. SAT score of 1500), then the Z-score is $0$.
+평균 이상 관측점은 항상 양의 Z-점수를 갖고, 평균 아래 관측점은 음의 Z-점수를 갖는다. 만약 관측점이 평균과 동일하다면 (예를 들어, SAT 점수 1500), Z-점수는 $0$ 이다.
 
 \begin{exercise}
-Let $X$ represent a random variable from $N(\mu=3, \sigma=2)$, and suppose we observe $x=5.19$. (a) Find the Z-score of $x$. (b) Use the Z-score to determine how many standard deviations above or below the mean $x$ falls.\footnote{(a) Its Z-score is given by $Z = \frac{x-\mu}{\sigma} = \frac{5.19 - 3}{2} = 2.19/2 = 1.095$. (b) The observation $x$ is 1.095 standard deviations \emph{above} the mean. We know it must be above the mean since $Z$ is positive.}
+$X$가 $N(\mu=3, \sigma=2)$에서 나온 확률변수로 놓고, $x=5.19$를 관측했다고 가정하자.
+(a) $x$에 대한 Z-점수를 찾아라. (b) Z-점수를 사용해서 $x$ 가 평균보다 얼마나 표준편차 위 혹은 아래에 위치하는지 알아내라.
+\footnote{(a) Z-점수는 $Z = \frac{x-\mu}{\sigma} = \frac{5.19 - 3}{2} = 2.19/2 = 1.095$ 가 된다. 
+(b) $x$ 관측점은 평균보다 1.095 표준편차 \emph{위}에 위치한다. $Z$가 양수기 때문에 평균보다 위에 있어야 된다는 것을 안다.}
 \end{exercise}
 
 \begin{exercise} \label{headLZScore}
-Head lengths of brushtail possums follow a nearly normal distribution with mean 92.6 mm and standard deviation 3.6 mm. Compute the Z-scores for possums with head lengths of 95.4 mm and 85.8 mm.\footnote{For $x_1=95.4$ mm: $Z_1 = \frac{x_1 - \mu}{\sigma} = \frac{95.4 - 92.6}{3.6} = 0.78$. For $x_2=85.8$ mm: $Z_2 = \frac{85.8 - 92.6}{3.6} = -1.89$.}
+
+주머니쥐(brushtail possums) 머리둘레 길이는 평균 92.6 mm 와 표준편차 3.6 mm 를 갖고 거의 정규분포를 따른다. 머리둘레 길이 95.4 mm와  85.8 mm을 갖는 주머니쥐에 대한 Z-점수를 계산하시오. 
+\footnote{머리둘레 길이 $x_1=95.4$ mm 갖는 주머니쥐: $Z_1 = \frac{x_1 - \mu}{\sigma} = \frac{95.4 - 92.6}{3.6} = 0.78$. 머리둘레 길이 $x_2=85.8$ mm 갖는 주머니쥐: $Z_2 = \frac{85.8 - 92.6}{3.6} = -1.89$.}
 \end{exercise}
 
-We can use Z-scores to roughly identify which observations are more unusual than others. One observation $x_1$ is said to be more unusual than another observation $x_2$ if the absolute value of its Z-score is larger than the absolute value of the other observation's Z-score: $|Z_1| > |Z_2|$. This technique is especially insightful when a distribution is symmetric.
+Z-점수를 사용해서 어느 관측점이 다른 관측점 보다 더 특이한 식별할 수 있다. 만약 한 관측점 $x_1$의 Z-점수 절대값이 다른 관측점 $x_2$의 Z-점수 절대값보다 크다면 $x_1$ 관측점이 다른 관측점 $x_2$보다 더 특이하다고 한다: $|Z_1| > |Z_2|$. 분포가 좌우대칭일 때 이러한 기법이 특히 통찰력있다.
 
 \begin{exercise}
-Which of the observations in Guided Practice~\ref{headLZScore} is more unusual?\footnote{Because the \emph{absolute value} of Z-score for the second observation is larger than that of the first, the second observation has a more unusual head length.}
+Guided Practice~\ref{headLZScore}에 나온 어느 관측점이 더 특이한가?
+\footnote{
+두번째 관측점 Z-점수 \emph{절대값}이 첫번째보다 더 크기 때문에, 두번째 관측점이 더 특이한 머리둘레 길이를 갖는다.}
 \end{exercise}
 
-\subsection{Normal probability table}
+\subsection{정규확률표(Normal probability table)}
 
 \begin{example}{Ann from Example~\ref{actSAT} earned a score of 1800 on her SAT with a corresponding $Z=1$. She would like to know what percentile she falls in among all SAT test-takers.}
 Ann's \term{percentile} is the percentage of people who earned a lower SAT score than Ann. We shade the area representing those individuals in Figure~\ref{satBelow1800}. The total area under the normal curve is always equal to 1, and the proportion of people who scored below Ann on the SAT is equal to the \emph{area} shaded in Figure~\ref{satBelow1800}: 0.8413. In other words, Ann is in the $84^{th}$ percentile of SAT takers.

@@ -1964,17 +1964,11 @@
     <bcf:datasource type="file" datatype="bibtex">eoce.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">indepSwing</bcf:citekey>
-    <bcf:citekey order="2">poorLang</bcf:citekey>
-    <bcf:citekey order="3">eduSex</bcf:citekey>
-    <bcf:citekey order="4">Mizan:2011</bcf:citekey>
-    <bcf:citekey order="5">data:BRFSS2010</bcf:citekey>
-    <bcf:citekey order="6">globalWarming</bcf:citekey>
-    <bcf:citekey order="7">burgers</bcf:citekey>
-    <bcf:citekey order="8">Laeng:2007</bcf:citekey>
-    <bcf:citekey order="9">ciaFactBookHIV:2012</bcf:citekey>
-    <bcf:citekey order="10">data:scott</bcf:citekey>
-    <bcf:citekey order="11">cats</bcf:citekey>
-    <bcf:citekey order="12">acsIncome2005-2009</bcf:citekey>
+    <bcf:citekey order="1">Johnson+Murray:2010</bcf:citekey>
+    <bcf:citekey order="2">marWomenACS</bcf:citekey>
+    <bcf:citekey order="3">webpage:alcohol</bcf:citekey>
+    <bcf:citekey order="4">webpage:chickenpox</bcf:citekey>
+    <bcf:citekey order="5">surveysPew</bcf:citekey>
+    <bcf:citekey order="6">webpage:spiders</bcf:citekey>
   </bcf:section>
 </bcf:controlfile>
