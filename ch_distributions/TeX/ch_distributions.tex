@@ -148,25 +148,26 @@ Guided Practice~\ref{headLZScore}에 나온 어느 관측점이 더 특이한가
 
 \subsection{정규확률표(Normal probability table)}
 
-\begin{example}{Ann from Example~\ref{actSAT} earned a score of 1800 on her SAT with a corresponding $Z=1$. She would like to know what percentile she falls in among all SAT test-takers.}
-Ann's \term{percentile} is the percentage of people who earned a lower SAT score than Ann. We shade the area representing those individuals in Figure~\ref{satBelow1800}. The total area under the normal curve is always equal to 1, and the proportion of people who scored below Ann on the SAT is equal to the \emph{area} shaded in Figure~\ref{satBelow1800}: 0.8413. In other words, Ann is in the $84^{th}$ percentile of SAT takers.
+\begin{example}{
+예제~\ref{actSAT}에서 영아는 SAT 시험에서 1800 점을 얻었는데 $Z=1$에 상응한다. SAT 수험생중에 몇분위수에 위치하는지 알고싶다.}
+영아 \term{백분위수}(percentile)는 영아보다 낮은 SAT 점수를 받은 학생 백분율이다. 그림~\ref{satBelow1800}에서 영아보다 낮은 점수를 받은 사람을 나타내는 영역을 음영처리했다. 정규곡선 아래 전체 면적은 항상 1 이다. SAT 시점에서 영아보다 낮은 점수를 받은 학생 비율은 그림~\ref{satBelow1800}에 음영처리된 \emph{면적}과 같다: 0.8413. 다른 말로, 영아는 SAT 수험생 중에서 $84^{th}$ 백분위수에 있다.
 \end{example}
 
 \begin{figure}[htb]
    \centering
    \includegraphics[width=0.6\textwidth]{ch_distributions/figures/satBelow1800/satBelow1800}
-   \caption{The normal model for SAT scores, shading the area of those individuals who scored below Ann.}
+   \caption{SAT 점수에 대한 정규 모형으로 영아보다 낮은 점수를 받은 수험생 영역을 음영처리했다.}
    \label{satBelow1800}
 \end{figure}
 
-We can use the normal model to find percentiles. A \term{normal probability table}, which lists Z-scores and corresponding percentiles, can be used to identify a percentile based on the Z-score (and vice versa). Statistical software can also be used.
+정규모형을 사용해서 백분위수를 찾을 수도 있다. Z-점수와 상응하는 백분위수를 나열한 \term{정규확률표}(normal probability table)를 사용해서 Z-점수에 기반해서 백분위수를 식별할 수도 있고 역으로도 가능하다. 통계 소프트웨어를 사용할 수도 있다.
 
-A normal probability table is given in Appendix~\vref{normalProbabilityTable} and abbreviated in Table~\ref{zTableShort}. We use this table to identify the percentile corresponding to any particular Z-score. For instance, the percentile of $Z=0.43$ is shown in row $0.4$ and column $0.03$ in Table~\ref{zTableShort}: 0.6664, or the $66.64^{th}$ percentile. Generally, we round $Z$ to two decimals, identify the proper row in the normal probability table up through the first decimal, and then determine the column representing the second decimal value. The intersection of this row and column is the percentile of the observation.
+정규확률표가 부록~\vref{normalProbabilityTable}에 나와 있고, 표~\ref{zTableShort}에 일부 나와있다. 이 표를 사용해서 특정 Z-점수에 대응되는 백분위수를 식별한다. 예를 들어, $Z=0.43$ 백분위수는 표~\ref{zTableShort}에서 행 $0.4$, 열 $0.03$에 나와 있다: 0.6664, 즉 $66.64^{th}$ 백분위수다. 일반적으로 $Z$를 소수점 아래 두자리에서 반올림한다. 정규확률표에서 첫번째 소수점 아래 자리에 적절한 행을 식별하고 나서, 두번째 소수점 아래 값을 나타내는 열을 알아낸다. 행과 열의 교차점이 관측점의 백분위수가 된다.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{ch_distributions/figures/normalTails/normalTails}
-\caption{The area to the left of $Z$ represents the percentile of the observation.}
+\caption{ $Z$의 좌측 면적이 관측점 백분위수를 나타낸다.}
 \label{normalTails}
 \end{figure}
 
@@ -174,7 +175,7 @@ A normal probability table is given in Appendix~\vref{normalProbabilityTable} an
 \centering
 \begin{tabular}{c | rrrrr | rrrrr |}
   \cline{2-11}
-&&&& \multicolumn{4}{c}{Second decimal place of $Z$} &&& \\
+&&&& \multicolumn{4}{c}{ $Z$의 두번째 소수점 자리} &&& \\
   \cline{2-11}
 $Z$ & 0.00 & 0.01 & 0.02 & \highlightT{0.03} & \highlightO{0.04} & 0.05 & 0.06 & 0.07 & 0.08 & 0.09 \\
   \hline
@@ -199,21 +200,24 @@ $Z$ & 0.00 & 0.01 & 0.02 & \highlightT{0.03} & \highlightO{0.04} & 0.05 & 0.06 &
   $\vdots$ &   $\vdots$ &   $\vdots$ &   $\vdots$ &   $\vdots$ &   $\vdots$ &   $\vdots$ &   $\vdots$ &   $\vdots$ &   $\vdots$ &   $\vdots$ \\
    \hline
 \end{tabular}
-\caption{A section of the normal probability table. The percentile for a normal random variable with $Z=0.43$ has been \highlightT{highlighted}, and the percentile closest to 0.8000 has also been \highlightO{highlighted}.}
+\caption{정규확률표 일부. $Z=0.43$을 갖는 정규확률변수에 대한 백분위수가 \highlightT{강조}되었다. 0.8000에 가장 가까운 백분위수도 \highlightO{강조}되었다.}
 \label{zTableShort}
 \end{table}
 
-We can also find the Z-score associated with a percentile. For example, to identify Z for the $80^{th}$ percentile, we look for the value closest to 0.8000 in the middle portion of the table: 0.7995. We determine the Z-score for the $80^{th}$ percentile by combining the row and column Z values: 0.84.
+백분위수에 연관된 Z-점수도 찾을 수 있다. 예를 들어, $80^{th}$ 백분위수에 대한 $Z$ 값을 식별하려면, 정규확률표 중간에서 0.8000에 가장 가까운 값을 찾는다: 0.7995. 행과 열을 조합해서 $80^{th}$ 백분위수에 대한 Z-점수를 알아낸다: 0.84.
 
 \begin{exercise}
-Determine the proportion of SAT test takers who scored better than Ann on the SAT.\footnote{If 84\% had lower scores than Ann, the number of people who had better scores must be 16\%. (Generally ties are ignored when the normal model, or any other continuous distribution, is used.)}
+SAT 시험에서 영아보다 더 높은 점수를 받은 SAT 수험생 비율을 알아내시오.
+\footnote{만약 영아보다 84\% 학생이 더 낮은 점수를 받았다면, 더 높은 점수를 받은 학생 숫자는 16\%가 되어야만 된다. (일반적으로, 정규모형 혹은 다른 어떤 연속분포가 사용될 때 등순위는 무시된다.}
 \end{exercise}
 
 
 \textC{\newpage}
 
 
-\subsection{Normal probability examples}
+\subsection{정규확률 예제}
+
+
 
 Cumulative SAT scores are approximated well by a normal model, $N(\mu=1500, \sigma=300)$.
 
