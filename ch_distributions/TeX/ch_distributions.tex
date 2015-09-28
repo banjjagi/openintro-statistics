@@ -217,83 +217,92 @@ SAT 시험에서 영아보다 더 높은 점수를 받은 SAT 수험생 비율�
 
 \subsection{정규확률 예제}
 
+누적 SAT 점수는 정규모형($N(\mu=1500, \sigma=300)$)으로 근사된다.
 
-
-Cumulative SAT scores are approximated well by a normal model, $N(\mu=1500, \sigma=300)$.
-
-\begin{example}{Shannon is a randomly selected SAT taker, and nothing is known about Shannon's SAT aptitude. What is the probability Shannon scores at least 1630 on her SATs?}\label{satAbove1630Exam}
-First, always draw and label a picture of the normal distribution. (Drawings need not be exact to be useful.) We are interested in the chance she scores above 1630, so we shade this upper tail:
+\begin{example}{새논은 무작위로 선택된 SAT(Scholastic Aptitude Test, 대학입학 학습 능력 적성 시험) 수험생이고, 새논의 SAT에 관해서는 어떤것도 알려진 것이 없다. 새논이 적어도 SAT 점수 1630 점을 얻을 확률은 얼마인가?}\label{satAbove1630Exam}
+먼저, 항상 정규분포 그림을 그리고 라벨을 붙여라. (그림이 정확할 필요는 없다.) 새논이 1630 점 이상을 얻을 가능성에 관심이 있어서 위쪽 꼬리를 음영처리한다:
 \begin{center}
 \includegraphics[width=0.45\textwidth]{ch_distributions/figures/satAbove1630/satAbove1630}
 \end{center}
-The picture shows the mean and the values at 2 standard deviations above and below the mean. The simplest way to find the shaded area under the curve makes use of the Z-score of the cutoff value. With $\mu=1500$, $\sigma=300$, and the cutoff value $x=1630$, the Z-score is computed as
+상기 그림에는 평균과 평균 상하 2 표준편차이 나와있다. 곡선 아래 음영처리된 지역을 찾는 가장 간단한 방식은 Z-점수 경계값을 사용하는 것이다. $\mu=1500$, $\sigma=300$, 경계값 $x=1630$ 에서, Z-점수는 다음과 같이 계산된다:
+
 \begin{eqnarray*}
 Z = \frac{x - \mu}{\sigma} = \frac{1630 - 1500}{300} = \frac{130}{300} = 0.43
 \end{eqnarray*}
-We look up the percentile of $Z=0.43$ in the normal probability table shown in Table~\ref{zTableShort} or in Appendix~\vref{normalProbabilityTable}, which yields 0.6664. However, the percentile describes those who had a Z-score \emph{lower} than 0.43. To find the area \emph{above} $Z=0.43$, we compute one minus the area of the lower tail:
+
+표~\ref{zTableShort}, 혹은 부록~\vref{normalProbabilityTable}에 나온 정규확률표에서 $Z=0.43$ 백분위수를 찾으면 0.6664가 나온다. 하지만, 백분위수는 0.43보다 \emph{낮은} Z-점수를 기술하고 있다. $Z=0.43$ 보다 \emph{높은} 영역을 알아내려면, 1 에서 아래꼬리 영역을 빼서 계산한다:
+
 \begin{center}
 \includegraphics[width=0.5\textwidth]{ch_distributions/figures/subtractingArea/subtractingArea}
 \end{center}
-The probability Shannon scores at least 1630 on the SAT is 0.3336.
+새논이 SAT에서 적어도 1630점 받을 확률은 0.3336 이다.
 \end{example}
 
-\begin{tipBox}{\tipBoxTitle{always draw a picture first, and find the Z-score second}
-For any normal probability situation, \emph{always always always} draw and label the normal curve and shade the area of interest first. The picture will provide an estimate of the probability. \vspace{3mm}
+\begin{tipBox}{\tipBoxTitle{항상 그림을 먼저 그리고 나서 두번째로 Z-점수를 알아낸다}
+임의 정규확률 상황에서 \emph{항상 항상 항상} 정규곡선을 그리고 라벨을 붙이고, 먼저 관심 영역을 음영처리하라. 그림이 확률 추정치를 줄 것이다. \vspace{3mm}
 
-After drawing a figure to represent the situation, identify the Z-score for the observation of interest.\vspace{1mm}}
+상황을 나타내는 그림을 도식화한 후에, 관심있는 관측점에 대한 Z-점수를 식별하라.\vspace{1mm}}
 \end{tipBox}
 
 \begin{exercise}
-If the probability of Shannon scoring at least 1630 is 0.3336, then what is the probability she scores less than 1630? Draw the normal curve representing this exercise, shading the lower region instead of the upper one.\footnote{We found the probability in Example~\ref{satAbove1630Exam}: 0.6664. A picture for this exercise is represented by the shaded area below ``0.6664'' in Example~\ref{satAbove1630Exam}.}
+만약 새논이 적어도 1630 점을 받을 확률이 0.3336 이라면, 새논이 1630 점보다 낮은 점수를 받을 확률은 얼마인가? 이 연습문제를 나타내는 정규곡선을 그리시오. 단, 위쪽 대신에 아래쪽 영역을 음영처리한다. 
+\footnote{예제~\ref{satAbove1630Exam}에서 확률을 알아냈다: 0.6664. 예제~\ref{satAbove1630Exam}에서 ``0.6664'' 아래 음영처리된 영역이 이번 예제에 대한 그림이 된다.}
 \end{exercise}
 
-\begin{example}{Edward earned a 1400 on his SAT. What is his percentile?} \label{edwardSatBelow1400}
-First, a picture is needed. Edward's percentile is the proportion of people who do not get as high as a 1400. These are the scores to the left of 1400.
+\begin{example}{에드워드는 SAT에서 1400 점을 받았다. 에드워드 백분위수는 어떻게 될까?} \label{edwardSatBelow1400}
+먼저, 그림이 필요하다. 에드워드 백분위수는 1400 점 만큼 높지 않은 수험생 비율이다. 1400점 기준 좌측 점수가 해당 영역이다.
 \begin{center}
 \includegraphics[width=0.4\textwidth]{ch_distributions/figures/satBelow1400/satBelow1400}
 \end{center}
-Identifying the mean $\mu=1500$, the standard deviation $\sigma=300$, and the cutoff for the tail area $x=1400$ makes it easy to compute the Z-score:
+
+평균 $\mu=1500$, 표준편차 $\sigma=300$, 경계값 $x=1400$ 으로 필요한 정보를 식별하면 Z-점수를 계산하기 쉽다:
+
 \begin{eqnarray*}
 Z = \frac{x - \mu}{\sigma} = \frac{1400 - 1500}{300} = -0.33
 \end{eqnarray*}
-Using the normal probability table, identify the row of $-0.3$ and column of $0.03$, which corresponds to the probability $0.3707$. Edward is at the $37^{th}$ percentile.
+정규확률표를 사용해서, 행에서 $-0.3$, 열에서 $0.03$을 식별하면 대응되는 확률은 $0.3707$이 된다. 에드워드는 $37^{th}$ 번째 백분위수 위치에 있다.
 \end{example}
 
 \begin{exercise}
-Use the results of Example~\ref{edwardSatBelow1400} to compute the proportion of SAT takers who did better than Edward. Also draw a new picture.\footnote{If Edward did better than 37\% of SAT takers, then about 63\% must have done better than him. \\
+예제~\ref{edwardSatBelow1400} 결과를 사용해서 에드워드보다 더 좋은 점수를 받은 SAT 수험생 비율을 계산하시오. 그림도 새로 그리시오.
+\footnote{만약 에드워드가 SAT 수험생 37\% 보다 더 점수가 높다면, 약 63\% 수험생이 에드워드 보다 더 점수가 높아야 된다.\\
 \includegraphics[height=12mm]{ch_distributions/figures/satBelow1400/satAbove1400}}
 \end{exercise}
 
-\begin{tipBox}{\tipBoxTitle{areas to the right}
-The normal probability table in most books gives the area to the left. If you would like the area to the right, first find the area to the left and then subtract this amount from~one.}
+\begin{tipBox}{\tipBoxTitle{우측 면적}
+대부분 교과서에서 정규확률표는 좌측 면적을 제시한다. 만약 우측 면적이 필요하다면, 먼저 좌측 면적을 알아내고 나서 1 에서 뺀다.}
 \end{tipBox}
 
 \begin{exercise}
-Stuart earned an SAT score of 2100. Draw a picture for each part. (a)~What is his percentile? (b)~What percent of SAT takers did better than Stuart?\footnote{Numerical answers: (a) 0.9772. (b) 0.0228.}
+스튜어트는 SAT 2100 점을 받았다. 각 부분에 대해서 그림을 그리시오. (a) 스튜어트 백분위수는 얼마인가? (b) 스튜어트 보다 더 높은 점수를 받은 수험생은 몇 퍼센트인가?
+\footnote{수치 정답: (a) 0.9772. (b) 0.0228.}
 \end{exercise}
 
-Based on a sample of 100 men,\footnote{This sample was taken from the USDA Food Commodity Intake Database.} the heights of male adults between the ages 20 and 62 in the US is nearly normal with mean 70.0'' and standard deviation 3.3''.
+표본 100 명에 기초하여\footnote{표본은 USDA 식료품 섭취 데이터베이스에서 추출함}, 나이 20세에서 62세 사이 미국성인 남성 신장은 평균 70.0'', 표준편차 3.3'' 거의 정규분포를 따른다.
 
 \begin{exercise}
-Mike is 5'7'' and Jim is 6'4''. (a) What is Mike's height percentile? (b) What is Jim's height percentile? Also draw one picture for each~part.\footnote{First put the heights into inches: 67 and 76 inches. Figures are shown below. (a) $Z_{Mike} = \frac{67 - 70}{3.3} = -0.91\ \to\ 0.1814$. (b) $Z_{Jim} = \frac{76 - 70}{3.3} = 1.82\ \to\ 0.9656$. \\\includegraphics[height=12mm]{ch_distributions/figures/mikeAndJimPercentiles/mikeAndJimPercentiles}}
+마이크(Mike)는 5'7'', 짐(Jim)은 6'4'' 신장을 갖는다. (a) 마이크의 신장 백분위수는 어떻게 될까? (b) 짐의 신장 백분위수는 어떻게 될까? 각각에 대해서 도식화도 하시오.
+\footnote{먼저 신장을 인치로 환산한다: 67과 76 인치. 도식화된 그림은 아래 있다. (a) $Z_{마이크} = \frac{67 - 70}{3.3} = -0.91\ \to\ 0.1814$. (b) $Z_{짐} = \frac{76 - 70}{3.3} = 1.82\ \to\ 0.9656$. \\\includegraphics[height=12mm]{ch_distributions/figures/mikeAndJimPercentiles/mikeAndJimPercentiles}}
 \end{exercise}
 
-The last several problems have focused on finding the probability or percentile for a particular observation. What if you would like to know the observation corresponding to a particular percentile?
+마지막 몇 문제는 특정 관측점에 대한 확률과 백분위수를 알아내는데 집중했다. 특정 백분위수에 대응되는 관측점을 알고자 하면 어떨까?
 
-\begin{example}{Erik's height is at the $40^{th}$ percentile. How tall is he?}\label{normalExam40Perc}
-As always, first draw the picture.\vspace{-1mm}
+\begin{example}{에릭의 키는 $40^{th}$ 번째 백분위수에 위치해 있다. 에릭의 신장은 얼마나 될까?}\label{normalExam40Perc}
+항상 그렇듯이, 도식화를 먼저 해라.\vspace{-1mm}
 \begin{center}
 \includegraphics[width=0.35\textwidth]{ch_distributions/figures/height40Perc/height40Perc}\vspace{-1mm}
 \end{center}
-In this case, the lower tail probability is known (0.40), which can be shaded on the diagram. We want to find the observation that corresponds to this value. As a first step in this direction, we determine the Z-score associated with the $40^{th}$ percentile.
+이 경우에, 아래쪽 꼬리 확률이 (0.40) 로 알려졌다. 그림에서 음영처리했다. 알아내고자 하는 것은 이 확률값에 상응하는 관측점이다. 첫번째 단계로, $40^{th}$ 번째 백분위수와 연관된 Z-점수를 알아낸다.
 
-Because the percentile is below 50\%, we know $Z$ will be negative. Looking in the negative part of the normal probability table, we search for the probability \emph{inside} the table closest to 0.4000. We find that 0.4000 falls in row $-0.2$ and between columns $0.05$ and $0.06$. Since it falls closer to $0.05$, we take this one: $Z=-0.25$.
+백분위수가 50\% 아래에 있기 때문에, $Z$ 값은 음수라는 것을 알고 있다. 정규확률표 음수부분을 살펴보고, 표 \emph{안쪽}에서 0.4000 에 가장 가까운 확률을 찾는다. 0.4000 값이 행에서 -0.2, 열에서 0.05와 0.06 사이에 위치한 것을 찾아낸다. 0.05에 좀더 가깝기 때문에 이 값을 취한다: $Z=-0.25$.
 
-Knowing $Z_{Erik}=-0.25$ and the population parameters $\mu=70$ and $\sigma=3.3$ inches, the Z-score formula can be set up to determine Erik's unknown height, labeled $x_{Erik}$:
+$Z_{에릭}=-0.25$ 와 모집단 모수 $\mu=70$ 와 $\sigma=3.3$ 인치라는 것을 알게 되서, Z-점수 공식을 만들어서 에릭의 신장을 알아낸다. 미지수를 $x_{Erik}$로 라벨 붙인다:
+
 \begin{eqnarray*}
 -0.25 = Z_{Erik} = \frac{x_{Erik} - \mu}{\sigma} = \frac{x_{Erik} - 70}{3.3}
 \end{eqnarray*}
-Solving for $x_{Erik}$ yields the height 69.18 inches. That is, Erik is about 5'9'' (this is notation for 5-feet, 9-inches).
+
+$x_{Erik}$에 대해서 풀면 신장은 69.18 인치가 나온다. 즉, 에릭은 약 5'9'' (5-피트, 9-인치에 대한 표기법).
 \end{example}
 
 \begin{example}{What is the adult male height at the $82^{nd}$ percentile?}
