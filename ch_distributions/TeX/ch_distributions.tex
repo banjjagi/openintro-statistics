@@ -305,62 +305,64 @@ $Z_{에릭}=-0.25$ 와 모집단 모수 $\mu=70$ 와 $\sigma=3.3$ 인치라는 �
 $x_{Erik}$에 대해서 풀면 신장은 69.18 인치가 나온다. 즉, 에릭은 약 5'9'' (5-피트, 9-인치에 대한 표기법).
 \end{example}
 
-\begin{example}{What is the adult male height at the $82^{nd}$ percentile?}
-Again, we draw the figure first.\textC{\vspace{-3mm}}
+\begin{example}{$82^{nd}$ 번째 백분위수에 성인 남성 신장은 얼마인가?}
+다시 도식화를 먼저한다. \textC{\vspace{-3mm}}
 \begin{center}
 \includegraphics[width=0.28\textwidth]{ch_distributions/figures/height82Perc/height82Perc}\textC{\vspace{-1mm}}
 \end{center}
-Next, we want to find the Z-score at the $82^{nd}$ percentile, which will be a positive value. Looking in the Z-table, we find $Z$ falls in row $0.9$ and the nearest column is $0.02$, i.e. $Z=0.92$. Finally, the height $x$ is found using the Z-score formula with the known mean $\mu$, standard deviation $\sigma$, and Z-score $Z=0.92$:
+다음으로, $82^{nd}$ 번째 백분위수에 Z-점수를 알아내는데 양수다. Z-표를 보고 행에서 0.9, 가장 가까운 열은 0.02, 즉 $Z=0.92$에서 $Z$ 값을 찾는다. 마지막으로 평균 $\mu$, 표준편차 $\sigma$, Z-점수 $Z=0.92$를 Z-점수 공식에 꽂아넣어 신장 $x$를 구한다:
+
 \begin{eqnarray*}
 0.92 = Z = \frac{x-\mu}{\sigma} = \frac{x - 70}{3.3}
 \end{eqnarray*}
-This yields 73.04 inches or about 6'1'' as the height at the $82^{nd}$ percentile.
+상기 방정식을 풀면 $82^{nd}$ 번째 백분위수 신장은 73.04 인치 즉, 약 6'1'' 이 나온다.
 \end{example}
 
 \begin{exercise}
-(a) What is the $95^{th}$ percentile for SAT scores? (b) What is the $97.5^{th}$ percentile of the male heights? As always with normal probability problems, first draw a picture.\footnote{Remember: draw a picture first, then find the Z-score. (We leave the pictures to you.) The Z-score can be found by using the percentiles and the normal probability table. (a) We look for 0.95 in the probability portion (middle part) of the normal probability table, which leads us to row 1.6 and (about) column 0.05, i.e. $Z_{95}=1.65$. Knowing $Z_{95}=1.65$, $\mu = 1500$, and $\sigma = 300$, we setup the Z-score formula: $1.65 = \frac{x_{95} - 1500}{300}$. We solve for $x_{95}$: $x_{95} = 1995$. (b) Similarly, we find $Z_{97.5} = 1.96$, again setup the Z-score formula for the heights, and calculate $x_{97.5} = 76.5$.}
+(a) SAT 점수에서 $95^{th}$ 번째 백분위수는 어떻게 되는가? (b) 남성 신장에 대한 $97.5^{th}$ 번째 백분위수는 어떻게 되는가? 항시 정규확률 문제 풀듯이, 도식화를 먼저 하라. \footnote{기억할 점: 도식화를 먼저하고 나서, Z-점수를 구한다. (도식화는 독자에게 남겨둔다.) Z-점수는 백분위수와 정규확률표를 사용해서 구한다. (a) 정규확률표 (중간부) 확률 부분에서 0.95를 찾는데, 행에서 1.6 열에서 (약) 0.05, 즉, $Z_{95}=1.65$. $Z_{95}=1.65$, $\mu = 1500$, $\sigma = 300$ 을 알면, Z-점수 공식을 세운다: $1.65 = \frac{x_{95} - 1500}{300}$. $x_{95}$에 대해 해를 구한다: $x_{95} = 1995$. (b) 유사하게 $Z_{97.5} = 1.96$을 구하고 나서, 신장에 대한 Z-점수 공식을 세우고, 계산하면 $x_{97.5} = 76.5$이 된다.}
 \end{exercise}
 
 \begin{exercise}\label{more74Less69}
-(a)~What is the probability that a randomly selected male adult is at least 6'2'' (74 inches)? (b)~What is the probability that a male adult is shorter than 5'9'' (69 inches)?\footnote{Numerical answers: (a) 0.1131. (b) 0.3821.}
+(a)~무작위로 선택한 성인 남성 신장이 적어도 5'9'' (69 인치)가 될 확률은 얼마인가? (b) 성인 남성이 5'9'' (69 인치) 보다 작을 확률은 얼마인가?\footnote{수치 해답: (a) 0.1131. (b) 0.3821.}
 \end{exercise}
 
-\begin{example}{What is the probability that a random adult male is between 5'9'' and 6'2''?}
-These heights correspond to 69 inches and 74 inches. First, draw the figure. The area of interest is no longer an upper or lower tail.\textC{\vspace{-2mm}}
+\begin{example}{무작위로 고른 성인 남성의 신장이 5'9'' -- 6'2'' 사이에 위치할 확률은 얼마인가?}
+신장을 인치로 환산하면 69 인치에서 74 인치가 된다. 먼저 도식화를 한다. 관심있는 영역은 위쪽 꼬리도, 아래쪽 꼬리도 아니다.\textC{\vspace{-2mm}}
 \begin{center}
 \includegraphics[width=0.35\textwidth]{ch_distributions/figures/between59And62/between59And62}\textC{\vspace{-2mm}}
 \end{center}
-The total area under the curve is~1. If we find the area of the two tails that are not shaded (from Guided Practice~\ref{more74Less69}, these areas are $0.3821$ and $0.1131$), then we can find the middle area:\textC{\vspace{-2mm}}
+곡선 아래 전체 면적은 1 이다. 만약 음영처리되지 않는 두 꼬리 영역을 알아내면(Guided Practice~\ref{more74Less69}에서 해당 영역 면적은 각각 $0.3821$ 와 $0.1131$ 이다), 중간 영역을 알 수 있다: \textC{\vspace{-2mm}}
 \begin{center}
 \includegraphics[width=0.6\textwidth]{ch_distributions/figures/subtracting2Areas/subtracting2Areas}\textC{\vspace{-2mm}}
 \end{center}
-That is, the probability of being between 5'9'' and 6'2'' is 0.5048.
+즉, 5'9'' -- 6'2'' 사이 확률은 0.5048 이 된다.
 \end{example}
 
 \begin{exercise}
-What percent of SAT takers get between 1500 and 2000?\footnote{This is an abbreviated solution. (Be sure to draw a figure!) First find the percent who get below 1500 and the percent that get above 2000: $Z_{1500} = 0.00 \to 0.5000$ (area below), $Z_{2000} = 1.67 \to 0.0475$ (area above). Final answer: $1.0000-0.5000 - 0.0475 = 0.4525$.}
+SAT 점수가 1500 -- 2000 사이 수험생은 몇 퍼센트인가? \footnote{축약한 해답이다. (도식화를 확실히 하라!) 
+먼저 1500 점 이하를 받는 수험생을 퍼센트를 구하고, 2000 점 이상 받는 수험생을 구한다: $Z_{1500} = 0.00 \to 0.5000$ (이하 영역) $Z_{2000} = 1.67 \to 0.0475$ (이상 영역). 최종 정답: $1.0000-0.5000 - 0.0475 = 0.4525$.}
 \end{exercise}
 
 \begin{exercise}
-What percent of adult males are between 5'5'' and 5'7''?\footnote{5'5'' is 65 inches. 5'7'' is 67 inches. Numerical solution: $1.000 - 0.0649 - 0.8183 = 0.1168$, i.e. 11.68\%.}
+성인 남성 신장이 5'5'' -- 5'7'' 사이가 몇 퍼센트인가? \footnote{5'5'' 는 65 인치. 5'7'' 는 67 인치. 수치 해답: $1.000 - 0.0649 - 0.8183 = 0.1168$, 즉, 11.68\%.}
 \end{exercise}
 
 \CalculatorVideos{calculations for the normal distribution}
 
 
-\subsection{68-95-99.7 rule}
-
-Here, we present a useful rule of thumb for the probability of falling within 1, 2, and 3 standard deviations of the mean in the normal distribution. This will be useful in a wide range of practical settings, especially when trying to make a quick estimate without a calculator or Z-table.
+\subsection{68-95-99.7 규칙}
+정규분포에서 평균의 표준편차 1,2,3 안에 포진할 확률에 대한 유용한 경험규칙을 제시한다. Z-표나 계산기를 사용하지 않고, 빠른 추정을 시행할 때, 이 방법이 폭넓게 실무에서 사용된다.
 
 \begin{figure}[hht]
 \centering
 \includegraphics[height=1.9in]{ch_distributions/figures/6895997/6895997}
-\caption{Probabilities for falling within 1, 2, and 3 standard deviations of the mean in a normal distribution.}
+\caption{정규분포에서 평균의 표준편차 1,2,3 안에 포진할 확률.}
 \label{6895997}
 \end{figure}
 
 \begin{exercise}
-Use the Z-table to confirm that about 68\%, 95\%, and 99.7\% of observations fall within 1, 2, and 3, standard deviations of the mean in the normal distribution, respectively. For instance, first find the area that falls between $Z=-1$ and $Z=1$, which should have an area of about 0.68. Similarly there should be an area of about 0.95 between $Z=-2$ and $Z=2$.\footnote{First draw the pictures. To find the area between $Z=-1$ and $Z=1$, use the normal probability table to determine the areas below $Z=-1$ and above $Z=1$. Next verify the area between $Z=-1$ and $Z=1$ is about 0.68. Repeat this for $Z=-2$ to $Z=2$ and also for $Z=-3$ to $Z=3$.}
+Z-표를 사용해서 약 68\%, 95\%, 99.7\% 관측점이 정규분포에서 평균의 표준편차 1,2,3 안에 포진하는 것을 검증하라. 예를 들어, 먼저 $Z=-1$ 와 $Z=1$ 사이 포진될 영역을 먼저 찾는다. 약 0.68 면적을 차지한다. 유사하게 $Z=-2$ 와 $Z=2$ 사이는 약 0.95 면적이 되어야 한다.
+\footnote{First draw the pictures. To find the area between $Z=-1$ and $Z=1$, use the normal probability table to determine the areas below $Z=-1$ and above $Z=1$. Next verify the area between $Z=-1$ and $Z=1$ is about 0.68. Repeat this for $Z=-2$ to $Z=2$ and also for $Z=-3$ to $Z=3$.}
 \end{exercise}
 
 It is possible for a normal random variable to fall 4,~5, or~even more standard deviations from the mean. However, these occurrences are very rare if the data are nearly normal. The probability of being further than 4 standard deviations from the mean is about 1-in-30,000. For 5 and 6 standard deviations, it is about 1-in-3.5 million and 1-in-1 billion, respectively.
