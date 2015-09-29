@@ -624,45 +624,54 @@ SAT 점수는 평균 $\mu = 1500$ 와 표준편차  $\sigma = 300$을 모수로 
 
 \index{분포!이항|(}
 
-\begin{example}{Suppose we randomly selected four individuals to participate in the ``shock" study. What is the chance exactly one of them will be a success?  Let's call the four people Allen ($A$), Brittany ($B$), Caroline ($C$), and Damian ($D$) for convenience. Also, suppose 35\% of people are successes as in the previous version of this example.}\label{oneRefuser}
-Let's consider a scenario where one person refuses:
+\begin{example}{
+``충격'' 연구에 참가할 피험자를 4명 무작위로 선정한다고 가정하자. 네명중 정확하게 한명이 성공할 가능성은 얼마인가? 편의상 네명을 알렌 ($A$), 브리트니 ($B$), 캐롤 ($C$), 대미안 ($D$) 으로 부르자. 이전 예제에서와 마찬가지로 35\% 피험자가 성공했다고 가정한다.}\label{oneRefuser}
+
+한명이 충격을 가하는 것을 거절하는 시나리오를 생각해보자:
 \begin{eqnarray*}
-&&P(A=\text{\resp{refuse}},\text{ }B=\text{\resp{shock}},\text{ }C=\text{\resp{shock}},\text{ }D=\text{\resp{shock}}) \\
- &&\quad =  P(A=\text{\resp{refuse}})\ P(B=\text{\resp{shock}})\ P(C=\text{\resp{shock}})\ P(D=\text{\resp{shock}}) \\
+&&P(A=\text{\resp{거절}},\text{ }B=\text{\resp{충격}},\text{ }C=\text{\resp{충격}},\text{ }D=\text{\resp{충격}}) \\
+ &&\quad =  P(A=\text{\resp{거절}})\ P(B=\text{\resp{충격}})\ P(C=\text{\resp{충격}})\ P(D=\text{\resp{충격}}) \\
  &&\quad =  (0.35)  (0.65)  (0.65)  (0.65) = (0.35)^1 (0.65)^3 = 0.096
 \end{eqnarray*}
-But there are three other scenarios: Brittany, Caroline, or Damian could have been the one to refuse. In each of these cases, the probability is again $(0.35)^1(0.65)^3$. These four scenarios exhaust all the possible ways that exactly one of these four people could refuse to administer the most severe shock, so the total probability is $4\times(0.35)^1(0.65)^3 = 0.38$.
+하지만 다른 시나리오 세개가 더 있다: 브리트니, 캐롤, 대미안이 충격을 가하는 것을 거절할 수 있는 피험자가 될 수 있다. 각각의 경우에 확률은 $(0.35)^1(0.65)^3$이 된다. 이 네가지 시나리오가 피험자 네명중 정확하게 한명만 가장 심한 충격을 가하는 것을 거절하는 모든 가능한 방법을 샅샅이 찾아 나온 것이다. 그래서 전체 확률은 $4\times(0.35)^1(0.65)^3 = 0.38$이 된다.
 \end{example}
 
 \begin{exercise}
-Verify that the scenario where Brittany is the only one to refuse to give the most severe shock has probability $(0.35)^1(0.65)^3$.~\footnote{$P(A=\text{\resp{shock}},\text{ }B=\text{\resp{refuse}},\text{ }C=\text{\resp{shock}},\text{ }D=\text{\resp{shock}}) = (0.65)(0.35)(0.65)(0.65) = (0.35)^1(0.65)^3$.}
+가장 심한 충격을 가하는 것을 거절할 유일한 피험자가 브리트니인 시나리오가 확률 $(0.35)^1(0.65)^3$이 될 것을 확증하시오.~
+\footnote{$P(A=\text{\resp{충격}},\text{ }B=\text{\resp{거절}},\text{ }C=\text{\resp{충격}},\text{ }D=\text{\resp{충격}}) = (0.65)(0.35)(0.65)(0.65) = (0.35)^1(0.65)^3$.}
 \end{exercise}
 
 \textC{\newpage}
 
 
-\subsection{The binomial distribution}
+\subsection{이항 분포}
 
-The scenario outlined in Example~\ref{oneRefuser} is a special case of what is called the binomial distribution. The \termsub{binomial distribution}{distribution!binomial} describes the probability of having exactly $k$ successes in $n$ independent Bernoulli trials with probability of a success $p$  (in Example~\ref{oneRefuser}, $n=4$, $k=1$, $p=0.35$). We would like to determine the probabilities associated with the binomial distribution more generally, i.e. we want a formula where we can use $n$, $k$, and $p$ to obtain the probability. To do this, we reexamine each part of the example.
+예제~\ref{oneRefuser}에서 개요로 서술된 시나리오는 이항분포로 불리는 특별한 경우다. \termsub{이항 분포}(binomial distribution){분포!이항}는 성공확률 $p$를 갖는 독립적인 $n$개 베르누이 시행에서 정확하게 $k$개 성공을 갖는 확률을 기술한다 (예제~\ref{oneRefuser}에서는 $n=4$, $k=1$, $p=0.35$). 좀더 일반적으로 이항분포와 연관된 확률을 알아내고자 한다. 즉, 확률을 얻는데 $n$, $k$, $p$ 를 사용하는 공식을 원한다. 이를 위해서, 예제 각 부분을 다시 면밀히 살펴보자.
 
-There were four individuals who could have been the one to refuse, and each of these four scenarios had the same probability. Thus, we could identify the final probability as
+충격 가하는 것을 거부하는 일인이 될 수 있는 피험자 네명 있고, 네가지 시나리오 각각은 동일한 확률을 갖는다. 따라서, 최종 확률을 다음과 같이 식별할 수 있다.
+
 \begin{eqnarray}
-[\text{\# of scenarios}] \times P(\text{single scenario})
+[\text{시나리오 갯수 (\#)}] \times P(\text{단일 시나리오})
 \label{genBinomialFormula}
 \end{eqnarray}
-The first component of this equation is the number of ways to arrange the $k=1$ successes among the $n=4$ trials. The second component is the probability of any of the four (equally probable) scenarios.
+상기 방정식의 첫번째 구성요소가 $n=4$ 번 시행 중에서 성공 $k=1$을 정리하는 방법의 갯수다. 두번째 구성요소는 네가지 (동일하게 가능한) 시나리오의 어느 것에 대한 확률이다.
 
-Consider $P($single scenario$)$ under the general case of $k$ successes and $n-k$ failures in the $n$ trials. In any such scenario, we apply the Multiplication Rule for independent events:
+$n$번 시행에 $k$번 성공과 $n-k$번 실패의 일반적인 경우 아래에서 $P($단일 시나리오$)$를 생각해보자. 이런 시나리오에서, 독립 사건에 대한 곱셈 정리를 적용한다:
+
 \begin{eqnarray*}
 p^k(1-p)^{n-k}
 \end{eqnarray*}
-This is our general formula for $P($single scenario$)$.
 
-Secondly, we introduce a general formula for the number of ways to choose $k$ successes in $n$ trials, i.e. arrange $k$ successes and $n-k$ failures:
+이것은 $P($단일 시나리오$)$에 대한 일반 공식이다.
+
+둘째로, $n$번 시행에서 $k$번 성공을 선택하는 방법의 수에 대한 일반 공식을 도입한다:
+
 \begin{eqnarray*}
 {n\choose k} = \frac{n!}{k!(n-k)!}
 \end{eqnarray*}
-The quantity ${n\choose k}$ is read \term{n choose k}.\footnote{Other notation for $n$ choose $k$ includes $_nC_k$, $C_n^k$, and $C(n,k)$.} The exclamation point notation (e.g. $k!$) denotes a \term{factorial}\label{factorialDefinitionInTheBinomialSection} expression.
+
+${n\choose k}$는 \term{n choose k} 라고 읽는다. \footnote{$n$ choose $k$ 에 대한 다른 표기법에는 $_nC_k$, $C_n^k$, $C(n,k)$이 있다.} 느낌표 표기법(즉, $k!$)은 \term{계승}(factorial)\label{factorialDefinitionInTheBinomialSection} 표현식을 나타낸다.
+
 \begin{eqnarray*}
 && 0! = 1 \label{zeroFactorial} \\
 && 1! = 1 \\
@@ -672,21 +681,24 @@ The quantity ${n\choose k}$ is read \term{n choose k}.\footnote{Other notation f
 && \vdots \\
 && n! = n\times(n-1)\times...\times3\times2\times1
 \end{eqnarray*}
-Using the formula, we can compute the number of ways to choose $k=1$ successes in $n=4$ trials:
+
+공식을 사용해서, $n=4$번 시행에서 $k=1$ 성공을 선택하는 방법의 수를 계산할 수 있다:  
+
 \begin{eqnarray*}
 {4 \choose 1} = \frac{4!}{1!(4-1)!} =  \frac{4!}{1!3!} 
 	= \frac{4\times3\times2\times1}{(1)(3\times2\times1)} = 4
 \end{eqnarray*}
-This result is exactly what we found by carefully thinking of each possible scenario in Example~\ref{oneRefuser}.
+상기 결과는 예제~\ref{oneRefuser}에서 가능한 각 시나리오를 주의깊이 생각해서 정확하게 찾아낸 것과 같다.
 
-Substituting $n$ choose $k$ for the number of scenarios and $p^k(1-p)^{n-k}$ for the single scenario probability in Equation~(\ref{genBinomialFormula}) yields the general binomial formula.
+방정식~(\ref{genBinomialFormula})에 시나리오 수에 대해서는 ``$n$ choose $k$'', 단일 시나리오 확률에 대해서는 $p^k(1-p)^{n-k}$으로 대체하면 일반 이항 공식이 산출된다.
 
-\begin{termBox}{\tBoxTitle{Binomial distribution} Suppose the probability of a single trial being a success is $p$. Then the probability of observing exactly $k$ successes in $n$ independent trials is given by\vspace{-1mm}
+\begin{termBox}{\tBoxTitle{이항 분포} 
+단일 시행 성공확률을 $p$ 라고 가정하자. 그러면, $n$번 독립적인 시행에 정확하게 $k$번 성공을 관측하는 확률은 다음과 같이 주어진다.\vspace{-1mm}
 \begin{eqnarray}
 {n\choose k}p^k(1-p)^{n-k} = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}
 \label{binomialFormula}
 \end{eqnarray}
-Additionally, the mean, variance, and standard deviation of the number of observed successes are\vspace{-2mm}
+부가적으로, 관측된 성공 횟수에 대한 평균, 분산, 표준편차는 다음과 같다. \vspace{-2mm}
 \begin{align}
 \mu &= np
 	&\sigma^2 &= np(1-p)
@@ -695,35 +707,36 @@ Additionally, the mean, variance, and standard deviation of the number of observ
 \end{align}}
 \end{termBox}
 
-\begin{tipBox}{\tipBoxTitle{Is it binomial? Four conditions to check.\label{isItBinomialTipBox}}
-(1) The trials are independent. \\
-(2) The number of trials, $n$, is fixed. \\
-(3) Each trial outcome can be classified as a \emph{success} or \emph{failure}. \\
-(4) The probability of a success, $p$, is the same for each trial.}
+\begin{tipBox}{\tipBoxTitle{이항 분포인가? 검사할 4가지 조건.\label{isItBinomialTipBox}}
+(1) 시행이 독립이다. \\
+(2) 시행 횟수 $n$ 이 고정된다. \\
+(3) 시행 결과 각각은 \emph{성공} 혹은 \emph{실패}로 분류될 수 있다. \\
+(4) 성공 확률 $p$는 시행 각각에 대해 같다.}
 \end{tipBox}
 
-\begin{example}{What is the probability that 3 of 8 randomly selected students will refuse to administer the worst shock, i.e. 5 of 8 will?}
-We would like to apply the binomial model, so we check our conditions. The number of trials is fixed ($n=8$) (condition 2) and each trial outcome can be classified as a success or failure (condition 3). Because the sample is random, the trials are independent (condition~1) and the probability of a success is the same for each trial (condition~4).
+\begin{example}{무작위로 뽑은 피험자 학생 8명 중에서 3명이 가장 심한 충격을 가하는 것을 거절할 확률은 얼마인가? 즉, 8명 중 5명은 충격을 가할 확률은 얼마인가?}
+이항모형을 적용하고자 한다. 그래서 조건을 검사한다. 시행 횟수는 고정 ($n=8$) (조건 2). 시행 결과 각각은 성공과 실패로 분류될 수 있다 (조건 3). 표본이 무작위이기 때문에, 시행은 독립이다 (조건 1). 성공확률은 각 시행에 대해 같다 (조건 4).
 
-In the outcome of interest, there are $k=3$ successes in $n=8$ trials, and the probability of a success is $p=0.35$. So the probability that 3 of 8 will refuse is given by
+관심있는 결과에는 $n=8$번 시행에 $k=3$번 성공이 있다. 성공 확률은 $p=0.35$이다. 그래서 8명중 3명이 거절할 확률은 다음과 같이 주어진다.
 \begin{eqnarray*}
 { 8 \choose 3}(0.35)^3(1-0.35)^{8-3}
 	&=& \frac{8!}{3!(8-3)!}(0.35)^3(1-0.35)^{8-3} \\
 	&=& \frac{8!}{3!5!}(0.35)^3(0.65)^5
 \end{eqnarray*}
-Dealing with the factorial part:
+누승부분은 다음과 같이 처리한다:
 \begin{eqnarray*}
 \frac{8!}{3!5!} = \frac{8\times7\times6\times5\times4\times3\times2\times1}{(3\times2\times1)(5\times4\times3\times2\times1)} = \frac{8\times7\times6}{3\times2\times1} = 56
 \end{eqnarray*}
-Using $(0.35)^3(0.65)^5 \approx 0.005$, the final probability is about $56*0.005 = 0.28$.
+
+$(0.35)^3(0.65)^5 \approx 0.005$을 사용해서, 최종 확률은 약 $56*0.005 = 0.28$이 나온다.
 \end{example}
 
-\begin{tipBox}{\tipBoxTitle{computing binomial probabilities}
-The first step in using the binomial model is to check that the model is appropriate. The second step is to identify $n$, $p$, and $k$. The final step is to apply the formulas and interpret the results.}
+\begin{tipBox}{\tipBoxTitle{이항확률 계산하기}
+이항모형을 사용하는 첫단계는 모형이 적절한지 점검하는 것이다. 두번째 단계는 $n$, $p$, $k$ 값을 식별한다. 마지막 단계는 공식을 적용하고 결과를 해석한다.}
 \end{tipBox}
 
-\begin{tipBox}{\tipBoxTitle{computing $n$ choose $k$}
-In general, it is useful to do some cancelation in the factorials immediately. Alternatively, many computer programs and calculators have built in functions to compute $n$ choose $k$, factorials, and even entire binomial probabilities.}
+\begin{tipBox}{\tipBoxTitle{``$n$ choose $k$'' 계산}
+일반적으로, 누승에 있는 소거를 즉시 실행하는 것이 유용하다. 대안으로, 많은 컴퓨터 프로그램과 계산기에 내장된 함수를 사용해서 ``$n$ choose $k$'', 누승, 심지어 전체 이항확률을 계산한다.}
 \end{tipBox}
 
 \begin{exercise}
