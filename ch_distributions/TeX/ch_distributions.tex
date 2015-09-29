@@ -476,64 +476,69 @@ SAT 점수는 평균 $\mu = 1500$ 와 표준편차  $\sigma = 300$을 모수로 
 \section{기하분포 (특별 주제)}
 \label{geomDist}
 
-How long should we expect to flip a coin until it turns up \resp{heads}? Or how many times should we expect to roll a die until we get a \resp{1}? These questions can be answered using the geometric distribution. We first formalize each trial -- such as a single coin flip or die toss -- using the Bernoulli distribution, and then we combine these with our tools from probability (Chapter~\ref{probability}) to construct the geometric distribution.
+동전 \resp{앞면}이 나올 때까지 얼마나 오랜동안 동전을 던져야 될까? 혹은 주사위 \resp{1} 면이 나올 때까지 얼마나 오랜동안 주사위를 굴려야 될까? 이러한 질문에 기하분포를 사용해서 답을 구할 수 있다. 베르누이 분포를 사용해서 먼저 각 시도(동전 하나 던지기 혹은 주사위 굴리기)를 공식화한다. 그리고 나서 기하분포를 만드는데 확률(\ref{probability}~장)에서 학습한 도구와 조합한다.
 
-\subsection{Bernoulli distribution}
+\subsection{베르누이 분포}
 \label{bernoulli}
 
-\index{distribution!Bernoulli|(}
+\index{분포!베르누이|(}
 
-Stanley Milgram\index{Milgram, Stanley} began a series of experiments in 1963 to estimate what proportion of people would willingly obey an authority and give severe shocks to a stranger. Milgram found that about 65\% of people would obey the authority and give such shocks. Over the years, additional research suggested this number is approximately consistent across communities and time.\footnote{Find further information on Milgram's experiment at \par \ \ \hspace{0.2mm}\ \oiRedirect{textbook-milgram}{www.cnr.berkeley.edu/ucce50/ag-labor/7article/article35.htm}.}
+스탠리 밀그램(Stanley Milgram)\index{밀그램, 스탠리}은 1963년에 일련의 실험을 시작해서 권위에 복종해서 이방인에게 심각한 충격을 주는 사람 비율을 추정했다. 약 65\% 사람이 권위에 복종해서 심한 충격을 주는 것을 밀그램이 알아냈다. 수년에 걸친 추가적인 연구도 근사적으로 공동체와 시간에 걸쳐 이 숫자가 일관성이 있는 것으로 제시했다.
+\footnote{밀그램 실험에 대한 추가 정보는 다음 웹사이트를 참조한다.\par \ \ \hspace{0.2mm}\ \oiRedirect{textbook-milgram}{www.cnr.berkeley.edu/ucce50/ag-labor/7article/article35.htm}.}
 
-Each person in Milgram's experiment can be thought of as a \term{trial}. We label a person a \term{success} if she refuses to administer the worst shock. A person is labeled a \term{failure} if she administers the worst shock. Because only 35\% of individuals refused to administer the most severe shock, we denote the \term{probability of a success} with $p=0.35$. The probability of a failure is sometimes denoted with $q=1-p$.
+밀그램 실험에서 사람 각각은 \term{시행}(trial)으로 간주될 수 있다. 최악의 충격을 가하는 것을 거부하면 \term{성공}(success) 라벨을 사람에게 붙인다. 만약 최악의 충격을 가하면 \term{실패}(failure) 라벨을 사람에게 붙인다. 35\% 사람만 가장 심각한 충격을 가하는 것을 거부했기 때문에, \term{성공확률}(probability of a success)을 $p=0.35$ 로 표기한다. 실패확률은 $q=1-p$로 표기한다.
 
-Thus, \resp{success} or \resp{failure} is recorded for each person in the study. When an individual trial only has two possible outcomes, it is called a \termsub{Bernoulli random variable}{distribution!Bernoulli}.
+따라서, \resp{성공} 혹은 \resp{실패}를 연구조사에서 각 사람에 대해 기록한다. 각 개인에 대한 시행이 단지 두가지 가능한 결과만 가질 때, 이를 \termsub{베르누이 확률변수}{분포!베르누이}라고 부른다.
 
-\begin{termBox}{\tBoxTitle{Bernoulli random variable, descriptive}
-A Bernoulli random variable has exactly two possible outcomes. We typically label one of these outcomes a ``success'' and the other outcome a ``failure''. We may also denote a success by \resp{1} and a failure by \resp{0}.}
+\begin{termBox}{\tBoxTitle{베르누이 확률변수, 기술적 표현}
+베르누이 확률변수는 정확하게 두가지 가능한 결과를 갖는다. 전형적으로 두가지 결과 중에 하나를 ``성공'' 그리고 다른 하나를 ``실패''라는 표식을 한다. 성공을 \resp{1} 그리고 실패를 \resp{0}으로 표기할 수도 있다.}
 \end{termBox}
 
-\begin{tipBox}{\tipBoxTitle{``success'' need not be something positive}
-We chose to label a person who refuses to administer the worst shock a ``success'' and all others as ``failures''. However, we could just as easily have reversed these labels. The mathematical framework we will build does not depend on which outcome is labeled a success and which a failure, as long as we are consistent.}
+\begin{tipBox}{\tipBoxTitle{``성공''이 긍정적인 무언가일 필요는 없다.}
+가장 심한 충격을 가하기 거부한 사람에게 ``성공'' 표식을 했고 그밖의 다른 사람은 ``실패''로 표식했다. 하지만, 아주 쉽게 이러한 표식을 정반대로 할 수도 있다. 수학적 얼개(mathematical framework)는 일관성만 있기만 하면, 어느 결과를 성공으로 혹은 실패로 표식을 하던 표식에 의존하지 않는다.}
 \end{tipBox}
 
-Bernoulli random variables are often denoted as \resp{1} for a success and \resp{0} for a failure. In addition to being convenient in entering data, it is also mathematically handy. Suppose we observe ten trials:
+베르누이 확률변수를 종종 성공에 대해서는 \resp{1}, 실패에 대해서는 \resp{0} 으로 표기한다. 데이터 입력의 편리성에 더해서, 수학적으로도 다루기 편하다. 10번의 시행을 관측했다고 가정하자:
+
 \begin{center}
 \resp{0} \resp{1} \resp{1} \resp{1} \resp{1} \resp{0} \resp{1} \resp{1} \resp{0} \resp{0}
 \end{center}
-Then the \term{sample proportion}, $\hat{p}$, is the sample mean of these observations:
+그러면 \term{표본 비율}(sample proportion), $\hat{p}$ 은 상기 관측점에 대한 표본 평균이다:
 \begin{eqnarray*}
-\hat{p} = \frac{\text{\# of successes}}{\text{\# of trials}} = \frac{0+1+1+1+1+0+1+1+0+0}{10} = 0.6
+\hat{p} = \frac{\text{ 성공 횟수 (\#) }}{\text{시행 횟수 (\#) }} = \frac{0+1+1+1+1+0+1+1+0+0}{10} = 0.6
 \end{eqnarray*}%
-This mathematical inquiry of Bernoulli random variables can be extended even further. Because \resp{0} and \resp{1} are numerical outcomes, we can define the {mean} and {standard deviation} of a Bernoulli random variable.\footnote{If ${p}$ is the true probability of a success, then the mean of a Bernoulli random variable $X$ is given by
+
+베르누이 확률변수에 대한 수학적 탐구를 좀더 연장할 수 있다. \resp{0} 과 \resp{1} 이 수치 결과라서, 베르누이 확률변수에 대한 평균과 표준편차를 정의할 수 있다.
+\footnote{만약 ${p}$ 가 성공에 대한 진정한 확률이라면, 베르누이 확률변수 $X$에 대한 평균은 다음과 같이 주어진다.
 \begin{align*}
 \mu = E[X] &= P(X=0)\times0 + P(X=1)\times1 \\
 	&= (1-p)\times0 + p\times 1 = 0+p = p
 \end{align*}
-Similarly, the variance of $X$ can be computed:
+마찬가지로 $X$에 대한 분산도 다음과 같이 계산될 수 있다:
 \begin{align*}
 \sigma^2 &= {P(X=0)(0-p)^2 + P(X=1)(1-p)^2} \\
 	&= {(1-p)p^2 + p(1-p)^2} = {p(1-p)}
 \end{align*}
-The standard deviation is $\sigma=\sqrt{p(1-p)}$.}
+표준편차는 $\sigma=\sqrt{p(1-p)}$ 이 된다.}
 
-\begin{termBox}{\tBoxTitle{Bernoulli random variable, mathematical}
-If $X$ is a random variable that takes value 1 with probability of success $p$ and 0 with probability $1-p$, then $X$ is a Bernoulli random variable with mean and standard deviation
+\begin{termBox}{\tBoxTitle{베르누이 확률변수, 수학적}
+만약 $X$가 성공확률 $p$로 1 값과 $1-p$ 확률로 0 값을 갖는 확률변수라면, $X$는 다음 평균과 표준편차를 갖는 베르누이 확률변수다:
 \begin{align*}
 \mu &= p
 	&\sigma&= \sqrt{p(1-p)}
 \end{align*}}
 \end{termBox}
 
-In general, it is useful to think about a Bernoulli random variable as a random process with only two outcomes: a success or failure. Then we build our mathematical framework using the numerical labels \resp{1} and \resp{0} for successes and failures, respectively.
+일반적으로 베르누이 확률변수를 단지 두가지 결과(성공 혹은 실패)만 갖는 확률과정으로 생각하는 것이 유용하다. 그러면 성공과 실패에 대해 각각 \resp{1} 과 \resp{0} 수치표식을 사용하는 수학적 얼개를 만들 수 있다.
 
-\index{distribution!Bernoulli|)}
+\index{분포!베르누이|)}
 
-\subsection{Geometric distribution}
+\subsection{기하분포}
 
-\index{distribution!geometric|(}
+\index{분포!기하|(}
 
-\begin{example}{Dr. Smith wants to repeat Milgram's experiments but she only wants to sample people until she finds someone who will not inflict the worst shock.\footnote{This is hypothetical since, in reality, this sort of study probably would not be permitted any longer under current ethical standards.} If the probability a person will \emph{not} give the most severe shock is still 0.35 and the subjects are independent, what are the chances that she will stop the study after the first person? The second person? The third? What about if it takes her $n-1$ individuals who will administer the worst shock before finding her first success, i.e. the first success is on the $n^{th}$ person? (If the first success is the fifth person, then we say $n=5$.)} \label{waitForShocker}
+\begin{example}{스미스 박사는 밀그램 실험을 반복하고 싶지만 가장 심한 충격을 가하지 않는 사람을 발견할 때까지만 사람을 표본추출하고자 한다. \footnote{이것은 가상이다. 왜냐하면, 현실에서 이러한 종류의 연구는 아마도 현행 윤리규범 아래에서 허락되지 않을 것이기 때문이다.}
+만약 가장 심각한 충격을 가하지 \emph{않을} 확률이 여전히 0.35 이며 피험자가 독립이라면, 첫번째 피험자에서 연구를 멈출 가능성은 얼마나 되는가? 두번째 피험자? 세번째 피험자? 첫번째 성공을 찾기 전에 가장 심한 충격을 가하는 $n-1$ 피험자를 갖게 되면 어떨까? 즉, 첫번째 성공이 $n^{th}$ 번째 피험자에서 나온다. (만약 첫번째 성공이 다섯번째 피험자에서 나온다면, $n=5$가 된다.)} \label{waitForShocker}
 The probability of stopping after the first person is just the chance the first person will not administer the worst shock: $1-0.65=0.35$. The probability it will be the second person is
 \begin{eqnarray*}
 &&P(\text{second person is the first to not administer the worst shock}) \\
