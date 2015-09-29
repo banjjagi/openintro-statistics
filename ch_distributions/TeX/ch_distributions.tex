@@ -539,35 +539,35 @@ SAT 점수는 평균 $\mu = 1500$ 와 표준편차  $\sigma = 300$을 모수로 
 
 \begin{example}{스미스 박사는 밀그램 실험을 반복하고 싶지만 가장 심한 충격을 가하지 않는 사람을 발견할 때까지만 사람을 표본추출하고자 한다. \footnote{이것은 가상이다. 왜냐하면, 현실에서 이러한 종류의 연구는 아마도 현행 윤리규범 아래에서 허락되지 않을 것이기 때문이다.}
 만약 가장 심각한 충격을 가하지 \emph{않을} 확률이 여전히 0.35 이며 피험자가 독립이라면, 첫번째 피험자에서 연구를 멈출 가능성은 얼마나 되는가? 두번째 피험자? 세번째 피험자? 첫번째 성공을 찾기 전에 가장 심한 충격을 가하는 $n-1$ 피험자를 갖게 되면 어떨까? 즉, 첫번째 성공이 $n^{th}$ 번째 피험자에서 나온다. (만약 첫번째 성공이 다섯번째 피험자에서 나온다면, $n=5$가 된다.)} \label{waitForShocker}
-The probability of stopping after the first person is just the chance the first person will not administer the worst shock: $1-0.65=0.35$. The probability it will be the second person is
+첫번째 피험자 다음에 멈출 확률은 첫번째 피험자가 가장 심한 충격을 가하지 않을 가능성이 된다: $1-0.65=0.35$. 두번째 피험자 확률은 다음과 같다.
 \begin{eqnarray*}
-&&P(\text{second person is the first to not administer the worst shock}) \\
-&&\quad = P(\text{the first will, the second won't}) = (0.65)(0.35) = 0.228
+&&P(\text{두번째 피험자가 가장 심한 충격을 가하지 않을 첫번째 피험자}) \\
+&&\quad = P(\text{첫번째 피험자 가함, 두번째 피험자 가하지 않음}) = (0.65)(0.35) = 0.228
 \end{eqnarray*}
-Likewise, the probability it will be the third person is $(0.65)(0.65)(0.35) = 0.148$.
+마찬가지로, 세번째 피험자 확률은 $(0.65)(0.65)(0.35) = 0.148$ 이 된다.
 
-If the first success is on the $n^{th}$ person, then there are $n-1$ failures and finally 1 success, which corresponds to the probability $(0.65)^{n-1}(0.35)$. This is the same as $(1-0.35)^{n-1}(0.35)$.
+만약 첫번째 성공이 $n^{th}$ 번째 피험자라면, $n-1$ 실패와 최종적 성공 하나가 있는데 상응하는 확률은 $(0.65)^{n-1}(0.35)$ 이 된다. 이것은 $(1-0.35)^{n-1}(0.35)$ 와 같다.
 \end{example}
 
-Example~\ref{waitForShocker} illustrates what is called the geometric distribution, which describes the waiting time until a success for \term{independent and identically distributed (iid)} Bernoulli random variables. In this case, the \emph{independence} aspect just means the individuals in the example don't affect each other, and \emph{identical} means they each have the same probability of success.
+예제~\ref{waitForShocker}는 기하분포를 예시하고 있는데 \term{독립이며 같은 분포를 따르는(iid)}(independent and identically distributed, iid) 베르누이 확률변수에 대해서 성공까지 대기시간을 기술한다. 이 경우에, \emph{독립}(independence) 측면은 예제에 피험자가 서로 영향을 주지 않는다를 의미하고 \emph{같은 분포}(identical)는 각각이 동일한 성공확률을 갖는다는 것을 의미한다.
 
-The geometric distribution from Example~\ref{waitForShocker} is shown in Figure~\ref{geometricDist35}. In general, the probabilities for a geometric distribution decrease \term{exponentially} fast.
+예제~\ref{waitForShocker}에 나온 기하분포가 그림~\ref{geometricDist35}으로 나와있다. 일반적ㅇ르ㅗ, 기하분포 확률은 \term{기하급수적}으로 빠르게 감소한다.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{ch_distributions/figures/geometricDist35/geometricDist35}
-\caption{The geometric distribution when the probability of success is $p=0.35$.}
+\caption{성공확률이 $p=0.35$ 일 때, 기하분포.}
 \label{geometricDist35}
 \end{figure}
 
-While this text will not derive the formulas for the mean (expected) number of trials needed to find the first success or the standard deviation or variance of this distribution, we present general formulas for each.
+교과서에서 이 분포에 대한 첫번째 성공에 필요한 평균 (기대) 시행 횟수, 표준편차, 분산에 대한 공식을 도출하지 않지만, 각각에 대한 일반 공식이 다음에 나와 있다.
 
-\begin{termBox}{\tBoxTitle{Geometric Distribution\index{distribution!geometric|textbf}}
-If the probability of a success in one trial is $p$ and the probability of a failure is $1-p$, then the probability of finding the first success in the $n^{th}$ trial is given by\vspace{-1.5mm}
+\begin{termBox}{\tBoxTitle{기하분포\index{분포!기하|textbf}}
+한번 시행에 대한 성공확률이 $p$ 이고, 실패확률이 $1-p$ 라면, $n^{th}$ 번째 시행에서 첫번째 성공을 나올 확률은 다음으로 주어진다.\vspace{-1.5mm}
 \begin{eqnarray}
 (1-p)^{n-1}p
 \end{eqnarray}
-The mean (i.e. expected value), variance, and standard deviation of this wait time are given by\vspace{-2.5mm}
+대기 시간에 대한 평균 (즉, 기대값), 분산, 표준편차는 다음으로 주어진다.\vspace{-2.5mm}
 \begin{align}
 \mu &= \frac{1}{p}
 	&\sigma^2&=\frac{1-p}{p^2}
@@ -576,50 +576,53 @@ The mean (i.e. expected value), variance, and standard deviation of this wait ti
 \end{align}}
 \end{termBox}
 
-It is no accident that we use the symbol $\mu$ for both the mean and expected value. The mean and the expected value are one and the same.
+평균과 기대값 모두에 대해서 기호 $\mu$를 사용하는 것이 우연은 아니다. 평균과 기대값은 다름 아닌 동일한 것이다.
 
-The left side of Equation~(\ref{geomFormulas}) says that, on average, it takes $1/p$ trials to get a success. This mathematical result is consistent with what we would expect intuitively. If the probability of a success is high (e.g. 0.8), then we don't usually wait very long for a success: $1/0.8 = 1.25$ trials on average. If the probability of a success is low (e.g. 0.1), then we would expect to view many trials before we see a success: $1/0.1 = 10$ trials.
+왼쪽편 방정식~(\ref{geomFormulas})에서 말하는 것은 평균적으로 성공을 얻는데 $1/p$ 시험이 걸린다. 수학적 결과는 직관적으로 예상한 것과 일치한다. 만약 성공 확률이 높다면 (예를 들어, 0.8), 성공하는데 오래 걸리지 않을 것이다: 평균적으로 $1/0.8 = 1.25$ 시행. 만약 성공확률이 낮다면 (예를 들어, 0.1), 성공을 보기까지 많은 시행을 볼 것으로 예상된다: $1/0.1 = 10$ 시행.
 
 \begin{exercise}
-The probability that an individual would refuse to administer the worst shock is said to be about 0.35. If we were to examine individuals until we found one that did not administer the shock, how many people should we expect to check? The first expression in Equation~(\ref{geomFormulas}) may be useful.\footnote{We would expect to see about $1/0.35 = 2.86$ individuals to find the first success.}
+가장 심한 충격을 가하는 것을 거부할 피험자 확률이 약 0.35 다. 만약 충격을 가하지 않을 피험자가 나올때까지 피험자를 조사한다면, 얼마나 많은 피험자를 검사해야 되는가? 방정식~(\ref{geomFormulas})에 나온 첫번째 표현식이 도움이 될 수 있다.
+\footnote{첫번째 성공을 찾아내는데 약 $1/0.35 = 2.86$ 피험자를 볼 것으로 예상된다.}
 \end{exercise}
 
-\begin{example}{What is the chance that Dr. Smith will find the first success within the first 4 people?} \label{marglimFirstSuccessIn4}
-This is the chance it is the first ($n=1$), second ($n=2$), third ($n=3$), or fourth ($n=4$) person as the first success, which are four disjoint outcomes. Because the individuals in the sample are randomly sampled from a large population, they are independent. We compute the probability of each case and add the separate results:
+\begin{example}{
+스미스 박사가 첫 네번째 피험자 중에서 첫 성공이 나올 확률은 얼마인가?} \label{marglimFirstSuccessIn4}
+첫번째 성공이 첫째 피험자($n=1$), 두번째 피험자($n=2$), 세번째 피험자($n=3$), 네번째 피험자($n=4$)에서 나올 확률로 네 사건은 서로 겹치지 않는 결과다. 표본에서 피험자는 매우 큰 모집단에서 무작위로 뽑았기 때문에, 피험자 표본은 독립이다. 각 경우에 대해서 확률을 계산하고 개별 결과를 합한다:
 \begin{eqnarray*}
 &&P(n=1, 2, 3,\text{ or }4) \\
 	&& \quad = P(n=1)+P(n=2)+P(n=3)+P(n=4) \\
 	&& \quad = (0.65)^{1-1}(0.35) + (0.65)^{2-1}(0.35) + (0.65)^{3-1}(0.35) + (0.65)^{4-1}(0.35) \\
 	&& \quad = 0.82
 \end{eqnarray*}
-There is an 82\% chance that she will end the study within 4~people.
+피험자 네명 안에서 연구실험이 끝날 가능성은 82\%가 나온다.
 \end{example}
 
 \begin{exercise}
-Determine a more clever way to solve Example~\ref{marglimFirstSuccessIn4}. Show that you get the same result.\footnote{First find the probability of the complement: $P($no success in first 4~trials$) = 0.65^4 = 0.18$. Next, compute one minus this probability: $1-P($no success in 4 trials$) = 1-0.18 = 0.82$.}
+
+예제~\ref{marglimFirstSuccessIn4}를 푸는 좀더 똑똑한 방법을 알아내시오. 동일한 결과임도 보이시오.
+\footnote{먼저 여사건 확률을 알아낸다: $P($첫 4번 시행에서 미성공$) = 0.65^4 = 0.18$. 다음으로, 1 에서 계산한 확률을 뺀다: $1-P($첫 4번 시행에서 미성공$) = 1-0.18 = 0.82$.}
 \end{exercise}
 
-\begin{example}{Suppose in one region it was found that the proportion of people who would administer the worst shock was ``only'' 55\%. If people were randomly selected from this region, what is the expected number of people who must be checked before one was found that would be deemed a success? What is the standard deviation of this waiting time?} \label{onlyShocking55PercOfTheTimeExample}
-A success is when someone will \textbf{not} inflict the worst shock, which has probability $p=1-0.55=0.45$ for this region. The expected number of people to be checked is $1/p = 1/0.45 = 2.22$ and the standard deviation is $\sqrt{(1-p)/p^2} = 1.65$.
+\begin{example}{어떤 지역에서 가장 심한 충격을 가하는 피험자 비율이 ``단지'' 55\%만 된다고 가정하자. 만약 해당 지역에서 피험자를 무작위로 뽑는다면, 성공으로 간주되는 피험자를 찾기 전에 검사해야되는 피험자 예상 숫자는 얼마인가? 대기시간에 대한 표준편차는 얼마인가?} \label{onlyShocking55PercOfTheTimeExample}
+성공은 피험자가 가장 심한 충격을 가하지 \textbf{않을} 때로, 해당 지역에 대해 $p=1-0.55=0.45$ 확률을 갖는다. 검사해야 되는 피험자 숫자는 $1/p = 1/0.45 = 2.22$ 이고, 표준편차는 $\sqrt{(1-p)/p^2} = 1.65$ 이 된다.
 \end{example}
 
 \begin{exercise}
-Using the results from Example~\ref{onlyShocking55PercOfTheTimeExample}, $\mu = 2.22$ and $\sigma = 1.65$, would it be appropriate to use the normal model to find what proportion of experiments would end in 3 or fewer trials?\footnote{No. The geometric distribution is always right skewed and can never be well-approximated by the normal model.}
+예제~\ref{onlyShocking55PercOfTheTimeExample}에서 나온 $\mu = 2.22$ 와 $\sigma = 1.65$ 결과를 사용해서 3 혹은 적은 시행으로 끝날 실험 비율을 찾는데 정규모형을 사용하는 것이 적절한가?\footnote{아니다. 기하분포는 항상 우측으로 기울어져있고, 결코 정규분포로 잘 근사될 수 없다.}
 \end{exercise}
 
-The independence assumption is crucial to the geometric distribution's accurate description of a scenario. Mathematically, we can see that to construct the probability of the success on the $n^{th}$ trial, we had to use the Multiplication Rule for Independent Processes. It is no simple task to generalize the geometric model for dependent trials.
+독립 가정이 기하분포의 정확한 시나리오 기술에 매우 중요하다. 수학적으로, $n^{th}$ 번째 시행에 성공확률을 만들어내는데 독립 확률과정에 대한 곱셈정리를 사용해야 됐다. 의존성이 있는 시행에 대한 기하모형을 일반화하는 것은 단순한 작업이 아니다.
 
 %\begin{exercise}
 %The independence assumption is crucial to the geometric distribution's accurate description of a scenario. Why?\footnote{Independence simplified the situation. Mathematically, we can see that to construct the probability of the success on the $n^{th}$ trial, we had to use the Multiplication Rule for Independent processes. It is no simple task to generalize the geometric model for dependent trials.}
 %\end{exercise}
-\index{distribution!geometric|)}
+\index{분포!기하|)}
 
 
-
-\section{Binomial distribution (special topic)}
+\section{이항 분포 (특별 주제)}
 \label{binomialModel}
 
-\index{distribution!binomial|(}
+\index{분포!이항|(}
 
 \begin{example}{Suppose we randomly selected four individuals to participate in the ``shock" study. What is the chance exactly one of them will be a success?  Let's call the four people Allen ($A$), Brittany ($B$), Caroline ($C$), and Damian ($D$) for convenience. Also, suppose 35\% of people are successes as in the previous version of this example.}\label{oneRefuser}
 Let's consider a scenario where one person refuses:
