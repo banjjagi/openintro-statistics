@@ -362,109 +362,118 @@ SAT 점수가 1500 -- 2000 사이 수험생은 몇 퍼센트인가? \footnote{�
 
 \begin{exercise}
 Z-표를 사용해서 약 68\%, 95\%, 99.7\% 관측점이 정규분포에서 평균의 표준편차 1,2,3 안에 포진하는 것을 검증하라. 예를 들어, 먼저 $Z=-1$ 와 $Z=1$ 사이 포진될 영역을 먼저 찾는다. 약 0.68 면적을 차지한다. 유사하게 $Z=-2$ 와 $Z=2$ 사이는 약 0.95 면적이 되어야 한다.
-\footnote{First draw the pictures. To find the area between $Z=-1$ and $Z=1$, use the normal probability table to determine the areas below $Z=-1$ and above $Z=1$. Next verify the area between $Z=-1$ and $Z=1$ is about 0.68. Repeat this for $Z=-2$ to $Z=2$ and also for $Z=-3$ to $Z=3$.}
+\footnote{
+도식화를 먼저한다. $Z=-1$ and $Z=1$ 사이 영역을 알아내기 위해서, 정규확률표를 사용해서 $Z=-1$ 아래 영역을 알아낸다. 다음으로, $Z=-1$ -- $Z=1$ 사이 면적이 약 0.68 이 됨을 검증한다. $Z=-2$ -- $Z=2$ 에 대해서도 이 과정을 반복한다. $Z=-3$ -- $Z=3$ 에 대해서도 마찬가지다.}
 \end{exercise}
 
-It is possible for a normal random variable to fall 4,~5, or~even more standard deviations from the mean. However, these occurrences are very rare if the data are nearly normal. The probability of being further than 4 standard deviations from the mean is about 1-in-30,000. For 5 and 6 standard deviations, it is about 1-in-3.5 million and 1-in-1 billion, respectively.
+정규확률변수가 평균으로부터 표준편차 4, 5 혹은 더 큰 값에 속하는 것도 가능하다. 하지만, 데이터가 거의 정규분포를 따른다면 이러한 출현은 매우 드물다. 평균에서 4 표준편차 보다 더 멀리 있을 확률은 약 30,000 가지 사례 중 하나가 된다. 표준편차 5, 6에 대해서 각각 약 3백5십만 중에 하나, 10억중에 하나가 된다.
 
 \begin{exercise}
-SAT scores closely follow the normal model with mean $\mu = 1500$ and standard deviation $\sigma = 300$. (a) About what percent of test takers score 900 to 2100? (b) What percent score between 1500 and 2100?\footnote{(a) 900 and 2100 represent two standard deviations above and below the mean, which means about 95\% of test takers will score between 900 and 2100. (b)~Since the normal model is symmetric, then half of the test takers from part~(a) ($\frac{95\%}{2} = 47.5\%$ of all test takers) will score 900 to 1500 while 47.5\% score between 1500 and 2100.}
+SAT 점수는 평균 $\mu = 1500$ 와 표준편차  $\sigma = 300$을 모수로 근사하게 정규분포를 따른다. (a) 900 -- 2100 사이 점수를 받는 수험생은 몇 퍼센트인가? (b) 1500 -- 2100 사이 점수를 받는 수험생은 몇 퍼센트인가?
+\footnote{900 과 2100 점은 평균 위 아래 2 표준편차를 나타낸다. 이것이 의미하는 것은 약 수험생 95\%가 900 -- 2100 사이 점수를 받는 것이다. (b) 정규모형은 좌우대칭이기 때문에, (a) (수험생의 $\frac{95\%}{2} = 47.5\%$) 의 수험생 절반이 900 -- 1500 점을 받을 것인 반면에, 
+수험생 47.5\%는 1500 -- 2100 점을 받을 것이다.}
 \end{exercise}
 
 %_________________
-\section{Evaluating the normal approximation}
+\section{정규분포 근사를 평가하기}
 \label{assessingNormal}
 
-Many processes can be well approximated by the normal distribution. We have already seen two good examples: SAT scores and the heights of US adult males. While using a normal model can be extremely convenient and helpful, it is important to remember normality is always an approximation. Testing the appropriateness of the normal assumption is a key step in many data analyses.
+많은 확률과정을 정규분포로 잘 근사할 수 있다. 이미 좋은 예제 두개를 살펴봤다: SAT 점수, 미국성인 남자 신장. 정규모형을 사용하는 것이 극단적으로 편리하고 도움이 되지만, 정규성(normality)은 항상 근사(approximation)라는 것을 기억하는 것이 중요하다. 정규분포 가정의 적합성을 시험하는 것이 많은 자료분석에서 중요한 단계다.
 
-\index{normal probability plot|(}
+\index{정규확률그림|(}
 
-Example~\ref{normalExam40Perc} suggests the distribution of heights of US males is well approximated by the normal model. We are interested in proceeding under the assumption that the data are normally distributed, but first we must check to see if this is reasonable.
+예제~\ref{normalExam40Perc}는 미국 남성 신장 분포가 정규모형으로 잘 근사됨을 제시한다. 데이터가 정규분포를 따른다는 가정아래에서 작업을 추진하는데 관심이 있지만, 데이터 정규성 가정이 일리가 있는지 먼저 점검해야만 된다.
 
-There are two visual methods for checking the assumption of normality, which can be implemented and interpreted quickly. The first is a simple histogram with the best fitting normal curve overlaid on the plot, as shown in the left panel of Figure~\ref{fcidMHeights}. The sample mean $\bar{x}$ and standard deviation $s$ are used as the parameters of the best fitting normal curve. The closer this curve fits the histogram, the more reasonable the normal model assumption. Another more common method is examining a \term{normal probability plot},\footnote{Also commonly called a \term{quantile-quantile plot}.} shown in the right panel of Figure~\ref{fcidMHeights}. The closer the points are to a perfect straight line, the more confident we can be that the data follow the normal model.
+정규성 가정을 점검하는 시각적 방법이 두가지 있는데 모두 신속하게 구현되고 해석될 수 있다. 첫번째 방법은 그림~\ref{fcidMHeights} 왼쪽 패널에 나와있듯이, 단순 히스토그램과 데이터를 가장 잘 적합하는 정규곡선을 겹치는 것이다. 표본평균 $\bar{x}$ 와 표준편차 $s$를 정규곡선을 가장 잘 적합하는 모수로 사용한다. 곡선이 히스토그램과 더 가까울수록 정규모형가정에 더 타당성이 간다. 또다른 좀더 일반적인 방법은 그림~\ref{fcidMHeights} 오른쪽 패널에 나온 \term{정규확률그림}(normal probability plot)을 조사하는 것이다.\footnote{\term{분위수-분위수 그림}(quantile-quantile plot)으로도 흔히 불린다.} 점들이 직선에 더 가까이 위치할수록, 데이터가 정규모형을 따른다는 확신을 갖을 수 있다.
 
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{ch_distributions/figures/fcidMHeights/fcidMHeights}
-\caption{A sample of 100 male heights. The observations are rounded to the nearest whole inch, explaining why the points appear to jump in increments in the normal probability plot.}
+\caption{남성 100명 신장 표본. 관측점은 가장가까운 정수 인치로 반올림했다. 따라서, 정규확률그림에서 점들이 증가할 때 점프하는 것처럼 보이는 것이 설명된다.}
 \label{fcidMHeights}
 \end{figure}
 
 \textC{\newpage}
 
-\begin{example}{Three data sets of 40, 100, and 400 samples were simulated from a normal distribution, and the histograms and normal probability plots of the data sets are shown in Figure~\ref{normalExamples}. These will provide a benchmark for what to look for in plots of real data.} \label{normalExamplesExample}
+\begin{example}{정규분포에서 모의실험을 위해 표본 40, 100, 400을 추출해서 데이터셋 3개를 만들었다. 표본 데이터셋에 대한 히스토그램과 정규확률그림이 그림~\ref{normalExamples}에 나와있다. 실제 데이터를 그림으로 나타낼 때 이것이 좋은 벤치마크가 될 것이다.} \label{normalExamplesExample}
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ch_distributions/figures/normalExamples/normalExamples}
-\caption{Histograms and normal probability plots for three simulated normal data sets; $n=40$ (left), $n=100$ (middle), $n=400$ (right).}
+\caption{정규분포에서 모의실험한 3가지 데이터셋에 대한 히스토그램과 정규확률그림; $n=40$ (왼쪽), $n=100$ (가운데), $n=400$ (우측).}
 \label{normalExamples}
 \end{figure}
 
-The left panels show the histogram (top) and normal probability plot (bottom) for the simulated data set with 40 observations. The data set is too small to really see clear structure in the histogram. The normal probability plot also reflects this, where there are some deviations from the line. We should expect deviations of this amount for such a small data set.
+관측점 40개로 구성된 모의실험 데이터셋에 대한 히스토그램(위쪽)과 정규확률그림(아래쪽)이 왼쪽 패널에 나와있다. 데이터셋이 너무 작어서 히스토그램에서 명확한 구조를 볼 수는 없다. 정규확률그림도 이런 점을 반영하고 있다. 직선에서 일부 편차가 보인다. 이러한 작은 데이터셋에 대해 이러한 편차는 예상된다.
 
-The middle panels show diagnostic plots for the data set with 100 simulated observations. The histogram shows more normality and the normal probability plot shows a better fit. While there are a few observations that deviate noticeably from the line, they are not particularly extreme.
+관측점 100개로 구성된 모의실험 데이터셋에 대한 진단 그림이 중간 패널에 나와있다. 히스토그램이 정규성을 좀더 보여주고 있고, 정규확률그림도 더 좋은 적합을 보여주고 있다. 직선에서 눈에 띄는 편차를 보는 관측점이 일부 있지만, 이런 관측점이 특별히 극단적이지는 않다. 
 
-The data set with 400 observations has a histogram that greatly resembles the normal distribution, while the normal probability plot is nearly a perfect straight line. Again in the normal probability plot there is one observation (the largest) that deviates slightly from the line. If that observation had deviated 3 times further from the line, it would be of greater importance in a real data set. Apparent outliers can occur in normally distributed data but they are rare.
+관측점 400개로 구성된 데이터셋은 정규분포와 매우 닮은 히스토그램을 보여주고, 정규확률그림도 거의 완벽한 직선이다. 정규확률그림에서 직선에서 약간 편차를 보이는 (가장 큰) 관측점이 하나 있다. 만약 관측점이 직선에서 떨어져 3배 편차를 갖는다면, 실제 데이터셋에서 매우 중요하다. 명백한 이상점이 정규분포된 데이터에서 발생할 수 있지만 드물다.
 
-Notice the histograms look more normal as the sample size increases, and the normal probability plot becomes straighter and more stable.
+히스토그램은 표본크기가 증가함에 따라 좀더 정규분포를 닮아가고, 정규확률그림도 더 직선에 가까워지고 안정된 모습이 되어감에 주목한다.
+
 \end{example}
 
 \textC{\pagebreak}
 
-\begin{example}{Are NBA player heights normally distributed? Consider all 435 NBA players from the 2008-9 season presented in Figure~\ref{nbaNormal}.\footnote{These data were collected from \oiRedirect{textbook-nba_com}{www.nba.com}.}}
-We first create a histogram and normal probability plot of the NBA player heights. The histogram in the left panel is slightly left skewed, which contrasts with the symmetric normal distribution. The points in the normal probability plot do not appear to closely follow a straight line but show what appears to be a ``wave''. We can compare these characteristics to the sample of 400 normally distributed observations in Example~\ref{normalExamplesExample} and see that they represent much stronger deviations from the normal model. NBA player heights do not appear to come from a normal distribution.
+\begin{example}{NBA 농구선수 신장은 정규분포를 따르는가? 그림~\ref{nbaNormal}에 나타난 2008-9 시즌 NBA 농구선수 435 명을 생각해보자.\footnote{데이터 출처 \oiRedirect{textbook-nba_com}{www.nba.com}.}}
+먼저 NBA 농구선수 신장에 대한 히스토그램과 정규확률그림을 생성한다. 왼쪽 패널에 히스토그램은 다소 왼쪽으로 치우쳤는데, 좌우대칭인 정규분포와 대조된다. 정규확률그림에 점들이 직선에 가까이 위치하지 않고 ``물결(wave)''이 있는 것처럼 보인다. 이런 특성과 예제~\ref{normalExamplesExample}의 정규분포에서 나온 400개 표본 관측점과 비교하면 좀더 강하게 정규모형에서 벗어난 것을 보게된다. NBA 농구선수신장은 정규분포에서 나온 것 같지 않다.
 \end{example}
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ch_distributions/figures/nbaNormal/nbaNormal}
-\caption{Histogram and normal probability plot for the NBA heights from the 2008-9 season.}
+\caption{2008-9 시즌 NBA 농구선수 신장에 대한 히스토그램과 정규확률그림.}
 \label{nbaNormal}
 \end{figure}
 
-\begin{example}{Can we approximate poker winnings by a normal distribution? We consider the poker winnings of an individual over 50 days. A histogram and normal probability plot of these data are shown in Figure~\ref{pokerNormal}.}
-The data are very strongly right skewed\index{skew!example: very strong} in the histogram, which corresponds to the very strong deviations on the upper right component of the normal probability plot. If we compare these results to the sample of 40 normal observations in Example~\ref{normalExamplesExample}, it is apparent that these data show very strong deviations from the normal model.
+\begin{example}{
+정규분포로 포커 승리를 근사할 수 있을까? 50일에 걸치 한 포커 승부사 승리를 생각해보자. 이 데이터에 대한 히스토그램과 정규확률그림이 그림~\ref{pokerNormal}에 나와있다.}
+히스토그램에 데이터는 강하게 우측으로 기울어져 있는데, 정규확률그림의 우측 상단에 강하게 벗어난 것에 상응한다. 만약 예제~\ref{normalExamplesExample}에서 나온 정규분포 40개 표본 관측점과 비교한다면, 포커승리 데이터는 매우 강하게 정규모형에서 벗어난 것처럼 보인다.
 \end{example}
 
 \begin{figure}
 \centering
 \includegraphics[width=\textwidth]{ch_distributions/figures/pokerNormal/pokerNormal}
-\caption{A histogram of poker data with the best fitting normal plot and a normal probability plot.}
+\caption{포커 데이터에 대한 최고 적합 정규 곡선을 갖는 히스토그램과 정규확률그림.}
 \label{pokerNormal}
 \end{figure}
 
 \begin{exercise}\label{normalQuantileExercise}
-Determine which data sets represented in Figure~\ref{normalQuantileExer} plausibly come from a nearly normal distribution. Are you confident in all of your conclusions? There are 100 (top left), 50 (top right), 500 (bottom left), and 15 points (bottom right) in the four plots.\footnote{Answers may vary a little. The top-left plot shows some deviations in the smallest values in the data set; specifically, the left tail of the data set has some outliers we should be wary of. The top-right and bottom-left plots do not show any obvious or extreme deviations from the lines for their respective sample sizes, so a normal model would be reasonable for these data sets. The bottom-right plot has a consistent curvature that suggests it is not from the normal distribution. If we examine just the vertical coordinates of these observations, we see that there is a lot of data between -20 and 0, and then about five observations scattered between 0 and 70. This describes a distribution that has a strong right skew.}
+그림~\ref{normalQuantileExer}에서 어느 데이터셋이 그럴듯하게 거의 정규분포에서 나온 것 같은지 알아내시오. 여러분은 본인이 내린 결론에 대해 모두 확신을 갖나요? 네개 그림에서는 각각 100 (좌측 상단), 50 (우측 상단), 500 (좌측 하단), 15 (좌측 하단)개 점이 있다.
+\footnote{정답은 약간 다를 수 있다. 
+좌측상단 그림은 데이터셋에 가장 작은 값에서 일부 이탈이 보인다; 구체적으로 데이터셋 왼쪽 꼬리는 유의해야 되는 이상점이 있다. 우측상단과 좌측하단 그림은 각각의 표본크기에 대한 직선에서 명백하거나 극단적인 이탈이 보여지지 않는다. 따라서 정규모형이 데이터셋에 대해서 타당해보인다. 우측하단 그림에 일관된 곡률(curvature)이 있는데 정규분포에서 나오지 않음을 제시한다. 만약 관측점 수직좌표만 면밀히 살펴본다면, -20 -- 0 사이 데이터가 몰려있고, 0 -- 70 사이 관측점이 5개가 흩어져 있음을 보게 된다. 이런 사실이 우측으로 매우 강하게 기울어진 분포임을 기술하고 있다.}
 \end{exercise}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{ch_distributions/figures/normalQuantileExer/normalQuantileExer}
-\caption{Four normal probability plots for Guided Practice~\ref{normalQuantileExercise}.}
+\caption{Guided Practice~\ref{normalQuantileExercise}에 대한 정규확률그림 4개.}
 \label{normalQuantileExer}
 \end{figure}
 
 %When observations spike downwards on the left side of a normal probability plot, it means the data have more outliers in the left tail than we'd expect under a normal distribution. When observations spike upwards on the right side, it means the data have more outliers in the right tail than what we'd expect under the normal distribution.
 
 \begin{exercise} \label{normalQuantileExerciseAdditional}
-Figure~\ref{normalQuantileExerAdditional} shows normal probability plots for two distributions that are skewed. One distribution is skewed to the low end (left skewed) and the other to the high end (right skewed). Which is which?\footnote{Examine where the points fall along the vertical axis. In the first plot, most points are near the low end with fewer observations scattered along the high end; this describes a distribution that is skewed to the high end. The second plot shows the opposite features, and this distribution is skewed to the low end.}
+그림~\ref{normalQuantileExerAdditional}에 기울어진 분포 두개에 대한 정규확률그림이 나와있다. 한 분포는 아래쪽(좌측으로 기움)으로 다른 분포는 위쪽(우측으로 기움)으로 기울어졌다. 어느 분포가 어는 것인가?
+\footnote{
+점들이 수직축을 따라 어떻게 위치하는지 면밀히 조사한다. 첫번째 그림에서, 대부분의 점은 아래쪽에 위쪽에 적은 관측점이 산재되어 있다; 위쪽으로 기울어진 분포를 기술한다. 두번째 그림은 정반대 면을 보여주고 있다. 분포가 아래쪽으로 기울어져 있다.}
 \end{exercise}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{ch_distributions/figures/normalQuantileExer/normalQuantileExerAdditional}
-\caption{Normal probability plots for Guided Practice~\ref{normalQuantileExerciseAdditional}.}
+\caption{Guided Practice~\ref{normalQuantileExerciseAdditional}에 대한 정규확률그림.}
 \label{normalQuantileExerAdditional}
 \end{figure}
 
 
-\index{normal probability plot|)}
-\index{distribution!normal|)}
+\index{정규확률그림|)}
+\index{분포!정규|)}
 
 
 %_________________
-\section{Geometric distribution (special topic)}
+\section{기하분포 (특별 주제)}
 \label{geomDist}
 
 How long should we expect to flip a coin until it turns up \resp{heads}? Or how many times should we expect to roll a die until we get a \resp{1}? These questions can be answered using the geometric distribution. We first formalize each trial -- such as a single coin flip or die toss -- using the Bernoulli distribution, and then we combine these with our tools from probability (Chapter~\ref{probability}) to construct the geometric distribution.
