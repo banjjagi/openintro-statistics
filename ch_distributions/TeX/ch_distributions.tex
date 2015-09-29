@@ -740,34 +740,40 @@ $(0.35)^3(0.65)^5 \approx 0.005$을 사용해서, 최종 확률은 약 $56*0.005
 \end{tipBox}
 
 \begin{exercise}
-If you ran a study and randomly sampled 40 students, how many would you expect to refuse to administer the worst shock? What is the standard deviation of the number of people who would refuse? Equation~(\ref{binomialStats}) may be useful.\footnote{We are asked to determine the expected number (the mean) and the standard deviation, both of which can be directly computed from the formulas in Equation~(\ref{binomialStats}): $\mu=np = 40\times 0.35 = 14$ and $\sigma = \sqrt{np(1-p)} = \sqrt{40\times 0.35\times 0.65} = 3.02$. Because very roughly 95\% of observations fall within 2 standard deviations of the mean (see Section~\ref{variability}), we would probably observe at least 8 but less than 20 individuals in our sample who would refuse to administer the shock.}
+만약 연구를 실행하고 무작위로 피험자 학생 40명을 뽑았다면, 얼마나 많은 학생이 가장 심한 충격을 가하는 것을 거절할 것으로 예상하는가? 거절할 피험자 학생 숫자에 대한 표준편차는 얼마인가? 방정식~(\ref{binomialStats})이 유용할 것이다. 
+\footnote{질문은 기대값(평균)과 표준편차를 구하는 것으로 둘다 방정식~(\ref{binomialStats})에 나온 공식으로 직접 계산할 수 있다: $\mu=np = 40\times 0.35 = 14$ 와 $\sigma = \sqrt{np(1-p)} = \sqrt{40\times 0.35\times 0.65} = 3.02$. 
+대략 관측점 95\%가 평균에 대해 표준편차 2 안에 포진하기 때문에 (\ref{variability}~절 참조), 충격을 가하길 거부할 피험자는 적어도 8명 하지만 20명보다는 적은 수를 아마도 관측할 것이다.}
 \end{exercise}
 
 \begin{exercise}
-The probability that a random smoker will develop a severe lung condition in his or her lifetime is about $0.3$. If you have 4 friends who smoke, are the conditions for the binomial model satisfied?\footnote{One possible answer: if the friends know each other, then the independence assumption is probably not satisfied. For example, acquaintances may have similar smoking habits.}
+무작위로 선택된 흡연자가 일생동안 중증 폐질환으로 발전할 확률은 약 0.3 이다. 만약 흡연하는 친구 4명이 있다면, 이항모형을 적용할 조건이 만족되는가? \footnote{가능한 정답: 만약 친구가 서로 잘 알고 있다면, 독립성 가정은 아마도 충족되지 못한다. 예를 들어, 친분이 있으면 유사한 흡연 습관을 갖을 수도 있다.}
 \end{exercise}
 
 \begin{exercise}
 \label{noMoreThanOneFriendWSevereLungCondition}%
-Suppose these four friends do not know each other and we can treat them as if they were a random sample from the population. Is the binomial model appropriate? What is the probability that (a) none of them will develop a severe lung condition? (b) One will develop a severe lung condition? (c) That no more than one will develop a severe lung condition?\footnote{To check if the binomial model is appropriate, we must verify the conditions. (i) Since we are supposing we can treat the friends as a random sample, they are independent. (ii) We have a fixed number of trials ($n=4$). (iii) Each outcome is a success or failure. (iv) The probability of a success is the same for each trials since the individuals are like a random sample ($p=0.3$ if we say a ``success'' is someone getting a lung condition, a morbid choice). Compute parts (a) and (b) from the binomial formula in Equation~\eqref{binomialFormula}: $P(0) =  {4 \choose 0} (0.3)^0 (0.7)^4 = 1\times1\times0.7^4 = 0.2401$, $P(1) = {4 \choose 1} (0.3)^1(0.7)^{3} = 0.4116$. Note: $0!=1$, as shown on page~\pageref{zeroFactorial}. Part (c) can be computed as the sum of parts (a) and (b): $P(0) + P(1) = 0.2401 + 0.4116 = 0.6517$. That is, there is about a 65\% chance that no more than one of your four smoking friends will develop a severe lung condition.}
+친구 네명은 서로를 알지 못하고, 모집단에서 나온 무작위 표본인 것처럼 처리한다고 가정하자. 이항 모형이 적절한가? (a) 친구 중 어느 누구도 중증 폐질환으로 발전한지 않을 확률은 얼마인가? (b) 친구 한명이 중증 폐질환으로 발전할 확률은 얼마인가? (c) 1명 이상 심각한 폐질환으로 발전하지 않을 확률은 얼마인가?
+\footnote{이항모형이 적절한지 점검하려면, 다음 조건이 만족되어야 한다. (i) 친구를 무작위 표본으로 처리한다고 가정했기 때문에, 표본은 독립이다. (ii) 고정된 시행 횟수가 있다($n=4$). (iii) 결과 각각은 성공 혹은 실패다. (iv) 성공 확률은 각 시행마다 같다. 왜냐하면 각 개인은 무작위 표본과 같다 (``성공''이 누군가 폐질환을 얻는 병리학적 선택이면 $p=0.3$). 방정식~\eqref{binomialFormula}에 나온 이항공식에서 (a)와 (b)를 계산한다: $P(0) =  {4 \choose 0} (0.3)^0 (0.7)^4 = 1\times1\times0.7^4 = 0.2401$, $P(1) = {4 \choose 1} (0.3)^1(0.7)^{3} = 0.4116$. 주목: $0!=1$. (c)는 (a)와 (b) 합으로 계산될 수 있다: $P(0) + P(1) = 0.2401 + 0.4116 = 0.6517$. 즉, 네명의 흡연하는 친구 중 한명이상 중증 폐질환으로 발전하지 않을 확률이 약 65\%가 된다.}
 \end{exercise}
 
 \begin{exercise}
-What is the probability that at least 2 of your 4 smoking friends will develop a severe lung condition in their lifetimes?\footnote{The complement (no more than one will develop a severe lung condition) as computed in Guided Practice~\ref{noMoreThanOneFriendWSevereLungCondition} as 0.6517, so we compute one minus this value: 0.3483.}
+친구 네명 중에서 적어도 2명이 일생동안 중증 폐질환으로 발전할 확률은 얼마인가?
+\footnote{Guided Practice~\ref{noMoreThanOneFriendWSevereLungCondition}에서 0.6517로 계산된 값의 여확률 (한명이상 중증 폐질환으로 발전하지 않는다). 그래서 $1 - 0.6517$을 계산한다: 0.3483.}
 \end{exercise}
 
 \begin{exercise}
-Suppose you have 7 friends who are smokers and they can be treated as a random sample of smokers. (a) How many would you expect to develop a severe lung condition, i.e. what is the mean? (b) What is the probability that at most 2 of your 7 friends will develop a severe lung condition.\footnote{(a)~$\mu=0.3\times7 = 2.1$. (b)~$P($0, 1, or 2 develop severe lung condition$) = P(k=0) + P(k=1)+P(k=2) = 0.6471$.}
+흡연하는 친구 7명이 있는데 무작위 흡연자 표본으로 처리할 수 있다고 가정하자. (a) 중증 폐질환으로 발전할 것으로 예상되는 친구는 몇명인가? 즉, 평균이 얼마인가? (b) 7명 친구중에 많아봐야 2명이 중증 폐질환으로 발전할 확률은 얼마인가?\footnote{(a)~$\mu=0.3\times7 = 2.1$. (b)~$P($친구 0명, 혹은  1명, 혹은 2명이 중증 폐질환으로 발전 $) = P(k=0) + P(k=1)+P(k=2) = 0.6471$.}
 \end{exercise}
 
-Next we consider the first term in the binomial probability, $n$ choose $k$ under some special scenarios.
+다음으로, 이항확률에서 첫번째 항을 고려해보자. 첫번째 항은 특정 시나리오 아래에서 ``$n$ choose $k$''다.
 
 \begin{exercise}
-Why is it true that ${n \choose 0}=1$ and ${n \choose n}=1$ for any number $n$?\footnote{Frame these expressions into words. How many different ways are there to arrange 0 successes and $n$ failures in $n$ trials? (1 way.) How many different ways are there to arrange $n$ successes and 0 failures in $n$ trials? (1 way.)}
+임의 숫자 $n$에 대해서 ${n \choose 0}=1$ 와 ${n \choose n}=1$이 왜 참인가?
+\footnote{수학 표현식을 말로 표현한다. $n$번 시행에서 0번 성공하고 $n$번 실패하는 다른 방법이 얼마나 될까? (1 방법) $n$번 시행에서 $n$번 성공하고 0번 실패하는 다른 방법이 얼마나 될까? (1 방법) }
 \end{exercise}
 
 \begin{exercise}
-How many ways can you arrange one success and $n-1$ failures in $n$ trials? How many ways can you arrange $n-1$ successes and one failure in $n$ trials?\footnote{One success and $n-1$ failures: there are exactly $n$ unique places we can put the success, so there are $n$ ways to arrange one success and $n-1$ failures. A similar argument is used for the second question. Mathematically, we show these results by verifying the following two equations:
+$n$번 시행에서 1번 성공하고 $n-1$번 실패하는 방법을 얼마나 마련할 수 있을까? $n$번 시행에서 $n-1$번 성공하고 1번 실패하는 방법을 얼마나 마련할 수 있을까?\footnote{1번 성공과 $n-1$번 실패: 
+성공을 놓을 수 있는 유일한 장소가 정확하게 $n$개 있다. 그래서 1번 성공 $n-1$번 실패를 마련하는 방법은 $n$번 있다. 두번째 질문에도 유사한 논리전개를 펼 수 있다. 수학적으로, 다음 두 방정식을 확인하고 결과를 제시한다:
 \begin{eqnarray*}
 {n \choose 1} = n, \qquad {n \choose n-1} = n
 \end{eqnarray*}}
@@ -776,9 +782,9 @@ How many ways can you arrange one success and $n-1$ failures in $n$ trials? How 
 \CalculatorVideos{calculations for the binomial coefficient and binomial formula}
 
 
-\subsection{Normal approximation to the binomial distribution}
+\subsection{이항분포에 대한 정규 근사}
 
-\index{distribution!binomial!normal approximation|(}
+\index{분포!이항!정규 근사|(}
 
 The binomial formula is cumbersome when the sample size ($n$) is large, particularly when we consider a range of observations. In some cases we may use the normal distribution as an easier and faster way to estimate binomial probabilities.
 
