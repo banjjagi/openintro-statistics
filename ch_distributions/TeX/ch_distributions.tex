@@ -786,130 +786,142 @@ $n$번 시행에서 1번 성공하고 $n-1$번 실패하는 방법을 얼마나 
 
 \index{분포!이항!정규 근사|(}
 
-The binomial formula is cumbersome when the sample size ($n$) is large, particularly when we consider a range of observations. In some cases we may use the normal distribution as an easier and faster way to estimate binomial probabilities.
+표본크기($n$)가 크고, 특히 관측점이 넓은 범위를 가질 때 이항공식이 성가시다. 이항확률을 추정하는 더 쉽고 빠른 방법으로 정규분포를 일부 경우에 사용할 수도 있다.
 
-\begin{example}{Approximately 20\% of the US population smokes cigarettes. A local government believed their community had a lower smoker rate and commissioned a survey of 400 randomly selected individuals. The survey found that only 59 of the 400 participants smoke cigarettes. If the true proportion of smokers in the community was really 20\%, what is the probability of observing 59 or fewer smokers in a sample of 400 people?}\label{exactBinomialForN400P20SmokerExample}
-We leave the usual verification that the four conditions for the binomial model are valid as an exercise.
+\begin{example}{
+근사적으로 미국 인구 20\%가 흡연을 한다. 지방정부가 해당 지자체는 더 낮은 흡연율이라고 믿고서 무작위로 400 명을 뽑는 조사를 시작했다. 조사결과 참가자 400 명 중에서  59명이 흡연자라는 것을 알아냈다. 만약 지자체에 진정한 흡연자 비율이 20\%라면, 표본 400 명 중에서 59 명 혹은 그보다 적은 흡연자를 관측할 확률은 얼마인가? }\label{exactBinomialForN400P20SmokerExample}
+이항모형 적용을 위한 네가지 조건에 타당성 검증은 연습문제로 남겨둔다.
 
-The question posed is equivalent to asking, what is the probability of observing $k=0$, 1, ..., 58, or 59 smokers in a sample of $n=400$ when $p=0.20$? We can compute these 60 different probabilities and add them together to find the answer:
+제시된 문제는 $p=0.20$일 때, $n=400$ 표본 중에서 $k=0$, 1, ..., 58, 59을 관측할 확률이 얼마인가를 묻는 것과 같다. 60개 다른 확률을 계산하고 모두 더해서 정답을 찾는다:
+
 \begin{align*}
 &P(k=0\text{ or }k=1\text{ or }\cdots\text{ or } k=59) \\
 	&\qquad= P(k=0) + P(k=1) + \cdots + P(k=59) \\
 	&\qquad=0.0041
 \end{align*}
-If the true proportion of smokers in the community is $p=0.20$, then the probability of observing 59 or fewer smokers in a sample of $n=400$ is less than 0.0041.
+만약 지자체 흡연자 비율이 정말 $p=0.20$이라면, $n=400$ 표본에서  59 명 혹은 그보다 적은 흡연자를 관측할 확률은 0.0041 보다 작다.
 \end{example}
 
-The computations in Example~\ref{exactBinomialForN400P20SmokerExample} are tedious and long. In general, we should avoid such work if an alternative method exists that is faster, easier, and still accurate. Recall that calculating probabilities of a range of values is much easier in the normal model. We might wonder, is it reasonable to use the normal model in place of the binomial distribution? Surprisingly, yes, if certain conditions are met.
+예제~\ref{exactBinomialForN400P20SmokerExample}에 나온 계산을 지루하고 길다. 일반적으로, 더 신속하고, 편하고, 그럼에도 정확한 대안 방법이 존재한다면, 이런 작업을 피해야만 한다. 일정 범위의 값을 갖는 확률을 계산하는 것이 정규모형에서는 훨씬 더 쉽다는 것을 상기하라. 이항분포 대신에 정규모형을 사용하는 것에 타당성이 있는지 궁금증을 가질 수도 있다. 놀랍게도, 특정 조건이 만족되면 그렇다. 
 
 \begin{exercise}
-Here we consider the binomial model when the probability of a success is $p=0.10$. Figure~\ref{fourBinomialModelsShowingApproxToNormal} shows four hollow histograms for simulated samples from the binomial distribution using four different sample sizes: $n=10, 30, 100, 300$. What happens to the shape of the distributions as the sample size increases? What distribution does the last hollow histogram resemble?\footnote{The distribution is transformed from a blocky and skewed distribution into one that rather resembles the normal distribution in last hollow histogram}
+성공확률 $p=0.10$를 갖는 이항모형을 생각해보자. 그림~\ref{fourBinomialModelsShowingApproxToNormal}에는 네가지 다른 표본크기를 사용해서 이항분포에서 나온 모의표본에 대한 속빈 히스토그램이 나와 있다: $n=10, 30, 100, 300$. 표본크기가 증가할 때, 분포형상이 어떻게 변하는가? 마지막 속빈 히스토그램은 무슨 분포와 닮았는가?
+\footnote{분포가 덩어리 형상과 기울어진 분포에서 마지막 속빈 히스토그램에서 정규분포를 닮은 분포로 변환되어 가고 있다.}
 \end{exercise}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.92\textwidth]{ch_distributions/figures/fourBinomialModelsShowingApproxToNormal/fourBinomialModelsShowingApproxToNormal}
-\caption{Hollow histograms of samples from the binomial model when $p=0.10$. The sample sizes for the four plots are $n=10$, 30, 100, and 300, respectively.}
+\caption{$p=0.10$ 모수를 갖는 이항모형에서 나온 표본으로 도식화한 속빈 히스토그램. 그림 네개에 대한 표본 크기는 각각 $n=10$, 30, 100, 300 이다.}
 \label{fourBinomialModelsShowingApproxToNormal}
 \end{figure}
 
-\begin{termBox}{\tBoxTitle{Normal approximation of the binomial distribution}
-The binomial distribution with probability of success $p$ is nearly normal when the sample size $n$ is sufficiently large that $np$ and $n(1-p)$ are both at least 10. The approximate normal distribution has parameters corresponding to the mean and standard deviation of the binomial distribution:\vspace{-1.5mm}
+\begin{termBox}{\tBoxTitle{이항분포의 정규 근사}
+성공확률 $p$를 갖는 이항분포는 표본크기 $n$이 충분히 크고, $np$ 와 $n(1-p)$가 모두 적어도 10일 때 거의 정규분포가 된다. 이 근사 정규분포는 이항분포 평균과 표준편차에 대응되는 모수를 갖는다: \vspace{-1.5mm}
 \begin{align*}
 \mu &= np
 &&\sigma= \sqrt{np(1-p)}
 \end{align*}}
 \end{termBox}
 
-The normal approximation may be used when computing the range of many possible successes. For instance, we may apply the normal distribution to the setting of Example~\ref{exactBinomialForN400P20SmokerExample}.
+많은 가능한 성공 범위를 계산할 때 정규 근사가 사용될 수 있다. 예를 들어, 정규분포를 예제~\ref{exactBinomialForN400P20SmokerExample}에 적용할 수 있다.
 
-\begin{example}{How can we use the normal approximation to estimate the probability of observing 59 or fewer smokers in a sample of 400, if the true proportion of smokers is $p=0.20$?} \label{approxBinomialForN400P20SmokerExample}
-Showing that the binomial model is reasonable was a suggested exercise in Example~\ref{exactBinomialForN400P20SmokerExample}. We also verify that both $np$ and $n(1-p)$ are at least 10:
+\begin{example}{
+만약 흡연자 비율이 $p=0.20$이라면, 59명 혹은 그보다 적은 흡연자를 관측할 확률을 추정하는데 어떻게 정규근사를 사용할 수 있을까?} \label{approxBinomialForN400P20SmokerExample}
+이항모형 타당성은 예제~\ref{exactBinomialForN400P20SmokerExample}에서 제시되었다. $np$ 와 $n(1-p)$ 모두 적어도 10이 되는 것도 확인된다:
 \begin{align*}
 np&=400\times 0.20=80
 &n(1-p)&=400\times 0.8=320
 \end{align*}
-With these conditions checked, we may use the normal approximation in place of the binomial distribution using the mean and standard deviation from the binomial model:
+이들 조건이 검사하고 나서, 이항모형에서 나온 평균과 표준편차를 사용해서 이항분포 대신에 정규분포 근사를 사용한다:
 \begin{align*}
 \mu &= np = 80
 &\sigma &= \sqrt{np(1-p)} = 8
 \end{align*}
-We want to find the probability of observing fewer than 59 smokers using this model.
+상기 모형을 사용해서 흡연자 59명보다 적을 수를 관측할 확률을 알아낸다.
 \end{example}
 
 \begin{exercise}
-Use the normal model $N(\mu=80, \sigma=8)$ to estimate the probability of observing fewer than 59 smokers. Your answer should be approximately equal to the solution of Example~\ref{exactBinomialForN400P20SmokerExample}: 0.0041.\footnote{Compute the Z-score first: $Z=\frac{59 - 80}{8} = -2.63$. The corresponding left tail area is 0.0043.}
+정규모형 $N(\mu=80, \sigma=8)$을 사용해서 흡연자 59명 보다 적은 수를 관측할 확률을 추정한다. 정답은 예제~\ref{exactBinomialForN400P20SmokerExample} 정답과 근사적으로 같아야 된다: 0.0041.\footnote{
+먼저 Z-점수를 계산한다: $Z=\frac{59 - 80}{8} = -2.63$. 대응되는 왼쪽 꼬리 면적은 0.0043 이다.}
 \end{exercise}
 
 
-\subsection{The normal approximation breaks down on small intervals}
+\subsection{정규 근사는 작은 구간에서 잘 안된다}
 
 \begin{caution}
-{The normal approximation may fail on small intervals}
-{The normal approximation to the binomial distribution tends to perform poorly when estimating the probability of a small range of counts, even when the conditions are met.}
+{정규근사는 작은 구간에서 실패할 수 있다}
+{조건이 만족되더라도, 작은 범위 갯수에 대한 확률을 추정할 때 이항분포에 정규근사가 좋지 못한 성능을 발휘하는 경향이 있다.}
 \end{caution}
 
-Suppose we wanted to compute the probability of observing 69, 70, or 71 smokers in 400 when $p=0.20$. With such a large sample, we might be tempted to apply the normal approximation and use the range 69 to 71. However, we would find that the binomial solution and the normal approximation notably differ:
+$p=0.20$일 때 표본 400명에서 흡연자 69, 70, 71명을 관측할 확률을 계산한다고 가정하자. 충분히 큰 표본 크기로 인해, 정규근사를 적용해서 69 -- 71 사이 범위에 적용하고 싶다. 하지만, 이항분포 정답과 정규근사 사이에 눈에 띄는 차이를 발견하게 된다:
+
 \begin{align*}
 \text{Binomial:}&\ 0.0703
 &\text{Normal:}&\ 0.0476
 \end{align*}
-We can identify the cause of this discrepancy using Figure~\ref{normApproxToBinomFail}, which shows the areas representing the binomial probability (outlined) and normal approximation (shaded). Notice that the width of the area under the normal distribution is 0.5 units too slim on both sides of the interval.
+
+그림~\ref{normApproxToBinomFail}을 사용해서 이러한 불일치 원인을 식별할 수 있다. 정규근사(음영처리)와 이항확률(윤곽선) 나타내는 영역이 나와 있다. 정규분포 아래 영역 폭이 구간 양쪽에서 모두 0.5 단위씩 얇은 것에 주목한다.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{ch_distributions/figures/normApproxToBinomFail/normApproxToBinomFail}
-\caption{A normal curve with the area between 69 and 71 shaded. The outlined area represents the exact binomial probability.}
+\caption{
+69 -- 71 사이 영역을 음영처리한 정규곡선. 윤곽선 영역은 정확한 이항확률을 나타낸다.}
 \label{normApproxToBinomFail}
 \end{figure}
 
-\begin{tipBox}{\tipBoxTitle{Improving the accuracy of the normal approximation to the binomial distribution}
-The normal approximation to the binomial distribution for intervals of values is usually improved if cutoff values are modified slightly. The cutoff values for the lower end of a shaded region should be reduced by 0.5, and the cutoff value for the upper end should be increased by 0.5.}
+\begin{tipBox}{\tipBoxTitle{이항분포에 정규근사 정확성 향상}
+구간 값에 대한 이항분포에 대한 정규근사는 대체로 경계값을 약간 변경하면 향상된다. 음영처리된 영역의 하단 경계값을 0.5 만큼 줄이고, 상단 경계값을 0.5 만큼 증가시켜야 된다.}
 \end{tipBox}
 
-The tip to add extra area when applying the normal approximation is most often useful when examining a range of observations. While it is possible to apply it when computing a tail area, the benefit of the modification usually disappears since the total interval is typically quite wide.
+정규근사를 적용할 때 추가 영역을 더하는 비법이 관측점 범위를 면밀히 살펴볼 때 종종 가장 도움이 된다. 꼬리 영역을 계산할 때 이 방법을 적용하는 것이 가능하지만, 총구간이 전형적으로 넓을 때 변형에 따른 효익은 대체로 사라진다.
 
-\index{distribution!binomial!normal approximation|)}
-\index{distribution!binomial|)}
+\index{분포!이항!정규근사|)}
+\index{분포!이항|)}
 
 
 
 %_________________
-\section{More discrete distributions (special topic)}
+\section{이산 분포 더보기 (특별 주제)}
 \label{discreteModels}
 
-\subsection{Negative binomial distribution}
+\subsection{음이항분포}
 \label{negativeBinomial}
 
-\index{distribution!negative binomial|(}
+\index{분포!음이항|(}
+기하분포는 $n^{th}$번 시행에 첫번째 성공을 관측할 확률을 기술한다. \termsub{음이항분포}(negative binomial distribution){분포!음이항}는 좀더 일반화한 것이다: $n^{th}$번 시행에 $k^{th}$번째 성공을 관측할 확률을 기술한다.
 
-The geometric distribution describes the probability of observing the first success on the $n^{th}$ trial. The \termsub{negative binomial distribution}{distribution!negative binomial} is more general: it describes the probability of observing the $k^{th}$ success on the $n^{th}$ trial.
-
-\begin{example}{Each day a high school football coach tells his star kicker, Brian, that he can go home after he successfully kicks four 35 yard field goals. Suppose we say each kick has a probability $p$ of being successful. If $p$ is small -- e.g. close to 0.1 -- would we expect Brian to need many attempts before he successfully kicks his fourth field goal?}
-We are waiting for the fourth success ($k=4$). If the probability of a success ($p$) is small, then the number of attempts ($n$) will probably be large. This means that Brian is more likely to need many attempts before he gets $k=4$ successes. To put this another way, the probability of $n$ being small is low.
+\begin{example}{
+매일 고등학교 미식축구 감독이 (스타선수) 브라이언에게 네번 35 야드 필드골을 성공시켜야 집에 갈수 있도록 지시했다. 매번 공을 차면 성공확률이 $p$라고 가정하자. 만약 $p$가 작다면 -- 예를 들어, 0.1 에 가까우면 -- 성공적으로 4번 필드골을 넣기 전에 얼마나 많은 시도를 할 것으로 예상되는가?}
+네번째 성공($k=4$)을 기다린다. 만약 성공확률($p$)가 작다면, 시도 횟수($n$)는 아마도 클 것이다. 이것이 의미하는 바는 $k=4$번 성공하기 전에 브라이언이 많은 시도가 필요하다는 것이다. 다른 말로 표현하면, 횟수 $n$이 작을 확률이 낮다는 것이다.
 \end{example}
 
-To identify a negative binomial case, we check 4 conditions. The first three are common to the binomial distribution.\footnote{See a similar guide for the binomial distribution on page~\pageref{isItBinomialTipBox}.}
+음이항분포 경우를 식별하려면, 네가지 조건을 검사한다. 첫 세개는 이항분포와 공통된다. \footnote{\pageref{isItBinomialTipBox}~페이지 이항분포에 대한 유사 안내지침을 참조한다.}
+
+(2) 시행 횟수 $n$ 이 고정된다. \\
 
 \begin{tipBox}{\tipBoxTitle{Is it negative binomial? Four conditions to check.}
-(1) The trials are independent. \\
-(2) Each trial outcome can be classified as a success or failure. \\
-(3) The probability of a success ($p$) is the same for each trial. \\
-(4) The last trial must be a success.}
+(1) 시행이 독립이다. \\
+(2) 시행 결과 각각은 \emph{성공} 혹은 \emph{실패}로 분류될 수 있다. \\
+(3) 성공 확률 $p$는 시행 각각에 대해 같다.
+(4) 마지막 시행은 성공이어야 된다.}
 \end{tipBox}
 
 \begin{exercise}
-Suppose Brian is very diligent in his attempts and he makes each 35 yard field goal with probability $p=0.8$. Take a guess at how many attempts he would need before making his fourth kick.\footnote{One possible answer: since he is likely to make each field goal attempt, it will take him at least 4 attempts but probably not more than 6 or 7.}
+브라이언이 매번 시도할 때 매우 성실해서, 확률 $p=0.8$ 로 35 야드 필드골을 넣는다고 가정하자. 네번째 공을 넣기 전에 얼마나 많은 시도가 필요할지 추측해보라.
+\footnote{가능한 정답: 매번 필드골을 시도할 때마다 넣을 것을 것 같아서, 적어도 4회 하지만 아마도 6 혹은 7회는 넘지 않을 것이다.}
 \end{exercise}
 
-\begin{example}{In yesterday's practice, it took Brian only 6 tries to get his fourth field goal. Write out each of the possible sequence of kicks.} \label{eachSeqOfSixTriesToGetFourSuccesses}
-Because it took Brian six tries to get the fourth success, we know the last kick must have been a success. That leaves three successful kicks and two unsuccessful kicks (we label these as failures) that make up the first five attempts. There are ten possible sequences of these first five kicks, which are shown in Table~\ref{successFailureOrdersForBriansFieldGoals}. If Brian achieved his fourth success ($k=4$) on his sixth attempt ($n=6$), then his order of successes and failures must be one of these ten possible sequences.
+\begin{example}{
+어제 연습에서 브라이언은 4번째 필드골을 넣는데 6회만 시도했다. 가능한 각 필드골 조합순서를 작성하시오.} \label{eachSeqOfSixTriesToGetFourSuccesses}
+4번 필드골을 성공시키는데 6번 시도했기 때문에, 마지막으로 공을 찬 것이 성공이라는 것을 알고 있다. 이를 통해서 처음 5번 시동에서 3번 필드골이 성공했고, 두번은 필드골이 성공하지 못함을 도출하게 된다. 첫 5번 필드골 시도에 대한 10가지 가능한 순서 조합이 표~\ref{successFailureOrdersForBriansFieldGoals}에 나와 있다. 만약 브라이언이 ($n=6$)번 시도에서 ($k=4$)번 성공했다면, 성공과 실패 순서는 다음 10가지 가능한 조합순서 중 하나다.
 
 \begin{table}[ht]
 \newcommand{\succObs}[1]{{\color{oiB}$\stackrel{#1}{S}$}}
 \centering
 \begin{tabular}{c|c ccc cl | r}
-\multicolumn{8}{c}{\hspace{10mm}Kick Attempt} \\
+\multicolumn{8}{c}{\hspace{10mm}필드골 시도} \\
 & & 1 & 2 & 3 & 4 & \multicolumn{2}{l}{5\hfill6} \\
 \hline
 1&& $F$ & $F$ & \succObs{1} & \succObs{2} & \succObs{3} & \succObs{4} \\
@@ -923,62 +935,73 @@ Because it took Brian six tries to get the fourth success, we know the last kick
 9&& \succObs{1} & \succObs{2} & $F$ & \succObs{3} & $F$ & \succObs{4} \\
 10&& \succObs{1} & \succObs{2} & \succObs{3} & $F$ & $F$ & \succObs{4} \\
 \end{tabular}
-\caption{The ten possible sequences when the fourth successful kick is on the sixth attempt.}
+\caption{6번 시도에서 4번 필드골이 성공할 때 10가지 가능한 순서조합}
 \label{successFailureOrdersForBriansFieldGoals}
 \end{table}
 
 \end{example}
 
 \begin{exercise} \label{probOfEachSeqOfSixTriesToGetFourSuccesses}
-Each sequence in Table~\ref{successFailureOrdersForBriansFieldGoals} has exactly two failures and four successes with the last attempt always being a success. If the probability of a success is $p=0.8$, find the probability of the first sequence.\footnote{The first sequence: $0.2\times0.2\times0.8\times0.8\times0.8\times0.8 = 0.0164$.}
+표~\ref{successFailureOrdersForBriansFieldGoals}에 나온 각 순서조합은 정확하게 2번 실패와 항상 마지막 시도가 성공을 갖는 네번의 성공이 포함되어 있다. 만약 성공확률이 $p=0.8$이면, 첫번째 순서조합 확률을 알아내시오.
+\footnote{첫번째 순서조합: $0.2\times0.2\times0.8\times0.8\times0.8\times0.8 = 0.0164$.}
 \end{exercise}
 
-If the probability Brian kicks a 35 yard field goal is $p=0.8$, what is the probability it takes Brian exactly six tries to get his fourth successful kick? We can write this as
-{\small\begin{align*}
-&P(\text{it takes Brian six tries to make four field goals}) \\
-& \quad = P(\text{Brian makes three of his first five field goals, and he makes the sixth one}) \\
-& \quad = P(\text{$1^{st}$ sequence OR $2^{nd}$ sequence OR ... OR $10^{th}$ sequence})
-\end{align*}
-}where the sequences are from Table~\ref{successFailureOrdersForBriansFieldGoals}. We can break down this last probability into the sum of ten disjoint possibilities:
-{\small\begin{align*}
-&P(\text{$1^{st}$ sequence OR $2^{nd}$ sequence OR ... OR $10^{th}$ sequence}) \\
-&\quad = P(\text{$1^{st}$ sequence}) + P(\text{$2^{nd}$ sequence}) + \cdots + P(\text{$10^{th}$ sequence})
-\end{align*}
-}The probability of the first sequence was identified in Guided Practice~\ref{probOfEachSeqOfSixTriesToGetFourSuccesses} as 0.0164, and each of the other sequences have the same probability. Since each of the ten sequence has the same probability, the total probability is ten times that of any individual sequence.
+만약 브라이언이 35 야드 필드골을 넣을 확률이 $p=0.8$이면, 네번째 필드골을 성공시키는데 정확하게 마지막 6번째 시도에서 성공할 확률은 얼마인가? 이것을 다음과 같이 작성할 수 있다.
 
-The way to compute this negative binomial probability is similar to how the binomial problems were solved in Section~\ref{binomialModel}. The probability is broken into two pieces:
-\begin{align*}
-&P(\text{it takes Brian six tries to make four field goals}) \\
-&= [\text{Number of possible sequences}] \times P(\text{Single sequence})
+{\small\begin{align*}
+&P(\text{브라이언이 네번째 필드골을 성공시키는데 6번 시도한다}) \\
+& \quad = P(\text{브라이언이 첫 5번 필드골 시도 중에서 세번 성공하고, 6번째 시도를 성공한다}) \\
+& \quad = P(\text{$1^{st}$ 순서조합 OR $2^{nd}$ 순서조합 OR ... OR $10^{th}$ 순서조합})
 \end{align*}
-Each part is examined separately, then we multiply to get the final result.
+}
+여기서 순서조합은 표~\ref{successFailureOrdersForBriansFieldGoals}에서 나왔다. 마지막 확률은 10개 서로 겹치지 않는 확률의 합으로 나눌 수 있다:
 
-We first identify the probability of a single sequence. One particular case is to first observe all the failures ($n-k$ of them) followed by the $k$ successes:
+{\small\begin{align*}
+&P(\text{$1^{st}$ 순서조합 OR $2^{nd}$ 순서조합 OR ... OR $10^{th}$ 순서조합}) \\
+&\quad = P(\text{$1^{st}$ 순서조합}) + P(\text{$2^{nd}$ 순서조합}) + \cdots + P(\text{$10^{th}$ 순서조합})
+\end{align*}
+}
+
+첫번째 순서조합에 대한 확률은 Guided Practice~\ref{probOfEachSeqOfSixTriesToGetFourSuccesses}에서 0.0164로 식별됐고, 각기 다른 순서조합도 같은 확률을 갖는다. 10개 순서조합 각각이 동일한 확률을 갖기 때문에, 전체 확률은 10 곱하기 개별 임의 순서조합 확률이 된다.
+
+음이항확률을 계산하는 방식은 \ref{binomialModel}~절에서 이항문제를 푸는 방법과 유사하다. 확률을 두 조각으로 나눈다:
 \begin{align*}
-&P(\text{Single sequence}) \\
-&= P(\text{$n-k$ failures and then $k$ successes}) \\
+&P(\text{브라이언이 4번 필드골 성공하는데 6번 시도한다}) \\
+&= [\text{가능한 순서조합 수}] \times P(\text{단일 순서조합})
+\end{align*}
+각 부분을 따로 면밀히 살펴보고 나서, 최종 결과를 얻는데 곱한다.
+
+먼저 단일 순서조합에 대한 확률을 식별한다. 특별한 한 사례는 먼저 모두 실패(시도 중 $n-k$번)하고 나서 $k$번 성공한다:
+
+\begin{align*}
+&P(\text{단일 순서조합}) \\
+&= P(\text{$n-k$번 실패하고 나서, $k$번 성공}) \\
 &= (1-p)^{n-k} p^{k}
 \end{align*}
 
-We must also identify the number of sequences for the general case. Above, ten sequences were identified where the fourth success came on the sixth attempt. These sequences were identified by fixing the last observation as a success and looking for all the ways to arrange the other observations. In other words, how many ways could we arrange $k-1$ successes in $n-1$ trials? This can be found using the $n$ choose $k$ coefficient but for $n-1$ and $k-1$ instead:
+또한 일반적인 경우에 대해서 순서조합 횟수를 식별해야 된다. 위에서, 6번 시도에서 4번 성공인 경우 10개 순서조합이 식별되었다. 이 순서조합은 마지막 관측점을 성공으로 고정하고 다른 관측점을 배열하는 모든 방식을 찾아서 식별된다. 다른 말로, $n-1$번 시도에서 $k-1$번 성공을 배열하는 순서조합은 얼마나 많을까? ``$n$ choose $k$'' 계수에  $n-1$ 와 $k-1$을 대신 꽂아 넣어 구할 수 있다:
+
 \begin{eqnarray*}
 {n-1 \choose k-1} = \frac{(n-1)!}{(k-1)! \left((n-1) - (k-1)\right)!} = \frac{(n-1)!}{(k-1)! \left(n - k\right)!}
 \end{eqnarray*}
-This is the number of different ways we can order $k-1$ successes and $n-k$ failures in $n-1$ trials. If the factorial notation (the exclamation point) is unfamiliar, see page~\pageref{factorialDefinitionInTheBinomialSection}.
 
-\begin{termBox}{\tBoxTitle{Negative binomial distribution}
-The negative binomial distribution describes the probability of observing the $k^{th}$ success on the $n^{th}$ trial:
+$n-1$번 시도에서 $k-1$번 성공과 $n-k$  실패 순서조합을 만들 수는 경우의 수다. 만약 누승 표기법(느낌표)에 익숙하지 않다면, \pageref{factorialDefinitionInTheBinomialSection}~페이지를 참조한다.
+
+\begin{termBox}{\tBoxTitle{음이항분포}
+음이항분포는 $n^{th}$번 시행에서 $k^{th}$ 번 성공을 관측할 확률을 기술한다:
 \begin{eqnarray}
-P(\text{the $k^{th}$ success on the $n^{th}$ trial}) = {n-1 \choose k-1} p^{k}(1-p)^{n-k}
+P(\text{$n^{th}$ 번 시행에 $k^{th}$ 번 성공}) = {n-1 \choose k-1} p^{k}(1-p)^{n-k}
 \label{negativeBinomialEquation}
 \end{eqnarray}
-where $p$ is the probability an individual trial is a success. All trials are assumed to be independent.}
+$p$는 각 개별 시행가 성공일 확률이다. 모든 시행은 독립으로 가정한다.}
 \end{termBox}
 
 \textC{\pagebreak}
 
-\begin{example}{Show using Equation~\eqref{negativeBinomialEquation} that the probability Brian kicks his fourth successful field goal on the sixth attempt is 0.164.}
-The probability of a single success is $p=0.8$, the number of successes is $k=4$, and the number of necessary attempts under this scenario is $n=6$.
+\begin{example}{
+방정식~\eqref{negativeBinomialEquation}을 사용해서 브라이언이 6번째 시도에서 4번째 필드골을 성공할 확률이 0.164임을 보여라.}
+단일 성공 확률은 $p=0.8$, 성공 횟수는 $k=4$, 상기 시나리오 아래에서 필요 시도 횟수는 $n=6$.
+
 \begin{align*}
 {n-1 \choose k-1}p^k(1-p)^{n-k}\ 
 	=\ \frac{5!}{3!2!} (0.8)^4 (0.2)^2\ 
@@ -988,83 +1011,91 @@ The probability of a single success is $p=0.8$, the number of successes is $k=4$
 \end{example}
 
 \begin{exercise}
-The negative binomial distribution requires that each kick attempt by Brian is independent. Do you think it is reasonable to suggest that each of Brian's kick attempts are independent?\footnote{Answers may vary. We cannot conclusively say they are or are not independent. However, many statistical reviews of athletic performance suggests such attempts are very nearly independent.}
+브라이언이 매번 시도하는 필드골이 독립이라는 가정이 음이항분포에 필요하다. 브라이언의 매번 시도하는 필드골이 독립이라고 제시하는 것에 타당성이 있다고 보는가?
+\footnote{정답이 다양할 수 있다. 단정적으로 독립이 아니라고 말할 수는 없다. 하지만, 운동선수 기록을 통계적으로 검토한 많은 연구결과 이러한 시도는 거의 독립이라고 것을 제시하고 있다.}
 \end{exercise}
 
 \begin{exercise}
-Assume Brian's kick attempts are independent. What is the probability that Brian will kick his fourth field goal within 5 attempts?\footnote{If his fourth field goal ($k=4$) is within five attempts, it either took him four or five tries ($n=4$ or $n=5$). We have $p=0.8$ from earlier. Use Equation~\eqref{negativeBinomialEquation} to compute the probability of $n=4$ tries and $n=5$ tries, then add those probabilities together:
+브라이언 필드골 시도가 독립이라고 정한다. 브라이언이 5번 시도 안에서 4번째 필드골을 성공할 확률은 얼마나 되는가?
+\footnote{
+만약 5번 시도 안에서 네번째 필드골을 성공했다면 ($k=4$), 4번 혹은 5번 시도한 것이다($n=4$ or $n=5$). 앞에서 $p=0.8$을 가져온다. 방정식~\eqref{negativeBinomialEquation}을 사용해서 $n=4$ 회 시도와 $n=5$ 회 시도를 계산한다. 그리고 나서 두 확률을 더한다:
 \begin{align*}
 & P(n=4\text{ OR }n=5) = P(n=4) + P(n=5) \\
 &\quad = {4-1 \choose 4-1} 0.8^4 + {5-1 \choose 4-1} (0.8)^4(1-0.8) = 1\times 0.41 + 4\times 0.082 = 0.41 + 0.33 = 0.74
 \end{align*}}
 \end{exercise}
 
-\begin{tipBox}{\tipBoxTitle{Binomial versus negative binomial}
-In the binomial case, we typically have a fixed number of trials and instead consider the number of successes. In the negative binomial case, we examine how many trials it takes to observe a fixed number of successes and require that the last observation be a success.}
+\begin{tipBox}{\tipBoxTitle{이항분포 대 음이항분포}
+이항분포의 경우, 전형적으로 고정된 시행 횟수를 갖는 대신에 성공 횟수를 고려한다. 음이항분포의 경우에, 고정된 성공 횟수를 관측하는데 얼마나 많은 시행이 소요되는지 면밀히 살펴보고 마지막 관측점이 성공이라는 것을 필요로 한다.}
 \end{tipBox}
 
 \begin{exercise}
-On 70\% of days, a hospital admits at least one heart attack patient. On 30\% of the days, no heart attack patients are admitted. Identify each case below as a binomial or negative binomial case, and compute the probability.\footnote{In each part, $p=0.7$. (a) The number of days is fixed, so this is binomial. The parameters are $k=3$ and $n=7$: 0.097. (b) The last ``success'' (admitting a heart attack patient) is fixed to the last day, so we should apply the negative binomial distribution. The parameters are $k=2$, $n=4$: 0.132. (c) This problem is negative binomial with $k=1$ and $n=5$: 0.006. Note that the negative binomial case when $k=1$ is the same as using the geometric distribution.}
+ 낮에 70\% 정도 적어도 심장마비 환자 한명이 병원에  들어온다. 약 30\% 정도는 어떤 심장마비 환자도 들어오지 않는다. 아래 사례를 이항 혹은 음이항 사례로 식별하고 확률을 계산하시오.
+ \footnote{두가지 모두 $p=0.7$. 
+ (a) 요일 숫자가 고정되어서 이것은 이항분포다. 모수는 $k=3$, $n=7$: 0.097. (b) 최종 ``성공'' (심장마비 환자 내원)이 마지막 요일로 고정되어서 음이항분포를 적용한다. 모수는 $k=2$, $n=4$: 0.132. 
+ (c) 이 문제는 모수 $k=1$, $n=5$을 갖는 음이항분포다: 0.006. $k=1$일 때 음이항분포 사례는 기하분포를 사용하는 것과 동일함에 유의한다.}
 
-(a) What is the probability the hospital will admit a heart attack patient on exactly three days this week?
+(a) 일주일에 정확하게 3일 병원에 심장마비 환자가 들어올 확률은 얼마인가?
 
-(b) What is the probability the second day with a heart attack patient will be the fourth day of the week?
+(b) 심장마비 환자를 갖는 둘째날이 주중 네번째 날이 될 확률은 얼마인가?
 
-(c) What is the probability the fifth day of next month will be the first day with a heart attack patient?
-\index{distribution!negative binomial|)}
+(c) 다음달 5번째 날이 심장마비 환자를 갖는 첫번째 날이 될 확률은 얼마인가?
+\index{분포!음이항|)}
 \end{exercise}
 
 
 \textC{\pagebreak}
 
 
-\subsection{Poisson distribution}
+\subsection{포아송 분포}
 \label{poisson}
 
-\index{distribution!Poisson|(}
+\index{분포!포아송|(}
 
-\begin{example}{There are about 8 million individuals in New York City. How many individuals might we expect to be hospitalized for acute myocardial infarction (AMI), i.e. a heart attack, each day? According to historical records, the average number is about 4.4 individuals. However, we would also like to know the approximate distribution of counts. What would a histogram of the number of AMI occurrences each day look like if we recorded the daily counts over an entire year?} \label{amiIncidencesEachDayOver1YearInNYCExample}
-A histogram of the number of occurrences of AMI on 365 days for NYC is shown in Figure~\ref{amiIncidencesOver100Days}.\footnote{These data are simulated. In practice, we should check for an association between successive days.} The sample mean (4.38) is similar to the historical average of 4.4. The sample standard deviation is about 2, and the histogram indicates that about 70\% of the data fall between 2.4 and 6.4. The distribution's shape is unimodal and skewed to the right.
+\begin{example}{
+뉴욕시에는 약 8백만명이 살고 있다. 급성 심근경색( acute myocardial infarction, AMI) 즉, 심장마비로 매일 얼마나 많은 사람이 병원에 입원할 것으로 예상되는가? 병원기록에 따르면, 평균 약 4.4명이다. 하지만, 입원하는 환자 근사 분포에 대해 알고자 한다. 만약 일년 전체 일별 입원환자수를 기록했다면, 매일 AMI 발병 환자수 히스토그램은 어떤 모양일까?} \label{amiIncidencesEachDayOver1YearInNYCExample}
+뉴욕시에 365일에 대한 AMI 발병 환자수 히스토그램이 그림~\ref{amiIncidencesOver100Days}에 나와있다. 표본 평균(4.38)은 과거 평균 4.4와 유사하다. 표본 표준편차는 약 2가 된다. 데이터의 약 70\%는 2.4 -- 6.4 사이에 위치함을 히스토그램이 나타핸다. 분포 형상은 단봉이고 우측으로 기울어졌다.
 \end{example}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.7\textwidth]{ch_distributions/figures/amiIncidencesOver100Days/amiIncidencesOver100Days}
-\caption{A histogram of the number of occurrences of AMI on 365 separate days in NYC.}
+\caption{뉴욕시에 365일에 대한 AMI 발병 환자수 히스토그램}
 \label{amiIncidencesOver100Days}
 \end{figure}
 
-The \termsub{Poisson distribution}{distribution!Poisson} is often useful for estimating the number of events in a large population over a unit of time. For instance, consider each of the following events:
+\termsub{포아송 분포}(Poisson distribution){분포!포아송}는 단위 시간에 걸친 큰 모집단에서 발생한 사건의 수를 예측하는데 유용하다. 예를 들어, 다음 사건 각각에 대해 생각해보자:
 \begin{itemize}
 \setlength{\itemsep}{0mm}
-\item having a heart attack,
-\item getting married, and
-\item getting struck by lightning.
+\item 심장 마비
+\item 결혼
+\item 벼락 맞기
 \end{itemize}
-The Poisson distribution helps us describe the number of such events that will occur in a short unit of time for a fixed population if the individuals within the population are independent.
 
-The histogram in Figure~\ref{amiIncidencesOver100Days} approximates a Poisson distribution with rate equal to 4.4. The \term{rate} for a Poisson distribution is the average number of occurrences in a mostly-fixed population per unit of time. In Example~\ref{amiIncidencesEachDayOver1YearInNYCExample}, the time unit is a day, the population is all New York City residents, and the historical rate is 4.4. The parameter in the Poisson distribution is the rate -- or how many events we expect to observe -- and it is typically denoted by $\lambda$\marginpar[\raggedright\vspace{-5mm}
+만약 모집단에 속한 개개인이 독립이라면, 포아송 분포는 고정된 모집단에 대해서 짧은 단위 시간에 발생한 사건의 수를 기술하는데 도움이 된다. 
 
-$\lambda$\vspace{0mm}\\\footnotesize Rate for the\\Poisson dist.]{\raggedright\vspace{-5mm}
+그림~\ref{amiIncidencesOver100Days}에 나온 히스토그램은 모수(비율, rate) 4.4.를 갖는 포아송 분포에 근사했다. 포아송 분포에 대한 \term{비율}(rate)은 단위 시간마다 거의 고정된 모집단에서 평균적으로 발생한 횟수다.  예제~\ref{amiIncidencesEachDayOver1YearInNYCExample}에서 단위시간은 하루, 모집단은 뉴욕시 거주자, 과거비율은 4.4. 포아송 분포에서 모수는 비율이다 -- 즉 얼마나 많은 사건 관측이 예상되는가 -- $\lambda$\marginpar[\raggedright\vspace{-5mm}
 
-$\lambda$\vspace{0mm}\\\footnotesize Rate for the\\Poisson dist.}\index{Greek!lambda@lambda ($\lambda$)}
-(the Greek letter \emph{lambda})  or $\mu$. Using the rate, we can describe the probability of observing exactly $k$ events in a single unit of time.
+$\lambda$\vspace{0mm}\\\footnotesize 포아송 분포에 \\대한 비율]{\raggedright\vspace{-5mm}
 
-\begin{termBox}{\tBoxTitle{Poisson distribution}
-Suppose we are watching for events and the number of observed events follows a Poisson distribution with rate $\lambda$. Then
+$\lambda$\vspace{0mm}\\\footnotesize Rate for the\\Poisson dist.}\index{그리스 문자!lambda@lambda ($\lambda$)}
+(그리스 문자 \emph{lambda})  혹은 $\mu$로 표기한다. 비율을 사용해서, 단일 단위시간에 정확하게 $k$개 사건을 관측할 확률을 기술할 수 있다.
+
+\begin{termBox}{\tBoxTitle{포아송 분포}
+사건을 지켜보고 있고, 관측된 사건 횟수가 모수 $\lambda$를 갖는 포아송 분포를 따른다고 가정하자. 그러면,
 \begin{align*}
-P(\text{observe $k$ events}) = \frac{\lambda^{k} e^{-\lambda}}{k!}
+P(\text{$k$ 사건 관측}) = \frac{\lambda^{k} e^{-\lambda}}{k!}
 \end{align*}
-where $k$ may take a value 0, 1, 2, and so on, and $k!$ represents $k$-factorial, as described on page~\pageref{factorialDefinitionInTheBinomialSection}. The letter $e\approx2.718$ is the base of the natural logarithm. The mean and standard deviation of this distribution are $\lambda$ and $\sqrt{\lambda}$, respectively.}
+여기서 $k$는 0, 1, 2, 등 값을 가질 수 있고, $k!$는 \pageref{factorialDefinitionInTheBinomialSection}~페이지에 기술된 $k$-누승을 나타낸다. 문자 $e\approx2.718$는 자연로그 밑이다. 이 분포에 대한 평균과 표준편차는 각각 $\lambda$ and $\sqrt{\lambda}$이다.}
 \end{termBox}
 
-We will leave a rigorous set of conditions for the Poisson distribution to a later course. However, we offer a few simple guidelines that can be used for an initial evaluation of whether the Poisson model would be appropriate.
+포아송 분포에 대한 엄격한 조건은 추후 학습과정에 남겨둔다. 하지만, 포아송 모형이 적절한지에 대한 초기 평가를 위해 사용될 수 있는 몇가지 간단한 안내지침은 제공한다.
 
-\begin{tipBox}{\tipBoxTitle{Is it Poisson?}
-A random variable may follow a Poisson distribution if we are looking for the number of events, the population that generates such events is large, and the events occur independently of each other.}
+\begin{tipBox}{\tipBoxTitle{포아송 분포인가?}
+만약 사건 출현 횟수를 찾고 있고, 그런 사건을 생성하는 모집단이 크고, 사건이 서로 독립적으로 일어난다면, 확률변수가 포아송 분포를 따를 수 있다.}
 \end{tipBox}
 
-Even when events are not really independent -- for instance, Saturdays and Sundays are especially popular for weddings -- a Poisson model may sometimes still be reasonable if we allow it to have a different rate for different times. In the wedding example, the rate would be modeled as higher on weekends than on weekdays. The idea of modeling rates for a Poisson distribution against a second variable such as \var{dayOfTheWeek} forms the foundation of some more advanced methods that fall in the realm of \termsub{generalized linear models}{generalized linear model}. In Chapters~\ref{linRegrForTwoVar} and~\ref{multipleAndLogisticRegression}, we will discuss a foundation of linear models.
+사건이 정말로 독립이 아닐 때 조차도 -- 예를 들어, 토요일과 일요일은 결혼식을 거행하는 요일이다 -- 만약 다른 시간에 다른 비율(모수)를 갖게 하면, 포아송 모형은 여전히 타당성있다. 결혼 사례에서, 비율(모수)를 주중보다 주말에 더 높은 값으로 모형화한다. \var{dayOfTheWeek}같은 두번째 변수에 대해 포아송 분포의 비율을 모형화하는 아이디어가 \termsub{일반화 선형 모형}(generalized linear models){generalized linear model} 영역에 속하는 고급 방법의 기반이 된다. \ref{linRegrForTwoVar}~장과 \ref{multipleAndLogisticRegression}~장에서 선형모형 기초에 대해 논의할 것이다.
 
 \index{distribution!Poisson|)}
 
