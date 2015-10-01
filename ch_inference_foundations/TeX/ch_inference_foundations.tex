@@ -1,17 +1,17 @@
-\chapter{Foundations for inference}
+\chapter{추정의 토대}
 \label{foundationsForInference}
 
-Statistical inference is concerned primarily with understanding the quality of parameter estimates. For example, a classic inferential question is, ``How sure are we that the estimated mean, $\bar{x}$, is near the true population mean, $\mu$?'' While the equations and details change depending on the setting, the foundations for inference are the same throughout all of statistics. We introduce these common themes in Sections~\ref{variabilityInEstimates}-\ref{cltSection} by discussing inference about the population mean, $\mu$, and set the stage for other parameters and scenarios in Section~\ref{aFrameworkForInference}. Understanding this chapter will make the rest of this book, and indeed the rest of statistics, seem much more familiar.
+통계적 추론은 주로 모수 추정에 대한 품질 해석과 관련된다. 예를 들어, 전통적인 추정 질문은 다음과 같다. ``추정한 평균 $\bar{x}$가 모집단 평균 $\mu$에 근처에 있다는 것을 얼마나 확신할 수 있는가?''  방정식과 구체적인 사항이 설정에 따라 변할 수 있지만, 추정에 대한 토대는 모든 통계학에서 동일하다. 모집단 평균 $\mu$에 관한 추정을 논의하면서 \ref{variabilityInEstimates}-\ref{cltSection}~절에 걸쳐 공통 주제를 소개하고 \ref{aFrameworkForInference}~절에서 다른 모수와 시나리오를 위한 장을 마련한다. 이번 장 이해가 책 나머지 부분을 성공적으로 만들고, 사실 나머지 통계학도 훨씬 더 친숙하게 된다.
 
-\index{data!yrbss|(}
+\index{데이터!yrbss|(}
 
-Throughout the next few sections we consider a data set called \data{yrbss}, which represents all 13,583 high school students in the Youth Risk Behavior Surveillance System (YRBSS) from 2013.\footnote{\oiRedirect{textbook-yrbss}{www.cdc.gov/healthyyouth/data/yrbs/data.htm}} Part of this data set is shown in Table~\ref{yrbssDF}, and the variables are described in Table~\ref{yrbssVariables}.
+다음 몇 절에 걸쳐서 \data{yrbss}라는 데이터를 살펴볼 것이다. 이 데이터는 2013년부터 청소년 위험 행동 감시 시스템(Youth Risk Behavior Surveillance System, YRBSS)에서 나온 고등학생 13,533명을 나타낸다. \footnote{\oiRedirect{textbook-yrbss}{www.cdc.gov/healthyyouth/data/yrbs/data.htm}} 데이터셋 일부가 표~\ref{yrbssDF}에 나와 있고, 변수도 표~\ref{yrbssVariables}에 기술되어 있다.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{rrllrrlrr}
   \hline
-ID & age & gender & grade & height & weight & helmet & active & lifting \\ 
+ID & 연령 & 성별 & 학년 & 신장 & 몸무게 & 헬멧착용 & 운동일수 & 헬스일수 \\ 
   \hline
 1 &  14 & female & 9 &  &  & never &   4 &   0 \\ 
   2 &  14 & female & 9 &  &  & never &   2 &   0 \\ 
@@ -21,7 +21,7 @@ ID & age & gender & grade & height & weight & helmet & active & lifting \\
   13583 &  17 & female & 12 & 1.57 & 52.16 & did not ride &   5 &  \\ 
   \hline
 \end{tabular}
-\caption{Five cases from the \data{yrbss} data set. Some observations are blank since there are missing data. For example, the height and weight of students 1 and 2 are missing.\textC{\vspace{-2mm}}}
+\caption{\data{yrbss} 데이터셋에서 나온 다섯 사례. 관측점 일부는 공백인데 결측값 때문이다. 예를 들어, 학생 1과 2의 신장과 몸무게가 결측값이다. \textC{\vspace{-2mm}}}
 \label{yrbssDF}
 \end{table}
 % library(openintro); library(xtable); data(yrbss); xtable(rbind(head(yrbss, 4), tail(yrbss, 2))[, c("age", "gender", "grade", "height", "weight", "helmet_12m", "physically_active_7d", "strength_training_7d")])
@@ -30,30 +30,32 @@ ID & age & gender & grade & height & weight & helmet & active & lifting \\
 \centering\small
 \begin{tabular}{l p{110mm}}
 \hline
-{\bf age} & {\bf Age of the student.} \\
+{\bf age(연령)} & {\bf 학생 연령.} \\
 \hline
-\var{gender} & {Sex of the student.} \\
-\var{grade} & Grade in high school \\
-\var{height} & Height, in meters. There are 3.28 feet in a meter. \\
-\var{weight} & Weight, in kilograms (2.2 pounds per kilogram). \\
-\var{helmet} & Frequency that the student wore a helmet while biking in the last 12~months. \\
-\var{active} & Number of days physically active for 60+ minutes in the last 7 days. \\
-\var{lifting} & Number of days of strength training (e.g. lifting weights) in the last 7 days. \\
+\var{gender}(성별) & {학생 성별.} \\
+\var{grade}(학급) & 고등학교 학년(미국 기준) \\
+\var{height}(신장) & 신장 (단위:미터), 1 미터는 3.28 피트. \\
+\var{weight}(몸무게) & 몸무게 (단위: 킬로그램), 1 킬로그램은 2.2 파운드. \\
+\var{helmet}(헬멧) & 지난 12개월동안 오토바이를 탈 때 헬멧을 착용한 횟수. \\
+\var{active}(운동일수) & 지난 7일 동안 60분 이상 신체적으로 활발한 일수. \\
+\var{lifting}(헬스일수) & 지난 7일 동안 근력 운동(예, )을 한 일수. \\
 \hline
 \end{tabular}
-\caption{Variables and their descriptions for the \data{yrbss} data set.}
+\caption{ \data{yrbss} 데이터셋에 대한 변수와 변수 설명.}
 \label{yrbssVariables}
 \end{table}
 
-\index{data!yrbss\_samp|(}
+\index{데이터!yrbss\_samp|(}
 
-We're going to consider the population of high school students who participated in the 2013 YRBSS. We took a simple random sample of this population, which is represented in Table~\ref{yrbssSampDF}.\footnote{About 10\% of high schoolers for each variable chose not to answer the question, we used multiple regression (see Chapter~\ref{multipleAndLogisticRegression}) to predict what those responses would have been. For simplicity, we will assume that these predicted values are exactly the truth.} We will use this sample, which we refer to as the \data{yrbss\_samp} data set, to draw conclusions about the population of YRBSS participants. This is the practice of statistical inference in the broadest sense. Two histograms summarizing the \var{height}, \var{weight}, \var{active}, and \var{lifting} variables from \data{yrbss\_samp} data set are shown in Figure~\ref{yrbssSampHistograms}.
+2013년 YRBSS에 참여한 고등학생 모집단을 생각해보자. 이 모집단에서 단순표본추출을 했는데 표~\ref{yrbssSampDF}에 나와 있다.
+
+We're going to consider the population of high school students who participated in the 2013 YRBSS. We took a simple random sample of this population, which is represented in 표~\ref{yrbssSampDF}.\footnote{각 변수에 대해서 약 10\% 고등학생이 질문에 응답을 하지 않기로 했다. 다중회귀(\ref{multipleAndLogisticRegression}~장 참조)를 사용해서 무응답을 예측했다. 단순함을 위해서 이렇게 예측한 값이 정확하게 사실이라고 가정한다.} \data{yrbss\_samp} 데이터셋으로 언급되는 이 표본을 사용해서 YRBSS 참여자 모집단에 관한 결론을 도출한다. 넓은 의미에서 통계적 추론을 실습이 된다. \data{yrbss\_samp} 데이터셋에서 나온 변수 \var{height}, \var{weight}, \var{active}, \var{lifting}을 요약하는 히스토그램 두개가 그림~\ref{yrbssSampHistograms}에 나와 있다.
 
 \begin{table}
 \centering
 \begin{tabular}{rrllrrlrr}
   \hline
-ID & age & gender & grade & height & weight & helmet & active & lifting \\ 
+ID & 연령 & 성별 & 학년 & 신장 & 몸무게 & 헬멧착용 & 운동일수 & 헬스일수 \\ 
   \hline
 5653 &  16 & female & 11 & 1.50 & 52.62 & never &   0 &   0 \\ 
   9437 &  17 & male & 11 & 1.78 & 74.84 & rarely &   7 &   5 \\ 
@@ -72,7 +74,7 @@ ID & age & gender & grade & height & weight & helmet & active & lifting \\
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth]{ch_inference_foundations/figures/yrbssSampHistograms/yrbssSampHistograms} 
-\caption{Histograms of \var{height}, \var{weight}, \var{activity}, and \var{lifting} for the sample YRBSS data. The \var{height} distribution is approximately symmetric, \var{weight} is moderately skewed to the right, \var{activity} is bimodal or multimodal (with unclear skew), and \var{lifting} is strongly right skewed.\index{skew!example: moderate}\index{skew!example: strong}}
+\caption{ YRBSS 표본 데이터에 대한 \var{height}, \var{weight}, \var{activity}, \var{lifting} 변수 히스토그램. 신장 \var{height} 변수는 근사적으로 좌우대칭, 몸무게 \var{weight} 변수는 중간정도 우측으로 기울어졌고, 운동일수 \var{activity} 변수는 (기울어짐이 명확하지 않은) 이봉 혹은 다봉, 헬스일수 \var{lifting} 변수는 강하게 우측으로 기울어졌다.\index{기움!예제: 중간}\index{skew!example: 강함}}
 \label{yrbssSampHistograms}
 \end{figure}
 
