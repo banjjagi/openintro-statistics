@@ -264,42 +264,44 @@ SE = \frac{\sigma}{\sqrt{n}}
 \label{confidenceIntervals}
 
 \index{신뢰구간|(}
-
-A point estimate provides a single plausible value for a parameter. However, a point estimate is rarely perfect; usually there is some error in the estimate. Instead of supplying just a point estimate of a parameter, a next logical step would be to provide a plausible \emph{range of values} for the parameter.
+점추정값은 모수에 대한 타당할 것 같은 단일 값을 제공한다.하지만, 점추정값이 완벽적은 드물다; 일반적으로 추정값에 오차가 있다. 모수에 대한 점추정값만 제공하는 대신에, 당연한 다음 단계는 모수에 대한 \emph{값의 범위}(range of values)를 제공하는 것이다.
 
 % In this section and in Section~\ref{hypothesisTesting}, we will emphasize the special case where the point estimate is a sample mean and the parameter is the population mean. In Section~\ref{aFrameworkForInference}, we generalize these methods for a variety of point estimates and population parameters that we will encounter in Chapter~\ref{inferenceForNumericalData} and beyond.
 
-\subsection{Capturing the population parameter}
+\subsection{모수를 정확히 포착하기}
 
-A plausible range of values for the population parameter is called a \term{confidence interval}.
+모수에 대한 타당성 있는 값의 범위를 \term{신뢰구간}(confidence interval)이라고 부른다.
 
-Using only a point estimate is like fishing in a murky lake with a spear, and using a confidence interval is like fishing with a net. We can throw a spear where we saw a fish, but we will probably miss. On the other hand, if we toss a net in that area, we have a good chance of catching the fish.
+점추정만 사용하면 탁한 호수에서 작살로 낚시하는 것과 같다. 신뢰구간을 사용하면 그물로 물고기를 잡는 것과 같다. 작살을 물고기를 본 곳을 향해 던지지만, 아마도 맞추지 못할 것이다. 반대로, 만약 해당 지역에 그물을 던지면, 물고기를 잡을 가능성이 높다.
 
-If we report a point estimate, we probably will not hit the exact population parameter. On the other hand, if we report a range of plausible values -- a confidence interval -- we have a good shot at capturing the parameter. 
+만약 점추정값을 보고하면, 아마도 정확한 모수를 맞추지 못할 것이다. 반대로, 타당성 있는 값의 범위-- 신뢰 구간 --를 보고하면, 적중시켜서 모수를 정확히 잡아낼 것이다.
 
 \begin{exercise}
-If we want to be very certain we capture the population parameter, should we use a wider interval or a smaller interval?\footnote{If we want to be more certain we will capture the fish, we might use a wider net. Likewise, we use a wider confidence interval if we want to be more certain that we capture the parameter.}
+만약 모수를 정확히 잡아내는데 매우 확신을 갖는다면, 더 넓은 신뢰구간 혹은 더 좁은 신뢰구간을 사용해야 할까요?
+\footnote{물고기를 잡는데 좀더 확실히 하려면, 더 넓은 그물을 사용한다. 마찬가지로, 모수를 잡아내는데 좀더 확신을 가지려면 더 넓은 신뢰구간을 사용한다.}
 \end{exercise}
 
 
 \textC{\pagebreak}
 
 
-\subsection{An approximate 95\% confidence interval}
+\subsection{근사 95\% 신뢰구간}
 
-Our point estimate is the most plausible value of the parameter, so it makes sense to build the confidence interval around the point estimate. The standard error, which is a measure of the uncertainty associated with the point estimate, provides a guide for how large we should make the confidence interval.
+점추정값은 모수에 대한 가장 타당성 있는 값이다. 그래서, 점추정값 주위에 신뢰구간을 설치하는 것이 일리가 있다. 점추정값과 연관된 불확실성 측도인 표준오차가 신뢰구간을 얼마나 크게 만들지에 대한 지침이 된다.
 
-The standard error represents the standard deviation associated with the estimate, and roughly 95\% of the time the estimate will be within 2 standard errors of the parameter. If~the interval spreads out 2 standard errors from the point estimate, we can be roughly 95\% \term{confident} that we have captured the true parameter:
+표준오차는 추정값과 연관된 표준편차를 나타낸다. 대략 추정치의 95\% 정도가 모수 2 표준오차 내에 위치한다. 만약 점추정값에서 2 표준오차만큼 뻗으면, 모수를 잡아내는데 대략 95\% \term{신뢰}(confident)할 수 있다:
+
 \begin{eqnarray}
-\text{point estimate}\ \pm\ 2\times SE
+\text{점추정값}\ \pm\ 2\times SE
 \label{95PercentConfidenceIntervalFormula}
 \end{eqnarray}
-But what does ``95\% confident'' mean? Suppose we took many samples and built a confidence interval from each sample using Equation~(\ref{95PercentConfidenceIntervalFormula}). Then about 95\% of those intervals would contain the actual mean, $\mu$. Figure~\ref{95PercentConfidenceInterval} shows this process with 25 samples, where 24 of the resulting confidence intervals contain the average number of days per week that YRBSS students are physically active, $\mu=3.90$~days, and one interval does not.
+
+하지만, ``95\% 신뢰''가 무슨 의미인가? 표본을 많이 뽑아서, 수식~(\ref{95PercentConfidenceIntervalFormula})을 사용해서 각 표본에 대한 신뢰구간을 생성한다고 가정하자. 그렇다면 이런 신뢰구간 중에 약 95\%가 실제 평균 $\mu$를 포함할 것이다. 표본 25개를 가지고 이 과정을 그림~\ref{95PercentConfidenceInterval}에 나타냈다. 여기서 YRBSS 고등학생의 주당 운동일수 모평균 $\mu=3.90$~일을 포함하는 신뢰구간이 24개 그리고 한 신뢰구간은 모평균을 포함하고 있지 않다.
 
 \begin{figure}[hht]
    \centering
    \includegraphics[width=0.78\textwidth]{ch_inference_foundations/figures/95PercentConfidenceInterval/95PercentConfidenceInterval}
-   \caption{Twenty-five samples of size $n=100$ were taken from \data{yrbss}. For~each sample, a confidence interval was created to try to capture the average number of days per week that students are physically active. Only~1 of these~25 intervals did not capture the true mean, $\mu = 3.90$~days.}
+   \caption{크기 $n=100$에 대한 표본 25개를 \data{yrbss} 데이터셋에서 뽑았다. 각 표본에 대해서 신뢰구간을 생성해서 고등학생의 주당 평균 운동일수를 잡아내려고 했다. 신뢰구간 25개 중에서 하나만 실제 평균 $\mu = 3.90$~일을 잡아내지 못했다.}
    \label{95PercentConfidenceInterval}
 \end{figure}
 
