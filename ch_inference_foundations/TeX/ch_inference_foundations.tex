@@ -82,7 +82,7 @@ ID & 연령 & 성별 & 학년 & 신장 & 몸무게 & 헬멧착용 & 운동일수
 
 
 %__________________
-\section[추정값에 내재하는 변동성]{Variability in estimates \sectionvideohref{youtube-DNIauUrRIEM&list=PLkIselvEzpM7Pjo94m1e7J5jkIZkbQAl4}}
+\section[Variability in estimates]{추정값에 내재하는 변동성 \sectionvideohref{youtube-DNIauUrRIEM&list=PLkIselvEzpM7Pjo94m1e7J5jkIZkbQAl4}}
 \label{variabilityInEstimates}
 
 \index{점추정|(}
@@ -156,61 +156,64 @@ ID & 연령 & 성별 & 학년 & 신장 & 몸무게 & 헬멧착용 & 운동일수
 
 \end{exercise}
 
-\subsection{점추정값은 정확하지 않다.}
+\subsection{점추정값이 정말 정확하지는 않다.}
 
-Estimates are usually not exactly equal to the truth, but they get better as more data become available. We can see this by plotting a running mean from \data{yrbss\_samp}. A \term{running mean} is a sequence of means, where each mean uses one more observation in its calculation than the mean directly before it in the sequence. For example, the second mean in the sequence is the average of the first two observations and the third in the sequence is the average of the first three. The running mean for the \var{active} variable in the \data{yrbss\_samp} is shown in Figure~\ref{yrbssActiveRunningMean}, and it approaches the true population average, 3.90~days, as more data become available.
+추정값은 대체로 참값과 정확하게 같지는 않지만, 데이터가 많아짐에 따라 추정값이 더 나아진다. \data{yrbss\_samp} 데이터셋에서 이동 평균을 도식화해서 이점을 확인할 수 있다. 여기서 각 평균은 데이터 이전 수열로부터 평균보다 계산에서 관측점을 하나더 사용한다. 예를 들어, 수열 두번째 평균은 첫 두 관측점 평균이 되고, 수열 세번째 평균은 첫 세 관측점 평균이다. \data{yrbss\_samp} 데이터셋에서 \var{active} 변수에 대한 이동 평균이 그림~\ref{yrbssActiveRunningMean}에 나와있다. 더 많은 데이터가 이용가능해짐에 따라 모집단 평균 3.90 일에 근접해간다. 
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=0.72\textwidth]{ch_inference_foundations/figures/yrbssActiveRunningMean/yrbssActiveRunningMean}
-   \caption{The mean computed after adding each individual to the sample. The mean tends to approach the true population average as more data become available.}
+   \caption{표본에 개별 관측점을 더한 뒤에 계산된 평균. 표본평균이 데이터가 많아짐에 따라 모집단 평균에 근접하는 경향이 있다.}
    \label{yrbssActiveRunningMean}
 \end{figure}
 
-Sample point estimates only approximate the population parameter, and they vary from one sample to another. If we took another simple random sample of the YRBSS students, we would find that the sample mean for the number of days active would be a little different. It will be useful to quantify how variable an estimate is from one sample to another. If this variability is small (i.e. the sample mean doesn't change much from one sample to another) then that estimate is probably very accurate. If it varies widely from one sample to another, then we should not expect our estimate to be very good.
+표본 점추정값은 모수에 근접만 한다. 표본 점추정값은 표본마다 다르다. 만약 YRBSS 고등학생에 대한 또다른 단순임의표본을 추출하면, 운동일수에 대한 표본평균이 약간 다른 것을 알 수 있다. 추정값이 표본마다 얼마의 변동성을 갖는지 정량화하는 것이 유용하다. 만약 변동성이 작다면 (즉, 표본 평균이 표본마다 그다지 변동하지 않는다면), 이 추정값은 아마도 매우 정확성이 높을 것이다. 만약 표본마다 추정값이 변동한다면, 추정값이 매우 좋을 것으로 기대하지는 말아야 된다.
 
-
-\subsection{Standard error of the mean}
+\subsection{평균에 대한 표준 오차}
 \label{seOfTheMean}
 
-From the random sample represented in \data{yrbss\_samp}, we guessed the average number of days a YRBSS student is physically active is 3.75~days. Suppose we take another random sample of 100 individuals and take its mean: 3.22~days. Suppose we took another (3.67~days) and another (4.10~days), and so on. If we do this many many times -- which we can do only because we have all YRBSS students -- we can build up a \term{sampling distribution} for the sample mean when the sample size is 100, shown in Figure~\ref{yrbssActive1000SampDist}.
+\data{yrbss\_samp} 데이터셋에 나온 임의 표본으로부터 YRBSS 고등학생 평균 운동일수가 3.75~일로 추측했다. 또다른 고등학생 100명을 임의추출해서 평균(3.22~일)을 구했다고 가정하자. 또다른 평균(3.67~일)을 구했다고 가정하자. 또다른 평균(4.10~days) 등등. 만약 아주 많이 반복한다면 -- 모든 YRBSS 고등학생 정보를 가질 때만 할 수 있다 -- 표본크기 100을 갖는 표본평균에 대한 \term{표집분포}(sampling distribution)를 만들 수 있다. 그림~\ref{yrbssActive1000SampDist}에 나와있다.
 
 \begin{figure}[h]
    \centering
    \includegraphics[width=0.9\textwidth]{ch_inference_foundations/figures/yrbssActive1000SampDist/yrbssActive1000SampDist}
-   \caption{A histogram of 1000 sample means for number of days physically active per week, where the samples are of size $n=100$.}
+   \caption{주당 운동횟수에 대한 표본평균 1000개에 대한 히스토그램. 표본크기는 $n=100$이다.}
    \label{yrbssActive1000SampDist}
 \end{figure}
 
-\begin{termBox}{\tBoxTitle{Sampling distribution}
-The sampling distribution represents the distribution of the point estimates based on samples of a fixed size from a certain population. It is useful to think of a particular point estimate as being drawn from such a distribution. Understanding the concept of a sampling distribution is central to understanding statistical inference.}
+\begin{termBox}{\tBoxTitle{표집 분포}
+표집분포(sampling distribution)는 특정 모집단에 대한 고정된 크기 표본에 기반한 점추정값 분포를 나타낸다. 특정 점추정값이 그런 분포에서 나온 것으로 간주하는 것이 유용하다. 표집분포에 대한 개념을 이해하는 것이 통계적 추론을 이해하는 핵심이다.}
 \end{termBox}
 
-The sampling distribution shown in Figure~\ref{yrbssActive1000SampDist} is unimodal and approximately symmetric. It is also centered exactly at the true population mean: $\mu=3.90$. Intuitively, this makes sense. The sample means should tend to ``fall around'' the population mean.
+그림~\ref{yrbssActive1000SampDist}에 나온 표집분포는 단봉이고 근사적으로 대칭이다. 또한 모집단 평균에 정확하게 중심을 잡고 있다: $\mu=3.90$. 직관적으로, 이해가 된다. 표본평균은 모집단 평균 ``주변''에 위치하는 경향이 있어야 한다.
 
-We can see that the sample mean has some variability around the population mean, which can be quantified using the standard deviation of this distribution of sample means: $\sigma_{\bar{x}} = 0.26$. The standard deviation of the sample mean tells us how far the typical estimate is away from the actual population mean, 3.90~days. It also describes the typical \term{error} of the point estimate, and for this reason we usually call this standard deviation the \term{standard error (SE)}\index{SE}\marginpar[\raggedright\vspace{-4mm}
+표본평균이 모집단 평균 주변에서 변동성이 있음을 알 수 있는데, 표본평균 분포에 대한 표준편차를 사용해서 정량화할 수 있다: $\sigma_{\bar{x}} = 0.26$. 표본평균에 대한 표준편차는 특정 추정값이 실제 모집단 평균(3.90~일)으로부터 얼마나 떨어져있는지 알려준다. 점추정값에 대한 \term{오차}(error)도 기술할 수 있다. 이런 연유로 일반적으로 이 표준편차를 추정값에 대한 \term{표준오차}(standard error, SE) 라고 부른다.\index{SE}\marginpar[\raggedright\vspace{-4mm}
 
-$SE$\\\footnotesize standard\\error]{\raggedright\vspace{-4mm}
+$SE$\\\footnotesize 표준오차,\\standard error]{\raggedright\vspace{-4mm}
 
 $SE$\\\footnotesize standard\\error} of the estimate.
 
-\begin{termBox}{\tBoxTitle{Standard error of an estimate}
-The standard deviation associated with an estimate is called the \emph{standard error}. It describes the typical error or uncertainty associated with the estimate.}
+\begin{termBox}{\tBoxTitle{추정값에 대한 표준오차}
+추정값과 연관된 표준편차를 \emph{표준오차}(standard error)라고 부른다. 표준오차는 추정값과 연관된 대표적인 오차 혹은 불확실성을 기술한다.}
 \end{termBox}
 
-When considering the case of the point estimate $\bar{x}$, there is one problem: there is no obvious way to estimate its standard error from a single sample. However, statistical theory provides a helpful tool to address this issue. 
+점추정값 $\bar{x}$에 대한 경우를 고려해볼 때, 문제가 하나있다: 단일 표본에서 표준오차를 추정할 수 있는 명확한 방법이 없다. 하지만, 이 문제를 다룰 수 있는 도움이 되는 도구를 통계이론이 제공한다.
+
 
 \textC{\newpage}
 
 \begin{exercise}
-(a) Would you rather use a small sample or a large sample when estimating a parameter? Why? (b) Using your reasoning from (a), would you expect a point estimate based on a small sample to have smaller or larger standard error than a point estimate based on a larger sample?\footnote{(a) Consider two random samples: one of size 10 and one of size 1000. Individual observations in the small sample are highly influential on the estimate while in larger samples these individual observations would more often average each other out. The larger sample would tend to provide a more accurate estimate. (b) If we think an estimate is better, we probably mean it typically has less error. Based on (a), our intuition suggests that a larger sample size corresponds to a smaller standard error.}
+(a) 모수를 추정할 때 작은 표본 혹은 큰 표본을 사용하는게 좋을까요? 왜 그런가요? (b) (a)에서 나온 추론을 사용해서, 큰 표본에 근거한 점추정값보다 작은 표본에 근거한 점추정값이 더 작은 혹은 더 큰 표준오차를 가질 것으로 예상합니까?
+\footnote{(a) 임의표본 두개를 생각해보자: 하나는 표본크기 10, 다른 하나는 표본크기 1000. 작은 표본에서 개별 관측점이 추정값에 영향력이 큰 반면 큰 표본에서는 개별 관측점은 서로 평균을 내게된다. 더 큰 표본크기가 좀더 정확한 추정값을 제공하는 경향이 있다. (b) 만약 추정값이 더 좋다면, 아마도 추정값이 더 적은 오차를 갖는다는 의미를 띈다. (a)에 근거해서, 더 큰 표본크기는 더 작은 표준오차에 상응된다고 직관적으로 볼 수 있다.}
 \end{exercise}
 
-In the sample of 100 students, the standard error of the sample mean is equal to the population standard deviation divided by the square root of the sample size:
+표본 100명 고등학생 중에서, 표본평균에 대한 표준오차는 모집단 표준편차를 표본크기에 제곱근을 씌워서 나눈 것이 된다:
+
 \begin{eqnarray*}
 SE_{\bar{x}} = \sigma_{\bar{x}} = \frac{\sigma_{x}}{\sqrt{n}} = \frac{2.6}{\sqrt{100}} = 0.26
 \end{eqnarray*}
-where $\sigma_{x}$ is the standard deviation of the individual observations. This is no coincidence. We can show mathematically that this equation is correct when the observations are independent using the probability tools of Section~\ref{randomVariablesSection}.
+
+여기서 $\sigma_{x}$는 개별 관측점에 대한 표준편차다. 이것은 우연의 일치가 아니다. 수학적으로 \ref{randomVariablesSection}~절에 나온 확률 도구를 사용해서 관측점이 독립일 때 상기 방정식이 맞다는 것을 보일 수 있다.
 
 \begin{termBox}{\tBoxTitle{Computing SE for the sample mean}
 Given $n$ independent observations from a population with standard deviation $\sigma$, the standard error of the sample mean is equal to \vspace{-1mm}
