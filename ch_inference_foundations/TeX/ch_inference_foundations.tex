@@ -215,46 +215,55 @@ SE_{\bar{x}} = \sigma_{\bar{x}} = \frac{\sigma_{x}}{\sqrt{n}} = \frac{2.6}{\sqrt
 
 여기서 $\sigma_{x}$는 개별 관측점에 대한 표준편차다. 이것은 우연의 일치가 아니다. 수학적으로 \ref{randomVariablesSection}~절에 나온 확률 도구를 사용해서 관측점이 독립일 때 상기 방정식이 맞다는 것을 보일 수 있다.
 
-\begin{termBox}{\tBoxTitle{Computing SE for the sample mean}
-Given $n$ independent observations from a population with standard deviation $\sigma$, the standard error of the sample mean is equal to \vspace{-1mm}
+\begin{termBox}{\tBoxTitle{표본 평균에 대한 표준오차(SE) 계산}
+표준편차 $\sigma$를 갖는 모집단에서 나온 $n$ 독립 관측점이 주어졌을 때, 표본평균에 대한 표준오차는 다음과 같다.\vspace{-1mm}
+
 \begin{eqnarray}
 SE = \frac{\sigma}{\sqrt{n}}
 \label{seOfXBar}
 \end{eqnarray}\vspace{-3mm}%
 
-A reliable method to ensure sample observations are independent is to conduct a simple random sample consisting of less than 10\% of the population.\index{standard error (SE)!single mean}
+표본 관측점의 독립성을 보장할 수 있는 신뢰성있는 방법은 10\% 미만 모집단으로 구성된 단순 임의표본을 추출하는 것이다.
+\index{표준오차 (SE)!단일 평균}
 }
 \end{termBox}
 
-There is one subtle issue in Equation~(\ref{seOfXBar}): the population standard deviation is typically unknown. You might have already guessed how to resolve this problem: we can use the point estimate of the standard deviation from the sample. This estimate tends to be sufficiently good when the sample size is at least 30 and the population distribution is not strongly skewed%\footnote{Some books suggest 30 is sufficient; we take a slightly more conservative approach.}
+방정식~(\ref{seOfXBar})에 한가지 미묘한 이슈가 있다: 모집단 표준편차는 일반적으로 알려져 있지 않다. 이미 이런 문제를 어떻게 해결할 수 있는지 추측했을 것이다: 표본으로부터 표준편차 점추정값을 사용할 수 있다. 표본크기가 적어도 30이고 모집단 분포가 강하게 기울어져 있지 않을 때 이 추정값은 충분히 좋은 경향이 있다. 따라서, 모집단 표준편차 $\sigma$ 대신에 표본 표준편차 $s$만 종종 사용한다.
+%\footnote{Some books suggest 30 is sufficient; we take a slightly more conservative approach.}
 % x <- c(); for(i in 1:10000){ x[i] <- mean(exp(rnorm(30, sd=0.5))) }; hist(x); (quantile(x, c(0.025, 0.975)) - mean(x)) / sd(x)
 % M <- mean(x); x <- rep(NA, 1000); for(i in 1:1000){ temp <- exp(rnorm(30, sd=0.5)); x[i] <- (max(temp) - M) / sd(temp) }; hist(x); quantile(x, 0.95)
 % for(i in 1:1000){ temp <- exp(rnorm(30, sd=0.5)); hist(temp, breaks=seq(0, 12, 0.5), main=round((max(temp) - mean(temp))/sd(temp), 1)); Sys.sleep(0.5) }
-. Thus, we often just use the sample standard deviation $s$ instead of~$\sigma$. When the sample size is smaller than 30, we will need to use a method to account for extra uncertainty in the standard error. If the skew condition is not met, a larger sample is needed to compensate for the extra skew. These topics are further discussed in Section~\ref{cltSection}.
+표본크기가 30보다 작을 때, 표준오차에 부가된 불확실성을 고려할 방법을 사용할 필요가 있다. 만약 기울어짐 조건이 충족되지 않는다면, 부가된 
+기울어짐을 보상하는데 더 많은 표본이 필요하다. 이런 주제는 \ref{cltSection}~절에서 좀더 논의될 것이다.
 
 \begin{exercise}
-In the sample of 100 students, the standard deviation of student heights is $s_{height} = 0.088$ meters. In this case, we can confirm that the observations are independent by checking that the data come from a simple random sample consisting of less than 10\% of the population. (a)~What is the standard error of the sample mean, $\bar{x}_{height} = 1.70$ meters? (b)~Would you be surprised if someone told you the average height of all YRBSS respondents was actually 1.69~meters?\footnote{(a) Use Equation~(\ref{seOfXBar}) with the sample standard deviation to compute the standard error: $SE_{\bar{y}} = 0.088 / \sqrt{100} = 0.0088$ meters. (b) It would not be surprising. Our sample is about 1 standard error from 1.69m. In other words, 1.69m does not seem to be implausible given that our sample was relatively close to it. (We use the standard error to identify what is close.)}
+고등학생 100 명 표본에서 고등학생 신장 표준편차는 $s_{신장} = 0.088$ 미터다. 이 경우에, 데이터가 모집단에서 10\% 미만으로 구성된 단순 임의추출 표본임을 검사해서 관측점이 독립임을 확인할 수 있다. (a) 표본평균 $\bar{x}_{신장} = 1.70$ 미터에 대한 표준오차는 얼마인가? (b) 누군가 모든 YRBSS 응답자 평균신장이 사실 1.69 미터라고 말하는 것을 듣는다면 놀라울 것이 있을까?
+\footnote{
+(a) 표본 표준편차를 갖는 방정식~(\ref{seOfXBar})을 사용해서 표준오차를 계산한다: $SE_{\bar{y}} = 0.088 / \sqrt{100} = 0.0088$ 미터. (b) 전혀 놀랍지 않다. 표본이 1.69 미터에서 약 1 표준오차 떨어져 있다. 다른 말로, 표본이 상대적으로 가까이 있다면 1.69 미터가 믿기 어려워 보이지는 않는다. (표준오차를 사용해서 얼마나 가까이 있는지 식별한다.)
+}
 \end{exercise}
 %library(openintro); library(xtable); data(yrbss); data(yrbss.samp); d <- yrbss.samp$height; mean(d); sd(d); mean(yrbss$height, na.rm=TRUE); sd(yrbss$height, na.rm=TRUE)
 
 \textC{\pagebreak}
 
 \begin{exercise}
-(a) Would you be more trusting of a sample that has 100 observations or 400 observations? (b) We want to show mathematically that our estimate tends to be better when the sample size is larger. If the standard deviation of the individual observations is 10, what is our estimate of the standard error when the sample size is 100? What about when it is 400? (c) Explain how your answer to part~(b) mathematically justifies your intuition in part~(a).\footnote{(a) Extra observations are usually helpful in understanding the population, so a point estimate with 400 observations seems more trustworthy. (b) The standard error when the sample size is 100 is given by $SE_{100} = 10/\sqrt{100} = 1$. For 400: $SE_{400} = 10/\sqrt{400} = 0.5$. The larger sample has a smaller standard error. (c) The standard error of the sample with 400 observations is lower than that of the sample with 100 observations. The standard error describes the typical error, and since it is lower for the larger sample, this mathematically shows the estimate from the larger sample tends to be better -- though it does not guarantee that every large sample will provide a better estimate than a particular small sample.}
+(a) 관측점 100개 혹은 400개를 갖는 표본 중에서 더 신뢰가는 것은 어느 것인가? (b) 표본크기가 더 커질 때 추정값이 더 나아짐을 수학적으로 보이고자 한다. 만약 개별 관측점 표준편차가 10 이라면, 표본크기가 100일 때 표준오차 추정값은 얼마인가? 관측점이 400개일 때는 얼마인가? (c) (b)에 나온 정답이 수학적으로 (a)에 나온 직관을 정당화하는 방법을 설명하시오.
+\footnote{
+(a) 부가되는 관측점은 일반적으로 모집단에 대한 이해를 돕는다. 그래서 관측점 400개를 갖는 점추정값에 더 신뢰가 간다. (b) 표본크기가 100일 때 표준오차는 $SE_{100} = 10/\sqrt{100} = 1$로 주어진다. 400개에 대해서는 $SE_{400} = 10/\sqrt{400} = 0.5$로 주어진다. 더 큰 표본이 더 작은 표준오차를 갖는다. (c) 관측점 400개를 갖는 표본 표준오차가 관측점 100개를 갖는 표본 표준오차보다 더 낮다. 표준오차가 대표적인 오차를 기술한다. 더 큰 표본에 대해서 표준오차가 낮기 때문에, 수학적으로 더 큰 표본에서 나온 추정값이 더 좋은 경향을 보여준다 -- 하지만 더 큰 모든 표본이 특정 작은 표본보다 더 좋은 추정값을 제공한다는 보장은 하지 않는다.}
 \end{exercise}
 
-\subsection{Basic properties of point estimates}
+\subsection{점추정값에 대한 기본 성질}
 
-We achieved three goals in this section. First, we determined that point estimates from a sample may be used to estimate population parameters. We also determined that these point estimates are not exact: they vary from one sample to another. Lastly, we quantified the uncertainty of the sample mean using what we call the standard error, mathematically represented in Equation~\eqref{seOfXBar}. While we could also quantify the standard error for other estimates -- such as the median, standard deviation, or any other number of statistics -- we will postpone these extensions until later chapters or courses.
+이번 절에서 목적 세가지를 달성했다. 먼저, 표본에서 나온 점추정값을 사용해서 모수를 추정할 수 있음을 밝혀냈다. 또한 이러한 점추정값이 정확하지 않다는 것도 밝혀냈다: 점추정값은 표본마다 변한다. 마지막으로, 수학적으로 수식~\eqref{seOfXBar}에 나온 표준오차를 사용해서 표본평균 불확실성을 정량화했다. 설사 다른 추정값(예를 들어, 중위수, 표준편차, 혹은 다른 통계량)에 대해서도 표준오차를 정량화할 수 있지만, 후속 장이나 다른 교육과정에서 다룰 예정이다.
 
-\index{point estimate|)}
+\index{점추정|)}
 
 
 %__________________
-\section[Confidence intervals]{Confidence intervals \sectionvideohref{youtube-FUaXoKdCre4&list=PLkIselvEzpM7Pjo94m1e7J5jkIZkbQAl4}}
+\section[Confidence intervals]{신뢰구간 \sectionvideohref{youtube-FUaXoKdCre4&list=PLkIselvEzpM7Pjo94m1e7J5jkIZkbQAl4}}
 \label{confidenceIntervals}
 
-\index{confidence interval|(}
+\index{신뢰구간|(}
 
 A point estimate provides a single plausible value for a parameter. However, a point estimate is rarely perfect; usually there is some error in the estimate. Instead of supplying just a point estimate of a parameter, a next logical step would be to provide a plausible \emph{range of values} for the parameter.
 
