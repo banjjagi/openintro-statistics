@@ -24,6 +24,8 @@ ID & 연령 & 성별 & 학년 & 신장 & 몸무게 & 헬멧착용 & 운동일수
 \caption{\data{yrbss} 데이터셋에서 나온 다섯 사례. 관측점 일부는 공백인데 결측값 때문이다. 예를 들어, 학생 1과 2의 신장과 몸무게가 결측값이다. \textC{\vspace{-2mm}}}
 \label{yrbssDF}
 \end{table}
+% yrbss 데이터셋 가져오기
+% library(devtools); install_github("OpenIntroOrg/openintro-r-package", subdir = "openintro")
 % library(openintro); library(xtable); data(yrbss); xtable(rbind(head(yrbss, 4), tail(yrbss, 2))[, c("age", "gender", "grade", "height", "weight", "helmet_12m", "physically_active_7d", "strength_training_7d")])
 
 \begin{table}[h]
@@ -80,76 +82,81 @@ ID & 연령 & 성별 & 학년 & 신장 & 몸무게 & 헬멧착용 & 운동일수
 
 
 %__________________
-\section[Variability in estimates]{Variability in estimates \sectionvideohref{youtube-DNIauUrRIEM&list=PLkIselvEzpM7Pjo94m1e7J5jkIZkbQAl4}}
+\section[추정값에 내재하는 변동성]{Variability in estimates \sectionvideohref{youtube-DNIauUrRIEM&list=PLkIselvEzpM7Pjo94m1e7J5jkIZkbQAl4}}
 \label{variabilityInEstimates}
 
-\index{point estimate|(}
+\index{점추정|(}
 
-We would like to estimate four features of the high schoolers in YRBSS using the sample.
+표본을 사용해서 YRBSS 데이터셋에 다음 고등학생 특징을 추정하고자 한다.
 \begin{itemize}
 \setlength{\itemsep}{0mm}
-\item[(1)] What is the average height of the YRBSS high schoolers?
-\item[(2)] What is the average weight of the YRBSS high schoolers?
-\item[(3)] On average, how many days per week are YRBSS high schoolers physically active?
-\item[(4)] On average, how many days per week do YRBSS high schoolers do weight training?
+\item[(1)] YRBSS 데이터셋 고등학생 평균 신장은 얼마인가?
+\item[(2)] YRBSS 데이터셋 고등학생 평균 몸무게는 얼마인가?
+\item[(3)] 평균적으로, YRBSS 데이터셋 고등학생은 주당 몇일 운동하나요?
+\item[(4)] 평균적으로, YRBSS 데이터셋 고등학생은 주당 몇일 근력 운동을 하나요?
 \end{itemize}
-While we focus on the mean in this chapter, questions regarding variation are often just as important in practice. For instance, if students are either very active or almost entirely inactive (the distribution is bimodal), we might try different strategies to promote a healthy lifestyle among students than if all high schoolers were already somewhat active.
+
+이번 장에서 평균에 집중을 하지만, 변동성에 대한 질문은 실무에서 중요하다. 예를 등러, 만약 학생들이 매우 활동적이거나 거의 비활동적이라면 (분포형태는 이봉), 모든 고등학생을 다소 활동적으로 만드는 것보다 다른 전략을 사용해서 학생들 중 일부 건강을 증진시킬 수도 있다.
 
 % We will use $x_1, ..., x_{100}$ to represent the heights for each high schooler in our sample, and $y_1, ..., y_{100}$ will represent their weights.
 
-\subsection{Point estimates}
+\subsection{점추정}
 \label{pointEstimates}
 
-\index{point estimate!single mean|(}
+\index{점추정값!단일 평균|(}
 
-We want to estimate the \term{population mean} based on the sample. The most intuitive way to go about doing this is to simply take the \term{sample mean}. That is, to estimate the average height of all YRBSS students, take the average height for the sample:
+표본에 기반하여 \term{모집단 평균}(population mean)을 추정하자. 이 작업을 수행하는 가장 직관적인 방식은 단순히 \term{표본 평균}(sample mean)을 얻으면 된다. 즉, 모든 YRBSS 고등학생 평균 신장을 추정하는데 표본에 대한 평균 신장을 계산한다:
+
 \begin{eqnarray*}
 \bar{x}_{height} = \frac{1.50 + 1.78 + \dots + 1.70}{100} = 1.697
 \end{eqnarray*}
 %library(openintro); data(yrbss.samp); mean(yrbss.samp$height); yrbss.samp$height
-The sample mean $\bar{x} = 1.697$ meters (5 feet, 6.8 inches) is called a \term{point estimate} of the population mean: if we can only choose one value to estimate the population mean, this is our best guess. Suppose we take a new sample of 100 people and recompute the mean; we will probably not get the exact same answer that we got using the \data{yrbss\_samp} data set. Estimates generally vary from one sample to another, and this \term{sampling variation} suggests our estimate may be close, but it will not be exactly equal to the parameter.
 
-We can also estimate the average weight of YRBSS respondents by examining the sample mean of \var{weight} (in kg), and average number of days physically active in a~week:
+표본 평균 $\bar{x} = 1.697$ 미터 (5피트, 6.8인치)를 모평균에 대한 \term{점추정}(point estimate)이라고 부른다: 만약 모평균을 추정하는 값을 하나만 고른다면, 이 추정값이 최상의 추측이 된다. 100 명에 대한 신규 표본을 얻어 평균을 다시 계산한다고 가정하자: data{yrbss\_samp} 데이터셋을 사용해서 얻는 답과 정확하게 동일하지는 않은 것이다. 일반적으로 추정값은 표본에 따라 변하고, 이러한 \term{표본 변동}(sampling variation)은 추정값이 모수에는 가깝지만 정확하게 동일하지 않는 점을 시사한다.
+
+변수 \var{weight} (단위 킬로그램) 표본 평균을 조사해서 YRBSS 응답자 평균 몸무게와 주당 평균 운동일수를 추정할 수 있다:
+
 \begin{align*}
-\bar{x}_{weight} &= \frac{52.6 + 74.8 + \dots + 55.8}{100} = 68.89
-&\bar{x}_{active} &= \frac{0 + 7 + \dots + 1}{100} = 3.75
+\bar{x}_{신장} &= \frac{52.6 + 74.8 + \dots + 55.8}{100} = 68.89
+&\bar{x}_{운동일수} &= \frac{0 + 7 + \dots + 1}{100} = 3.75
 \end{align*}
 %library(openintro); data(yrbss.samp); d <- yrbss.samp$weight; mean(d); d
 %library(openintro); data(yrbss.samp); d <- yrbss.samp$physically_active_7d; mean(d); d
-The average weight is 68.89 kilograms, which is about 151.6 pounds.
+평균 체중은 68.89 킬로그램으로 약 151.6 파운드가 나온다.
 
-What about generating point estimates of other \term{population parameters}, such as the population median or population standard deviation? Once again we might estimate parameters based on sample statistics, as shown in Table~\ref{ptEstimatesYrbssActive}. For example, the population standard deviation of \var{active} using the sample standard deviation, 2.56~days.
+다른 \term{모수}(population parameters)에 대한 점추정을 산출하면 어떨까? 예를 들어, 모집단 중위수 혹은 모집단 표준편차? 다시 한번, 표본 통계량에 기반하여 모수를 추정한다. 추정 결과는 표~\ref{ptEstimatesYrbssActive}에 나와 있다. 예를 들어, 표본 표준편차를 사용해서 \var{active} 운동일수에 대한 모집단 표준편차는 2.56~일이 나온다.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{ l rr}
 \hline
-\var{active}	& estimate & parameter  \\
+운동일수 \var{active}	& 추정값 & 모수  \\
 \hline
-mean		& 3.75 & 3.90 \\
-median		& 4.00 & 4.00 \\
-st. dev.		& 2.556 & 2.564 \\
+평균		& 3.75 & 3.90 \\
+중위수		& 4.00 & 4.00 \\
+표준편차		& 2.556 & 2.564 \\
 \hline
 \end{tabular}
-\caption{Point estimates and parameter values for the \var{active} variable. The parameters were obtained by computing the mean, median, and SD for all YRBSS respondents.}
+\caption{ 운동일수 \var{active} 변수에 대한 점추정과 모수값. 모수는 전체 YRBSS 응답자 평균, 중위수, 표준편차를 계산해서 산출했다.}
 \label{ptEstimatesYrbssActive}
 \end{table}
 %library(openintro); library(xtable); data(yrbss); data(yrbss.samp); d <- yrbss.samp$physically_active_7d; mean(d); median(d); sd(d); d <- yrbss$physically_active_7d; mean(d, na.rm = TRUE); median(d, na.rm = TRUE); sd(d, na.rm = TRUE)
 
 
 \begin{exercise} \label{peOfDiffActiveBetweenGender}
-Suppose we want to estimate the difference in days active for men and women. If $\bar{x}_{men} = 4.3$ and $\bar{x}_{women} = 3.2$, then what would be a good point estimate for the population difference?\footnote{We could take the difference of the two sample means: $4.3 - 3.2 = 1.1$. Men are physically active about 1.1 days per week more than women on average in YRBSS.}
+남학생과 여학생에 대한 운동일수에 대한 차이를 추정한다고 가정하자. 만약 $\bar{x}_{men} = 4.3$ 와 $\bar{x}_{women} = 3.2$이라면, 모집단 차이에 대한 좋은 성질을 갖는 점추정값은 무엇일까?
+\footnote{두 표본 평균에 대한 차이를 들 수 있다: $4.3 - 3.2 = 1.1$. YRBSS 데이터셋에서 남학생이 평균적으로 여학생보다 약 1.1일 운동일수가 많다.}
 \end{exercise}
 %library(openintro); library(xtable); data(yrbss); data(yrbss.samp); (x <- by(yrbss.samp$physically_active_7d, yrbss.samp$gender, mean)); diff(x)
 
 \begin{exercise}
-If you had to provide a point estimate of the population IQR for the heights of participants, how might you make such an estimate using a sample?\footnote{To obtain a point estimate of the height for the full set of YRBSS students, we could take the IQR of the sample.}
+만약 참여자 신장에 대한 모집단 사분위간 범위(InterQuanrtile Range, IQR)에 대한 점추정값을 찾는다면, 표본을 사용해서 어떻게 추정값을 만들 수 있을까?\footnote{YRBSS 전체 학생 신장에 대한 점추정값을 얻으려면, 표본 사분위간 범위를 얻어서 구할 수 있다.}
 
-\index{point estimate!single mean|)}
+\index{점추정값!단일 평균|)}
 
 \end{exercise}
 
-\subsection{Point estimates are not exact}
+\subsection{점추정값은 정확하지 않다.}
 
 Estimates are usually not exactly equal to the truth, but they get better as more data become available. We can see this by plotting a running mean from \data{yrbss\_samp}. A \term{running mean} is a sequence of means, where each mean uses one more observation in its calculation than the mean directly before it in the sequence. For example, the second mean in the sequence is the average of the first two observations and the third in the sequence is the average of the first three. The running mean for the \var{active} variable in the \data{yrbss\_samp} is shown in Figure~\ref{yrbssActiveRunningMean}, and it approaches the true population average, 3.90~days, as more data become available.
 
