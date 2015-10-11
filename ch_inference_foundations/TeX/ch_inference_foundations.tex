@@ -348,7 +348,7 @@ SE = \frac{\sigma}{\sqrt{n}}
 수식~(\ref{95PercentConfidenceIntervalFormula})에서 2 표준오차를 사용한 선택은 대략 95\% 정도 관측점이 평균에서 2 표준편차 내에 위치한다는 일반적인 지침에 근거한다. 정규모형 아래에서 2 대신에 1.96을 사용해서 좀더 정확성을 높일 수 있다.
 
 \begin{eqnarray}
-\text{점추정}\ \pm\ 1.96\times SE
+\text{점추정값}\ \pm\ 1.96\times SE
 \label{95PercentCIWhenUsingNormalModel}
 \end{eqnarray}
 만약 $\bar{x}$같은 점추정값이 정규모형과 표준오차 $SE$와 연관되다면, 좀더 정확한 95\% 신뢰구간을 사용한다.
@@ -358,19 +358,21 @@ SE = \frac{\sigma}{\sqrt{n}}
 
 \index{신뢰구간!신뢰수준|(}
 
-Suppose we want to consider confidence intervals where the confidence level is somewhat higher than 95\%; perhaps we would like a confidence level of 99\%. Think back to the analogy about trying to catch a fish: if we want to be more sure that we will catch the fish, we should use a wider net. To create a 99\% confidence level, we must also widen our 95\% interval. On the other hand, if we want an interval with lower confidence, such as 90\%, we could make our original 95\% interval slightly slimmer.
+신뢰수준을 95\%보다 다소 높은 신뢰구간을 고려한다고 가정하자; 아마도 신뢰수준을 99\%로 두고자 한다. 물고기를 잡는 비유를 다시 들자: 만약 물고기를 잡는데 좀더 확실히 하려면, 더 넓은 그물을 사용해야만 된다. 99\% 신뢰수준을 생성하려면, 95\% 구간도 넓여야만 된다. 다른 한편으로, 만약 90\% 처럼 더 낮은 신뢰구간을 갖으려면, 최초 95\% 신뢰구간을 좀더 얇게 만들어야 한다. 
 
-The 95\% confidence interval structure provides guidance in how to make intervals with new confidence levels. Below is a general 95\% confidence interval for a point estimate that comes from a nearly normal distribution:
+95\% 신뢰구간 구조는 새로운 신뢰수준을 갖는 구간을 만드는 방법에 대한 안내지침이 된다. 다음에 거의 정규분포에서 나온 점추정에 대한 일반적인 95\% 신뢰구간이 나와 있다:
 \begin{eqnarray}
-\text{point estimate}\ \pm\ 1.96\times SE
+\text{점추정값}\ \pm\ 1.96\times SE
 \end{eqnarray}
-There are three components to this interval: the point estimate, ``1.96'', and the standard error. The choice of $1.96\times SE$ was based on capturing 95\% of the data since the estimate is within 1.96 standard deviations of the parameter about 95\% of the time. The choice of 1.96 corresponds to a 95\% confidence level. 
+신뢰구간에 세가지 구성요소가 있다: 점추정, ``1.96'', 표준오차. 추정값이 대략 95\% 정도 모수에 대해 1.96 표준편차 안에 위치하기 때문에 $1.96\times SE$ 선택은 데이터의 95\%를 잡아낸다는 것에 기반한다. 1.96 선택이 95\% 신뢰수준에 대응된다.
 
 \begin{exercise} \label{leadInForMakingA99PercentCIExercise}
-If $X$ is a normally distributed random variable, how often will $X$ be within 2.58 standard deviations of the mean?\footnote{This is equivalent to asking how often the Z-score will be larger than -2.58 but less than 2.58. (For a picture, see Figure~\ref{choosingZForCI}.) To determine this probability, look up -2.58 and 2.58 in the normal probability table (0.0049 and 0.9951). Thus, there is a $0.9951-0.0049 \approx 0.99$ probability that the unobserved random variable $X$ will be within 2.58 standard deviations of $\mu$.}
+만약 $X$가 정규분포에서 나온 확률변수라면, $X$가 평균의 2.58 표준편차 안에 존재할 가능성은 얼마나 될까?
+\footnote{Z-점수가 -2.58보다 크고 2.58보다 작을 것을 묻는 것과 동일하다. (도식화한 것은, 그림~\ref{choosingZForCI}을 참고한다.) 이 확률값을 알아내려면, 정규확률표에서 -2.58과 2.58을 찾아낸다. 그렇게 하면, 미관측된 확률변수 $X$가 $\mu$의 2.58 표준편차 안에 존재할 확률이 $0.9951-0.0049 \approx 0.99$이 나온다.}
 \end{exercise}
 
-To create a 99\% confidence interval, change 1.96 in the 95\% confidence interval formula to be $2.58$. Guided Practice~\ref{leadInForMakingA99PercentCIExercise} highlights that 99\% of the time a normal random variable will be within 2.58 standard deviations of the mean. This approach -- using the Z-scores in the normal model to compute confidence levels -- is appropriate when $\bar{x}$ is associated with a normal distribution with mean $\mu$ and standard deviation $SE_{\bar{x}}$. Thus, the formula for a 99\% confidence interval is
+99\% 신뢰구간을 생성하려면, 95\% 신뢰구간 공식에 나온 1.96을 $2.58$로 변경한다. 정규확률변수가 평균의 2.58 표준편차 안에 있을 확률이 99\%가 된다는 점이 Guided Practice~\ref{leadInForMakingA99PercentCIExercise}에서 부각되었다. 이런 접근법은 -- 신뢰수준을 계산하는데 정규모형에 Z-점수를 사용 -- $\bar{x}$가 평균 $\mu$와 표준편차 $SE_{\bar{x}}$ 모수를 갖는 정규분포와 연관될 때 적합하다. 따라서, 99\% 신뢰구간에 대한 공식은 다음과 같다:
+
 \begin{eqnarray}
 \bar{x}\ \pm\ 2.58\times SE_{\bar{x}}
 \label{99PercCIForMean}
@@ -379,77 +381,81 @@ To create a 99\% confidence interval, change 1.96 in the 95\% confidence interva
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{ch_inference_foundations/figures/choosingZForCI/choosingZForCI}
-\caption{The area between -$z^{\star}$ and $z^{\star}$ increases as $|z^{\star}|$ becomes larger. If the confidence level is 99\%, we choose $z^{\star}$ such that 99\% of the normal curve is between -$z^{\star}$ and $z^{\star}$, which corresponds to 0.5\% in the lower tail and 0.5\% in the upper tail: $z^{\star}=2.58$.}
+\caption{-$z^{\star}$ 와 $z^{\star}$ 사이 면적은 $|z^{\star}|$가 커집에 따라 증가한다. 만약 신뢰수준이 99\%라면, $z^{\star}$를 선택해서 정규곡선 99\%는 -$z^{\star}$ 와 $z^{\star}$ 사이가 되는데, 아래 꼬리는 0.5\%와 위쪽 꼬리는 0.5\%에 대응된다: $z^{\star}=2.58$.}
 \label{choosingZForCI}
-\index{confidence interval!confidence level|)}
+\index{신뢰구간!신뢰수준|)}
 \end{figure}
 
-The normal approximation is crucial to the precision of these confidence intervals. Section~\ref{cltSection} provides a more detailed discussion about when the normal model can safely be applied. When the normal model is not a good fit, we will use alternative distributions that better characterize the sampling distribution.
+정규근사가 신뢰구간 정도에 결정적이다. 언제 정규모형이 안전하게 적용될 수 있는지에 대해 \ref{cltSection}~절에서 좀더 자세한 논의가 있다. 정규모형이 잘 적합되지 않을 때, 표집분포 특징을 좀더 잘 잡아낼 수 있는 대안 분포를 사용한다.
 
-\begin{termBox}{\tBoxTitle{Conditions for $\bar{x}$ being nearly normal and $SE$ being accurate\label{terBoxOfCondForXBarBeingNearlyNormalAndSEBeingAccurate}}
-Important conditions to help ensure the sampling distribution of $\bar{x}$ is nearly normal and the estimate of SE sufficiently accurate:
+\begin{termBox}{\tBoxTitle{$\bar{x}$가 거의 정규분포를 따라고 $SE$ 정확성에 대한 조건\label{terBoxOfCondForXBarBeingNearlyNormalAndSEBeingAccurate}}
+$\bar{x}$에 대한 표집분포가 거의 정규분포를 따르고, SE 추정값이 충분히 정확함을 보증할 수 있는 중요한 조건:
 \begin{itemize}
 \setlength{\itemsep}{0mm}
-\item The sample observations are independent.
-\item The sample size is large: $n\geq30$ is a good rule of thumb.
-\item The population distribution is not strongly skewed. This condition can be difficult to evaluate, so just use your best judgement.
+\item 표본 관측점이 독립이다.
+\item 표본크기가 크다: 경험치로 $n\geq30$.
+\item 모집단 분포가 심하게 기울어져 있지 않다. 이 조건을 평가하기는 쉽지 않다. 그래서 본인이 알아서 최선의 판단을 한다.
 \end{itemize}
-Additionally, the larger the sample size, the more lenient we can be with the sample's skew.}
+추가적으로, 표본크기가 더 커짐에 따라, 표본 치우침에 대해 좀더 관대해진다.}
 \end{termBox}
 
-\begin{tipBox}{\tipBoxTitle[]{How to verify sample observations are independent}
-If the observations are from a simple random sample and consist of fewer than 10\% of the population, then they are independent.\\[2mm]
-Subjects in an experiment are considered independent if they undergo random assignment to the treatment groups. \\[2mm]
-If a sample is from a seemingly random process, e.g. the lifetimes of wrenches used in a particular manufacturing process, checking independence is more difficult. In~this case, use your best judgement.}
+\begin{tipBox}{\tipBoxTitle[]{표본 관측점이 독립임을 검증하는 방법}
+만약 관측점이 단순임의표본에서 나왔고, 모집단에 대해 10\% 보다 적게 구성된다면, 이런 관측점은 독립이다.
+만약 실험 대상이 처리집단에 임의 할당되었다면 독립으로 간주된다.
+만약 표본이 확률과정으로 보이는 곳에서 나왔다면, 예를 들어 특정 제조공정에 사용되는 렌치나 스패너의 수명, 독립성 검사가 더 어렵다. 이런 경우에는 본인이 알아서 최선의 판단을 한다.}
 \end{tipBox}
 
-\begin{tipBox}{\tipBoxTitle[]{Checking for strong skew usually means checking for obvious outliers}
-When there are prominent outliers present, the sample should contain at least 100 observations, and in some cases, much more. \\[2mm]
-This is a first course in statistics, so you won't have perfect judgement on assessing skew. That's okay. If you're in a bind, either consult a statistician or learn about the studentized bootstrap (bootstrap-t) method.}
+\begin{tipBox}{\tipBoxTitle[]{강한 치우침에 대한 검사는 명백한 이상점에 대한 검사다}
+눈에 띄는 이상점이 존재할 때, 표본은 적어도 관측점이 100개 포함되어야 하고, 일부 경우에는 더 많이 있어야 된다.
+통계학에서 첫번재 수업여서, 치우침 평가에 완벽한 판단이 서지 못할 것이다. 괜찮다. 만약 곤경에 처했다면, 통계학자에게 자문을 구하거나, 스튜던트 붓스트랩 (studentized bootstrap, bootstrap-t) 방법을 검토한다.}
 \end{tipBox}
 
 % WARNING !!!!
 % EOCE 4.9 (as of 2nd Edition) references the results of this exercise
 \begin{exercise} \label{find99CIForYrbssAgeExercise}
-Create a 99\% confidence interval for the average days active per week of all YRBSS students using \data{yrbss\_samp}. The point estimate is $\bar{x}_{active} = 3.75$ and the standard error is $SE_{\bar{x}} = 0.26$.\footnote{The observations are independent (simple random sample, $<10\%$ of the population), the sample size is at least 30 ($n = 100$), and the distribution doesn't have a clear skew (Figure~\ref{yrbssSampHistograms} on page~\pageref{yrbssSampHistograms}); the normal approximation and estimate of SE should be reasonable. Apply the 99\% confidence interval formula: $\bar{x}_{active}\ \pm\ 2.58 \times  SE_{\bar{x}} \rightarrow (3.08, 4.42)$. We are 99\% confident that the average days active per week of all YRBSS students is between 3.08 and 4.42~days.}
+\data{yrbss\_samp}을 사용해서 모든 YRBSS 학생에 대한 주당 평균 운동일수에 대한 99\% 신뢰구간을 생성하시오. 점추정값은 $\bar{x}_{active} = 3.75$, 표준오차는 $SE_{\bar{x}} = 0.26$이다. 
+\footnote{
+관측점은 독립이다 (단순임의표본, 모집단 $<10\%$ 미만), 표본크기는 적어도 30 ($n = 100$), 분포가 분명한 치우침이 없다 (\pageref{yrbssSampHistograms}~페이지, 그림~\ref{yrbssSampHistograms}); 정규근사와 SE 추정값에는 타당성이 있다. 99\% 신뢰구간공식을 적용한다: $\bar{x}_{active}\ \pm\ 2.58 \times  SE_{\bar{x}} \rightarrow (3.08, 4.42)$. 모든 YRBSS 학생에 대한 주당 평균 운동일수가 3.08일과 4.42일 사이을 99\% 신뢰한다.}
 \end{exercise}
 %library(openintro); data(yrbss.samp); d <- yrbss.samp; mean(d$age); sd(d$age)/sqrt(100)
 
-\begin{termBox}{\tBoxTitle{Confidence interval for any confidence level}
-If the point estimate follows the normal model with standard error $SE$, then a confidence interval for the population parameter is
+\begin{termBox}{\tBoxTitle{임의 신뢰수준에 대한 신뢰구간}
+만약 점추정값이 표준오차 $SE$를 갖는 정규모형을 따른다면, 모수에 대한 신뢰구간은 다음과 같다.
 \begin{eqnarray*}
-\text{point estimate}\ \pm\ z^{\star} SE
+\text{점추정값}\ \pm\ z^{\star} SE
 \end{eqnarray*}
-where $z^{\star}$ corresponds to the confidence level selected.}
+$z^{\star}$는 선정된 신뢰수준에 대응된다.}
 \end{termBox}
 
-Figure~\ref{choosingZForCI} provides a picture of how to identify $z^{\star}$ based on a confidence level. We~select $z^{\star}$ so that the area between -$z^{\star}$ and $z^{\star}$ in the normal model corresponds to the confidence level. 
+신뢰수준에 기반해서 $z^{\star}$를 식별하는 방법에 대한 도식이 그림~\ref{choosingZForCI}에 나와있다. $z^{\star}$를 선택하면, 정규모형에서 -$z^{\star}$ 와 $z^{\star}$ 사이 면적이 신뢰수준에 대응된다.
 
-\begin{termBox}{\tBoxTitle{Margin of error}
-\label{marginOfErrorTermBox}In a confidence interval, $z^{\star}\times SE$ is called the \term{margin of error}.}
+\begin{termBox}{\tBoxTitle{오차범위 (Margin of error)}
+\label{marginOfErrorTermBox}신뢰구간에서 $z^{\star}\times SE$을 \term{오차범위}(margin of error)라고 부른다.}
 \end{termBox}
 
 \textC{\newpage}
 
 \begin{exercise} \label{find90CIForYrbssAgeExercise}
-Use the data in Guided Practice~\ref{find99CIForYrbssAgeExercise} to create a 90\% confidence interval for the average days active per week of all YRBSS students.\footnote{We first find $z^{\star}$ such that 90\% of the distribution falls between -$z^{\star}$ and $z^{\star}$ in the standard normal model, $N(\mu=0, \sigma=1)$. We can look up -$z^{\star}$ in the normal probability table by looking for a lower tail of 5\% (the other 5\% is in the upper tail): $z^{\star}=1.65$. The 90\% confidence interval can then be computed as $\bar{x}_{active}\ \pm\ 1.65\times SE_{\bar{x}} \to (3.32, 4.18)$. (We had already verified conditions for normality and the standard error.) That is, we are 90\% confident the average days active per week is between 3.32 and 4.18~days.}
+Guided Practice~\ref{find99CIForYrbssAgeExercise}에서 나온 데이터를 사용해서 모든 YRBSS 학생에 대한 주당 평균 운동횟수에 대한 90\% 신뢰구간을 생성하라.\footnote{
+먼저 $z^{\star}$을 찾아 분포의 90\%가 표준정규모형($N(\mu=0, \sigma=1)$)에서 -$z^{\star}$ 와 $z^{\star}$ 사이에 있음을 확인한다. 아래쪽 꼬리 5\%를 찾아 정규확률표에서 -$z^{\star}$를 찾고, 위쪽 꼬리에서 또다른 5\%를 찾아 $z^{\star}=1.65$를 찾아낸다. 그리고 나면, 90\% 신뢰구간은 $\bar{x}_{active}\ \pm\ 1.65\times SE_{\bar{x}} \to (3.32, 4.18)$으로 계산된다. (이미 정규성과 표준오차에 대한 조건은 검증했다.) 즉, 주당 평균 운동일수는 3.32일과 4.18일 사이가 됨에 90\% 신뢰가 있다.}
 \end{exercise}
 
-\subsection{Interpreting confidence intervals}
+\subsection{신뢰구간 해석}
 \label{interpretingCIs}
 
-\index{confidence interval!interpretation|(}
+\index{신뢰구간!해석|(}
+신뢰구간을 기술하는데 사용되는 다소 어색한 언어를 목격했을 것이다. 올바른 해석은 다음과 같다:
 
-A careful eye might have observed the somewhat awkward language used to describe confidence intervals. Correct interpretation:
 \begin{quote}
-We are XX\% confident that the population parameter is between...
+모수가 ... 사이에 있음을 XX\% 신뢰한다.
 \end{quote}
-\emph{Incorrect} language might try to describe the confidence interval as capturing the population parameter with a certain probability. This is a common error: while it might be useful to think of it as a probability, the confidence level only quantifies how plausible it is that the parameter is in the interval.
 
-Another important consideration of confidence intervals is that they \emph{only try to capture the population parameter}. A confidence interval says nothing about the confidence of capturing individual observations, a proportion of the observations, or about capturing point estimates. Confidence intervals only attempt to capture population parameters.
+\emph{올바르지 못한} 표현은 특정 확률로 모수를 잡아내는 것으로 신뢰구간을 기술하는 것이다. 이러한 것이 흔한 오류다: 확률로 신뢰구간을 간주하는 것이 유용하지만, 신뢰수준은 단지 모수가 구간에 얼마의 타당성을 갖고 존재할지만 정량화한다.
 
-\index{confidence interval!interpretation|)}
-\index{confidence interval|)}
+신뢰구간에 대한 또다른 고려할 점이 신뢰구간이 \emph{단지 모수만 잡아내려고 한다}는 점이다. 신뢰구간은 각 개별 관측점, 관측점 비율, 혹은 점추정값을 잡아내는데는 어떠한 점도 말하고 있지 않는다. 신뢰구간은 단지 모수를 잡아내려고만 한다.
+
+\index{신뢰구간!해석|)}
+\index{신뢰구간|)}
 
 
 
