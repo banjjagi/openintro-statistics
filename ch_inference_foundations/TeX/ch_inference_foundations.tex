@@ -458,18 +458,19 @@ Guided Practice~\ref{find99CIForYrbssAgeExercise}에서 나온 데이터를 사�
 \index{신뢰구간|)}
 
 
-
 %__________________
-\section[Hypothesis testing]{Hypothesis testing \sectionvideohref{youtube-NVbPE1_Cbx8&list=PLkIselvEzpM7Pjo94m1e7J5jkIZkbQAl4}}
+\section[Hypothesis testing]{가설검정 \sectionvideohref{youtube-NVbPE1_Cbx8&list=PLkIselvEzpM7Pjo94m1e7J5jkIZkbQAl4}}
 \label{hypothesisTesting}
 
-\index{hypothesis testing|(}
+\index{가설검정|(}
 
-Are students lifting weights or performing other strength training exercises more or less often than they have in the past? We'll compare data from students from the 2011 YRBSS survey to our sample of 100 students from the 2013 YRBSS survey.
+현재 학생들이 역기들기 혹은 다른 근력 강화 훈련을 과거 학생들과 비교하여 더 혹은 덜 할까? 2013년 YRBSS 설문조사에 나온 표본 100명과 2011년 YRBSS 설문에서 나온 학생 데이터를 비교한다.
 
-We'll also consider sleep behavior. A recent study found that college students average about 7~hours of sleep per night.\footnote{\oiRedirect{textbook-theloquitur_1161}{\emph{Poll shows college students get least amount of sleep}. theloquitur.com/?p=1161}} However, researchers at a rural college are interested in showing that their students sleep longer than seven hours on average. We investigate this topic in Section~\ref{pValue}.
+또한 수면행동도 고려한다. 최근 조사에 따르면 대학생은 평균 대략 7시간 수면을 취한다. \footnote{\oiRedirect{textbook-theloquitur_1161}{\emph{설문조사를 통해서 대학생이 수면이 부족하다고 한다}. theloquitur.com/?p=1161}} 하지만, 지방대학 연구원은 지방학생이 평균 7시간보다 더 많은 수면을 취하는지 관심이 있다. 이 연구주제는 \ref{pValue}~절에서 조사한다.
 
-\subsection{Hypothesis testing framework}
+\subsection{가설검정 얼개}
+
+
 
 Students from the 2011 YRBSS lifted weights (or performed other strength training exercises) 3.09~days per week on average. We want to determine if the \data{yrbss\_samp} data set provides strong evidence that YRBSS students selected in 2013 are lifting more or less than the 2011 YRBSS students, versus the other possibility that there has been no change.\footnote{While we could answer this question by examining the entire YRBSS data set from 2013 (\data{yrbss}), we only consider the sample data (\data{yrbss\_samp}), which is more realistic since we rarely have access to population data.} We simplify these three options into two competing \termsub{hypotheses}{hypothesis}:
 \begin{itemize}
