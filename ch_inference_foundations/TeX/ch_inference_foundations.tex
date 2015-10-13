@@ -484,41 +484,42 @@ $H_0$\\\footnotesize 귀무가설\vspace{3mm}\\\normalsize $H_A$\\\footnotesize 
 
 $H_0$\\\footnotesize 귀무가설\vspace{3mm}\\\normalsize $H_A$\\\footnotesize 대립\\ 가설} 귀무가설(null hypothesis) $H_A$는 대립가설(alternative hypothesis).
 
-\begin{termBox}{\tBoxTitle{Null and alternative hypotheses}
-{\small The \term{null hypothesis ($H_0$)} often represents either a skeptical perspective or a claim to be tested. The \term{alternative hypothesis ($H_A$)} represents an alternative claim under consideration and is often represented by a range of possible parameter values.}}
+\begin{termBox}{\tBoxTitle{귀무가설과 대립가설}
+{\small \term{귀무가설($H_0$)}은 흔히 회의적인 시각 혹은 검정해야 되는 주장을 나타낸다. \term{대립가설 ($H_A$)}은 고려중인 대립 주장을 나타내고, 흔히 가능한 모수 값의 범위로 나타낸다.}}
 \end{termBox}
 
-The null hypothesis often represents a skeptical position or a perspective of no difference. The alternative hypothesis often represents a new perspective, such as the possibility that there has been a change. 
+귀무가설은 흔히 회의적인 자세 혹은 차이 없음 관점을 나타낸다. 대립가설은 흔히 변화가 있다는 가능성처럼 새로운 관점을 나타낸다.
 
-\begin{tipBox}{\tipBoxTitle{Hypothesis testing framework}
-The skeptic will not reject the null hypothesis ($H_0$), unless the evidence in favor of the alternative hypothesis ($H_A$) is so strong that she rejects $H_0$ in favor of $H_A$.}
+\begin{tipBox}{\tipBoxTitle{가설 검정 얼개(hypothesis testing framework)}
+대립가설($H_A$)을 옹호하는 증거가 강력해서 $H_A$ 지지에 대해 ($H_0$)를 거절하지 않는다면, 회의론자는 귀무가설($H_0$)를 기각하지 않을 것이다.}
 \end{tipBox}
 
-The hypothesis testing framework is a very general tool, and we often use it without a second thought. If a person makes a somewhat unbelievable claim, we are initially skeptical. However, if there is sufficient evidence that supports the claim, we set aside our skepticism and reject the null hypothesis in favor of the alternative. The hallmarks of hypothesis testing are also found in the US court system. 
+가설검정얼개(hypothesis testing framework)는 매우 일반적인 도구로, 재고도 않고 흔히 사용된다. 만약 어떤 사람이 다소 믿을 수 없는 주장을 한다면, 처음에는 회의적인 시각을 갖는다. 하지만, 주장을 뒷받침하는 충분한 증거가 있다면, 회의적인 시각을 파기하고 대립가설을 지지하고 귀무가설을 기각한다. 가설검정 전형적인 특징을 미국 사법체제에서도 발견할 수 있다.
 
 \begin{exercise} \label{hypTestCourtExample}
-A US court considers two possible claims about a defendant: she is either innocent or guilty. If we set these claims up in a hypothesis framework, which would be the null hypothesis and which the alternative?\footnote{The jury considers whether the evidence is so convincing (strong) that there is no reasonable doubt regarding the person's guilt; in such a case, the jury rejects innocence (the null hypothesis) and concludes the defendant is guilty (alternative hypothesis).}
+미국 법원은 피고에 대한 두가지 가능한 주장을 고려한다: 유죄이거나 무죄다. 가설검정얼개로 주장을 준비한다면, 귀무가설과 대립가설은 각각 어느 것이 될까요? 
+\footnote{배심원은 증거가 너무나 설득력 있어서 (강해서) 피고가 유죄라는 것에 관해서 합리적 의혹(reasonable doubt)이 없는지를 고려한다; 그런 경우에, 배심원은 결백(귀무가설)을 기각하고, 피고가 유죄(대립가설)라고 판결한다.}
 \end{exercise}
 
-Jurors examine the evidence to see whether it convincingly shows a defendant is guilty. Even if the jurors leave unconvinced of guilt beyond a reasonable doubt, this does not mean they believe the defendant is innocent. This is also the case with hypothesis testing: \emph{even if we fail to reject the null hypothesis, we typically do not accept the null hypothesis as true}. Failing to find strong evidence for the alternative hypothesis is not equivalent to accepting the null hypothesis.
+배심원은 피고가 유죄인지를 설득력있게 보이는지 알아내기 위해서 증거를 면밀히 조사한다. 설사 배심원이 합리적 의혹을 넘어 유죄를 확신하지 못할지라도, 이것이 바로 피고가 무죄로 믿는 것을 의미하지는 않는다. 가설검정의 경우도 마찬가지다: \emph{설사 귀무가설을 기각하는데 실패할지라도, 귀무가설을 사실로 받아들이는 것은 일반적으로 아니다.} 대립가설에 대한 강력한 증거를 발견하지 못하는 것이 귀무가설을 받아들인다는 것과 동일시 되지는 않는다.
 
-In the example with the YRSS, the null hypothesis represents no difference in the average days per week of weight lifting in 2011 and 2013. The alternative hypothesis represents something new or more interesting: there was a difference, either an increase or a decrease. These hypotheses can be described in mathematical notation using $\mu_{13}$ as the average days of weight lifting for 2013:
+YRSS 예제에서, 귀무가설은 2011년과 2013년에 역기를 드는 주당 평균 일수에 차이가 없음을 나타낸다. 대립가설은 뭔가 새로운 혹은 좀더 흥미로운 면을 나타낸다: 증가하든 하락하든 차이가 있다. 이러한 가설을 2013년에 대해서 역기들기 평균일수로 $\mu_{13}$ 수학적 표기법으로 나타낸다:
+
 \begin{itemize}
 \setlength{\itemsep}{0mm}
 \item[$H_0$:] $\mu_{13} = 3.09$
 \item[$H_A$:] $\mu_{13} \neq 3.09$
 \end{itemize}
-where 3.09 is the average number of days per week that students from the 2011 YRBSS lifted weights. Using the mathematical notation, the hypotheses can more easily be evaluated using statistical tools. We call 3.09 the \term{null value} since it represents the value of the parameter if the null hypothesis is true.
+숫자 3.09는 2011년 YRBSS 학생자료로부터 나온 역기들기에 대한 주당 평균 일수다. 수학적 표기법을 사용해서, 통계적 도구를 사용해서 가설을 좀더 쉽게 평가할 수 있다. 만약 귀무가설이 사실이라면, 모수값을 나타내기 때문에 3.09를 \term{영값}(null value)으로 부른다.
 
-
-\subsection{Testing hypotheses using confidence intervals}
+\subsection{신뢰구간을 사용한 가설 검정}
 \label{utilizingOurCI}
 
-We will use the \data{yrbss\_samp} data set to evaluate the hypothesis test, and we start by comparing the 2013 point estimate of the number of days per week that students lifted weights: $\bar{x}_{13} = 2.78$~days. This estimate suggests that students from the 2013 YRBSS were lifting weights less than students in the 2011 YRBSS. However, to evaluate whether this provides strong evidence that there has been a change, we must consider the uncertainty associated with $\bar{x}_{13}$.
+\data{yrbss\_samp} 데이터셋을 사용해서 가설검정을 평가한다. 학생이 역기를 든 주당평균 횟수 2013년 점추정값($\bar{x}_{13} = 2.78$~일)을 비교해서 착수해 나간다. 이추정값은 2013년 YRBSS 조사에서 나온 학생이 2011년 YRBSS 조사 학생보다 역기를 덜 든다고 제시하고 있다. 하지만, 변화가 있었다는 강력한 증거를 제시하는지 평가하기 위해서, $\bar{x}_{13}$와 연관된 불확실성을 고려해봐야 한다.
 
-We learned in Section~\ref{variabilityInEstimates} that there is fluctuation from one sample to another, and it is unlikely that the sample mean will be exactly equal to the parameter; we should not expect $\bar{x}_{13}$ to exactly equal $\mu_{13}$. Given that $\bar{x}_{13} = 2.78$, it might still be possible that the average of all students from the 2013 YRBSS survey is the same as the average from the 2011 YRBSS survey. The difference between $\bar{x}_{13}$ and 3.09 could be due to \emph{sampling variation}, i.e. the variability associated with the point estimate when we take a random sample.
+\ref{variabilityInEstimates}~절에서 표본마다 변동성이 존재하고, 표본평균이 정확하게 모수와 일치할 것 같지 않다는 것도 학습했다; $\bar{x}_{13}$이 정확하게 $\mu_{13}$와 동일하다고 예상하면 않된다. $\bar{x}_{13} = 2.78$이 주어졌지만, 2013년 YRBSS 설문조사에서 나온 모든 학생 평균이 2011년 YRBSS 조사에서 나온 평균과 동일하다고 가정하는 것은 여전히 유효하다. $\bar{x}_{13}$와 3.09 사이 차이는 \emph{표집변동}(sampling variation) 때문일 수 있다. 즉, 임의 표본을 수집할 때 점추정과 연관된 변동성.
 
-In Section~\ref{confidenceIntervals}, confidence intervals were introduced as a way to find a range of plausible values for the population mean.
+\ref{confidenceIntervals}~절에서 신뢰구간이 모평균에 대한 타당한 값의 범위를 찾는 방법으로 소개되었다.
 
 \begin{example}{In the sample of 100 students from the 2013 YRBSS survey, the average number of days per week that students lifted weights was 2.78~days with a standard deviation of 2.56 days (coincidentally the same as days active). Compute a 95\% confidence interval for the average for all students from the 2013 YRBSS survey. You can assume the conditions for the normal model are met.}
 The general formula for the confidence interval based on the normal distribution is
