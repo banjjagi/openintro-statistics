@@ -470,19 +470,19 @@ Guided Practice~\ref{find99CIForYrbssAgeExercise}에서 나온 데이터를 사�
 
 \subsection{가설검정 얼개}
 
+2011년 조사된 YRBSS 학생은 주당 평균 3.09 일 역기를 들었다 (혹은 다른 근력 강화 훈련을 실시했다). \data{yrbss\_samp} 데이터셋이 2013년 조사된 YRBSS 학생이 2011년 조사된 YRBSS 학생보다 더 혹은 덜 역기를 들었는지 혹은 또 다른 가능성으로 변동이 없는지에 대한 강력한 증거가 되는지 판단하고자 한다. 세가지 선택옵션을 두가지 경쟁하는 \termsub{가설}{가설}(hypotheses)로 단순화한다:
 
-
-Students from the 2011 YRBSS lifted weights (or performed other strength training exercises) 3.09~days per week on average. We want to determine if the \data{yrbss\_samp} data set provides strong evidence that YRBSS students selected in 2013 are lifting more or less than the 2011 YRBSS students, versus the other possibility that there has been no change.\footnote{While we could answer this question by examining the entire YRBSS data set from 2013 (\data{yrbss}), we only consider the sample data (\data{yrbss\_samp}), which is more realistic since we rarely have access to population data.} We simplify these three options into two competing \termsub{hypotheses}{hypothesis}:
 \begin{itemize}
 \setlength{\itemsep}{0mm}
-\item[$H_0$:] The average days per week that YRBSS students lifted weights was the same for 2011 and~2013.
-\item[$H_A$:] The average days per week that YRBSS students lifted weights was \emph{different} for 2013 than~in~2011.
+\item[$H_0$:] YRBSS 학생이 역기를 든 주당 평균 일수는 2011년과 2013년 동일하다.
+\item[$H_A$:] YRBSS 학생이 역기를 든 주당 평균 일수는 2011년 보다 2013년에 대해 \emph{다르다}.
 \end{itemize}
-We call $H_0$\marginpar[\raggedright\vspace{6mm}
 
-$H_0$\\\footnotesize null hypothesis\vspace{3mm}\\\normalsize $H_A$\\\footnotesize alternative\\ hypothesis]{\raggedright\vspace{6mm}
+$H_0$\marginpar[\raggedright\vspace{6mm}
 
-$H_0$\\\footnotesize null hypothesis\vspace{3mm}\\\normalsize $H_A$\\\footnotesize alternative\\ hypothesis} the null hypothesis and $H_A$ the alternative hypothesis.
+$H_0$\\\footnotesize 귀무가설\vspace{3mm}\\\normalsize $H_A$\\\footnotesize 대립가설]{\raggedright\vspace{6mm}
+
+$H_0$\\\footnotesize 귀무가설\vspace{3mm}\\\normalsize $H_A$\\\footnotesize 대립\\ 가설} 귀무가설(null hypothesis) $H_A$는 대립가설(alternative hypothesis).
 
 \begin{termBox}{\tBoxTitle{Null and alternative hypotheses}
 {\small The \term{null hypothesis ($H_0$)} often represents either a skeptical perspective or a claim to be tested. The \term{alternative hypothesis ($H_A$)} represents an alternative claim under consideration and is often represented by a range of possible parameter values.}}
