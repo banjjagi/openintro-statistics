@@ -130,11 +130,11 @@ ID & 연령 & 성별 & 학년 & 신장 & 몸무게 & 헬멧착용 & 운동일수
 \centering
 \begin{tabular}{ l rr}
 \hline
-운동일수 \var{active}	& 추정값 & 모수  \\
+운동일수 \var{active} & 추정값 & 모수  \\
 \hline
-평균		& 3.75 & 3.90 \\
-중위수		& 4.00 & 4.00 \\
-표준편차		& 2.556 & 2.564 \\
+평균    & 3.75 & 3.90 \\
+중위수   & 4.00 & 4.00 \\
+표준편차    & 2.556 & 2.564 \\
 \hline
 \end{tabular}
 \caption{ 운동일수 \var{active} 변수에 대한 점추정과 모수값. 모수는 전체 YRBSS 응답자 평균, 중위수, 표준편차를 계산해서 산출했다.}
@@ -521,28 +521,43 @@ YRSS 예제에서, 귀무가설은 2011년과 2013년에 역기를 드는 주당
 
 \ref{confidenceIntervals}~절에서 신뢰구간이 모평균에 대한 타당한 값의 범위를 찾는 방법으로 소개되었다.
 
-\begin{example}{In the sample of 100 students from the 2013 YRBSS survey, the average number of days per week that students lifted weights was 2.78~days with a standard deviation of 2.56 days (coincidentally the same as days active). Compute a 95\% confidence interval for the average for all students from the 2013 YRBSS survey. You can assume the conditions for the normal model are met.}
-The general formula for the confidence interval based on the normal distribution is
+\begin{example}{2013 YRBSS 조사에서 추출된 학생 100명으로부터,
+학생들이 역기를 드는 근력운동을 실시한 평균 일자는 2.78일이고, 표준편차는 2.56일이다. (우연히 운동일수와 동일하다)
+YRBSS 조사에 포함된 모든 학생에 대한 평균운동일수에 대한 95\% 신뢰구간을 계산하라.
+정규모형 조건이 충족되는 것으로 가정해도 된다.}
+정규분포에 기반한 신뢰구간에 대한 일반적인 공식 다음과 같다.
 \begin{align*}
 \bar{x} \pm z^{\star} SE_{\bar{x}}
 \end{align*}
-We are given $\bar{x}_{13} = 2.78$, we use $z^{\star} = 1.96$ for a 95\% confidence level, and we can compute the standard error using the standard deviation divided by the square root of the sample size:
+
+표본평균 $\bar{x}_{13} = 2.78$ 이 주어지고, 95\% 신뢰구간에 대한 $z^{\star} = 1.96$ 을 사용한다.
+표본크기에 제곱근을 씌워 나눈 표준편차를 사용해서 표준오차를 계산한다:
+
 \begin{align*}
 SE_{\bar{x}} = \frac{s_{13}}{\sqrt{n}} = \frac{2.56}{\sqrt{100}} = 0.256
 \end{align*}
-Entering the sample mean, $z^{\star}$, and the standard error into the confidence interval formula results in (2.27, 3.29). We are 95\% confident that the average number of days per week that all students from the 2013 YRBSS lifted weights was between 2.27~and 3.29~days.
+
+표본평균 $z^{\star}$, 표준오차를 신뢰구간을 계산하는 공식에 집어넣으면, 결과가 (2.27, 3.29)이 나온다.
+2013 YRBSS 조사에 포함된 모든 학생이 역기를 드는 근력운동을 주당 실시하는 평균 일수는 2.27에서 3.29일 사이라는 것을
+95\% 신뢰하게 된다..
 \end{example}
 
-Because the average of all students from the 2013 YRBSS survey is 3.09, which falls within the range of plausible values from the confidence interval, we cannot say the null hypothesis is implausible. That is, we fail to reject the null hypothesis, $H_0$.
+2011 YRBSS 조사에 포함된 모든 학생의 평균운동일수가 3.09일(신뢰구간에 가능한 값의 범위에 포함됨)이기 때문에,
+귀무가설이 그럴듯 하지 않다고 단정할 수는 없다. 즉, 귀무가설, $H_0$를 기각할 수는 없다.
 
-\begin{tipBox}{\tipBoxTitle{Double negatives can sometimes be used in statistics}
-In many statistical explanations, we use double negatives. For instance, we might say that the null hypothesis is \emph{not implausible} or we \emph{failed to reject} the null hypothesis. Double negatives are used to communicate that while we are not rejecting a position, we are also not saying it is correct.}
+\begin{tipBox}{\tipBoxTitle{이중부정이 종종 통계학에 사용될 수도 있다}
+많은 통계학적 설명에 이중부정(double negatives)을 사용한다.
+예를 들어, 귀무가설이 \emph{그럴듯 하지 않다}, 혹은 귀무가설을 \emph{기각할 수 없다}.
+이중부정문을 사용하는 경우는 다음과 같은 상황을 의사소통하는 것이다. 해당 입장을 기각하지 않으면서, 동시에 해당 입장이 맞다고 말하지도 않는 경우다.}
 \end{tipBox}
 
 \begin{exercise} \label{htForHousingExpenseForCommunityCollege650}
-Colleges frequently provide estimates of student expenses such as housing. A consultant hired by a community college claimed that the average student housing expense was \$650 per month. What are the null and alternative hypotheses to test whether this claim is accurate?\footnote{$H_0$: The average cost is \$650 per month, $\mu = \$650$.
+빈번하게 대학에서 기숙사비같은 주거비 추정치를 제공한다.
+미국공립 단기 대학에 고용된 컨설턴트가 평균 학생 주거비가 월 \$650가 된다고 주장했다.
+이런 주장이 맞는지 검증하는 귀무가설과 대립가설은 무얼까?\footnote{
+$H_0$: 평균주거비는 매월 \$650, $\mu = \$650$.
 
-\hspace{3.4mm}$H_A$: The average cost is different than \$650 per month, $\mu \neq \$650$.}
+\hspace{3.4mm}$H_A$: 평균주거비가 매월 \$650와는 다르다, $\mu \neq \$650$.}
 \end{exercise}
 
 \begin{exercise} \label{normalDistCondForHousingExpenseForCommunityCollege650}
@@ -1002,8 +1017,8 @@ In this section, we provide the computed standard error for each example and exe
 The normal approximation is said to be valid, so we apply Equation~\eqref{95PercGeneralCIInGeneralizingSection}:
 \begin{eqnarray*}
 \text{point estimate}\ \pm\ z^{\star} SE
-	\quad\rightarrow\quad 1.1\ \pm\ 1.96\times 0.5
-	\quad\rightarrow\quad (0.12, 2.08)
+  \quad\rightarrow\quad 1.1\ \pm\ 1.96\times 0.5
+  \quad\rightarrow\quad (0.12, 2.08)
 \end{eqnarray*}
 We are 95\% confident that the male students, on average, were physically active 0.12 to 2.08 days more than female students in YRBSS each week. That is, the actual average difference is plausibly between 0.12 and 2.08 days per week with 95\% confidence.
 \end{example}
@@ -1024,8 +1039,8 @@ What $z^{\star}$ would be appropriate for a 99\% confidence level? For help, see
 The proportion of students who are male in the \data{yrbss\_samp} sample is $\hat{p} = 0.48$. This sample meets certain conditions that ensure $\hat{p}$ will be nearly normal, and the standard error of the estimate is $SE_{\hat{p}} = 0.05$. Create a 90\% confidence interval for the proportion of students in the 2013 YRBSS survey who are male.\footnote{We use $z^{\star}=1.65$ (see Guided Practice~~\vref{find90CIForYrbssAgeExercise}), and apply the general confidence interval formula:
 \begin{eqnarray*}
 \hat{p}\ \pm\ z^{\star}SE_{\hat{p}}
-	\quad\to\quad 0.48\ \pm\ 1.65\times 0.05
-	\quad\to\quad (0.3975, 0.5625)
+  \quad\to\quad 0.48\ \pm\ 1.65\times 0.05
+  \quad\to\quad (0.3975, 0.5625)
 \end{eqnarray*}
 Thus, we are 90\% confident that between 40\% and 56\% of the YRBSS students were male.}
 \index{confidence interval!using normal model|)}
@@ -1087,7 +1102,7 @@ We would like to identify the p-value to evaluate the hypotheses. If the null hy
 The p-value can be computed by using the Z-score of the point estimate and the normal probability table.
 \begin{eqnarray}
 Z = \frac{\text{point estimate} - \text{null value}}{SE_{\text{point estimate}}}
-	= \frac{0.025 - 0}{0.013} = 1.92
+  = \frac{0.025 - 0}{0.013} = 1.92
 \label{zScoreOfPointEstimateForSulphinpyrazoneThisIsFirstTestStatReference}
 \end{eqnarray}
 Examining Z in the normal probability table, we find that the lower unshaded tail is about 0.973. Thus, the upper shaded tail representing the p-value is
@@ -1142,4 +1157,3 @@ When the sample size becomes larger, point estimates become more precise and any
 Statistically significant differences are sometimes so minor that they are not practically relevant. This is especially important to research: if we conduct a study, we want to focus on finding a meaningful result. We don't want to spend lots of money finding results that hold no practical value.
 
 The role of a statistician in conducting a study often includes planning the size of the study. The statistician might first consult experts or scientific literature to learn what would be the smallest meaningful difference from the null value. She also would obtain some reasonable estimate for the standard deviation. With these important pieces of information, she would choose a sufficiently large sample size so that the power for the meaningful difference is perhaps 80\% or 90\%. While larger sample sizes may still be used, she might advise against using them in some cases, especially in sensitive areas of research.
-
