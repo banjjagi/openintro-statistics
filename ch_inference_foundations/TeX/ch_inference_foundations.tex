@@ -553,7 +553,7 @@ SE_{\bar{x}} = \frac{s_{13}}{\sqrt{n}} = \frac{2.56}{\sqrt{100}} = 0.256
 
 \begin{exercise} \label{htForHousingExpenseForCommunityCollege650}
 빈번하게 대학에서 기숙사비같은 주거비 추정치를 제공한다.
-미국공립 단기 대학에 고용된 컨설턴트가 평균 학생 주거비가 월 \$650가 된다고 주장했다.
+미국 공립 단기 대학에 고용된 컨설턴트가 평균 학생 주거비가 월 \$650가 된다고 주장했다.
 이런 주장이 맞는지 검증하는 귀무가설과 대립가설은 무얼까?\footnote{
 $H_0$: 평균주거비는 매월 \$650, $\mu = \$650$.
 
@@ -561,137 +561,214 @@ $H_0$: 평균주거비는 매월 \$650, $\mu = \$650$.
 \end{exercise}
 
 \begin{exercise} \label{normalDistCondForHousingExpenseForCommunityCollege650}
-The community college decides to collect data to evaluate the \$650 per month claim. They take a random sample of 175 students at their school and obtain the data represented in Figure~\ref{communityCollegeClaimedHousingExpenseDistribution}. Can we apply the normal model to the sample mean?\footnote{Applying the normal model requires that certain conditions are met. Because the data are a simple random sample and the sample (presumably) represents no more than 10\% of all students at the college, the observations are independent. The sample size is also sufficiently large ($n = 175$) and the data exhibit strong skew. While the data are strongly skewed, the sample is sufficiently large that this is acceptable, and the normal model may be applied to the sample mean.}
+미국 공립 단기 대학에서 매월 \$650 주거비가 소요되는지 평가하기 위해서 데이터를 수집하기로 결정했다.
+해당 학교에서 175명 학생을 무작위 표본을 추출했고, 
+그림~\ref{communityCollegeClaimedHousingExpenseDistribution}에 포집된 데이터가 표현되어 있다.
+정규 모형을 표본평균에 적용할 수 있을까?
+\footnote{정규모형을 적용하는데는 조건이 충족되어야 한다.
+왜냐하면, 데이터가 단순임의 표본이고 (추측컨데) 해당 단기대학에 재학중인 모든 학생의 10\%를 대표해야 하고, 관측점이 독립이 되어야만 한다.
+표본크기도 충분히 크고($n = 175$), 데이터에 심한 치우침이 나타난다.
+데이터가 심하게 기울어져 있지만, 표본이 충분히 크면 이런 현상은 받아들일 수 있다.
+따라서, 정규모형이 표본평균에 적용될 수 있다.}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{ch_inference_foundations/figures/communityCollegeClaimedHousingExpenseDistribution/communityCollegeClaimedHousingExpenseDistribution}
-\caption{Sample distribution of student housing expense. These data are strongly skewed\index{skew!example: strong}, which we can see by the long right tail with a few notable outliers.}
+\caption{
+대학생 주거비용 표본분포.
+심하게 오른쪽으로 기울어진\index{skew!example: strong} 것이 데이터에 나타난다. 몇몇 눈에 띄는 이상점이 오른쪽 긴 꼬리에 포진된 것을 확인할 수 있다. }
 \label{communityCollegeClaimedHousingExpenseDistribution}
 \end{figure}
 \end{exercise}
 
-\begin{tipBox}{\tipBoxTitle[]{Evaluating the skew condition is challenging}
-Don't despair if checking the skew condition is difficult or confusing. You aren't alone -- nearly all students get frustrated when checking skew. Properly assessing skew takes practice, and you won't be a pro, even at the end of this book. \\[2mm]
-But this doesn't mean you should give up. Checking skew and the other conditions is extremely important for a responsible data analysis. However, rest assured that evaluating skew isn't something you need to be a master of by the end of the book, though by that time you should be able to properly assess clear cut cases.}
+\begin{tipBox}{\tipBoxTitle[]{기울어짐 조건을 평가하는 것은 도전과제다}
+기울어짐 조건을 점검하는 것이 어렵거나 당황스럽다면 절망하지는 마라!
+여러분이 혼자만은 아니다 -- 기울어짐을 확인할 때 거의 모든 학생들이 당황한다.
+적절히 기울어짐을 판단하는 것은 경험이 요구된다. 이 책을 끝까지 정독하더라도 전문가는 되지 못할 것이다.\\[2mm]
+하지만, 그렇다고 포기해야 하는 것을 의미하지는 않는다.
+기울어짐과 다른 조건을 검사하는 것이 책임있는 자료분석에 있어 매우 중요하다.
+하지만, 기울어짐을 평가하는 것이 이 책을 끝까지 정독하더라도 이것에 숙달할 필요가 있는 것은 아니다.
+책을 끝까지 정독하게 되면 적절히 사례를 명확하게 판단할 수는 있어야 한다.}
 \end{tipBox}
 
 \textC{\newpage}
 
-\begin{example}{The sample mean for student housing is \$616.91 and the sample standard deviation is \$128.65. Construct a 95\% confidence interval for the population mean and evaluate the hypotheses of Guided Practice~\ref{htForHousingExpenseForCommunityCollege650}.}
-The standard error associated with the mean may be estimated using the sample standard deviation divided by the square root of the sample size. Recall that $n = 175$ students were sampled.
+\begin{example}{
+대학생 주거비에 대한 표본평균이 \$616.91, 표본 표준편차가 \$128.65.
+모집단 평균에 대한 95\% 신뢰구간을 구성하고, Guided Practice~\ref{htForHousingExpenseForCommunityCollege650}에 나온
+가설을 검증하세요.}
+평균과 연관된 표준오차는 표본크기에 제곱근을 씌워 표본 표준편차를 나눈 것을 사용해서 추정할 수 있다.
+$n = 175$ 학생을 표본으로 뽑았다는 것을 상기한다.
+
 \begin{align*}
 SE = \frac{s}{\sqrt{n}} = \frac{128.65}{\sqrt{175}} = 9.73
 \end{align*}
-You showed in Guided Practice~\ref{normalDistCondForHousingExpenseForCommunityCollege650} that the normal model may be applied to the sample mean. This ensures a 95\% confidence interval may be accurately constructed:
+
+Guided Practice~\ref{normalDistCondForHousingExpenseForCommunityCollege650}를 통해서 정규 모형을 표본평균에 적용할 수 있다는 것을 보였다. 이를 통해서 95\% 신뢰구간을 정확하게 구성할 수 있게 된다:
+
 $$\bar{x}\ \pm\ z^{\star} SE \quad\to\quad 616.91\ \pm\ 1.96 \times 9.73 \quad \to \quad (597.84, 635.98) $$
-Because the null value \$650 is not in the confidence interval, a true mean of \$650 is implausible and we reject the null hypothesis. The data provide statistically significant evidence that the actual average housing expense is less than \$650 per month.
+
+귀무가설에서 제시된 \$650이 신뢰구간에 포함되어 있지 않기 때문에, 참 평균이 \$650 이라는 것은 그럴듯하지 않고,
+귀무가설을 기각한다. 실제 평균 주거비가 매월 \$650 보다 적다는 사실을 통계적으로 유의적인 증거를 데이터가 제시하고 있다.
+
 \end{example}
 
 
-\subsection{Decision errors}
+\subsection{결정 오류}
 
 \index{hypothesis testing!decision errors|(}
 
-Hypothesis tests are not flawless, since we can make a wrong decision in statistical hypothesis tests based on the data. For example, in the court system innocent people are sometimes wrongly convicted and the guilty sometimes walk free. However, the difference is that in statistical hypothesis tests, we have the tools necessary to quantify how often we make such errors.
+가설검증이 오류가 없지는 않다. 왜냐하면, 데이터에 기반한 통계적 가설검증에 잘못된 판단을 할 수 있기 때문이다.
+예를 들어, 미국 법체계에서 무고한 사람이 종종 잘못된 선고를 받기도 하고, 죄가 있는 사람이 무죄로 방면되기도 한다.
+하지만, 통계적 가설검증에서는 얼마나 그런 오류를 양산해 내는지 정량화할 수 있는 도구를 가지고 있다는 점에 차이가 있다.
 
-% Hypothesis tests are not flawless. Just think of the court system: innocent people are sometimes wrongly convicted and the guilty sometimes walk free. Similarly, we can make a wrong decision in statistical hypothesis tests. However, the difference is that we have the tools necessary to quantify how often we make such errors.
-
-There are two competing hypotheses: the null and the alternative. In a hypothesis test, we make a statement about which one might be true, but we might choose incorrectly. There are four possible scenarios, which are summarized in Table~\ref{fourHTScenarios}.
+서로 다투는 두가지 가설이 있다: 귀무가설, 대립가설.
+가설검증에 어느 것이 맞는 것인지에 관해 언급을 하지만 올바르지 않는 선택을 할 수도 있다.
+네가지 가능한 시나리오가 있는데, 다음 표~\ref{fourHTScenarios}에 요약되어 있다.
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{l l c c}
-& & \multicolumn{2}{c}{\textbf{Test conclusion}} \\
+& & \multicolumn{2}{c}{\textbf{검증 결론}} \\
   \cline{3-4}
 \vspace{-3.7mm} \\
-& & do not reject $H_0$ &  reject $H_0$ in favor of $H_A$ \\
+& & $H_0$ 기각하지 않음  & $H_A$ 선호하여 $H_0$ 기각함 \\
   \cline{2-4}
 \vspace{-3.7mm} \\
-& $H_0$ true & okay &  Type~1 Error \\
-\raisebox{1.5ex}{\textbf{Truth}} & $H_A$ true & Type~2 Error & okay \\
+& $H_0$가 참 & 문제없음 &  1~종 오류 \\
+\raisebox{1.5ex}{\textbf{참(Truth)}} & $H_A$ 참 & 2~종 오류 & 문제없음 \\
   \cline{2-4}
 \end{tabular}
-\caption{Four different scenarios for hypothesis tests.}
+\caption{가설 검증에 대한 4가지 다른 시나리오.}
 \label{fourHTScenarios}
 \end{table}
 
-A \term{Type~1 Error} is rejecting the null hypothesis when $H_0$ is actually true. A \term{Type~2 Error} is failing to reject the null hypothesis when the alternative is actually true.
+$H_0$가 실제로 참일 때, \term{1~종 오류}는 귀무가설을 기각한다.
+대립가설이 실제로 참일 때 \term{2~종 오류}는 귀무가설을 기각하지 못한다.
 
 \begin{exercise} \label{whatAreTheErrorTypesInUSCourts}
-In a US court, the defendant is either innocent ($H_0$) or  guilty ($H_A$). What does a Type~1 Error represent in this context? What does a Type~2 Error represent? Table~\ref{fourHTScenarios} may be useful.\footnote{If the court makes a Type~1 Error, this means the defendant is innocent ($H_0$ true) but wrongly convicted. A Type~2 Error means the court failed to reject $H_0$ (i.e. failed to convict the person) when she was in fact guilty ($H_A$ true).}
+미국 법정에서, 피고가 무죄($H_0$)이거나, 유죄($H_A$)다.
+이런 맥락에서 1종 오류가 나타내는 것은 무엇인가?
+2종 오류가 나타내는 것은 무엇인가? 표~\ref{fourHTScenarios}가 도움이 될 수 있다.
+\footnote{
+법원이 1종 오류를 범하게 되면, 피고가 결백($H_0$가 참)하지만 잘못해서 선고를 받게됨을 의미한다.
+법원의 2종 오류는 실제로 유죄($H_A$가 참)일 때, $H_0$를 기각하지 못함(즉, 피고에 죄를 언도하지 못함)을 의미한다.}
 \end{exercise}
 
 \begin{exercise} \label{howToReduceType1ErrorsInUSCourts}
-How could we reduce the Type~1 Error rate in US courts? What influence would this have on the Type~2 Error rate?\footnote{To lower the Type~1 Error rate, we might raise our standard for conviction from ``beyond a reasonable doubt'' to ``beyond a conceivable doubt'' so fewer people would be wrongly convicted. However, this would also make it more difficult to convict the people who are actually guilty, so we would make more Type~2 Errors.}
+미국 법정에서 1종 오류를 어떻게 줄일 수 있을까?
+이것이 2종 오류율에는 무슨 영향을 미칠까?
+\footnote{
+1종 오류를 낮추기 위해서, ``합리적인 의심을 넘어서''에서 ``생각할 수 있는 의심을 넘어서''로 유죄판결에 대한 기준을 높이면
+더 적은 사람들이 잘못된 판결을 받을 것이다. 하지만, 이런 조치로 말미암아 실제로 유죄인 사람에게
+유죄판결을 언도하는 것은 더 어렵게 된다. 그래서 2종 오류를 더 많이 범하게 된다.
+}
 \end{exercise}
 
 \begin{exercise} \label{howToReduceType2ErrorsInUSCourts}
-How could we reduce the Type~2 Error rate in US courts? What influence would this have on the Type~1 Error rate?\footnote{To lower the Type~2 Error rate, we want to convict more guilty people. We could lower the standards for conviction from ``beyond a reasonable doubt'' to ``beyond a little doubt''. Lowering the bar for guilt will also result in more wrongful convictions, raising the Type~1 Error rate.}
+미국 법정에서 2종 오류를 어떻게 줄일 수 있을까?
+이것이 1종 오류율에는 무슨 영향을 미칠까?
+\footnote{
+2종 오류율을 낮춰서 유죄인 사람에게 더 많은 유죄판결을 내리고자 한다.
+``합리적인 의심을 넘어서''에서 ``약간의 의심을 넘어서''로 유죄판결에 대한 기준을 낮출 수 있다.
+유죄에 대한 기준을 낮추게 되면 더 잘못된 판결을 내릴 수도 있다. 즉, 1종 오류율을 높이는 결과가 된다.}
 \end{exercise}
 
-\index{hypothesis testing!decision errors|)}
+\index{가설 검증!결정 오류|)}
 
-Exercises~\ref{whatAreTheErrorTypesInUSCourts}-\ref{howToReduceType2ErrorsInUSCourts} provide an important lesson: if we reduce how often we make one type of error, we generally make more of the other type.
+연습문제~\ref{whatAreTheErrorTypesInUSCourts}-\ref{howToReduceType2ErrorsInUSCourts}를 통해 중요한 것을 학습했다: 특정 오류 유형을 줄이기 되면, 일반적으로 다른 오류 유형을 높이게 된다.
 
-Hypothesis testing is built around rejecting or failing to reject the null hypothesis. That is, we do not reject $H_0$ unless we have strong evidence. But what precisely does \emph{strong evidence} mean? As a general rule of thumb, for those cases where the null hypothesis is actually true, we do not want to incorrectly reject $H_0$ more than 5\% of the time. This corresponds to a \term{significance level}\index{hypothesis testing!significance level} of 0.05. We often write the significance level using $\alpha$\marginpar[\raggedright\vspace{-4mm}
+가설검증은 귀무가설을 기각하거나 기각하지 못하는 언저리에 구성된다.
+즉, 강력한 증거가 없다면 귀무가설 $H_0$를 기각하지 못한다.
+그런데 정확하게 \emph{강력한 증거}란 무엇을 의미할까?
+일반적인 경험치에 따라 귀무가설이 실제로 사실인 경우에 5\% 보다 많게 귀무가설 $H_0$를 기각하지는 않고자 한다.
+이것이 \term{유의수준}\index{가설검증!유의수준} 0.05에 대응된다.
+흔히 $\alpha$\marginpar[\raggedright\vspace{-4mm}
 
-$\alpha$\\\footnotesize significance\\level of a\\hypothesis test]{\raggedright\vspace{-4mm}
+$\alpha$\\\footnotesize 가설검증\\유의수준]{\raggedright\vspace{-4mm}
 
-$\alpha$\\\footnotesize significance\\level of a\\hypothesis test} (the Greek letter \emph{alpha}\index{Greek!alpha@alpha ($\alpha$)}): $\alpha = 0.05$. We discuss the appropriateness of different significance levels in Section~\ref{significanceLevel}.
+$\alpha$\\\footnotesize 가설검증\\유의수준} (그리스 문자 \emph{alpha}\index{Greek!alpha@alpha ($\alpha$)})를 사용해서 유의수준을 작성한다: $\alpha = 0.05$. 절~\ref{significanceLevel}에서 다른 유의수준을 적용하는 것을 논의한다.
 
-If we use a 95\% confidence interval to evaluate a hypothesis test where the null hypothesis is true, we will make an error whenever the point estimate is at least 1.96 standard errors away from the population parameter. This happens about 5\% of the time (2.5\% in each tail). Similarly, using a 99\% confidence interval to evaluate a hypothesis is equivalent to a significance level of $\alpha = 0.01$.
+95\% 신뢰구간을 사용해서 귀무가설이 참인 상황에 가설을 평가하면, 점추정값이 모수에서 적어도 1.96 표준오차 떨어지게 되면 오류를 범하게 된다. 대략 5\% (꼬리에 2.5\%) 가능성을 갖고 일어나게 된다.
+유사하게, 가설을 평가하는데 99\% 신뢰구간을 사용하는 것은 $\alpha = 0.01$ 유의수준과 상응한다.
 
-A confidence interval is, in one sense, simplistic in the world of hypothesis tests. Consider the following two scenarios:
+어떤 의미에서 보면, 가설검증 세상에서 신뢰구간은 극도로 단순하다.
+다음 두가지 시나리오를 생각해보자:
+
 \begin{itemize}
 \setlength{\itemsep}{0mm}
-\item The null value (the parameter value under the null hypothesis) is in the 95\% confidence interval but just barely, so we would not reject $H_0$. However, we might like to somehow say, quantitatively, that it was a close decision.
-\item The null value is very far outside of the interval, so we reject $H_0$. However, we want to communicate that, not only did we reject the null hypothesis, but it wasn't even close. Such a case is depicted in Figure~\ref{whyWeWantPValue}.
+\item 귀무값(귀무가설 아래 모수값)이 95\% 신뢰구간에 있지만 간신히 걸쳐있다면 
+$H_0$를 기각하지 못한다. 하지만, 이런 사실을 어떻게든 우열을 가리기 어려운 힘든 결정이었다고 말하고자 한다.
+
+\item 귀무값이 신뢰구간 밖에 멀리 있어 귀무가설 $H_0$를 기각한다.
+하지만, 귀무가설을 기각한다는 것과 더불어 우열을 가리기 힘든 결정은 아니었다는 사실을 의사소통하고자 한다.
+그런 상황이 그림~\ref{whyWeWantPValue}에 모사되어 있다.
 \end{itemize}
-In Section~\ref{pValue}, we introduce a tool called the \emph{p-value} that will be helpful in these cases. The p-value method also extends to hypothesis tests where confidence intervals cannot be easily constructed or applied.
+
+절~\ref{pValue}에서 이런 경우에 도움이 되는 \emph{p-값}이라는 도구를 소개한다.
+또한 p-값 방법을 확장해서 신뢰구간을 쉽게 구성하거나 적용할 수 없는 가설검증에도 사용한다.
 
 \begin{figure}[hht]
 \centering
 \includegraphics[width=0.75\textwidth]{ch_inference_foundations/figures/whyWeWantPValue/whyWeWantPValue}
-\caption{It would be helpful to quantify the strength of the evidence against the null hypothesis. In this case, the evidence is extremely strong.}
+\caption{귀무가설에 대해 증거 강도를 정량화하는 것이 도움이 된다. 상기 경우에, 증거가 매우 강력하다.}
 \label{whyWeWantPValue}
 \end{figure}
 
 
-\subsection{Formal testing using p-values}
+\subsection{p-값을 사용한 정형 검증}
 \label{pValue}
 
-\index{hypothesis testing!p-value|(}
+\index{가설 검증!p-값|(}
 
-The p-value is a way of quantifying the strength of the evidence against the null hypothesis and in favor of the alternative. Formally the \emph{p-value} is a conditional probability.
+p-값은 귀무가설 혹은 대립가설에 대한 증거의 강도를 정량화하는 한 방식이다.
+공식적으로 \emph{p-값}은 조건부 확률이다.
 
 \begin{termBox}{\tBoxTitle{p-value}
-The \term{p-value}\index{hypothesis testing!p-value|textbf} is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis is true. We typically use a summary statistic of the data, in this chapter the sample mean, to help compute the p-value and evaluate the hypotheses.}
+\term{p-값}\index{가설검증!p-값|textbf}은 귀무가설이 참인 경우,
+현재 데이터셋으로 대립가설을 최소한으로 선호하는데 관측되는 데이터에 대한 확률이다.
+이번 장에서 표본평균, 데이터 요약통계량을 일반적으로 사용해서 p-값을 계산하고 가설을 평가한다.}
 \end{termBox}
 
-\index{data!school sleep|(}
+\index{데이터!학교 수면|(}
 
 
 \begin{exercise} \label{skepticalPerspOfRuralSchoolSleepExercise}
-A poll by the National Sleep Foundation found that college students average about 7 hours of sleep per night. Researchers at a rural school are interested in showing that students at their school sleep longer than seven hours on average, and they would like to demonstrate this using a sample of students. What would be an appropriate skeptical position for this research?\footnote{A skeptic would have no reason to believe that sleep patterns at this school are different than the sleep patterns at another school.}
+국립수면재단에서 수행한 여론조사에 따르면 대학생이 평균적으로 약 7시간 수면을 취하는 것으로 밝혀졌다.
+지방 대학교 연구원들은 지방 대학생이 평균적으로 7시간보다 더 긴 수면시간을 취한다는 것보
+표본학생을 추출해서 이런 사실을 시연하고자 한다. 
+이번 연구조사에 대해 적절히 회의적인 시각은 무엇이 될까?
 \end{exercise}
 
-We can set up the null hypothesis for this test as a skeptical perspective: the students at this school average 7 hours of sleep per night. The alternative hypothesis takes a new form reflecting the interests of the research: the students average more than 7 hours of sleep. We can write these hypotheses as
+회의적인 관점에서 상기 검증에 대한 귀무가설을 설정할 수 있다:
+매일 대학생이 평균 7시간 수면을 취한다.
+대립가설은 조사연구에 대한 관심을 표출하는 새로운 형태를 띈다:
+대학생이 7시간보다 더 긴 수면을 취한다.
+다음과 같이 귀무가설과 대립가설을 작성할 수 있다.
+
 \begin{itemize}
 \setlength{\itemsep}{0mm}
 \item[$H_0$:] $\mu = 7$.
 \item[$H_A$:] $\mu > 7$.
 \end{itemize}
-Using $\mu > 7$ as the alternative is an example of a \term{one-sided} hypothesis test. In this investigation, there is no apparent interest in learning whether the mean is less than 7~hours.\footnote{This is entirely based on the interests of the researchers. Had they been only interested in the opposite case -- showing that their students were actually averaging fewer than seven hours of sleep but not interested in showing more than 7 hours -- then our setup would have set the alternative as $\mu < 7$.} Earlier we encountered a \term{two-sided} hypothesis where we looked for any clear difference, greater than or less than the null value.
 
-Always use a two-sided test unless it was made clear prior to data collection that the test should be one-sided. Switching a two-sided test to a one-sided test after observing the data is dangerous because it can inflate the Type~1 Error rate. 
+대립가설로 $\mu > 7$을 사용하는 것이 \term{단측} 가설검증의 한 예제다.
+이번 조사에서, 평균이 7시간보다 더 적은지에 대해서는 전혀 관심이 없다.\footnote{
+전적으로 조사연구자의 관심에 달려있다. 
+반대쪽 경우에만 관심-- 대학생이 실제로 평균적으로 7시간보다 적다는 것을 보여지만 7시간보다
+많다는 것을 보이는데는 관심이 없다 --이 있다면, 대립가설 검정을 $\mu < 7$으로 설정하게 된다.} 
+앞서 귀무값보다 적거나 크거나, 명확한 차이를 찾을 수 없는 상황에 \term{양측} 가설을 마주쳤다.
 
-\begin{tipBox}{\tipBoxTitle{One-sided and two-sided tests}
-When you are interested in checking for an increase or a decrease, but not both, use a one-sided test. When you are interested in any difference from the null value~--~an increase or decrease~--~then the test should be two-sided.\vspace{0.5mm}}
+검증이 단측이어야 된다는 것이 데이터 포집전에 명확하지 않다면 항상 양측 검증을 사용하라.
+데이터를 관측한 후에 양측검증을 단측검증으로 전환하는 것은 위험한데, 이유는 1종 오류율을 확대할 수 있기 때문이다.
+
+\begin{tipBox}{\tipBoxTitle{단측검증과 양측검증}
+증가 혹은 감소, 하지만 두경우가 아닌 경우에 검사하는데 관심이 있는 경우, 단측검증을 사용하라.
+귀무값에서 특정 차이 --증가 혹은 감소--에 관심이 있는 경우라면 양측검증을 사용해야 된다.\vspace{0.5mm}}
 \end{tipBox}
 
-\begin{tipBox}{\tipBoxTitle{Always write the null hypothesis as an equality}
-We will find it most useful if we always list the null hypothesis as an equality (e.g. $\mu = 7$) while the alternative always uses an inequality (e.g. $\mu\neq7$, $\mu>7$, or $\mu<7$).}
+\begin{tipBox}{\tipBoxTitle{항상 귀무가설을 등식으로 작성하라}
+항상 귀무가설을 등호 (예를 들어, $\mu = 7$) 작성하는 반면에, 대립가설은 항상 부등호(예를 들어, $\mu\neq7$, $\mu>7$, 혹은 $\mu<7$)로 작성하면 유용하다.}
 \end{tipBox}
 
 The researchers at the rural school conducted a simple random sample of $n=110$ students on campus. They found that these students averaged 7.42 hours of sleep and the standard deviation of the amount of sleep for the students was 1.75 hours. A histogram of the sample is shown in Figure~\ref{histOfSleepForCollegeThatWasCheckingForMoreThan7Hours}.
